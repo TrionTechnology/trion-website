@@ -106,7 +106,7 @@ export function ServicesOverview() {
                 {/* Service Content */}
                 <div className="relative z-10 p-6">
                     <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                      <service.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300 group-hover:rotate-12" size={24} />
+                      <service.icon className="w-6 h-6 text-trion-400 group-hover:text-trion-300 transition-all duration-300 group-hover:rotate-12" size={24} />
                     </div>
 
                     <h3 className="font-heading font-semibold text-xl text-foreground mb-4 transition-colors duration-300 group-hover:text-trion-500">

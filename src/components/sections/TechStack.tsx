@@ -104,7 +104,7 @@ export function TechStack() {
                     className="group"
                   >
                   <div className="tech-card flex flex-col items-center p-6 rounded-xl glass-effect hover:cyber-glow transition-all duration-300 group-hover:scale-110 card-hover magnetic-hover">
-                    <div className="w-12 h-12 bg-muted/50 backdrop-blur-sm border border-trion-500/20 rounded-lg flex items-center justify-center mb-3 group-hover:bg-trion-500/20 group-hover:border-trion-500/40 transition-all duration-300 relative overflow-hidden cyber-glow shadow-electric">
+                    <div className="w-12 h-12 bg-muted/50 backdrop-blur-sm border border-trion-500/20 rounded-lg flex items-center justify-center mb-3 group-hover:bg-trion-500/20 group-hover:border-trion-500/40 transition-all duration-300 relative overflow-hidden cyber-glow shadow-trion">
                         <Image
                           src={tech.logo}
                           alt={tech.name}

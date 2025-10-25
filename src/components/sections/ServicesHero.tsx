@@ -42,7 +42,7 @@ export function ServicesHero() {
                 className="text-center group"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                  <service.icon className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                  <service.icon className="w-8 h-8 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
                 </div>
                 <span className="text-sm font-medium text-foreground">{service.name}</span>
               </motion.div>

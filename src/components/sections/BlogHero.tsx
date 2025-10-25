@@ -54,7 +54,7 @@ export function BlogHero() {
               className="text-center"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <BookOpen className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <BookOpen className="w-6 h-6 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <div className="text-lg font-semibold text-foreground">Expert Insights</div>
               <div className="text-sm text-muted-foreground">From our development team</div>
@@ -67,7 +67,7 @@ export function BlogHero() {
               className="text-center"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <Calendar className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <Calendar className="w-6 h-6 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <div className="text-lg font-semibold text-foreground">Weekly Updates</div>
               <div className="text-sm text-muted-foreground">Fresh content every week</div>
@@ -80,7 +80,7 @@ export function BlogHero() {
               className="text-center"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <User className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <User className="w-6 h-6 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <div className="text-lg font-semibold text-foreground">Industry Focus</div>
               <div className="text-sm text-muted-foreground">Malaysia & Southeast Asia</div>

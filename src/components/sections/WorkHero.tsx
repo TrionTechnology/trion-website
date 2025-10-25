@@ -63,7 +63,7 @@ export function WorkHero() {
                 className="text-center"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                  <stat.icon className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                  <stat.icon className="w-8 h-8 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
                 </div>
                 <div className="text-2xl font-bold text-trion-500 mb-2">{stat.number}</div>
                 <div className="text-muted-foreground text-sm">{stat.label}</div>

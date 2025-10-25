@@ -66,7 +66,7 @@ export function ContactHero() {
               className="text-center"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <MessageCircle className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <MessageCircle className="w-8 h-8 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Quick Response</h3>
               <p className="text-muted-foreground text-sm">
@@ -81,7 +81,7 @@ export function ContactHero() {
               className="text-center"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <Mail className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <Mail className="w-8 h-8 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Free Consultation</h3>
               <p className="text-muted-foreground text-sm">
@@ -96,7 +96,7 @@ export function ContactHero() {
               className="text-center"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
-                <Phone className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                <Phone className="w-8 h-8 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Direct Contact</h3>
               <p className="text-muted-foreground text-sm">

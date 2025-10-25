@@ -116,7 +116,7 @@ export function ProcessSection() {
                   
                   {/* Icon centered on timeline */}
                   <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg transition-all duration-300 relative z-20 bg-background/90 backdrop-blur-sm flex-shrink-0">
-                    <step.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
+                    <step.icon className="w-6 h-6 text-trion-400 group-hover:text-trion-300 transition-all duration-300" />
                   </div>
                   <div className="text-center md:text-left flex-shrink-0">
                     <div className="text-2xl font-bold text-trion-500 group-hover:text-trion-400 transition-colors duration-300">0{index + 1}</div>
