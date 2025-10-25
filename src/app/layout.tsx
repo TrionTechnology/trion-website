@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/sections/Navbar";
-import { Footer } from "@/components/sections/Footer";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { Analytics } from "@/components/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,14 +38,17 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL("https://trioncreation.com"),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-MY": "/",
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_MY",
-    url: "/",
+    url: "https://trioncreation.com",
     title: "Trion Creation Sdn Bhd - Custom Software Development Malaysia",
     description: "Leading software development company in Malaysia specializing in custom software, Odoo ERP, mobile apps, AI solutions, IoT, and cloud services.",
     siteName: "Trion Creation Sdn Bhd",
@@ -70,6 +69,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "your-google-verification-code",
+  },
 };
 
 export default function RootLayout({
@@ -84,19 +86,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Analytics />
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
