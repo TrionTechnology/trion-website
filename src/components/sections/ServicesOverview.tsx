@@ -60,13 +60,7 @@ export function ServicesOverview() {
   return (
         <section className="section-padding bg-gradient-to-br from-background to-jet-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
             Our <span className="text-gradient">Services</span>
           </h2>
@@ -74,18 +68,11 @@ export function ServicesOverview() {
             We provide comprehensive software development services to help your business 
             thrive in the digital age with cutting-edge technology solutions.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group"
-            >
+            <div key={service.title} className="group">
               <div className="card-hover h-full flex flex-col tech-card magnetic-hover">
                     <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
                       <service.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300 group-hover:rotate-12" size={24} />
@@ -115,21 +102,15 @@ export function ServicesOverview() {
                   </Link>
                 </Button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16">
           <Button asChild size="lg">
             <Link href="/services">View All Services</Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
