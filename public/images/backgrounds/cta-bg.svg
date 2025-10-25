@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#2dd4bf;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:0.2" />
+    </linearGradient>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#14b8a6" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Dots Pattern -->
+  <rect width="1200" height="600" fill="url(#dots)"/>
+  
+  <!-- Abstract Shapes -->
+  <circle cx="100" cy="100" r="60" fill="url(#accent-gradient)" opacity="0.4"/>
+  <circle cx="1100" cy="500" r="80" fill="url(#accent-gradient)" opacity="0.3"/>
+  <rect x="500" y="50" width="150" height="150" rx="20" fill="url(#accent-gradient)" opacity="0.2" transform="rotate(45 575 125)"/>
+  
+  <!-- Connection Lines -->
+  <path d="M 50 300 Q 300 200 550 300 T 1050 300" stroke="#14b8a6" stroke-width="2" fill="none" opacity="0.2"/>
+  <path d="M 150 100 Q 400 300 650 100 T 1150 100" stroke="#2dd4bf" stroke-width="1.5" fill="none" opacity="0.3"/>
+  
+  <!-- Tech Elements -->
+  <g opacity="0.15">
+    <rect x="50" y="50" width="40" height="30" rx="3" fill="#14b8a6"/>
+    <rect x="100" y="50" width="40" height="30" rx="3" fill="#2dd4bf"/>
+    <rect x="150" y="50" width="40" height="30" rx="3" fill="#14b8a6"/>
+    
+    <rect x="950" y="500" width="40" height="30" rx="3" fill="#2dd4bf"/>
+    <rect x="1000" y="500" width="40" height="30" rx="3" fill="#14b8a6"/>
+    <rect x="1050" y="500" width="40" height="30" rx="3" fill="#2dd4bf"/>
+  </g>
+  
+  <!-- Floating Elements -->
+  <circle cx="200" cy="400" r="15" fill="#14b8a6" opacity="0.4"/>
+  <circle cx="1000" cy="200" r="12" fill="#2dd4bf" opacity="0.5"/>
+  <circle cx="600" cy="450" r="18" fill="#14b8a6" opacity="0.3"/>
+  
+  <!-- Data Streams -->
+  <g opacity="0.2">
+    <path d="M 0 150 L 200 130 L 400 170 L 600 150 L 800 190 L 1000 150 L 1200 170" stroke="#14b8a6" stroke-width="2" fill="none"/>
+    <path d="M 0 450 L 200 470 L 400 430 L 600 450 L 800 410 L 1000 450 L 1200 430" stroke="#2dd4bf" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

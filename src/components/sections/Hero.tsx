@@ -28,6 +28,30 @@ export function Hero() {
       {/* Enhanced background pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-trion-500/10 via-transparent to-trion-600/10" />
       
+      {/* Main Hero Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/hero-main-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      
+      {/* Particles Background */}
+      <div className="absolute inset-0 opacity-15">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/hero-particles-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      
       {/* Floating elements */}
       <div className="absolute top-20 left-20 w-32 h-32 bg-trion-500/20 rounded-full blur-3xl floating-animation" />
       <div className="absolute bottom-20 right-20 w-40 h-40 bg-trion-600/15 rounded-full blur-3xl floating-animation-delayed" />

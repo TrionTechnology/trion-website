@@ -12,8 +12,32 @@ const projectStats = [
 
 export function WorkHero() {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-background to-slate-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="pt-24 pb-16 bg-gradient-to-br from-background to-slate-900 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-15">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/work-hero-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      
+      {/* Portfolio Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/portfolio-grid-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

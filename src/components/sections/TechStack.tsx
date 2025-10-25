@@ -48,8 +48,19 @@ const techStacks = [
 
 export function TechStack() {
   return (
-    <section className="section-padding bg-gradient-to-br from-jet-900 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-gradient-to-br from-jet-900 to-background relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-15">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/tech-stack-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

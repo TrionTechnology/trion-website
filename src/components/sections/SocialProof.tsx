@@ -21,8 +21,19 @@ const stats = [
 
 export function SocialProof() {
   return (
-    <section className="py-16 bg-card/30 border-y border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-card/30 border-y border-border relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-10">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/social-proof-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

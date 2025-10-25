@@ -36,25 +36,29 @@ const teamImages = [
     src: "/images/team/coding-session.jpg",
     alt: "Development Team",
     title: "Our Development Team",
-    description: "Expert developers working on cutting-edge solutions"
+    description: "Expert developers working on cutting-edge solutions",
+    fallbackBg: "bg-gradient-to-br from-trion-500/20 to-trion-600/30"
   },
   {
-    src: "/images/team/team-working.jpg",
+    src: "/images/backgrounds/team-collaboration-bg.svg",
     alt: "Team Collaboration",
     title: "Collaborative Environment",
-    description: "Fostering innovation through teamwork and collaboration"
+    description: "Fostering innovation through teamwork and collaboration",
+    fallbackBg: "bg-gradient-to-br from-trion-500/20 to-trion-600/30"
   },
   {
-    src: "/images/technology/cloud-computing.jpg",
+    src: "/images/backgrounds/cloud-infrastructure-bg.svg",
     alt: "Cloud Infrastructure",
     title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and DevOps practices"
+    description: "Scalable cloud infrastructure and DevOps practices",
+    fallbackBg: "bg-gradient-to-br from-trion-500/20 to-trion-600/30"
   },
   {
     src: "/images/technology/ai-brain.jpg",
     alt: "AI Development",
     title: "AI & Machine Learning",
-    description: "Advanced AI solutions and data analytics capabilities"
+    description: "Advanced AI solutions and data analytics capabilities",
+    fallbackBg: "bg-gradient-to-br from-trion-500/20 to-trion-600/30"
   }
 ];
 
@@ -127,12 +131,15 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="relative h-64 rounded-2xl overflow-hidden tech-card">
+                <div className={`relative h-64 rounded-2xl overflow-hidden tech-card ${image.fallbackBg}`}>
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">

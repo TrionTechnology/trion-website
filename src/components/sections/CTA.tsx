@@ -9,20 +9,20 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Call Us",
-    description: "+60 3-1234 5678",
-    action: "tel:+60312345678",
+    description: "016-638 0495",
+    action: "tel:+60166380495",
   },
   {
     icon: Mail,
     title: "Email Us",
-    description: "contact@trioncreation.com",
-    action: "mailto:contact@trioncreation.com",
+    description: "freddy.chia@trioncreation.com",
+    action: "mailto:freddy.chia@trioncreation.com",
   },
   {
     icon: MessageCircle,
     title: "WhatsApp",
     description: "Quick chat support",
-    action: "https://wa.me/60123456789",
+    action: "https://wa.me/60166380495",
   },
 ];
 
@@ -32,8 +32,20 @@ export function CTA() {
       {/* Background Pattern */}
       <div className="absolute inset-0 hero-pattern opacity-10" />
       
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-20">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/backgrounds/cta-bg.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        />
+      </div>
+      
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gold-500/5 via-transparent to-gold-500/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-trion-500/5 via-transparent to-trion-500/5" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
