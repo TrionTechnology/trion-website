@@ -16,7 +16,6 @@ const contactSchema = z.object({
   budget: z.string().min(1, "Please select a budget range"),
   projectType: z.string().min(1, "Please select a project type"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  honeypot: z.string().optional(), // Honeypot field for spam protection
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -56,36 +55,37 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Check honeypot
-    if (data.honeypot) {
-      return; // Silent fail for bots
-    }
-
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setSubmitMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      // Create mailto link with form data
+      const subject = `New Contact Form Submission from ${data.name}`;
+      const body = `
+Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company}
+Phone: ${data.phone}
+Budget: ${data.budget}
+Project Type: ${data.projectType}
 
-      const result = await response.json();
+Message:
+${data.message}
+      `.trim();
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        setSubmitMessage("Thank you! We'll get back to you within 24 hours.");
-        reset();
-      } else {
-        setSubmitStatus("error");
-        setSubmitMessage(result.message || "Something went wrong. Please try again.");
-      }
+      const mailtoLink = `mailto:freddy.chia@trioncreation.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open mailto link
+      window.location.href = mailtoLink;
+      
+      setSubmitStatus("success");
+      setSubmitMessage("Your email client should open with the message pre-filled. Please send the email to complete your inquiry.");
+      reset();
     } catch (error) {
+      console.error("Error submitting form:", error);
       setSubmitStatus("error");
-      setSubmitMessage("Network error. Please try again or contact us directly.");
+      setSubmitMessage("There was an error opening your email client. Please email us directly at freddy.chia@trioncreation.com");
     } finally {
       setIsSubmitting(false);
     }
@@ -93,193 +93,217 @@ export function ContactForm() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="card"
+      className="max-w-2xl mx-auto"
     >
-      <h2 className="font-heading font-semibold text-2xl text-foreground mb-6">
-        Get Your Free Quote
-      </h2>
-      <p className="text-muted-foreground mb-8">
-        Fill out the form below and we'll get back to you with a detailed proposal 
-        within 24 hours. All consultations are free and confidential.
-      </p>
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Honeypot field - hidden from users */}
-        <input
-          type="text"
-          {...register("honeypot")}
-          style={{ display: "none" }}
-          tabIndex={-1}
-          autoComplete="off"
-        />
-
-        {/* Name and Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-              Full Name *
-            </label>
-            <input
-              type="text"
-              id="name"
-              {...register("name")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-              placeholder="John Doe"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              id="email"
-              {...register("email")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-              placeholder="john@company.com"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-            )}
-          </div>
+      <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-2xl">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Ready to start your next project? Let's discuss how we can help.
+          </p>
         </div>
 
-        {/* Company and Phone */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-              Company Name *
-            </label>
-            <input
-              type="text"
-              id="company"
-              {...register("company")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-              placeholder="Your Company Sdn Bhd"
-            />
-            {errors.company && (
-              <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-              Phone Number *
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              {...register("phone")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-              placeholder="+60 3-1234 5678"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Budget and Project Type */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
-              Budget Range *
-            </label>
-            <select
-              id="budget"
-              {...register("budget")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-            >
-              <option value="">Select budget range</option>
-              {budgetRanges.map((range) => (
-                <option key={range} value={range}>
-                  {range}
-                </option>
-              ))}
-            </select>
-            {errors.budget && (
-              <p className="text-red-500 text-sm mt-1">{errors.budget.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="projectType" className="block text-sm font-medium text-foreground mb-2">
-              Project Type *
-            </label>
-            <select
-              id="projectType"
-              {...register("projectType")}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-            >
-              <option value="">Select project type</option>
-              {projectTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-            {errors.projectType && (
-              <p className="text-red-500 text-sm mt-1">{errors.projectType.message}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Message */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-            Project Description *
-          </label>
-          <textarea
-            id="message"
-            rows={5}
-            {...register("message")}
-            className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
-            placeholder="Tell us about your project requirements, goals, and any specific features you need..."
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Honeypot field - hidden from users */}
+          <input
+            type="text"
+            name="honeypot"
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="off"
           />
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-          )}
-        </div>
 
-        {/* Submit Status */}
-        {submitStatus !== "idle" && (
-          <div className={`flex items-center space-x-2 p-4 rounded-xl ${
-            submitStatus === "success" 
-              ? "bg-green-500/10 text-green-500 border border-green-500/20" 
-              : "bg-red-500/10 text-red-500 border border-red-500/20"
-          }`}>
-            {submitStatus === "success" ? (
-              <CheckCircle className="w-5 h-5" />
-            ) : (
-              <AlertCircle className="w-5 h-5" />
-            )}
-            <span className="text-sm font-medium">{submitMessage}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                Full Name *
+              </label>
+              <input
+                {...register("name")}
+                type="text"
+                id="name"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+                placeholder="Your full name"
+              />
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                Email Address *
+              </label>
+              <input
+                {...register("email")}
+                type="email"
+                id="email"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+                placeholder="your.email@company.com"
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+              )}
+            </div>
           </div>
-        )}
 
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full group"
-        >
-          {isSubmitting ? (
-            "Sending..."
-          ) : (
-            <>
-              Send Message
-              <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+                Company *
+              </label>
+              <input
+                {...register("company")}
+                type="text"
+                id="company"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+                placeholder="Your company name"
+              />
+              {errors.company && (
+                <p className="mt-1 text-sm text-red-400">{errors.company.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                Phone Number *
+              </label>
+              <input
+                {...register("phone")}
+                type="tel"
+                id="phone"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+                placeholder="+60 12-345 6789"
+              />
+              {errors.phone && (
+                <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
+                Budget Range *
+              </label>
+              <select
+                {...register("budget")}
+                id="budget"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+              >
+                <option value="">Select budget range</option>
+                {budgetRanges.map((range) => (
+                  <option key={range} value={range}>
+                    {range}
+                  </option>
+                ))}
+              </select>
+              {errors.budget && (
+                <p className="mt-1 text-sm text-red-400">{errors.budget.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="projectType" className="block text-sm font-medium text-foreground mb-2">
+                Project Type *
+              </label>
+              <select
+                {...register("projectType")}
+                id="projectType"
+                className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300"
+              >
+                <option value="">Select project type</option>
+                {projectTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+              {errors.projectType && (
+                <p className="mt-1 text-sm text-red-400">{errors.projectType.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+              Project Details *
+            </label>
+            <textarea
+              {...register("message")}
+              id="message"
+              rows={6}
+              className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-trion-500 focus:border-trion-500 transition-all duration-300 resize-none"
+              placeholder="Tell us about your project requirements, timeline, and any specific needs..."
+            />
+            {errors.message && (
+              <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+            )}
+          </div>
+
+          {/* Submit Status Messages */}
+          {submitStatus === "success" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center space-x-3 p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400"
+            >
+              <CheckCircle className="w-5 h-5 flex-shrink-0" />
+              <p className="text-sm">{submitMessage}</p>
+            </motion.div>
           )}
-        </Button>
-      </form>
+
+          {submitStatus === "error" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center space-x-3 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400"
+            >
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
+              <p className="text-sm">{submitMessage}</p>
+            </motion.div>
+          )}
+
+          <div className="text-center">
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={isSubmitting}
+              className="w-full md:w-auto"
+            >
+              {isSubmitting ? (
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span>Sending...</span>
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Send className="w-4 h-4" />
+                  <span>Send Message</span>
+                </div>
+              )}
+            </Button>
+          </div>
+
+          <div className="text-center text-sm text-muted-foreground">
+            <p>
+              Or contact us directly:{" "}
+              <a
+                href="mailto:freddy.chia@trioncreation.com"
+                className="text-trion-500 hover:text-trion-400 transition-colors duration-300"
+              >
+                freddy.chia@trioncreation.com
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
     </motion.div>
   );
 }
