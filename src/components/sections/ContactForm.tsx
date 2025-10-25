@@ -272,7 +272,7 @@ ${data.message}
           <div className="text-center">
             <Button
               type="submit"
-              variant="primary"
+              variant="default"
               size="lg"
               disabled={isSubmitting}
               className="w-full md:w-auto"
