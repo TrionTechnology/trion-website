@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+    --background: 0 0 0; /* Jet Black */
+    --foreground: 234 234 234; /* Off-white */
+    --card: 10 10 10; /* Slightly lighter black */
+    --card-foreground: 234 234 234;
+    --popover: 10 10 10;
+    --popover-foreground: 234 234 234;
+    --primary: 20 184 166; /* Trion Teal */
+    --primary-foreground: 255 255 255;
+    --secondary: 20 20 20;
+    --secondary-foreground: 234 234 234;
+    --muted: 20 20 20;
+    --muted-foreground: 156 163 175;
+    --accent: 45 212 191; /* Bright Trion Teal */
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 30 30 30;
+    --input: 30 30 30;
+    --ring: 20 184 166; /* Trion Teal */
+    --chart-1: 20 184 166; /* Trion Teal */
+    --chart-2: 45 212 191; /* Bright Trion Teal */
+    --chart-3: 156 163 175;
+    --chart-4: 75 85 99;
+    --chart-5: 20 20 20;
+  }
+
+  .light {
+    --background: 255 255 255;
+    --foreground: 17 24 39;
+    --card: 255 255 255;
+    --card-foreground: 17 24 39;
+    --popover: 255 255 255;
+    --popover-foreground: 17 24 39;
+    --primary: 20 184 166; /* Trion Teal */
+    --primary-foreground: 255 255 255;
+    --secondary: 243 244 246;
+    --secondary-foreground: 17 24 39;
+    --muted: 243 244 246;
+    --muted-foreground: 107 114 128;
+    --accent: 45 212 191; /* Bright Trion Teal */
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 0 123 255; /* Electric Blue */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+      .gradient-text {
+        @apply bg-gradient-to-r from-trion-500 to-trion-600 bg-clip-text text-transparent;
+      }
+
+      .text-gradient {
+        @apply bg-gradient-to-r from-trion-500 via-trion-600 to-trion-400 bg-clip-text text-transparent;
+      }
+  
+      .hero-pattern {
+        background-image:
+          radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(45, 212, 191, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.1) 0%, transparent 70%),
+          linear-gradient(45deg, transparent 49%, rgba(45, 212, 191, 0.08) 50%, transparent 51%),
+          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 60px 60px;
+      }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105;
+  }
+  
+  .glass-effect {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50;
+  }
+  
+  .trion-glow {
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3), 0 0 40px rgba(45, 212, 191, 0.1);
+  }
+  
+      .tech-glow {
+        box-shadow: 0 0 20px rgba(20, 184, 166, 0.3), 0 0 40px rgba(45, 212, 191, 0.1);
+      }
+
+      .icon-glow {
+        filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4)) drop-shadow(0 0 16px rgba(45, 212, 191, 0.2));
+      }
+
+      .icon-bright {
+        filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+      }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Ensure animations work globally */
+  * {
+    animation-fill-mode: both;
+  }
+  
+  /* Simple background pattern */
+      .hero-bg {
+        background-image:
+          radial-gradient(circle at 25% 25%, rgba(0, 123, 255, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(30, 144, 255, 0.2) 0%, transparent 50%),
+          linear-gradient(45deg, transparent 49%, rgba(0, 123, 255, 0.1) 50%, transparent 51%);
+        background-size: 100% 100%, 100% 100%, 20px 20px;
+      }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-trion-500 to-trion-600 p-[1px];
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-sm border border-white/5;
+  }
+
+      .btn-primary {
+        @apply bg-trion-gradient text-white font-semibold px-6 py-3 rounded-xl hover:shadow-cyber-glow transition-all duration-300 hover:scale-105;
+      }
+
+      .btn-secondary {
+        @apply bg-transparent border-2 border-trion-500 text-trion-500 font-semibold px-6 py-3 rounded-xl hover:bg-trion-500 hover:text-white transition-all duration-300;
+      }
+
+  .card {
+    @apply bg-card border border-border rounded-2xl p-6 shadow-dark;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-cyber-glow transition-all duration-300 hover:scale-105;
+  }
+
+  /* Enhanced animations inspired by TechVerse */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-animation-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.6s ease-out;
+  }
+
+  .tech-card {
+    @apply relative overflow-hidden;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.2), transparent);
+    transition: left 0.6s;
+    z-index: 1;
+  }
+
+  .tech-card:hover::before {
+    left: 100%;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(201, 162, 39, 0.2);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+  }
+
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .magnetic-hover:hover {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  .stagger-animation > * {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+  .text-reveal {
+    overflow: hidden;
+  }
+
+  .text-reveal span {
+    display: inline-block;
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .interactive-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .interactive-bg::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .interactive-bg:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900;
+  }
+
+  .bg-gradient-electric {
+    @apply bg-gradient-to-r from-trion-500 to-trion-600;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .code-block {
+    @apply bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-8;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-0 top-2 w-4 h-4 bg-trion-500 rounded-full;
+  }
+
+  .timeline-item::after {
+    content: '';
+    @apply absolute left-2 top-6 w-0.5 h-full bg-gradient-to-b from-trion-500 to-transparent;
+  }
+
+  .timeline-item:last-child::after {
+    @apply hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

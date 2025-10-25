@@ -1,0 +1,37 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trion Creation Logo - Inverted Triangle with Crystalline Design -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#008B8B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006666;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aquaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008B8B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Gold Triangle Structure -->
+  <path d="M60 10 L110 100 L10 100 Z" fill="url(#goldGradient)" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Inner Crystalline Teal Structure -->
+  <path d="M60 20 L100 90 L20 90 Z" fill="url(#tealGradient)"/>
+  
+  <!-- Faceted Crystalline Elements -->
+  <path d="M60 25 L85 85 L35 85 Z" fill="url(#aquaGradient)"/>
+  <path d="M60 30 L75 80 L45 80 Z" fill="#20B2AA"/>
+  
+  <!-- Abstract Negative Space Shape (F/Z/Lightning) -->
+  <path d="M60 35 L70 45 L65 50 L75 55 L70 60 L60 50 L55 55 L45 50 L50 45 L40 40 L45 35 Z" fill="white"/>
+  
+  <!-- Additional Crystalline Facets -->
+  <polygon points="60,40 70,70 50,70" fill="#008B8B" opacity="0.7"/>
+  <polygon points="60,45 65,65 55,65" fill="#00FFFF" opacity="0.5"/>
+</svg>
