@@ -83,7 +83,7 @@ export function FeaturedWork() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-electric-500/20 text-electric-500 text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-trion-500/20 text-trion-500 text-sm font-medium rounded-full">
                       {project.category}
                     </span>
                   </div>
@@ -114,8 +114,8 @@ export function FeaturedWork() {
 
                   {/* Impact & Duration */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center p-3 bg-electric-500/10 rounded-lg">
-                      <div className="text-electric-500 font-semibold">{project.impact}</div>
+                    <div className="text-center p-3 bg-trion-500/10 rounded-lg">
+                      <div className="text-trion-500 font-semibold">{project.impact}</div>
                       <div className="text-xs text-muted-foreground">Impact</div>
                     </div>
                     <div className="text-center p-3 bg-card border border-border rounded-lg">

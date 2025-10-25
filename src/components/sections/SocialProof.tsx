@@ -40,7 +40,7 @@ export function SocialProof() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-electric-500 mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-trion-500 mb-2">
                 {stat.number}
               </div>
               <div className="text-muted-foreground font-medium">{stat.label}</div>
@@ -67,7 +67,7 @@ export function SocialProof() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="flex items-center justify-center p-4 rounded-xl bg-card/50 border border-border/50 hover:border-electric-500/30 transition-all duration-300"
+                className="flex items-center justify-center p-4 rounded-xl bg-card/50 border border-border/50 hover:border-trion-500/30 transition-all duration-300"
               >
                 <div className="w-24 h-12 relative">
                   <Image

@@ -84,7 +84,7 @@ export function CompanyStory() {
         {/* Timeline */}
         <div className="max-w-4xl mx-auto mb-16 relative">
           {/* Connecting Line - centered through icons */}
-          <div className="absolute left-[23px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-electric-500/30 via-electric-400/50 to-electric-500/30"></div>
+          <div className="absolute left-[23px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-trion-500/30 via-trion-400/50 to-trion-500/30"></div>
           
           <div className="space-y-8">
             {timeline.map((item, index) => (
@@ -97,13 +97,13 @@ export function CompanyStory() {
                 className="flex items-start space-x-6 relative"
               >
                 <div className="flex-shrink-0 relative z-20">
-                  <div className="w-12 h-12 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-xl flex items-center justify-center border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg transition-all duration-300 bg-background/90 backdrop-blur-sm">
-                    <item.icon className="w-6 h-6 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg transition-all duration-300 bg-background/90 backdrop-blur-sm">
+                    <item.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
                   </div>
                 </div>
                 <div className="flex-grow">
                   <div className="flex items-center space-x-4 mb-2">
-                    <span className="text-electric-500 font-bold text-lg group-hover:text-electric-400 transition-colors duration-300">{item.year}</span>
+                    <span className="text-trion-500 font-bold text-lg group-hover:text-trion-400 transition-colors duration-300">{item.year}</span>
                     <h3 className="font-heading font-semibold text-xl text-foreground">
                       {item.title}
                     </h3>

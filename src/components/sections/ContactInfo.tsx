@@ -119,8 +119,8 @@ export function ContactInfo() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="flex items-start space-x-4"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300 border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg">
-                <info.icon className="w-5 h-5 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+              <div className="w-10 h-10 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
+                <info.icon className="w-5 h-5 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
@@ -152,12 +152,12 @@ export function ContactInfo() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group block"
             >
-              <div className="flex items-center space-x-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-electric-500/30 hover:bg-electric-500/5 transition-all duration-300">
-                <div className="w-10 h-10 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300 border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg">
-                  <action.icon className="w-5 h-5 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+              <div className="flex items-center space-x-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-trion-500/30 hover:bg-trion-500/5 transition-all duration-300">
+                <div className="w-10 h-10 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
+                  <action.icon className="w-5 h-5 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
                 </div>
                 <div className="flex-grow">
-                  <h4 className="font-semibold text-foreground group-hover:text-electric-500 transition-colors">
+                  <h4 className="font-semibold text-foreground group-hover:text-trion-500 transition-colors">
                     {action.title}
                   </h4>
                   <p className="text-muted-foreground text-sm">{action.description}</p>

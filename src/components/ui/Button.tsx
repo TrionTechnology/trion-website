@@ -8,12 +8,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-electric-gradient text-white hover:shadow-cyber-glow hover:scale-105",
+        default: "bg-trion-gradient text-white hover:shadow-cyber-glow hover:scale-105",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-electric-500 text-electric-500 hover:bg-electric-500 hover:text-white",
+        outline: "border-2 border-trion-500 text-trion-500 hover:bg-trion-500 hover:text-white",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-electric-500 underline-offset-4 hover:underline",
+        link: "text-trion-500 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-6 py-3",

@@ -38,10 +38,10 @@ export function WorkHero() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg">
-                  <stat.icon className="w-8 h-8 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+                <div className="w-16 h-16 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
+                  <stat.icon className="w-8 h-8 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
                 </div>
-                <div className="text-2xl font-bold text-electric-500 mb-2">{stat.number}</div>
+                <div className="text-2xl font-bold text-trion-500 mb-2">{stat.number}</div>
                 <div className="text-muted-foreground text-sm">{stat.label}</div>
               </motion.div>
             ))}

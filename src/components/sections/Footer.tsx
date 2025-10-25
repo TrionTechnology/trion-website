@@ -50,15 +50,15 @@ export function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 text-electric-500" />
+                <Mail className="h-4 w-4 text-trion-500" />
                 <span>freddy.chia@trioncreation.com</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 text-electric-500" />
+                <Phone className="h-4 w-4 text-trion-500" />
                 <span>016-638 0495</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 text-electric-500" />
+                <MapPin className="h-4 w-4 text-trion-500" />
                 <span>Kuala Lumpur, Malaysia</span>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-electric-500 transition-colors"
+                    className="text-muted-foreground hover:text-trion-500 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -89,7 +89,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-electric-500 transition-colors"
+                    className="text-muted-foreground hover:text-trion-500 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -106,7 +106,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-electric-500 transition-colors"
+                    className="text-muted-foreground hover:text-trion-500 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -149,7 +149,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-electric-500 transition-colors"
+                  className="text-muted-foreground hover:text-trion-500 transition-colors"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />

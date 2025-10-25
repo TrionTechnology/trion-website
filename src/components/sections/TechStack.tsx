@@ -93,7 +93,7 @@ export function TechStack() {
                     className="group"
                   >
                   <div className="tech-card flex flex-col items-center p-6 rounded-xl glass-effect hover:cyber-glow transition-all duration-300 group-hover:scale-110 card-hover magnetic-hover">
-                    <div className="w-12 h-12 bg-muted/50 backdrop-blur-sm border border-electric-500/20 rounded-lg flex items-center justify-center mb-3 group-hover:bg-electric-500/20 group-hover:border-electric-500/40 transition-all duration-300 relative overflow-hidden cyber-glow shadow-electric">
+                    <div className="w-12 h-12 bg-muted/50 backdrop-blur-sm border border-trion-500/20 rounded-lg flex items-center justify-center mb-3 group-hover:bg-trion-500/20 group-hover:border-trion-500/40 transition-all duration-300 relative overflow-hidden cyber-glow shadow-electric">
                         <Image
                           src={tech.logo}
                           alt={tech.name}
@@ -106,12 +106,12 @@ export function TechStack() {
                             target.style.display = 'none';
                             const parent = target.parentElement;
                             if (parent) {
-                              parent.innerHTML = `<span class="text-muted-foreground group-hover:text-electric-500 font-semibold text-sm transition-colors duration-300">${tech.name.charAt(0)}</span>`;
+                              parent.innerHTML = `<span class="text-muted-foreground group-hover:text-trion-500 font-semibold text-sm transition-colors duration-300">${tech.name.charAt(0)}</span>`;
                             }
                           }}
                         />
                       </div>
-                      <span className="text-sm font-medium text-foreground text-center transition-colors duration-300 group-hover:text-electric-500">
+                      <span className="text-sm font-medium text-foreground text-center transition-colors duration-300 group-hover:text-trion-500">
                         {tech.name}
                       </span>
                     </div>

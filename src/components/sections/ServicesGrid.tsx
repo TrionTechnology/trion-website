@@ -144,8 +144,8 @@ export function ServicesGrid() {
             >
               <div className="card-hover h-full flex flex-col">
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300 border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg">
-                    <service.icon className="w-6 h-6 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300 border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg">
+                    <service.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-heading font-semibold text-xl text-foreground mb-2">

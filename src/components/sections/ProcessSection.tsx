@@ -95,7 +95,7 @@ export function ProcessSection() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Connecting Line - perfectly centered through icons */}
-          <div className="absolute left-[23px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-electric-500/30 via-electric-400/50 to-electric-500/30 hidden md:block"></div>
+          <div className="absolute left-[23px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-trion-500/30 via-trion-400/50 to-trion-500/30 hidden md:block"></div>
           
           {processSteps.map((step, index) => (
             <motion.div
@@ -111,16 +111,16 @@ export function ProcessSection() {
                 <div className="flex items-center space-x-4 md:w-48 flex-shrink-0 relative">
                   {/* Connecting Line for Mobile */}
                   {index < processSteps.length - 1 && (
-                    <div className="absolute left-[23px] top-12 w-0.5 h-12 bg-gradient-to-b from-electric-500/30 to-electric-400/50 md:hidden"></div>
+                    <div className="absolute left-[23px] top-12 w-0.5 h-12 bg-gradient-to-b from-trion-500/30 to-trion-400/50 md:hidden"></div>
                   )}
                   
                   {/* Icon centered on timeline */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-electric-500/20 to-electric-600/30 rounded-xl flex items-center justify-center border border-electric-500/30 group-hover:border-electric-400/50 group-hover:shadow-electric-500/25 group-hover:shadow-lg transition-all duration-300 relative z-20 bg-background/90 backdrop-blur-sm flex-shrink-0">
-                    <step.icon className="w-6 h-6 text-electric-400 group-hover:text-electric-300 transition-all duration-300" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-trion-500/20 to-trion-600/30 rounded-xl flex items-center justify-center border border-trion-500/30 group-hover:border-trion-400/50 group-hover:shadow-trion-500/25 group-hover:shadow-lg transition-all duration-300 relative z-20 bg-background/90 backdrop-blur-sm flex-shrink-0">
+                    <step.icon className="w-6 h-6 text-trion-400 group-hover:text-electric-300 transition-all duration-300" />
                   </div>
                   <div className="text-center md:text-left flex-shrink-0">
-                    <div className="text-2xl font-bold text-electric-500 group-hover:text-electric-400 transition-colors duration-300">0{index + 1}</div>
-                    <div className="text-sm text-electric-400/80 font-medium">{step.duration}</div>
+                    <div className="text-2xl font-bold text-trion-500 group-hover:text-trion-400 transition-colors duration-300">0{index + 1}</div>
+                    <div className="text-sm text-trion-400/80 font-medium">{step.duration}</div>
                   </div>
                 </div>
 
@@ -138,7 +138,7 @@ export function ProcessSection() {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {step.deliverables.map((deliverable) => (
                         <li key={deliverable} className="flex items-center text-sm text-muted-foreground">
-                          <CheckCircle className="w-4 h-4 text-electric-500 mr-3 flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-trion-500 mr-3 flex-shrink-0" />
                           {deliverable}
                         </li>
                       ))}
@@ -150,7 +150,7 @@ export function ProcessSection() {
               {/* Connector Line */}
               {index < processSteps.length - 1 && (
                 <div className="hidden md:block ml-6 mt-6 mb-6">
-                  <div className="w-0.5 h-8 bg-gradient-to-b from-electric-500 to-transparent"></div>
+                  <div className="w-0.5 h-8 bg-gradient-to-b from-trion-500 to-transparent"></div>
                 </div>
               )}
             </motion.div>

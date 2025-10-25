@@ -313,7 +313,7 @@
     @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900;
   }
 
-  .bg-gradient-electric {
+  .bg-gradient-trion {
     @apply bg-gradient-to-r from-trion-500 to-trion-600;
   }
 
