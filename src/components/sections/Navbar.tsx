@@ -51,7 +51,7 @@ export function Navbar() {
             <img 
               src="/images/trion-creation-logo.png" 
               alt="Trion Creation" 
-              className="h-20 w-auto"
+              className="h-24 w-auto"
             />
           </Link>
 
@@ -61,7 +61,7 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`relative px-3 py-2 text-base font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? "text-trion-500"
                     : "text-muted-foreground hover:text-foreground"
@@ -136,7 +136,7 @@ export function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors ${
+                    className={`block px-3 py-2 text-lg font-medium rounded-lg transition-colors ${
                       pathname === item.href
                         ? "text-trion-500 bg-trion-500/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent"
