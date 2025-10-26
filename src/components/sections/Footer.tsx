@@ -51,15 +51,19 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-trion-500" />
-                <span>freddy.chia@trioncreation.com</span>
+                <a href="mailto:freddy890920@gmail.com" className="hover:text-trion-500 transition-colors">
+                  freddy890920@gmail.com
+                </a>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 text-trion-500" />
-                <span>016-638 0495</span>
+                <a href="tel:+60166380495" className="hover:text-trion-500 transition-colors">
+                  +6016-638 0495
+                </a>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-trion-500" />
-                <span>Kuala Lumpur, Malaysia</span>
+                <span>D-12-06, Sunway Nexis<br />Kota Damansara, Selangor</span>
               </div>
             </div>
           </div>

@@ -18,27 +18,27 @@ const contactInfo = [
     title: "Office Address",
     details: [
       "Trion Creation Sdn Bhd",
-      "Level 15, Menara ABC",
-      "123 Jalan Ampang",
-      "50450 Kuala Lumpur, Malaysia"
+      "D-12-06, Sunway Nexis",
+      "1, Jalan PJU 5/1, Kota Damansara",
+      "47810 Petaling Jaya, Selangor, Malaysia"
     ]
   },
   {
     icon: Phone,
     title: "Phone Numbers",
     details: [
-      "+60 3-1234 5678 (Office)",
-      "+60 12-345 6789 (Mobile)",
-      "+60 3-1234 5679 (Fax)"
+      "+6016-638 0495 (Office & Mobile)",
+      "+6016-638 0495 (WhatsApp)",
+      "Available 9:00 AM - 6:00 PM (Mon-Fri)"
     ]
   },
   {
     icon: Mail,
-    title: "Email Addresses",
+    title: "Email Address",
     details: [
-      "contact@trioncreation.com",
-      "info@trioncreation.com",
-      "support@trioncreation.com"
+      "freddy890920@gmail.com",
+      "Primary contact email",
+      "Response within 24 hours"
     ]
   },
   {
@@ -78,22 +78,22 @@ const quickActions = [
     icon: MessageCircle,
     title: "WhatsApp Chat",
     description: "Quick response via WhatsApp",
-    action: "https://wa.me/60123456789",
+    action: "https://wa.me/60166380495",
     color: "text-green-500"
   },
   {
     icon: Mail,
     title: "Email Support",
     description: "Send us an email anytime",
-    action: "mailto:support@trioncreation.com",
+    action: "mailto:freddy890920@gmail.com",
     color: "text-blue-500"
   },
   {
     icon: Phone,
     title: "Call Now",
     description: "Speak with our team directly",
-    action: "tel:+60312345678",
-    color: "text-gold-500"
+    action: "tel:+60166380495",
+    color: "text-trion-500"
   }
 ];
 
@@ -191,17 +191,64 @@ export function ContactInfo() {
         </div>
       </div>
 
-      {/* Map Placeholder */}
+      {/* Interactive Map */}
       <div className="card">
         <h3 className="font-heading font-semibold text-xl text-foreground mb-6">
           Our Location
         </h3>
-        <div className="w-full h-48 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl flex items-center justify-center border border-border">
-          <div className="text-center">
-            <MapPin className="w-8 h-8 text-gold-500 mx-auto mb-2" />
-            <p className="text-muted-foreground text-sm">
-              Interactive map would be displayed here
-            </p>
+        <div className="space-y-4">
+          {/* Address Display */}
+          <div className="bg-card/50 border border-border/50 rounded-xl p-4">
+            <div className="flex items-start space-x-3">
+              <MapPin className="w-5 h-5 text-trion-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">Trion Creation Sdn Bhd</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  D-12-06, Sunway Nexis<br />
+                  1, Jalan PJU 5/1, Kota Damansara<br />
+                  47810 Petaling Jaya, Selangor, Malaysia
+                </p>
+                <p className="text-trion-500 text-xs mt-2">
+                  📍 Coordinates: 3.1509°N, 101.5929°E
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Interactive Google Map */}
+          <div className="w-full h-64 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden border border-border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8!2d101.5929!3d3.1509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4c8c8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2sSunway%20Nexis%2C%20Jalan%20PJU%205%2F1%2C%20Kota%20Damansara%2C%20Petaling%20Jaya%2C%20Selangor!5e0!3m2!1sen!2smy!4v1234567890123!5m2!1sen!2smy"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Trion Creation Office Location"
+              className="rounded-xl"
+            />
+          </div>
+          
+          {/* Map Actions */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://maps.google.com/?q=D-12-06,+Sunway+Nexis,+1,+Jalan+PJU+5/1,+Kota+Damansara,+47810+Petaling+Jaya,+Selangor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 px-4 py-2 bg-trion-gradient text-white rounded-xl hover:shadow-trion-lg transition-all duration-300 hover:scale-105"
+            >
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm font-medium">Open in Google Maps</span>
+            </a>
+            <a
+              href="https://waze.com/ul?ll=3.1509,101.5929&navigate=yes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 px-4 py-2 bg-card border border-border text-foreground rounded-xl hover:border-trion-500/30 hover:bg-trion-500/5 transition-all duration-300"
+            >
+              <span className="text-sm font-medium">Navigate with Waze</span>
+            </a>
           </div>
         </div>
       </div>

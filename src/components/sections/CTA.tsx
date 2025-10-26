@@ -9,14 +9,14 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Call Us",
-    description: "016-638 0495",
+    description: "+6016-638 0495",
     action: "tel:+60166380495",
   },
   {
     icon: Mail,
     title: "Email Us",
-    description: "freddy.chia@trioncreation.com",
-    action: "mailto:freddy.chia@trioncreation.com",
+    description: "freddy890920@gmail.com",
+    action: "mailto:freddy890920@gmail.com",
   },
   {
     icon: MessageCircle,
