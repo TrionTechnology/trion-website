@@ -67,11 +67,6 @@ export function Hero() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-trion-500/10 border border-trion-500/20 text-trion-500 text-sm font-medium mb-8">
-            🚀 Malaysia's Premier Software Development Company
-          </div>
-
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Building the Future of
