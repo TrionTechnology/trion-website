@@ -88,6 +88,19 @@ const config: Config = {
               800: "#1e293b",
               900: "#0A0A0A",
             },
+            // Custom gold colors - more white/off-white
+            gold: {
+              50: "#fefefe",
+              100: "#fdfdfd",
+              200: "#fafafa",
+              300: "#f7f7f7",
+              400: "#f0f0f0",
+              500: "#e8e8e8", // Main gold color - off-white
+              600: "#d8d8d8",
+              700: "#c8c8c8",
+              800: "#b8b8b8",
+              900: "#a8a8a8",
+            },
           },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

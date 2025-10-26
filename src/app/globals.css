@@ -15,7 +15,7 @@
     --secondary: 20 20 20;
     --secondary-foreground: 234 234 234;
     --muted: 20 20 20;
-    --muted-foreground: 156 163 175;
+    --muted-foreground: 220 220 220; /* Light gray/off-white */
     --accent: 45 212 191; /* Bright Trion Teal */
     --accent-foreground: 255 255 255;
     --destructive: 239 68 68;
@@ -42,7 +42,7 @@
     --secondary: 243 244 246;
     --secondary-foreground: 17 24 39;
     --muted: 243 244 246;
-    --muted-foreground: 107 114 128;
+    --muted-foreground: 100 100 100; /* Darker gray for light mode */
     --accent: 45 212 191; /* Bright Trion Teal */
     --accent-foreground: 255 255 255;
     --destructive: 239 68 68;
