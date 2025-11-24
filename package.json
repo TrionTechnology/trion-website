@@ -6,7 +6,7 @@
     "build": "echo 'No build step needed for static site'"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   }
 }
 
