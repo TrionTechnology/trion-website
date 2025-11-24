@@ -701,13 +701,15 @@ p {
     color: var(--text-primary);
 }
 
-.achievements-grid {
+.achievements-section .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.achievement-card {
+.achievements-section .achievement-card {
     text-align: center;
     padding: var(--space-8);
     background: var(--bg-card);
@@ -718,25 +720,30 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: visible;
+    min-width: 0;
 }
 
-.achievement-card:hover {
+.achievements-section .achievement-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
 }
 
-.achievement-icon {
-    width: 160px;
-    height: 160px;
+.achievements-section .achievement-icon {
+    width: 350px !important;
+    height: 350px !important;
     margin: 0 auto var(--space-4);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-.achievement-icon lottie-player {
-    width: 160px;
-    height: 160px;
+.achievements-section .achievement-icon lottie-player {
+    width: 350px !important;
+    height: 350px !important;
+    max-width: 100% !important;
+    flex-shrink: 0;
 }
 
 .achievement-number {
@@ -2078,18 +2085,18 @@ p {
         text-align: center;
     }
     
-    .achievements-grid {
-        grid-template-columns: 1fr;
+    .achievements-section .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .achievement-icon {
-        width: 140px;
-        height: 140px;
+    .achievements-section .achievement-icon {
+        width: 280px !important;
+        height: 280px !important;
     }
     
-    .achievement-icon lottie-player {
-        width: 140px;
-        height: 140px;
+    .achievements-section .achievement-icon lottie-player {
+        width: 280px !important;
+        height: 280px !important;
     }
     
     .team-stats {
@@ -2137,14 +2144,18 @@ p {
         height: 140px;
     }
     
-    .achievement-icon {
-        width: 120px;
-        height: 120px;
+    .achievements-section .achievements-grid {
+        grid-template-columns: 1fr;
     }
     
-    .achievement-icon lottie-player {
-        width: 120px;
-        height: 120px;
+    .achievements-section .achievement-icon {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    .achievements-section .achievement-icon lottie-player {
+        width: 250px !important;
+        height: 250px !important;
     }
     
     .service-card,
