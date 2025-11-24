@@ -1,0 +1,22 @@
+{
+  "name": "Trion Creation - AI & Technology Solutions",
+  "short_name": "Trion Creation",
+  "description": "Leading AI and technology solutions company specializing in e-commerce, CRM, quantum analytics, AR/VR, blockchain, and cloud migration.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007AFF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "technology", "productivity"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}

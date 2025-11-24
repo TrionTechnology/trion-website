@@ -1,0 +1,235 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1D1D1F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D2D30;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#5856D6;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="purpleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5856D6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FF2D92;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#bgGradient2)"/>
+  
+  <!-- AI Data Flow Background -->
+  <g opacity="0.2">
+    <!-- Data streams -->
+    <path d="M50,50 Q150,30 250,50 Q350,70 450,50" stroke="#007AFF" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="stroke-width" values="2;6;2" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke" values="#007AFF;#00FFFF;#007AFF" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M50,100 Q150,80 250,100 Q350,120 450,100" stroke="#5856D6" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="stroke-width" values="2;6;2" dur="2s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="stroke" values="#5856D6;#FF00FF;#5856D6" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </path>
+    <path d="M50,150 Q150,130 250,150 Q350,170 450,150" stroke="#FF2D92" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="stroke-width" values="2;6;2" dur="2s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="stroke" values="#FF2D92;#FFFF00;#FF2D92" dur="3s" repeatCount="indefinite" begin="2s"/>
+    </path>
+    
+    <!-- Data nodes -->
+    <circle cx="50" cy="50" r="4" fill="#007AFF">
+      <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="fill" values="#007AFF;#00FFFF;#007AFF" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="30" r="4" fill="#5856D6">
+      <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="fill" values="#5856D6;#FF00FF;#5856D6" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="250" cy="50" r="4" fill="#FF2D92">
+      <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="fill" values="#FF2D92;#FFFF00;#FF2D92" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="350" cy="70" r="4" fill="#007AFF">
+      <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+      <animate attributeName="fill" values="#007AFF;#00FFFF;#007AFF" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <circle cx="450" cy="50" r="4" fill="#5856D6">
+      <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="fill" values="#5856D6;#FF00FF;#5856D6" dur="2s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+  
+  <!-- Central AI Brain -->
+  <g transform="translate(300, 100)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#007AFF" stroke-width="3" opacity="0.8">
+      <animate attributeName="r" values="40;45;40" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#5856D6" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="30;35;30" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#FF2D92" stroke-width="2" opacity="0.4">
+      <animate attributeName="r" values="20;25;20" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Brain connections -->
+    <line x1="-15" y1="-15" x2="15" y2="15" stroke="#007AFF" stroke-width="1" opacity="0.8">
+      <animate attributeName="stroke-width" values="1;2;1" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="15" y1="-15" x2="-15" y2="15" stroke="#5856D6" stroke-width="1" opacity="0.8">
+      <animate attributeName="stroke-width" values="1;2;1" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+    <line x1="0" y1="-20" x2="0" y2="20" stroke="#FF2D92" stroke-width="1" opacity="0.8">
+      <animate attributeName="stroke-width" values="1;2;1" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </line>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#007AFF" stroke-width="1" opacity="0.8">
+      <animate attributeName="stroke-width" values="1;2;1" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+    </line>
+    
+    <!-- Brain nodes -->
+    <circle cx="-10" cy="-10" r="3" fill="#007AFF">
+      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10" cy="-10" r="3" fill="#5856D6">
+      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="0" cy="0" r="3" fill="#FF2D92">
+      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+    </circle>
+    <circle cx="-10" cy="10" r="3" fill="#007AFF">
+      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+    </circle>
+    <circle cx="10" cy="10" r="3" fill="#5856D6">
+      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+    </circle>
+  </g>
+  
+  <!-- Person 1 - AI Researcher (Left) -->
+  <g transform="translate(120, 250)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="28" fill="#E8D5C0"/>
+    <!-- Body -->
+    <rect x="-22" y="28" width="44" height="65" rx="22" fill="#007AFF"/>
+    <!-- Arms -->
+    <rect x="-35" y="38" width="13" height="45" rx="6" fill="#007AFF"/>
+    <rect x="22" y="38" width="13" height="45" rx="6" fill="#007AFF"/>
+    <!-- Hands -->
+    <circle cx="-35" cy="88" r="9" fill="#E8D5C0"/>
+    <circle cx="35" cy="88" r="9" fill="#E8D5C0"/>
+    <!-- Legs -->
+    <rect x="-16" y="93" width="13" height="45" rx="6" fill="#5856D6"/>
+    <rect x="3" y="93" width="13" height="45" rx="6" fill="#5856D6"/>
+    <!-- Feet -->
+    <ellipse cx="-10" cy="143" rx="9" ry="6" fill="#333"/>
+    <ellipse cx="10" cy="143" rx="9" ry="6" fill="#333"/>
+    <!-- AI Hologram Display -->
+    <rect x="45" y="10" width="60" height="40" rx="5" fill="rgba(0,122,255,0.2)" stroke="#007AFF" stroke-width="2"/>
+    <circle cx="75" cy="30" r="8" fill="none" stroke="#007AFF" stroke-width="2"/>
+    <line x1="70" y1="35" x2="80" y2="35" stroke="#007AFF" stroke-width="2"/>
+    <line x1="70" y1="40" x2="80" y2="40" stroke="#007AFF" stroke-width="2"/>
+  </g>
+  
+  <!-- Person 2 - Data Scientist (Center) -->
+  <g transform="translate(300, 240)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="26" fill="#F0E0D0"/>
+    <!-- Body -->
+    <rect x="-20" y="26" width="40" height="62" rx="20" fill="#5856D6"/>
+    <!-- Arms -->
+    <rect x="-32" y="36" width="12" height="42" rx="6" fill="#5856D6"/>
+    <rect x="20" y="36" width="12" height="42" rx="6" fill="#5856D6"/>
+    <!-- Hands -->
+    <circle cx="-32" cy="83" r="8" fill="#F0E0D0"/>
+    <circle cx="32" cy="83" r="8" fill="#F0E0D0"/>
+    <!-- Legs -->
+    <rect x="-14" y="88" width="11" height="42" rx="5" fill="#FF2D92"/>
+    <rect x="3" y="88" width="11" height="42" rx="5" fill="#FF2D92"/>
+    <!-- Feet -->
+    <ellipse cx="-8" cy="135" rx="8" ry="5" fill="#333"/>
+    <ellipse cx="8" cy="135" rx="8" ry="5" fill="#333"/>
+    <!-- Floating Data Visualization -->
+    <g transform="translate(-80, -20)">
+      <rect x="0" y="0" width="50" height="30" rx="3" fill="rgba(88,86,214,0.2)" stroke="#5856D6" stroke-width="1"/>
+      <rect x="5" y="5" width="8" height="20" fill="#007AFF"/>
+      <rect x="18" y="10" width="8" height="15" fill="#5856D6"/>
+      <rect x="31" y="8" width="8" height="17" fill="#FF2D92"/>
+    </g>
+  </g>
+  
+  <!-- Person 3 - ML Engineer (Right) -->
+  <g transform="translate(480, 250)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="27" fill="#D0C0B0"/>
+    <!-- Body -->
+    <rect x="-21" y="27" width="42" height="63" rx="21" fill="#FF2D92"/>
+    <!-- Arms -->
+    <rect x="-33" y="37" width="12" height="43" rx="6" fill="#FF2D92"/>
+    <rect x="21" y="37" width="12" height="43" rx="6" fill="#FF2D92"/>
+    <!-- Hands -->
+    <circle cx="-33" cy="85" r="9" fill="#D0C0B0"/>
+    <circle cx="33" cy="85" r="9" fill="#D0C0B0"/>
+    <!-- Legs -->
+    <rect x="-15" y="90" width="12" height="43" rx="6" fill="#007AFF"/>
+    <rect x="3" y="90" width="12" height="43" rx="6" fill="#007AFF"/>
+    <!-- Feet -->
+    <ellipse cx="-9" cy="138" rx="9" ry="6" fill="#333"/>
+    <ellipse cx="9" cy="138" rx="9" ry="6" fill="#333"/>
+    <!-- Neural Network Visualization -->
+    <g transform="translate(-70, -30)">
+      <circle cx="0" cy="0" r="3" fill="#007AFF"/>
+      <circle cx="15" cy="-10" r="3" fill="#5856D6"/>
+      <circle cx="30" cy="0" r="3" fill="#FF2D92"/>
+      <circle cx="15" cy="10" r="3" fill="#007AFF"/>
+      <line x1="0" y1="0" x2="15" y2="-10" stroke="#007AFF" stroke-width="1"/>
+      <line x1="15" y1="-10" x2="30" y2="0" stroke="#5856D6" stroke-width="1"/>
+      <line x1="30" y1="0" x2="15" y2="10" stroke="#FF2D92" stroke-width="1"/>
+      <line x1="15" y1="10" x2="0" y2="0" stroke="#007AFF" stroke-width="1"/>
+    </g>
+  </g>
+  
+  <!-- Collaboration Lines -->
+  <g opacity="0.6">
+    <line x1="180" y1="280" x2="240" y2="270" stroke="#007AFF" stroke-width="2" stroke-dasharray="8,4"/>
+    <line x1="420" y1="270" x2="360" y2="280" stroke="#5856D6" stroke-width="2" stroke-dasharray="8,4"/>
+    <line x1="180" y1="290" x2="360" y2="290" stroke="#FF2D92" stroke-width="2" stroke-dasharray="8,4"/>
+  </g>
+  
+  <!-- Floating Tech Elements -->
+  <g opacity="0.5">
+    <!-- AI Code Blocks -->
+    <rect x="50" y="350" width="35" height="20" rx="3" fill="rgba(0,122,255,0.3)" stroke="#007AFF" stroke-width="1"/>
+    <text x="67" y="363" text-anchor="middle" fill="white" font-size="7" font-family="monospace">AI</text>
+    
+    <rect x="90" y="350" width="35" height="20" rx="3" fill="rgba(88,86,214,0.3)" stroke="#5856D6" stroke-width="1"/>
+    <text x="107" y="363" text-anchor="middle" fill="white" font-size="7" font-family="monospace">ML</text>
+    
+    <rect x="130" y="350" width="35" height="20" rx="3" fill="rgba(255,45,146,0.3)" stroke="#FF2D92" stroke-width="1"/>
+    <text x="147" y="363" text-anchor="middle" fill="white" font-size="7" font-family="monospace">DL</text>
+    
+    <rect x="170" y="350" width="35" height="20" rx="3" fill="rgba(0,122,255,0.3)" stroke="#007AFF" stroke-width="1"/>
+    <text x="187" y="363" text-anchor="middle" fill="white" font-size="7" font-family="monospace">NN</text>
+  </g>
+  
+  <!-- Data Flow Indicators -->
+  <g opacity="0.4">
+    <circle cx="100" cy="80" r="2" fill="#007AFF">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="60" r="2" fill="#5856D6">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="300" cy="80" r="2" fill="#FF2D92">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="400" cy="60" r="2" fill="#007AFF">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+  </g>
+</svg> 

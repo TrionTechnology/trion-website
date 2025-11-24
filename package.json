@@ -1,0 +1,12 @@
+{
+  "name": "trion-creation-website",
+  "version": "1.0.0",
+  "description": "Trion Creation Website - Static HTML Site",
+  "scripts": {
+    "build": "echo 'No build step needed for static site'"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
+

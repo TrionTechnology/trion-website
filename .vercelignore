@@ -1,0 +1,9 @@
+# Ignore documentation files
+*.md
+!README.md
+
+# Ignore development scripts
+*.sh
+
+# Ignore temporary files
+.DS_Store
