@@ -35,11 +35,8 @@ function initTabNavigation() {
             if (targetContent) {
                 targetContent.classList.add('active');
                 
-                // Scroll to top of main content
-                const mainContent = document.querySelector('.main-content');
-                if (mainContent) {
-                    mainContent.scrollTop = 0;
-                }
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     });

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile & Web App Development - Trion Creation</title>
+    <meta name="description" content="Full-stack development of scalable mobile and web applications with modern frameworks and cloud-native architecture.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#2F66FF">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html#home" class="logo" onclick="event.preventDefault(); window.location.href='../index.html#home'; window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
+                    <img src="../logo master - Trion-07 3.png" alt="Trion Creation">
+                </a>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="project-hero" style="padding: var(--space-20) 0; background: linear-gradient(135deg, var(--royal-blue), var(--electric-blue-end));">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb" style="color: rgba(255,255,255,0.8); margin-bottom: var(--space-4);">
+                    <a href="../index.html" style="color: rgba(255,255,255,0.9);">Home</a> / <a href="../index.html#services" style="color: rgba(255,255,255,0.9);">Services</a> / <span>Mobile & Web App Development</span>
+                </div>
+                <h1 style="color: white; font-size: var(--text-5xl); margin-bottom: var(--space-4);">Mobile & Web App Development</h1>
+                <p style="color: rgba(255,255,255,0.9); font-size: var(--text-xl); max-width: 800px;">Full-stack development of scalable mobile and web applications with modern frameworks and cloud-native architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section style="padding: var(--space-20) 0;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="margin-bottom: var(--space-12);">
+                    <img src="../images/services/service-web-mobile.jpg" alt="Mobile & Web App Development" style="width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-12);">
+                    <div>
+                        <h2 style="margin-bottom: var(--space-6);">Service Overview</h2>
+                        <p style="margin-bottom: var(--space-4); line-height: 1.8;">We specialize in building high-performance mobile and web applications that scale with your business. Our team leverages cutting-edge technologies and best practices to deliver solutions that are fast, secure, and user-friendly.</p>
+                        <p style="margin-bottom: var(--space-4); line-height: 1.8;">From concept to deployment, we handle every aspect of the development process, ensuring your application meets the highest standards of quality and performance.</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--radius-xl);">
+                        <h3 style="margin-bottom: var(--space-6);">Key Features</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--gray-200);">✓ React Native & Cross-Platform Apps</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--gray-200);">✓ Real-time Communication Systems</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--gray-200);">✓ Payment Gateway Integration</li>
+                            <li style="padding: var(--space-2) 0;">✓ 5M+ Users Proven Scalability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card); padding: var(--space-12); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); margin-bottom: var(--space-12);">
+                    <h2 style="margin-bottom: var(--space-6);">Our Expertise</h2>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6);">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: var(--space-2);">Mobile Development</h4>
+                            <p>Native iOS and Android apps, cross-platform solutions using React Native, Flutter, and Xamarin.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: var(--space-2);">Web Development</h4>
+                            <p>Modern web applications using React, Vue.js, Next.js, and other cutting-edge frameworks.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: var(--space-2);">Backend Development</h4>
+                            <p>Scalable APIs and microservices using Node.js, Python, PHP, and cloud-native architectures.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: var(--space-2);">Cloud Integration</h4>
+                            <p>Deployment on AWS, Alibaba Cloud, and other cloud platforms with CI/CD pipelines.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; padding: var(--space-12); background: linear-gradient(135deg, var(--royal-blue), var(--electric-blue-end)); border-radius: var(--radius-xl); color: white;">
+                    <h2 style="color: white; margin-bottom: var(--space-4);">Ready to Build Your App?</h2>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-6);">Let's discuss your project and create a custom solution tailored to your needs.</p>
+                    <a href="../index.html#contact" class="btn" style="background: white; color: var(--royal-blue);">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
