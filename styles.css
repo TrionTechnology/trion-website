@@ -915,6 +915,28 @@ p {
     transition: transform var(--transition-normal);
 }
 
+.portfolio-image.solution-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.solution-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transition-normal);
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+}
+
+.portfolio-item:hover .solution-icon {
+    transform: scale(1.1);
+    opacity: 0.25;
+}
+
 .portfolio-item:hover .portfolio-image img {
     transform: scale(1.05);
 }
@@ -2387,4 +2409,71 @@ p {
         width: 28px;
         height: 28px;
     }
+}
+
+/* FAQ Section */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5) var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary, #2F66FF);
+}
+
+.faq-item[open] {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary, #2F66FF);
+}
+
+.faq-item summary {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--gray-900);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: var(--space-8);
+    outline: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--primary, #2F66FF);
+    transition: transform var(--transition-normal);
+    line-height: 1;
+}
+
+.faq-item[open] summary::after {
+    content: '−';
+}
+
+.faq-item p {
+    margin-top: var(--space-4);
+    color: var(--gray-600);
+    font-size: var(--text-base);
+    line-height: 1.7;
 }

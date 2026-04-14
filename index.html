@@ -82,6 +82,7 @@
                         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                         <li><a href="#partnerships" class="nav-link">Partnerships</a></li>
                         <li><a href="#tech-stack" class="nav-link">Tech Stack</a></li>
+                        <li><a href="#faq" class="nav-link">FAQ</a></li>
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
@@ -563,149 +564,242 @@
         <section id="portfolio" class="tab-content">
             <div class="page-header with-banner" style="background-image: url('images/banners/banner-portfolio.jpg');">
                 <div class="container">
-                    <h1>Our Portfolio</h1>
-                    <p>Showcasing our latest innovations and successful implementations</p>
+                    <h1>Solutions We've Delivered</h1>
+                    <p>Proven industry solutions — 45+ successful projects across finance, logistics, enterprise, retail and more</p>
                 </div>
             </div>
         <div class="container">
 
                 <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="ai">Mobile & Web Apps</button>
-                    <button class="filter-btn" data-filter="arvr">AR/VR & Metaverse</button>
-                    <button class="filter-btn" data-filter="blockchain">Blockchain & Web3</button>
-                    <button class="filter-btn" data-filter="quantum">Enterprise Solutions</button>
-                    <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+                    <button class="filter-btn active" data-filter="all">All Solutions</button>
+                    <button class="filter-btn" data-filter="mobileweb">Mobile & Web Apps</button>
+                    <button class="filter-btn" data-filter="enterprise">Enterprise & ERP</button>
+                    <button class="filter-btn" data-filter="fintech">Finance & Loan</button>
+                    <button class="filter-btn" data-filter="operations">Operations & Management</button>
+                    <button class="filter-btn" data-filter="retail">Retail & F&B</button>
             </div>
 
             <div class="portfolio-grid">
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-yippi.jpg" alt="Yippi Social Media Super App" loading="lazy">
-                    <div class="portfolio-overlay">
-                                <h3>Yippi</h3>
-                                <p>Social Media Super App - 5M+ total users, 200K+ monthly active users</p>
+                    <div class="portfolio-item" data-category="mobileweb">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #2F66FF 0%, #1a3db5 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Social Media Super App</h3>
+                                <p>Multi-feature community platforms with messaging, content feed, rewards and monetization.</p>
                                 <div class="portfolio-tags">
-                                    <span class="tag">Mobile App</span>
+                                    <span class="tag">iOS / Android</span>
                                     <span class="tag">Backend/API</span>
-                                    <span class="tag">DevOps</span>
+                                    <span class="tag">Real-time</span>
                                 </div>
-                                <a href="projects/yippi.html" class="btn btn-white">View Details</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-dddrive.jpg" alt="DDDrive Driver Services Platform" loading="lazy">
-                            <div class="portfolio-overlay">
-                                <h3>DDDrive</h3>
-                                <p>Scaling Reliable Driver-for-Hire Services Platform</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Mobile App</span>
-                                    <span class="tag">Backend/API</span>
-                                    <span class="tag">Product Design</span>
-                                </div>
-                                <a href="projects/dddrive.html" class="btn btn-white">View Details</a>
+                    <div class="portfolio-item" data-category="fintech">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #00a870 0%, #005f3e 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                             </div>
-                    </div>
-                </div>
-
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-mycashout.jpg" alt="MyCashOut Loan Management System" loading="lazy">
-                    <div class="portfolio-overlay">
-                                <h3>MyCashOut</h3>
-                                <p>Micro Loan Application Process Management System</p>
+                            <div class="portfolio-overlay">
+                                <h3>Loan Management System</h3>
+                                <p>End-to-end loan origination, credit scoring, approval workflow and repayment tracking.</p>
                                 <div class="portfolio-tags">
+                                    <span class="tag">AI Credit Scoring</span>
                                     <span class="tag">Admin Portal</span>
-                                    <span class="tag">Backend/API</span>
                                     <span class="tag">Workflow</span>
                                 </div>
-                                <a href="projects/mycashout.html" class="btn btn-white">View Details</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-pictureworks.jpg" alt="Pictureworks Air Theme Park Solution" loading="lazy">
+                    <div class="portfolio-item" data-category="mobileweb">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #ff6b35 0%, #c2410c 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
+                            </div>
                             <div class="portfolio-overlay">
-                                <h3>Pictureworks Air</h3>
-                                <p>Improve Imaging Solutions for Theme Parks - 2x deployment speed</p>
+                                <h3>Driver & Transport Platform</h3>
+                                <p>Real-time dispatch, GPS tracking, route optimization and multi-city fleet operations.</p>
                                 <div class="portfolio-tags">
+                                    <span class="tag">Live GPS</span>
                                     <span class="tag">Mobile App</span>
-                                    <span class="tag">Backend/API</span>
-                                    <span class="tag">99%+ Uptime</span>
+                                    <span class="tag">Payment</span>
                                 </div>
-                                <a href="projects/pictureworks.html" class="btn btn-white">View Details</a>
-                </div>
-                    </div>
-                </div>
-
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-reskills.jpg" alt="ReSkills Online Education Platform" loading="lazy">
-                    <div class="portfolio-overlay">
-                                <h3>ReSkills</h3>
-                                <p>Empowering Learning Through Online Education</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Mobile App</span>
-                                    <span class="tag">Backend/API</span>
-                                    <span class="tag">Product Design</span>
-                                </div>
-                                <a href="projects/reskills.html" class="btn btn-white">View Details</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="portfolio-item" data-category="ai">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-thaiadvocates.jpg" alt="ThaiAdvocates Legal Management Platform" loading="lazy">
+                    <div class="portfolio-item" data-category="enterprise">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
                             <div class="portfolio-overlay">
-                                <h3>ThaiAdvocates</h3>
-                                <p>Legal Case Management & Invoicing Platform</p>
+                                <h3>HRMS & Payroll System</h3>
+                                <p>Attendance, leave, payroll, claims and employee self-service built for Malaysian compliance.</p>
                                 <div class="portfolio-tags">
-                                    <span class="tag">Mobile App</span>
-                                    <span class="tag">Backend/API</span>
-                                    <span class="tag">Case Management</span>
+                                    <span class="tag">Payroll</span>
+                                    <span class="tag">E-Leave</span>
+                                    <span class="tag">Reports</span>
                                 </div>
-                                <a href="projects/thaiadvocates.html" class="btn btn-white">View Details</a>
-                    </div>
-                </div>
-                    </div>
-
-                    <div class="portfolio-item" data-category="blockchain">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-colorverse.jpg" alt="Colorverse Web3 Social-Fi Platform" loading="lazy">
-                    <div class="portfolio-overlay">
-                                <h3>Colorverse</h3>
-                                <p>Web3 Social-Fi Platform - Endorsed by Malaysia Tourism Board</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Web App</span>
-                                    <span class="tag">Product Design</span>
-                                    <span class="tag">Blockchain</span>
-                                </div>
-                                <a href="projects/colorverse.html" class="btn btn-white">View Details</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="portfolio-item" data-category="arvr">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/portfolio-lac.jpg" alt="LAC Metaverse Game" loading="lazy">
+                    <div class="portfolio-item" data-category="enterprise">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #0ea5e9 0%, #075985 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
                             <div class="portfolio-overlay">
-                                <h3>LAC Running Through Culture</h3>
-                                <p>Spatial Metaverse Game - Temple Run inspired gameplay</p>
+                                <h3>ERP & Business Suite</h3>
+                                <p>Unified inventory, finance, procurement and operations dashboard for SMEs & enterprises.</p>
                                 <div class="portfolio-tags">
-                                    <span class="tag">Unity</span>
-                                    <span class="tag">Metaverse</span>
-                                    <span class="tag">VR/AR</span>
+                                    <span class="tag">Odoo</span>
+                                    <span class="tag">Custom ERP</span>
+                                    <span class="tag">Finance</span>
                                 </div>
-                                <a href="projects/lac.html" class="btn btn-white">View Details</a>
-                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Legal Case Management</h3>
+                                <p>Cloud-based case tracking, document vault, invoicing and role-based access for law firms.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Cloud</span>
+                                    <span class="tag">E-Invoice</span>
+                                    <span class="tag">RBAC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #f59e0b 0%, #92400e 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Project Management Suite</h3>
+                                <p>Task, timeline, resource and budget management with live collaboration and reporting.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Kanban</span>
+                                    <span class="tag">Timeline</span>
+                                    <span class="tag">Reports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="enterprise">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #0891b2 0%, #164e63 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Feedback & BI Dashboard</h3>
+                                <p>Customer feedback collection with Power BI analytics for real-time decision making.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Power BI</span>
+                                    <span class="tag">Survey</span>
+                                    <span class="tag">Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="mobileweb">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #ec4899 0%, #831843 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Pet Services Platform</h3>
+                                <p>Booking, pet profiles, grooming, vet appointments and community marketplace.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Booking</span>
+                                    <span class="tag">Marketplace</span>
+                                    <span class="tag">Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="mobileweb">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Wellness & Booking App</h3>
+                                <p>On-demand massage, spa and wellness booking with therapist matching and payments.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">On-Demand</span>
+                                    <span class="tag">Payment</span>
+                                    <span class="tag">Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #6366f1 0%, #312e81 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Supplier & Inventory System</h3>
+                                <p>Stock tracking, purchase orders, supplier portal and multi-warehouse management.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Inventory</span>
+                                    <span class="tag">PO System</span>
+                                    <span class="tag">Barcode</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #14b8a6 0%, #134e4a 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>Visitor Management System</h3>
+                                <p>Digital check-in, QR passes, host notifications and security analytics for offices.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">QR Pass</span>
+                                    <span class="tag">Kiosk</span>
+                                    <span class="tag">Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="retail">
+                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #f43f5e 0%, #881337 100%);">
+                            <div class="solution-icon">
+                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3>F&B & Retail POS</h3>
+                                <p>Point of sale, kitchen display, table order, loyalty and e-menu for restaurants & retail.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">POS</span>
+                                    <span class="tag">E-Menu</span>
+                                    <span class="tag">Loyalty</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -937,6 +1031,47 @@
                             <span class="tech-tag"><img src="images/tech-icons/zapier.svg" alt="Integration" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Third-Party Integrations</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="tab-content">
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg');">
+                <div class="container">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Everything you need to know before starting your project with us</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="faq-grid">
+                    <details class="faq-item">
+                        <summary>How long does it take to build a custom system?</summary>
+                        <p>Most MVPs take 6–12 weeks. Full enterprise systems (ERP, HRMS, loan management) typically range from 3 to 6 months depending on scope, integrations, and compliance requirements. We'll give you a clear timeline during the free consultation.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you build both mobile apps and web systems?</summary>
+                        <p>Yes. We deliver native iOS/Android apps, progressive web apps, admin dashboards, backend APIs and cloud infrastructure — typically as one fully integrated stack so your mobile, web and backend all speak the same language.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can you customize or migrate from an existing system?</summary>
+                        <p>Absolutely. We regularly customize Odoo, WordPress, Laravel and legacy PHP systems, and handle full data migration, re-platforming and feature extension without downtime.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How much does a custom software project cost?</summary>
+                        <p>Pricing depends on scope, but typical project bands are: RM15k–40k for MVPs, RM40k–150k for mid-size business systems, and RM150k+ for enterprise platforms. We provide a fixed-scope quote after the first discovery call — no hidden costs.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you provide support and maintenance after launch?</summary>
+                        <p>Yes. All projects include a warranty period, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Is my data and source code protected?</summary>
+                        <p>Always. Clients own 100% of the source code and data. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if preferred.</p>
+                    </details>
+                </div>
+                <div style="text-align:center; margin-top: var(--space-12);">
+                    <a href="#contact" class="btn btn-primary btn-large">Book a Free Consultation</a>
                 </div>
             </div>
         </section>
