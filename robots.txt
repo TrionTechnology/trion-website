@@ -1,10 +1,90 @@
+# Trion Creation Sdn Bhd — robots.txt
+# Custom Software Development Company in Malaysia
+# https://trioncreation.com
+
+# ─── All standard crawlers welcome ───
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Sitemap
+# ─── AI / LLM crawlers explicitly welcomed ───
+# We want to be discoverable when people ask AI assistants about
+# software development companies in Malaysia.
+
+# OpenAI (ChatGPT browsing + training)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI (Gemini / SGE / AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (used by many LLM training datasets)
+User-agent: CCBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# ByteDance (TikTok / Doubao)
+User-agent: Bytespider
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Diffbot (used by many LLM products)
+User-agent: Diffbot
+Allow: /
+
+# ─── Sitemap + machine-readable site index ───
 Sitemap: https://trioncreation.com/sitemap.xml
 
-# Disallow admin or private areas if any
-# Disallow: /admin/
-# Disallow: /private/
-
+# LLM-readable site index — https://llmstxt.org/
+# See: https://trioncreation.com/llms.txt

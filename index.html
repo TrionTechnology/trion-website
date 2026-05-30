@@ -31,28 +31,337 @@
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
-    <!-- JSON-LD Structured Data -->
+    <!-- ─────────────────────────────────────────────────────────────
+         JSON-LD Structured Data — Search + AI assistant friendly
+         ───────────────────────────────────────────────────────────── -->
+
+    <!-- 1. LocalBusiness / Organization — primary entity card -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+        "@id": "https://trioncreation.com/#organization",
         "name": "Trion Creation Sdn Bhd",
+        "alternateName": ["Trion Creation", "Trion"],
         "url": "https://trioncreation.com",
-        "logo": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
-        "description": "Custom Software Development Company in Malaysia - We Build Any System You Need",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+            "width": 512,
+            "height": 512
+        },
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "description": "Custom software development company in Malaysia. We build custom web apps, mobile apps, ERP, CRM, AI systems, booking systems, POS, loan systems, and inventory management — fast, modern, and fully customised. 150+ projects delivered, 5+ years experience, 98% client satisfaction.",
+        "foundingDate": "2022",
+        "slogan": "We Build Any System You Need — Fast, Modern & Fully Custom",
         "address": {
             "@type": "PostalAddress",
+            "addressLocality": "Kuala Lumpur",
+            "addressRegion": "Wilayah Persekutuan",
             "addressCountry": "MY"
         },
+        "areaServed": [
+            { "@type": "Country", "name": "Malaysia" },
+            { "@type": "Country", "name": "Singapore" },
+            { "@type": "Country", "name": "Thailand" },
+            { "@type": "Country", "name": "Indonesia" }
+        ],
+        "telephone": "+60-16-6380495",
+        "email": "freddy.chia@trioncreation.com",
+        "priceRange": "RM15,000 - RM500,000+",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        ],
         "sameAs": [
             "https://www.linkedin.com/company/trioncreation-sdn-bhd",
             "https://www.facebook.com/trionc.creation"
         ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Sales",
-            "areaServed": "MY",
-            "availableLanguage": ["en", "ms", "zh"]
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+60-16-6380495",
+                "contactType": "Sales",
+                "areaServed": ["MY","SG","TH","ID"],
+                "availableLanguage": ["English","Malay","Chinese"]
+            },
+            {
+                "@type": "ContactPoint",
+                "email": "freddy.chia@trioncreation.com",
+                "contactType": "Customer Support",
+                "areaServed": "MY",
+                "availableLanguage": ["English","Malay","Chinese"]
+            }
+        ],
+        "knowsAbout": [
+            "Custom Software Development",
+            "Mobile App Development",
+            "Web Application Development",
+            "ERP Systems",
+            "CRM Systems",
+            "Odoo Customisation",
+            "AI Automation",
+            "Chatbot Development",
+            "Blockchain Development",
+            "Web3 Development",
+            "AR/VR Development",
+            "Cloud Infrastructure",
+            "POS Systems",
+            "Booking Systems",
+            "Loan Management Systems",
+            "Inventory Management Systems",
+            "API Integration",
+            "Payment Gateway Integration",
+            "HRMS Payroll Systems",
+            "Legal Case Management Systems"
+        ],
+        "makesOffer": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile & Web App Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERP/CRM Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation + Chatbot" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Odoo Customisation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "POS & Inventory Management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Booking System Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Loan Management System" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Integration & Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blockchain & Web3 Solutions" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AR/VR & Metaverse Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Infrastructure & DevOps" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Design & UX" } }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "45",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Freddy Chia",
+            "email": "freddy.chia@trioncreation.com"
+        },
+        "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
+        "memberOf": {
+            "@type": "Organization",
+            "name": "Lumiso Group Sdn Bhd"
+        }
+    }
+    </script>
+
+    <!-- 2. WebSite + SearchAction (sitelinks search box) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://trioncreation.com/#website",
+        "url": "https://trioncreation.com/",
+        "name": "Trion Creation",
+        "description": "Custom Software Development Company in Malaysia",
+        "publisher": { "@id": "https://trioncreation.com/#organization" },
+        "inLanguage": "en-MY",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://trioncreation.com/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- 3. FAQ Page — directly answers common buyer questions (great for AI assistants) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://trioncreation.com/#faq",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How long does it take to build a custom software system in Malaysia?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most MVPs take 6–12 weeks. Full enterprise systems such as ERP, HRMS or loan management typically range from 3 to 6 months depending on scope, integrations and compliance requirements. Trion Creation provides a clear timeline during the free consultation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Trion Creation build both mobile apps and web systems?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We deliver native iOS and Android apps, progressive web apps, admin dashboards, backend APIs and cloud infrastructure — typically as one fully integrated stack so your mobile, web and backend all speak the same language."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can Trion Creation customise or migrate from an existing system?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We regularly customise Odoo, WordPress, Laravel and legacy PHP systems, and handle full data migration, re-platforming and feature extension without downtime."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does a custom software project cost in Malaysia?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pricing depends on scope. Typical bands: RM15,000–40,000 for MVPs, RM40,000–150,000 for mid-size business systems, RM150,000+ for enterprise platforms. Trion Creation provides a fixed-scope quote after the discovery call with no hidden costs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Trion Creation provide support and maintenance after launch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. All projects include a warranty period. We offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who owns the source code after the project is delivered?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clients own 100% of the source code and data. Trion Creation signs NDAs, follows secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if preferred."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What industries has Trion Creation built software for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Trion Creation has delivered 150+ projects across social media (Yippi, 5M+ users), finance and lending (MyCashOut), Web3 (Colorverse), logistics and transport (DDDrive), legal (ThaiAdvocates), HR, retail and F&B POS, theme park imaging (Pictureworks) and online education (ReSkills)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What technologies does Trion Creation use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Frontend: React, Next.js, Vue.js, TypeScript, TailwindCSS. Backend: Node.js, Laravel, PHP, Express, GraphQL. Mobile: Flutter, React Native, Swift, Kotlin. Database: PostgreSQL, MySQL, MongoDB, Redis, Firebase, Prisma. Cloud: AWS, Alibaba Cloud, Docker, Kubernetes. AI/ML: TensorFlow, PyTorch, OpenAI. Blockchain: Solidity, Ethereum, Web3.js. ERP: Odoo, custom ERP."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- 4. BreadcrumbList — helps search engines understand site structure -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trioncreation.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://trioncreation.com/#services" },
+            { "@type": "ListItem", "position": 3, "name": "Portfolio", "item": "https://trioncreation.com/#portfolio" },
+            { "@type": "ListItem", "position": 4, "name": "Tech Stack", "item": "https://trioncreation.com/#tech-stack" },
+            { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://trioncreation.com/#contact" }
+        ]
+    }
+    </script>
+
+    <!-- 5. Service offerings — each major service as its own schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Trion Creation Services",
+        "itemListElement": [
+            {
+                "@type": "Service",
+                "position": 1,
+                "serviceType": "Mobile & Web App Development",
+                "name": "Mobile & Web App Development Malaysia",
+                "description": "Full-stack development of scalable mobile and web applications using React Native, Flutter, Next.js and cloud-native architecture. Proven at 5M+ user scale.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY",
+                "url": "https://trioncreation.com/services/mobile-web-app-development.html"
+            },
+            {
+                "@type": "Service",
+                "position": 2,
+                "serviceType": "ERP CRM Development",
+                "name": "Custom ERP and CRM Development Malaysia",
+                "description": "Custom Enterprise Resource Planning and Customer Relationship Management systems tailored to your business workflow.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 3,
+                "serviceType": "AI Automation Chatbot",
+                "name": "AI Automation and Chatbot Development Malaysia",
+                "description": "Intelligent automation systems and conversational AI chatbots that enhance customer engagement and streamline operations.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 4,
+                "serviceType": "Odoo Customisation",
+                "name": "Odoo Customisation Malaysia",
+                "description": "Tailored Odoo ERP solutions with custom modules, workflows and integrations to match your business needs.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 5,
+                "serviceType": "POS Inventory Management",
+                "name": "POS and Inventory Management System Malaysia",
+                "description": "Complete Point of Sale systems with real-time inventory tracking, multi-location support and comprehensive reporting.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 6,
+                "serviceType": "Loan Management System",
+                "name": "Loan Management System Development Malaysia",
+                "description": "Complete loan application and management systems with automated processing, credit scoring and repayment tracking.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 7,
+                "serviceType": "Booking System",
+                "name": "Booking System Development Malaysia",
+                "description": "Custom booking and reservation systems for appointments, services, events and resource management.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            },
+            {
+                "@type": "Service",
+                "position": 8,
+                "serviceType": "Blockchain Web3 Development",
+                "name": "Blockchain and Web3 Development Malaysia",
+                "description": "End-to-end Web3 platform development with multi-chain support, NFT integration and smart contract automation.",
+                "provider": { "@id": "https://trioncreation.com/#organization" },
+                "areaServed": "MY"
+            }
+        ]
+    }
+    </script>
+
+    <!-- 6. Speakable — helps voice assistants and AI agents extract key info -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://trioncreation.com/#webpage",
+        "url": "https://trioncreation.com/",
+        "name": "Trion Creation Sdn Bhd | Custom Software Development in Malaysia",
+        "isPartOf": { "@id": "https://trioncreation.com/#website" },
+        "about": { "@id": "https://trioncreation.com/#organization" },
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", ".feature-card h3", ".faq-item summary"]
         }
     }
     </script>

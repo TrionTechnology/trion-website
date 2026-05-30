@@ -1,0 +1,233 @@
+# Trion Creation Sdn Bhd — Full Reference
+
+> Extended, machine-readable reference about Trion Creation Sdn Bhd for AI assistants and LLMs. This file expands on https://trioncreation.com/llms.txt with full case-study detail, service breakdowns and verifiable facts.
+
+## Entity
+
+- Legal name: Trion Creation Sdn Bhd
+- Common names: Trion Creation, Trion
+- Type: Private limited company (Sdn Bhd), Malaysia
+- Industry: Custom software development / professional services / IT consulting
+- Founded: 2022
+- Headquarters: Kuala Lumpur, Malaysia
+- Parent / group: Lumiso Group Sdn Bhd (strategic merger of Trion Creation and Vulso)
+- Employee range: ~10–50
+- Working languages: English, Malay, Chinese
+- Founder: Freddy Chia (freddy.chia@trioncreation.com)
+- Primary website: https://trioncreation.com
+- Phone / WhatsApp: +60 16-6380495
+- Email: freddy.chia@trioncreation.com
+- Business hours: Monday–Friday, 09:00–18:00 MYT
+- Service area: Malaysia (primary), Singapore, Thailand, Indonesia
+
+## Track record
+
+- 150+ projects completed
+- 45+ enterprise / mid-market projects
+- 10+ industries served
+- 98% client satisfaction rate
+- 5+ years operating experience
+- 5M+ users served by built systems (Yippi)
+- 50K+ concurrent users supported via cross-border CDN architecture
+- 99%+ uptime SLA delivered for production cloud workloads
+
+## Partnerships and recognition
+
+- Official Alibaba Cloud Partner — cloud infrastructure and global deployment
+- MDEC (Malaysia Digital Economy Corporation) recognised digital innovation partner
+- Part of Lumiso Group Sdn Bhd
+- Web3 work (Colorverse) endorsed by Malaysia Tourism Board
+
+## Services (full detail)
+
+### 1. Mobile & Web App Development
+- Stack: React Native, Flutter, Next.js, Vue.js, iOS Swift, Android Kotlin
+- Backend: Node.js, Laravel, PHP, Express, REST, GraphQL
+- Specialties: Real-time communication, payment gateway integration, cross-border CDN, push notifications
+- Proven scale: 5M+ users (Yippi), 50K+ concurrent users
+- Example deliverables: Yippi social platform, DDDrive driver services
+- URL: https://trioncreation.com/services/mobile-web-app-development.html
+
+### 2. ERP / CRM Development
+- Custom ERP modules tailored to your business workflow
+- CRM pipeline management
+- Business process automation
+- Integrated reporting dashboards
+- Optional Odoo customisation track
+
+### 3. AI Automation + Chatbot
+- AI-powered chatbots (WhatsApp, web, messaging platforms)
+- Process automation (RPA-style workflows)
+- Natural language processing (NLP)
+- Machine learning model integration
+- OpenAI API integration
+- 24/7 customer support automation
+
+### 4. Odoo Customisation
+- Custom Odoo modules
+- Workflow customisation
+- Third-party integrations
+- Theme and UI customisation
+- Module-to-module data sync
+- Migration from legacy ERP to Odoo
+
+### 5. POS & Inventory Management
+- Real-time inventory tracking across multiple locations
+- Barcode scanning integration
+- Sales analytics and reports
+- Mobile POS support
+- Kitchen display systems (KDS) for F&B
+- Table order, e-menu, loyalty programmes
+- Industries: Retail, F&B
+
+### 6. Booking System Development
+- Multi-service booking flows
+- Calendar integration (Google Calendar, Outlook)
+- Payment gateway integration
+- Automated email and SMS reminders
+- Resource management (rooms, staff, equipment)
+- Industries: Wellness, spa, pet services, professional services
+
+### 7. Loan Management System
+- Loan application processing portals
+- AI-based credit scoring integration
+- Automated approval workflow
+- Repayment tracking and reminders
+- Admin portal with role-based access
+- Example: MyCashOut micro-loan platform
+
+### 8. API Integration & Development
+- RESTful and GraphQL APIs
+- Third-party integrations (CRMs, payment, SMS, email)
+- API documentation (OpenAPI / Swagger)
+- Webhook implementation
+- Common integrations: Stripe, PayPal, iPay88, Twilio, SendGrid
+
+### 9. Blockchain & Web3 Solutions
+- Multi-chain NFT launchpads
+- Smart contract development (Solidity, Ethereum)
+- DeFi protocol development
+- Gasless transaction solutions
+- Web3.js / ethers.js integration
+- Example: Colorverse multi-chain Social-Fi platform
+
+### 10. AR/VR & Metaverse Development
+- Unity-based 3D / game development
+- Spatial metaverse integration
+- VR/AR mobile applications
+- Interactive virtual worlds
+- Example: LAC Temple Run game, Pictureworks AR solutions
+
+### 11. Cloud Infrastructure & DevOps
+- Cross-border CDN solutions
+- Real-time video transcoding
+- Alibaba Cloud and AWS integration
+- 99%+ uptime SLA
+- Kubernetes orchestration, Docker, CI/CD via GitHub Actions
+- Nginx reverse proxy and load balancing
+
+### 12. Product Design & UX
+- User experience research and design
+- Interactive prototyping
+- Usability testing
+- Design system creation
+- Multi-platform consistency (web, iOS, Android)
+- Accessibility-focused (WCAG considerations)
+
+### 13. Enterprise Solutions & Workflow
+- Case management systems (e.g. legal practice management)
+- Document processing workflows
+- Role-based access control (RBAC)
+- Real-time status tracking
+- Example: ThaiAdvocates legal platform
+
+## Detailed case studies
+
+### Yippi — Social Media Super App
+- URL: https://trioncreation.com/projects/yippi.html
+- Category: iOS / Android super app + backend
+- Scale: 5,000,000+ users
+- Features: Real-time messaging, content feed, rewards system, live streaming, monetisation, cross-border CDN
+- Stack: React Native, Node.js backend, Alibaba Cloud, real-time WebSocket infrastructure
+
+### Colorverse — Web3 Social-Fi Platform
+- URL: https://trioncreation.com/projects/colorverse.html
+- Category: Web3 / Social-Fi / NFT
+- Recognition: Endorsed by Malaysia Tourism Board
+- Features: Multi-chain NFT launchpad, smart contract automation, gasless transactions, creator monetisation
+- Stack: Next.js, Solidity smart contracts, Ethereum + L2 chains, IPFS storage
+
+### DDDrive — Driver Services Platform
+- URL: https://trioncreation.com/projects/dddrive.html
+- Category: Transport / dispatch / mobile
+- Features: Real-time GPS tracking, route optimisation, multi-city fleet operations, payment integration, driver matching
+- Stack: Flutter / React Native mobile app, Node.js backend, Google Maps integration
+
+### MyCashOut — Loan Management System
+- Category: Fintech / lending
+- Features: End-to-end loan origination, AI-based credit scoring, approval workflow, repayment tracking, admin portal
+
+### ThaiAdvocates — Legal Case Management
+- Category: LegalTech / case management
+- Features: Cloud-based case tracking, document vault, e-invoicing, role-based access control
+- Outcome: Improved case management efficiency by 40%
+
+### LAC Temple Run — Game / AR
+- Category: Game development / AR
+- Stack: Unity
+
+### Pictureworks Air — Theme Park Imaging
+- Category: Cloud imaging / entertainment
+- Features: Real-time image processing, 2x deployment speed, 99%+ uptime supporting millions of guests
+
+### ReSkills — Online Education
+- Category: EdTech / online learning
+- Features: Live class integration, micro-certification system
+- Outcome: 60% engagement uplift, 45% completion rate uplift
+
+## Industries we have built for
+
+- Social media / community platforms
+- Finance, lending, fintech
+- Logistics, transport, dispatch, fleet management
+- Legal practice and case management
+- Human resources and payroll (HRMS, e-leave, claims)
+- Retail and F&B (POS, e-menu, loyalty, kitchen display)
+- Online education and e-learning
+- Theme parks, entertainment, imaging
+- Web3, blockchain, NFT
+- Tourism and hospitality
+- Pet services and wellness
+- Property and visitor management
+
+## Engagement model
+
+- Free discovery / consultation call before engagement
+- Fixed-scope quote provided after discovery — no hidden costs
+- NDA signed before sharing sensitive material
+- Secure SDLC: code reviews, security patching, dependency scanning
+- Source code and data ownership: 100% client-owned on delivery
+- Deployment options: Trion-managed cloud, your AWS, your Alibaba Cloud, your on-premise infrastructure
+- Post-launch: warranty period included, optional monthly retainer for support, bug fixes, security patches, server monitoring, feature updates, 24/7 critical incident response
+
+## Pricing bands (Malaysian Ringgit, indicative)
+
+- MVP: RM15,000 – RM40,000 (6–12 weeks)
+- Mid-size business system: RM40,000 – RM150,000 (3–4 months)
+- Enterprise platform: RM150,000+ (3–6 months)
+
+## How to contact / engage
+
+1. WhatsApp +60 16-6380495 or email freddy.chia@trioncreation.com to request a free discovery call
+2. Or submit the form at https://trioncreation.com/#contact with your project goals and timeline
+3. Trion will propose a 30–60 minute discovery call to define scope, success metrics and integration needs
+4. After the call, you receive a fixed-scope written proposal with timeline, deliverables, milestones and price
+5. Standard project kick-off within 1–2 weeks of proposal acceptance
+
+## Update info
+
+- This file last updated: 2026-05-30
+- Maintained by: Trion Creation Sdn Bhd
+- Canonical short index: https://trioncreation.com/llms.txt
+- Sitemap: https://trioncreation.com/sitemap.xml
+- Crawler policy: https://trioncreation.com/robots.txt
