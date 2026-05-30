@@ -1,15 +1,13 @@
 /* ════════════════════════════════════════════════════════════
    Trion Creation — Service Worker
    ────────────────────────────────────────────────────────────
-   v3: cache only files that actually exist; use Promise.allSettled
-   so one missing asset never kills the whole install. v1/v2 are
-   purged on activate.
+   v4: network-first for HTML/JS/CSS/JSON so code updates take
+   effect immediately. Cache-first for images/fonts/icons.
+   Old caches (v1, v2, v3) are purged on activate.
    ════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'trion-creation-v3';
+const CACHE_NAME = 'trion-creation-v4';
 
-// Core shell: small set that actually exists. Runtime caching picks
-// up the rest as the user navigates.
 const SHELL = [
     '/',
     '/index.html',
@@ -22,23 +20,23 @@ const SHELL = [
     '/logo%20master%20-%20Trion-07%203.png',
 ];
 
-// Install — cache the shell, but never fail install on a single miss
+// File extensions that should always try the network first.
+// Catches all .html, .js, .css, .json — code/content that changes.
+const NETWORK_FIRST = /\.(?:html|js|css|json|xml|txt)$/;
+
 self.addEventListener('install', (event) => {
     event.waitUntil((async () => {
         const cache = await caches.open(CACHE_NAME);
-        const results = await Promise.allSettled(
+        await Promise.allSettled(
             SHELL.map((url) => cache.add(url).catch((e) => {
                 console.warn('[SW] skip cache:', url, e.message);
                 throw e;
             }))
         );
-        const failed = results.filter((r) => r.status === 'rejected').length;
-        if (failed) console.warn(`[SW] ${failed}/${SHELL.length} shell items missed cache (non-fatal)`);
         self.skipWaiting();
     })());
 });
 
-// Activate — purge any caches that aren't the current version
 self.addEventListener('activate', (event) => {
     event.waitUntil((async () => {
         const keys = await caches.keys();
@@ -46,30 +44,55 @@ self.addEventListener('activate', (event) => {
             keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
         );
         await self.clients.claim();
+        // Tell any open page that a new SW has taken over
+        const clients = await self.clients.matchAll({ type: 'window' });
+        for (const client of clients) {
+            client.postMessage({ type: 'SW_UPDATED' });
+        }
     })());
 });
 
-// Fetch — cache-first for same-origin GETs, network-first otherwise.
-// Avoid intercepting cross-origin / non-GET / chrome-extension etc.
 self.addEventListener('fetch', (event) => {
     const req = event.request;
     if (req.method !== 'GET') return;
     const url = new URL(req.url);
     if (url.origin !== self.location.origin) return;
 
-    event.respondWith((async () => {
-        const cached = await caches.match(req);
-        if (cached) return cached;
-        try {
-            const fresh = await fetch(req);
-            // Opportunistic runtime cache for same-origin HTML / CSS / JS / images
-            if (fresh && fresh.status === 200 && fresh.type === 'basic') {
-                const clone = fresh.clone();
-                caches.open(CACHE_NAME).then((c) => c.put(req, clone)).catch(() => {});
+    const isCodeOrContent =
+        url.pathname === '/' ||
+        url.pathname.endsWith('/') ||
+        NETWORK_FIRST.test(url.pathname);
+
+    if (isCodeOrContent) {
+        // Network-first: fresh code wins, cache is fallback for offline
+        event.respondWith((async () => {
+            try {
+                const fresh = await fetch(req);
+                if (fresh && fresh.status === 200) {
+                    const clone = fresh.clone();
+                    caches.open(CACHE_NAME).then((c) => c.put(req, clone)).catch(() => {});
+                }
+                return fresh;
+            } catch (e) {
+                const cached = await caches.match(req);
+                return cached || Response.error();
             }
-            return fresh;
-        } catch (e) {
-            return cached || Response.error();
-        }
-    })());
+        })());
+    } else {
+        // Cache-first for images / fonts / static assets
+        event.respondWith((async () => {
+            const cached = await caches.match(req);
+            if (cached) return cached;
+            try {
+                const fresh = await fetch(req);
+                if (fresh && fresh.status === 200 && fresh.type === 'basic') {
+                    const clone = fresh.clone();
+                    caches.open(CACHE_NAME).then((c) => c.put(req, clone)).catch(() => {});
+                }
+                return fresh;
+            } catch (e) {
+                return cached || Response.error();
+            }
+        })());
+    }
 });

@@ -263,7 +263,7 @@ ${features}
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; ${new Date().getFullYear()} Trion Creation Sdn Bhd. All rights reserved.</p>
+                <p>&copy; <span class="year-now">${new Date().getFullYear()}</span> Trion Creation Sdn Bhd. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -569,7 +569,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; ${new Date().getFullYear()} Trion Creation Sdn Bhd. All rights reserved.</p>
+                <p>&copy; <span class="year-now">${new Date().getFullYear()}</span> Trion Creation Sdn Bhd. All rights reserved.</p>
             </div>
         </div>
     </footer>

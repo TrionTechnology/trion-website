@@ -8,7 +8,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initScrollAnimations();
     initMobileMenu();
+    initFooterYear();
 });
+
+// Auto-update the copyright year — fills any <span class="year-now">
+// and also rewrites any hardcoded 20XX year inside .footer-bottom p
+// as a safety net for older static pages.
+function initFooterYear() {
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.year-now').forEach((el) => {
+        el.textContent = year;
+    });
+    document.querySelectorAll('.footer-bottom p').forEach((el) => {
+        if (!/\b20\d{2}\b/.test(el.textContent)) return;
+        el.innerHTML = el.innerHTML.replace(/\b20\d{2}\b/, String(year));
+    });
+}
 
 // Tab Navigation System
 function initTabNavigation() {
@@ -463,15 +478,25 @@ window.addEventListener('error', function(e) {
     // You can add error reporting here
 });
 
-// Service Worker registration (for PWA capabilities)
+// Service Worker registration — auto-reload once when a new SW takes over
+// so cached old code doesn't keep running after a deploy.
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful');
-            })
-            .catch(function(err) {
-                console.log('ServiceWorker registration failed');
-            });
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'SW_UPDATED' && !reloaded) {
+            reloaded = true;
+            window.location.reload();
+        }
+    });
+    // Also reload when the controlling SW changes (e.g. on first install)
+    let firstControl = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (firstControl && !reloaded) {
+            reloaded = true;
+            window.location.reload();
+        }
     });
 }
