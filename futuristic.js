@@ -218,42 +218,152 @@
         requestAnimationFrame(frame);
     }
 
-    /* ─────────── 2. SOFT HOLOGRAPHIC CURSOR ─────────── */
+    /* ─────────── 2. HOLOGRAPHIC CURSOR SYSTEM ───────────
+       — snappy core dot
+       — lazy ring with velocity-driven stretch + rotation
+       — 4 trail dots with increasing lag
+       — contextual mode label per element type
+       — click-ping ripple
+       All transform-only. No backdrop-filter / blend-mode. */
     function initHoloCursor() {
         if (window.matchMedia('(hover: none)').matches) return;
-        const ring = document.createElement('div');
-        ring.className = 'holo-cursor';
-        const dot = document.createElement('div');
-        dot.className = 'holo-cursor-dot';
+
+        const ring  = document.createElement('div'); ring.className  = 'holo-cursor';
+        const dot   = document.createElement('div'); dot.className   = 'holo-cursor-dot';
+        const label = document.createElement('div'); label.className = 'cursor-label';
+
+        const trails = [];
+        for (let i = 0; i < 4; i++) {
+            const t = document.createElement('div');
+            t.className = 'cursor-trail-dot';
+            const size = 6 - i * 1.1;
+            t.style.width  = size + 'px';
+            t.style.height = size + 'px';
+            t.style.opacity = (0.75 - i * 0.15).toFixed(2);
+            document.body.appendChild(t);
+            trails.push({ el: t, x: window.innerWidth / 2, y: window.innerHeight / 2, rate: 0.36 - i * 0.07 });
+        }
+
         document.body.appendChild(ring);
         document.body.appendChild(dot);
+        document.body.appendChild(label);
 
         let mx = window.innerWidth / 2, my = window.innerHeight / 2;
         let rx = mx, ry = my;
         let dx = mx, dy = my;
+        let prevX = dx, prevY = dy;
+        let vx = 0, vy = 0;
+        let smoothAngle = 0;
 
         window.addEventListener('mousemove', (e) => {
             mx = e.clientX; my = e.clientY;
         }, { passive: true });
 
+        // Click ping ripple — one DOM node per click, auto-cleaned
+        window.addEventListener('mousedown', (e) => {
+            const ping = document.createElement('div');
+            ping.className = 'cursor-ping';
+            ping.style.left = e.clientX + 'px';
+            ping.style.top  = e.clientY + 'px';
+            document.body.appendChild(ping);
+            // Force reflow before adding the animation class
+            void ping.offsetWidth;
+            ping.classList.add('go');
+            setTimeout(() => ping.remove(), 700);
+        });
+
         function tickCursor() {
-            // Two-stage follow — dot snappy, ring lazy
+            // Snappy core
             dx = lerp(dx, mx, 0.42);
             dy = lerp(dy, my, 0.42);
+
+            // Velocity from smoothed positions
+            const newVx = dx - prevX;
+            const newVy = dy - prevY;
+            vx = lerp(vx, newVx, 0.22);
+            vy = lerp(vy, newVy, 0.22);
+            prevX = dx; prevY = dy;
+
+            const speed = Math.hypot(vx, vy);
+
+            // Lazy ring with velocity-driven stretch + rotation (only when moving)
             rx = lerp(rx, mx, 0.13);
             ry = lerp(ry, my, 0.13);
+            if (speed > 1.5) {
+                const stretch = clamp(1 + speed * 0.05, 1, 1.9);
+                const inv = 1 / Math.sqrt(stretch);
+                const angle = Math.atan2(vy, vx) * 180 / Math.PI;
+                // Smooth the angle change a bit to avoid jitter near rest
+                smoothAngle = lerp(smoothAngle, angle, 0.4);
+                ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) rotate(${smoothAngle}deg) scaleX(${stretch}) scaleY(${inv})`;
+            } else {
+                ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+            }
+
             dot.style.transform = `translate3d(${dx}px, ${dy}px, 0) translate(-50%, -50%)`;
-            ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+
+            // Trail dots
+            for (let i = 0; i < trails.length; i++) {
+                const t = trails[i];
+                t.x = lerp(t.x, mx, t.rate);
+                t.y = lerp(t.y, my, t.rate);
+                t.el.style.transform = `translate3d(${t.x}px, ${t.y}px, 0) translate(-50%, -50%)`;
+            }
+
+            // Label trails offset bottom-right of cursor
+            label.style.transform = `translate3d(${dx + 22}px, ${dy + 18}px, 0)`;
+
             requestAnimationFrame(tickCursor);
         }
         tickCursor();
 
-        const hoverable = 'a, button, .btn, .filter-btn, .nav-link, .feature-card, .service-card, .portfolio-item, .partnership-card, .achievement-card, .tech-category, .testimonial-card, .faq-item, .social-link, .whatsapp-button, input, select, textarea, .stat, .contact-method, .example-tag, .tech-tag, .tag';
+        // ── Contextual mode labels ──
+        // First match wins, so order matters (more specific selectors first)
+        const modes = [
+            { sel: 'a[href*="wa.me"], a[href*="api.whatsapp"]',    text: 'WHATSAPP' },
+            { sel: 'a[href^="mailto:"]',                             text: 'EMAIL' },
+            { sel: 'a[href^="tel:"]',                                text: 'CALL' },
+            { sel: 'a[target="_blank"]',                             text: 'OPEN ↗' },
+            { sel: '.faq-item summary',                              text: 'EXPAND' },
+            { sel: 'input, textarea, select',                        text: 'TYPE' },
+            { sel: '.filter-btn',                                    text: 'FILTER' },
+            { sel: '.btn-primary',                                   text: 'CLICK' },
+            { sel: '.btn, button, [role=button]',                    text: 'CLICK' },
+            { sel: '.nav-link',                                      text: 'NAVIGATE' },
+            { sel: '.feature-card, .service-card, .partnership-card, .achievement-card, .tech-category, .testimonial-card', text: 'EXPLORE' },
+            { sel: '.portfolio-item',                                text: 'VIEW' },
+            { sel: '.contact-method',                                text: 'OPEN ↗' },
+            { sel: '.social-link',                                   text: 'OPEN ↗' },
+            { sel: '.whatsapp-button',                               text: 'WHATSAPP' },
+            { sel: 'a',                                              text: 'GO' },
+        ];
+        const allHoverableSelector = modes.map((m) => m.sel).join(',');
+
+        function modeFor(target) {
+            for (const m of modes) {
+                if (target.closest && target.closest(m.sel)) return m;
+            }
+            return null;
+        }
+
         document.addEventListener('mouseover', (e) => {
-            if (e.target.closest(hoverable)) ring.classList.add('active');
+            const m = modeFor(e.target);
+            if (m) {
+                ring.classList.add('active');
+                label.textContent = m.text;
+                label.classList.add('show');
+            }
         });
         document.addEventListener('mouseout', (e) => {
-            if (e.target.closest(hoverable)) ring.classList.remove('active');
+            if (!e.target.closest) return;
+            if (e.target.closest(allHoverableSelector)) {
+                // only hide if we're truly leaving (relatedTarget not also hoverable)
+                const rt = e.relatedTarget;
+                if (!rt || !rt.closest || !rt.closest(allHoverableSelector)) {
+                    ring.classList.remove('active');
+                    label.classList.remove('show');
+                }
+            }
         });
     }
 
