@@ -1222,6 +1222,14 @@ a:hover { color: var(--holo-mint); }
     align-items: center;
     gap: var(--space-5);
     padding: var(--space-5);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+.contact-method:hover {
+    border-color: var(--holo-cyan);
+    box-shadow: var(--shadow-lg), var(--glow-soft);
 }
 .contact-icon {
     width: 52px;
@@ -1234,9 +1242,33 @@ a:hover { color: var(--holo-mint); }
     align-items: center;
     justify-content: center;
     box-shadow: var(--glow-cyan);
+    transition: transform var(--transition-normal);
 }
+.contact-method:hover .contact-icon { transform: scale(1.08) rotate(-3deg); }
+.contact-text { flex: 1; min-width: 0; }
 .contact-method h4 { color: var(--text-100); margin: 0 0 var(--space-1); font-size: 0.95rem; }
-.contact-method p { color: var(--text-300); margin: 0; font-size: 0.92rem; font-family: var(--font-mono); }
+.contact-method p {
+    color: var(--text-300);
+    margin: 0;
+    font-size: 0.92rem;
+    font-family: var(--font-mono);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.contact-arrow {
+    color: var(--holo-cyan);
+    font-size: 1.4rem;
+    font-family: var(--font-mono);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+    flex-shrink: 0;
+}
+.contact-method:hover .contact-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .contact-form-section {
     padding: var(--space-10);
