@@ -1,0 +1,366 @@
+[
+    {
+        "slug": "social-media-super-app",
+        "title": "Social Media Super App",
+        "category": "mobileweb",
+        "categoryLabel": "Mobile & Web Apps",
+        "tagline": "Multi-feature community platforms with messaging, content feed, rewards and monetization.",
+        "longDescription": "A full-featured social super app: real-time messaging, content feed, short video, live streaming, creator monetization, in-app payments, rewards and discovery. Engineered to scale to millions of concurrent users with cross-border CDN and real-time backend.",
+        "gradient": "linear-gradient(135deg, #2F66FF 0%, #1a3db5 100%)",
+        "accent": "#2F66FF",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"2\"/><path d=\"M12 18h.01\"/></svg>",
+        "stats": [
+            { "number": "5M+",   "label": "Users Served" },
+            { "number": "50K+",  "label": "Concurrent Live" },
+            { "number": "99.9%", "label": "Uptime SLA" }
+        ],
+        "features": [
+            { "title": "Real-time Messaging",     "desc": "1-on-1 and group chat with media, voice notes, read receipts and push notifications via WebSocket." },
+            { "title": "Content Feed & Discovery","desc": "Personalised feed, hashtags, trending, follow graph and recommendation engine." },
+            { "title": "Live Streaming",          "desc": "Cross-border live streaming with low-latency transcoding, gifts, comments and recording." },
+            { "title": "Creator Monetization",    "desc": "Tipping, paid subscriptions, in-app purchases, virtual goods, withdrawal and KYC." },
+            { "title": "Rewards & Tasks",         "desc": "Daily login, referral, badges, leaderboards and a tokenized rewards economy." },
+            { "title": "Cross-border CDN",        "desc": "Edge caching, regional failover and adaptive streaming for users worldwide." }
+        ],
+        "techStack": ["React Native", "Node.js", "WebSocket", "PostgreSQL", "Redis", "Alibaba Cloud CDN", "FFmpeg", "Stripe"],
+        "useCases": ["Niche social communities", "Creator-led platforms", "Live streaming apps", "Regional super apps", "Web3 social platforms"],
+        "industries": ["Social Media", "Entertainment", "Creator Economy", "Live Streaming", "Web3"],
+        "tags": ["iOS / Android", "Backend/API", "Real-time"]
+    },
+    {
+        "slug": "loan-management-platform",
+        "title": "Loan Management System",
+        "category": "fintech",
+        "categoryLabel": "Finance & Loan",
+        "tagline": "End-to-end loan origination, credit scoring, approval workflow and repayment tracking.",
+        "longDescription": "Production-grade loan management built for lenders, fintechs and micro-finance operators. Borrower onboarding, eKYC, AI credit scoring, approval workflow, disbursement, repayment and collections — with a full admin portal and regulatory reporting.",
+        "gradient": "linear-gradient(135deg, #00a870 0%, #005f3e 100%)",
+        "accent": "#00d4a8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"/><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "<3min",  "label": "Application to Decision" },
+            { "number": "100%",   "label": "Audit Trail Coverage" },
+            { "number": "24/7",   "label": "Approval Automation" }
+        ],
+        "features": [
+            { "title": "Application Portal",      "desc": "Borrower onboarding with eKYC, document upload, OCR and instant eligibility checks." },
+            { "title": "AI Credit Scoring",       "desc": "Rules + machine-learning scoring with credit bureau integration and customisable risk policies." },
+            { "title": "Approval Workflow",       "desc": "Multi-tier approval, exception handling, role-based access and full audit log." },
+            { "title": "Disbursement",            "desc": "Bank transfer integration, FPX/DuitNow, scheduled payouts, currency control." },
+            { "title": "Repayment & Collections", "desc": "Schedule generation, automated reminders (SMS/email/WhatsApp), online repayment, NPL tracking." },
+            { "title": "Admin Dashboard",         "desc": "Real-time portfolio health, NPL ratios, collection KPIs and regulatory reports." }
+        ],
+        "techStack": ["Laravel", "PostgreSQL", "Redis", "AWS", "iPay88", "Twilio", "OCR / OpenAI"],
+        "useCases": ["Personal loan products", "SME lending", "BNPL platforms", "Micro-finance", "P2P lending"],
+        "industries": ["Fintech", "Lending", "Banking", "Micro-finance"],
+        "tags": ["AI Credit Scoring", "Admin Portal", "Workflow"]
+    },
+    {
+        "slug": "driver-transport-platform",
+        "title": "Driver & Transport Platform",
+        "category": "mobileweb",
+        "categoryLabel": "Mobile & Web Apps",
+        "tagline": "Real-time dispatch, GPS tracking, route optimization and multi-city fleet operations.",
+        "longDescription": "A complete ride-hailing / driver-for-hire / transport platform. Real-time GPS tracking, driver matching, route optimisation, dynamic pricing, in-app payments, ratings and a fleet admin console with city-level operations control.",
+        "gradient": "linear-gradient(135deg, #ff6b35 0%, #c2410c 100%)",
+        "accent": "#ff8a4c",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20\"/></svg>",
+        "stats": [
+            { "number": "<2s",  "label": "Driver Match Time" },
+            { "number": "10+",  "label": "Cities Supported" },
+            { "number": "24/7", "label": "Live Dispatch" }
+        ],
+        "features": [
+            { "title": "Real-time GPS Tracking",  "desc": "Live driver and trip tracking on map with smooth interpolation and offline tolerance." },
+            { "title": "Driver Matching",         "desc": "Geo-spatial driver matching with surge pricing, ETA estimation and re-assignment logic." },
+            { "title": "Route Optimisation",      "desc": "Google Maps / Mapbox routing, multi-stop optimisation, traffic-aware ETAs." },
+            { "title": "In-app Payments",         "desc": "Cashless trips, multiple payment methods, in-app wallet, automatic driver settlement." },
+            { "title": "Driver App",              "desc": "Native driver app with online/offline mode, earnings, ratings, document upload." },
+            { "title": "Fleet Operations Console","desc": "Multi-city control, driver onboarding, KYC, payouts, disputes and dashboards." }
+        ],
+        "techStack": ["Flutter", "React Native", "Node.js", "PostgreSQL + PostGIS", "Redis", "Google Maps", "Stripe / iPay88"],
+        "useCases": ["Ride-hailing", "On-demand delivery", "Driver-for-hire", "Logistics dispatch", "Fleet operations"],
+        "industries": ["Transport", "Logistics", "Delivery", "Mobility"],
+        "tags": ["Live GPS", "Mobile App", "Payment"]
+    },
+    {
+        "slug": "hrms-payroll-system",
+        "title": "HRMS & Payroll System",
+        "category": "enterprise",
+        "categoryLabel": "Enterprise & ERP",
+        "tagline": "Attendance, leave, payroll, claims and employee self-service built for Malaysian compliance.",
+        "longDescription": "Complete HR and payroll management designed for Malaysian SMEs and enterprises. Attendance with mobile clock-in, leave with approval workflow, payroll with EPF/SOCSO/EIS/PCB calculations, expense claims, employee self-service portal and management dashboards.",
+        "gradient": "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+        "accent": "#a78bfa",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+        "stats": [
+            { "number": "100%", "label": "MY Compliance" },
+            { "number": "1-click", "label": "Payroll Run" },
+            { "number": "Mobile", "label": "Clock-in / Claims" }
+        ],
+        "features": [
+            { "title": "Attendance & Time",       "desc": "Mobile clock-in with geo-fencing, QR check-in, shift schedules and overtime tracking." },
+            { "title": "Leave Management",        "desc": "Multi-type leave with quotas, approval chains, calendars, leave-balance dashboards." },
+            { "title": "Payroll Processing",      "desc": "EPF, SOCSO, EIS, HRDF, PCB calculations, payslip PDF, bank file export, year-end forms." },
+            { "title": "Expense Claims",          "desc": "Receipt upload, OCR, multi-level approval, reimbursement integration, audit trail." },
+            { "title": "Employee Self-Service",   "desc": "View payslips, apply leave, submit claims, update profile and access training records." },
+            { "title": "Compliance Reports",      "desc": "Form E, EA, CP8D, statutory submissions and LHDN e-invoicing ready." }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS", "iPay88", "PDF generation", "OCR"],
+        "useCases": ["SMEs with 20-500 employees", "Multi-location operations", "F&B chains", "Logistics companies", "Professional services"],
+        "industries": ["Human Resources", "Professional Services", "Manufacturing", "Retail", "F&B"],
+        "tags": ["Payroll", "E-Leave", "Reports"]
+    },
+    {
+        "slug": "erp-business-suite",
+        "title": "ERP & Business Suite",
+        "category": "enterprise",
+        "categoryLabel": "Enterprise & ERP",
+        "tagline": "Unified inventory, finance, procurement and operations dashboard for SMEs & enterprises.",
+        "longDescription": "One unified ERP covering inventory, finance, procurement, sales, manufacturing and HR. Built on Odoo with custom modules — multi-company, multi-currency, multi-warehouse — and integrated with your accounting, e-commerce, payment and government e-invoicing systems.",
+        "gradient": "linear-gradient(135deg, #0ea5e9 0%, #075985 100%)",
+        "accent": "#38bdf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "Company / Currency" },
+            { "number": "Real-time", "label": "Inventory Sync" },
+            { "number": "LHDN", "label": "E-Invoice Ready" }
+        ],
+        "features": [
+            { "title": "Inventory & Warehouse",   "desc": "Multi-warehouse stock, lot/batch tracking, expiry, transfers, cycle counts and barcode scanning." },
+            { "title": "Finance & Accounting",    "desc": "GL, AR, AP, multi-currency, bank reconciliation, financial statements and audit trail." },
+            { "title": "Procurement",             "desc": "Vendor management, RFQ, purchase orders, goods receipt and three-way matching." },
+            { "title": "Sales & CRM",             "desc": "Quotations, sales orders, invoicing, customer portal and integrated CRM pipeline." },
+            { "title": "Manufacturing",           "desc": "BOM, work orders, MRP, routing, quality control and shop-floor data capture." },
+            { "title": "E-Invoice (LHDN)",        "desc": "Malaysian e-invoice integration with validation, archival and consolidated submission." }
+        ],
+        "techStack": ["Odoo", "Python", "PostgreSQL", "Nginx", "Docker", "MyInvois (LHDN)"],
+        "useCases": ["Multi-entity SMEs", "Wholesale distributors", "Light manufacturing", "Multi-outlet retail", "Service businesses"],
+        "industries": ["Manufacturing", "Wholesale", "Retail", "Distribution", "Services"],
+        "tags": ["Odoo", "Custom ERP", "Finance"]
+    },
+    {
+        "slug": "legal-case-management",
+        "title": "Legal Case Management",
+        "category": "operations",
+        "categoryLabel": "Operations & Management",
+        "tagline": "Cloud-based case tracking, document vault, invoicing and role-based access for law firms.",
+        "longDescription": "Practice management for law firms — case files, document vault, time tracking, trust accounts, invoicing, calendar, role-based access and client portal. Built for hybrid and distributed teams with cloud-first architecture and granular permissions.",
+        "gradient": "linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%)",
+        "accent": "#f87171",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"9\" y1=\"13\" x2=\"15\" y2=\"13\"/><line x1=\"9\" y1=\"17\" x2=\"15\" y2=\"17\"/></svg>",
+        "stats": [
+            { "number": "40%",  "label": "Efficiency Gain" },
+            { "number": "RBAC", "label": "Granular Access" },
+            { "number": "Cloud","label": "Anywhere Access" }
+        ],
+        "features": [
+            { "title": "Case Management",         "desc": "Full case file with parties, court dates, status, milestones and linked documents." },
+            { "title": "Document Vault",          "desc": "Secure document store with versioning, OCR search, access control and audit log." },
+            { "title": "Time Tracking",           "desc": "Billable hours by case and lawyer, with timesheet approval and invoice generation." },
+            { "title": "Invoicing & Trust",       "desc": "Itemised invoices, trust account management, retainers, statements and online payments." },
+            { "title": "Calendar & Reminders",    "desc": "Court dates, filing deadlines, auto-reminders, conflict checks across the firm." },
+            { "title": "Role-Based Access",       "desc": "Granular permissions per role, case and document — partners, associates, paralegals." }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS S3", "OCR", "Stripe / iPay88"],
+        "useCases": ["Boutique law firms", "Mid-size practices", "Legal consultants", "Cross-border legal teams", "Notarial / conveyancing"],
+        "industries": ["Legal", "Professional Services", "Consulting"],
+        "tags": ["Cloud", "E-Invoice", "RBAC"]
+    },
+    {
+        "slug": "project-management-suite",
+        "title": "Project Management Suite",
+        "category": "operations",
+        "categoryLabel": "Operations & Management",
+        "tagline": "Task, timeline, resource and budget management with live collaboration and reporting.",
+        "longDescription": "End-to-end project management — Kanban boards, Gantt timelines, resource allocation, budget tracking, client portal and real-time collaboration. Built for agencies, contractors and project-driven teams that need more than off-the-shelf SaaS.",
+        "gradient": "linear-gradient(135deg, #f59e0b 0%, #92400e 100%)",
+        "accent": "#fbbf24",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "Collaboration" },
+            { "number": "Gantt + Kanban", "label": "Dual View" },
+            { "number": "Multi-project", "label": "Portfolio View" }
+        ],
+        "features": [
+            { "title": "Tasks & Kanban",          "desc": "Drag-drop kanban with checklists, comments, attachments, dependencies and watchers." },
+            { "title": "Gantt Timeline",          "desc": "Interactive Gantt with milestones, critical path, baselines and progress tracking." },
+            { "title": "Resource Allocation",     "desc": "Capacity planning, utilisation reports, conflict detection and team workload balancing." },
+            { "title": "Budget & Time",           "desc": "Project budgets, cost categories, time logs, profitability by project and client." },
+            { "title": "Client Portal",           "desc": "External client view of progress, milestones, deliverables, comments and approvals." },
+            { "title": "Reports & Dashboards",    "desc": "Portfolio health, burn-down, velocity, profitability and custom dashboard widgets." }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Redis", "WebSocket", "AWS"],
+        "useCases": ["Digital agencies", "Construction firms", "Consulting", "Architecture & design", "Software teams"],
+        "industries": ["Agencies", "Construction", "Consulting", "Architecture", "Software"],
+        "tags": ["Kanban", "Timeline", "Reports"]
+    },
+    {
+        "slug": "feedback-bi-dashboard",
+        "title": "Feedback & BI Dashboard",
+        "category": "enterprise",
+        "categoryLabel": "Enterprise & ERP",
+        "tagline": "Customer feedback collection with Power BI analytics for real-time decision making.",
+        "longDescription": "Omni-channel feedback collection (QR, kiosk, SMS, email) fed into a Power BI / custom analytics layer. Sentiment analysis, NPS tracking, location-level dashboards, alerts on negative feedback and trend analysis across products, branches and time.",
+        "gradient": "linear-gradient(135deg, #0891b2 0%, #164e63 100%)",
+        "accent": "#22d3ee",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "Dashboard Refresh" },
+            { "number": "NPS + CSAT","label": "Built-in Metrics" },
+            { "number": "Sentiment", "label": "AI Analysis" }
+        ],
+        "features": [
+            { "title": "Multi-channel Capture",   "desc": "QR codes, kiosks, SMS, email, web — feedback flows into one unified pipeline." },
+            { "title": "Sentiment Analysis",      "desc": "NLP-driven sentiment + theme extraction so you see what customers care about." },
+            { "title": "Power BI Dashboards",     "desc": "Out-of-the-box dashboards plus customisable views with branch / product / period filters." },
+            { "title": "Alerts & Routing",        "desc": "Negative feedback triggers Slack / email / WhatsApp alerts to the right manager instantly." },
+            { "title": "NPS / CSAT Tracking",     "desc": "Industry-standard scoring with longitudinal trends and benchmark comparisons." },
+            { "title": "Closed-loop Workflow",    "desc": "Assign, follow up, resolve and report — turn complaints into measurable improvement." }
+        ],
+        "techStack": ["Power BI", "Node.js", "PostgreSQL", "OpenAI / NLP", "AWS", "Twilio"],
+        "useCases": ["Retail chains", "F&B operators", "Hospitals & clinics", "Hotels", "Service providers"],
+        "industries": ["Retail", "F&B", "Healthcare", "Hospitality", "Government Services"],
+        "tags": ["Power BI", "Survey", "Analytics"]
+    },
+    {
+        "slug": "pet-services-platform",
+        "title": "Pet Services Platform",
+        "category": "mobileweb",
+        "categoryLabel": "Mobile & Web Apps",
+        "tagline": "Booking, pet profiles, grooming, vet appointments and community marketplace.",
+        "longDescription": "A complete platform for the pet care economy — pet profiles, grooming and boarding bookings, vet appointment scheduling, e-commerce marketplace for food and supplies, community forum and loyalty programme. iOS, Android and web with provider apps for groomers and clinics.",
+        "gradient": "linear-gradient(135deg, #ec4899 0%, #831843 100%)",
+        "accent": "#f472b6",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"11\" cy=\"4\" r=\"2\"/><circle cx=\"18\" cy=\"8\" r=\"2\"/><circle cx=\"20\" cy=\"16\" r=\"2\"/><path d=\"M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z\"/></svg>",
+        "stats": [
+            { "number": "Multi-provider", "label": "Marketplace" },
+            { "number": "Booking + Shop", "label": "All-in-one" },
+            { "number": "iOS / Android",  "label": "+ Web" }
+        ],
+        "features": [
+            { "title": "Pet Profiles",            "desc": "Multiple pets per owner with medical records, vaccinations, allergies, photos and notes." },
+            { "title": "Grooming Bookings",       "desc": "Browse groomers, view availability, book by service, pre-pay, reminders and reviews." },
+            { "title": "Vet Appointments",        "desc": "Clinic listings, slot booking, video consults, prescriptions and follow-ups." },
+            { "title": "Marketplace",             "desc": "Pet food, supplies and accessories e-commerce with delivery integration." },
+            { "title": "Provider App",            "desc": "Groomers and clinics manage availability, bookings, customers and earnings." },
+            { "title": "Community & Loyalty",     "desc": "Owner community, articles, badges and a loyalty rewards programme." }
+        ],
+        "techStack": ["Flutter", "Node.js", "PostgreSQL", "Stripe", "AWS S3", "Twilio"],
+        "useCases": ["Pet care chains", "Vet clinic networks", "Pet retail brands", "Pet community platforms"],
+        "industries": ["Pet Care", "Veterinary", "Retail", "Marketplace"],
+        "tags": ["Booking", "Marketplace", "Mobile App"]
+    },
+    {
+        "slug": "wellness-booking-app",
+        "title": "Wellness & Booking App",
+        "category": "mobileweb",
+        "categoryLabel": "Mobile & Web Apps",
+        "tagline": "On-demand massage, spa and wellness booking with therapist matching and payments.",
+        "longDescription": "On-demand and scheduled wellness bookings — massage, spa, beauty, fitness, yoga and more. Customer app, therapist/practitioner app, business admin console, in-app payments, ratings, location-based matching and recurring bookings.",
+        "gradient": "linear-gradient(135deg, #10b981 0%, #064e3b 100%)",
+        "accent": "#34d399",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>",
+        "stats": [
+            { "number": "On-demand",   "label": "Or Scheduled" },
+            { "number": "GPS",         "label": "Therapist Matching" },
+            { "number": "In-app pay",  "label": "Cards + Wallet" }
+        ],
+        "features": [
+            { "title": "Service Catalogue",       "desc": "Configurable services with duration, pricing, prerequisites and category filters." },
+            { "title": "Therapist Matching",      "desc": "Match by skill, distance, rating and availability — manual or automated." },
+            { "title": "Bookings & Recurrence",   "desc": "One-off and recurring bookings, packages, cancellation rules and rescheduling." },
+            { "title": "In-app Payments",         "desc": "Cards, wallet, packages, tipping, automatic therapist settlement." },
+            { "title": "Therapist App",           "desc": "Schedule, navigation, customer notes, earnings, ratings, KYC and document upload." },
+            { "title": "Business Console",        "desc": "Multi-outlet admin, staff onboarding, payouts, performance reports." }
+        ],
+        "techStack": ["React Native", "Node.js", "PostgreSQL + PostGIS", "Stripe", "Twilio", "Google Maps"],
+        "useCases": ["On-demand massage", "Spa chains", "Beauty services", "Fitness coaching", "Yoga & wellness"],
+        "industries": ["Wellness", "Beauty", "Fitness", "Hospitality"],
+        "tags": ["On-Demand", "Payment", "Mobile App"]
+    },
+    {
+        "slug": "supplier-inventory-system",
+        "title": "Supplier & Inventory System",
+        "category": "operations",
+        "categoryLabel": "Operations & Management",
+        "tagline": "Stock tracking, purchase orders, supplier portal and multi-warehouse management.",
+        "longDescription": "Inventory and supplier management for distributors, e-commerce and multi-outlet retailers. Real-time stock across warehouses, purchase order workflows, supplier portal, barcode and lot tracking, demand forecasting and integrations with accounting and e-commerce.",
+        "gradient": "linear-gradient(135deg, #6366f1 0%, #312e81 100%)",
+        "accent": "#818cf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "Warehouse" },
+            { "number": "Barcode", "label": "+ Lot Tracking" },
+            { "number": "Real-time", "label": "Stock Sync" }
+        ],
+        "features": [
+            { "title": "Real-time Inventory",     "desc": "Stock across warehouses and outlets, instant updates, transfer workflows, cycle counts." },
+            { "title": "Purchase Orders",         "desc": "RFQ, PO generation, approval workflow, goods receipt and three-way matching." },
+            { "title": "Supplier Portal",         "desc": "Suppliers log in to view POs, confirm delivery, upload invoices and respond to RFQs." },
+            { "title": "Barcode & Lot Tracking",  "desc": "Barcode/QR scanning, batch and serial tracking, expiry alerts, FIFO/LIFO." },
+            { "title": "Demand Forecasting",      "desc": "Sales-driven reorder points, auto-PO triggers, seasonality and trend analysis." },
+            { "title": "Integrations",            "desc": "Sync with Shopify / WooCommerce / Lazada / Shopee / AutoCount / QuickBooks." }
+        ],
+        "techStack": ["Laravel", "Vue.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+        "useCases": ["Wholesale distributors", "E-commerce sellers", "Multi-outlet retail", "Pharmacy chains", "F&B central kitchens"],
+        "industries": ["Wholesale", "E-commerce", "Retail", "Pharmacy", "F&B"],
+        "tags": ["Inventory", "PO System", "Barcode"]
+    },
+    {
+        "slug": "visitor-management-system",
+        "title": "Visitor Management System",
+        "category": "operations",
+        "categoryLabel": "Operations & Management",
+        "tagline": "Digital check-in, QR passes, host notifications and security analytics for offices.",
+        "longDescription": "Modern visitor management for offices, factories, schools and condos. Pre-registration, digital check-in via kiosk or QR, automatic host notifications, badge printing, NDA signing, blocklist screening and security analytics with full audit trail.",
+        "gradient": "linear-gradient(135deg, #14b8a6 0%, #134e4a 100%)",
+        "accent": "#5eead4",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>",
+        "stats": [
+            { "number": "Touchless", "label": "QR Check-in" },
+            { "number": "Instant",   "label": "Host Notify" },
+            { "number": "Full",      "label": "Audit Trail" }
+        ],
+        "features": [
+            { "title": "Pre-registration",        "desc": "Invite visitors in advance with calendar integration, NDA pre-signing and pre-printed QR." },
+            { "title": "Kiosk Check-in",          "desc": "Tablet kiosk for self-check-in with ID scan, photo capture and badge printing." },
+            { "title": "Host Notifications",      "desc": "Instant WhatsApp / email / SMS / Slack notification to the host when their guest arrives." },
+            { "title": "NDA & Compliance",        "desc": "Digital NDA / safety briefing signing, retained per visit, audit-ready." },
+            { "title": "Blocklist & Watchlist",   "desc": "Block known names, flag VIPs, integrate with corporate security databases." },
+            { "title": "Security Analytics",      "desc": "Visit volume, peak times, average duration, repeat-visit patterns and incident logs." }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Twilio", "QR Code", "Docker"],
+        "useCases": ["Corporate offices", "Co-working spaces", "Factories & warehouses", "Schools", "Condominiums & gated communities"],
+        "industries": ["Corporate", "Manufacturing", "Education", "Property", "Government"],
+        "tags": ["QR Pass", "Kiosk", "Analytics"]
+    },
+    {
+        "slug": "fnb-retail-pos",
+        "title": "F&B & Retail POS",
+        "category": "retail",
+        "categoryLabel": "Retail & F&B",
+        "tagline": "Point of sale, kitchen display, table order, loyalty and e-menu for restaurants & retail.",
+        "longDescription": "Complete POS for restaurants and retail — multi-outlet, real-time inventory sync, kitchen display systems, QR table ordering, e-menu, customer loyalty, online ordering and integrated payment (cards, e-wallets, FPX, GrabPay, Boost, ShopeePay).",
+        "gradient": "linear-gradient(135deg, #f43f5e 0%, #881337 100%)",
+        "accent": "#fb7185",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"9\" cy=\"21\" r=\"1\"/><circle cx=\"20\" cy=\"21\" r=\"1\"/><path d=\"M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6\"/></svg>",
+        "stats": [
+            { "number": "Multi-outlet", "label": "Real-time Sync" },
+            { "number": "QR Order",     "label": "+ E-Menu" },
+            { "number": "All Payments", "label": "Cards / E-Wallet" }
+        ],
+        "features": [
+            { "title": "Tablet & Desktop POS",    "desc": "Fast tablet and desktop POS with split bills, table layout, modifiers and offline mode." },
+            { "title": "Kitchen Display (KDS)",   "desc": "Real-time order routing to kitchen stations with course timing and order status." },
+            { "title": "QR Table Ordering",       "desc": "Guests scan, browse e-menu, order, pay — no waiting, no staff bottleneck." },
+            { "title": "Inventory & Recipes",     "desc": "Ingredient-level stock control, recipe management, auto-deduction with sales." },
+            { "title": "Loyalty & E-Wallet",      "desc": "Member tiers, points, vouchers, push promos, integrated e-wallet for repeat business." },
+            { "title": "Payments",                "desc": "Cards, FPX, DuitNow QR, GrabPay, Boost, ShopeePay, TnG, cash, split tender." }
+        ],
+        "techStack": ["React", "Electron / Tablet", "Node.js", "PostgreSQL", "iPay88 / Razer / Stripe"],
+        "useCases": ["Restaurant chains", "Cafes & bubble tea", "Quick service restaurants", "Multi-outlet retail", "Hawker centres"],
+        "industries": ["F&B", "Retail", "Hospitality", "QSR"],
+        "tags": ["POS", "E-Menu", "Loyalty"]
+    }
+]
