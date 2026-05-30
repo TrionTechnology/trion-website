@@ -233,15 +233,15 @@
         const label = document.createElement('div'); label.className = 'cursor-label';
 
         const trails = [];
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             const t = document.createElement('div');
             t.className = 'cursor-trail-dot';
-            const size = 6 - i * 1.1;
+            const size = 6 - i * 1.3;
             t.style.width  = size + 'px';
             t.style.height = size + 'px';
-            t.style.opacity = (0.75 - i * 0.15).toFixed(2);
+            t.style.opacity = (0.7 - i * 0.18).toFixed(2);
             document.body.appendChild(t);
-            trails.push({ el: t, x: window.innerWidth / 2, y: window.innerHeight / 2, rate: 0.36 - i * 0.07 });
+            trails.push({ el: t, x: window.innerWidth / 2, y: window.innerHeight / 2, rate: 0.38 - i * 0.10 });
         }
 
         document.body.appendChild(ring);
@@ -272,10 +272,19 @@
             setTimeout(() => ping.remove(), 700);
         });
 
+        let lastWriteX = -9999, lastWriteY = -9999;
         function tickCursor() {
             // Snappy core
             dx = lerp(dx, mx, 0.42);
             dy = lerp(dy, my, 0.42);
+
+            // Skip per-frame writes when nothing has moved more than 0.3px
+            const moved = Math.abs(dx - lastWriteX) + Math.abs(dy - lastWriteY);
+            if (moved < 0.3) {
+                requestAnimationFrame(tickCursor);
+                return;
+            }
+            lastWriteX = dx; lastWriteY = dy;
 
             // Velocity from smoothed positions
             const newVx = dx - prevX;
@@ -293,7 +302,6 @@
                 const stretch = clamp(1 + speed * 0.05, 1, 1.9);
                 const inv = 1 / Math.sqrt(stretch);
                 const angle = Math.atan2(vy, vx) * 180 / Math.PI;
-                // Smooth the angle change a bit to avoid jitter near rest
                 smoothAngle = lerp(smoothAngle, angle, 0.4);
                 ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) rotate(${smoothAngle}deg) scaleX(${stretch}) scaleY(${inv})`;
             } else {
@@ -310,8 +318,10 @@
                 t.el.style.transform = `translate3d(${t.x}px, ${t.y}px, 0) translate(-50%, -50%)`;
             }
 
-            // Label trails offset bottom-right of cursor
-            label.style.transform = `translate3d(${dx + 22}px, ${dy + 18}px, 0)`;
+            // Only update label position if it's visible
+            if (label.classList.contains('show')) {
+                label.style.transform = `translate3d(${dx + 22}px, ${dy + 18}px, 0)`;
+            }
 
             requestAnimationFrame(tickCursor);
         }

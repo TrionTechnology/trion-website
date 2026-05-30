@@ -1685,18 +1685,35 @@ body.is-scrolling .feature-icon::after,
 body.is-scrolling .holo-progress-fill,
 body.is-scrolling .btn-primary,
 body.is-scrolling .nav-link.active,
-body.is-scrolling .reveal-3d-in {
+body.is-scrolling .reveal-3d-in,
+body.is-scrolling .pf-grid-floor,
+body.is-scrolling .pf-scanline,
+body.is-scrolling .tunnel-ring {
     animation-play-state: paused !important;
 }
 /* Kill hover transitions on cards while scrolling so brushing past
-   them doesn't trigger a 900ms transition mid-scroll */
+   them doesn't trigger a long transition mid-scroll */
 body.is-scrolling .feature-card,
 body.is-scrolling .service-card,
 body.is-scrolling .partnership-card,
 body.is-scrolling .achievement-card,
 body.is-scrolling .tech-category,
-body.is-scrolling .testimonial-card {
+body.is-scrolling .testimonial-card,
+body.is-scrolling .portfolio-item,
+body.is-scrolling .portfolio-image,
+body.is-scrolling .solution-card,
+body.is-scrolling .pf-feature-card,
+body.is-scrolling .tech-tag,
+body.is-scrolling .pf-tech-chip,
+body.is-scrolling .contact-method {
     transition: none !important;
+}
+
+/* Disable the mask-composite + mask-image on solution-card::after
+   during scroll — mask-image is one of the most expensive composite
+   operations and there are 13 of these visible on the portfolio tab */
+body.is-scrolling .solution-card::after {
+    display: none !important;
 }
 
 /* Strip the heavy hero-video compositing during scroll.
@@ -2275,12 +2292,13 @@ a.portfolio-item {
     color: inherit;
     aspect-ratio: 4/5;
 }
+/* Cheap hover — transform only (GPU), no box-shadow recompute */
 a.portfolio-item .portfolio-image {
-    transition: transform var(--transition-cinematic), box-shadow var(--transition-normal);
+    transition: transform 280ms cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
 }
 a.portfolio-item:hover .portfolio-image {
-    transform: scale(1.02) translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    transform: translate3d(0, -4px, 0);
 }
 
 /* ════════════════════════ UTILITIES ════════════════════════ */
