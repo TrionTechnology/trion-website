@@ -83,7 +83,7 @@
 
         function buildParticles() {
             const density = Math.min(1, (W * H) / (1920 * 1080));
-            const count = Math.floor(reducedMotion ? 40 : 180 * density);
+            const count = Math.floor(reducedMotion ? 30 : 110 * density);
             particles = new Array(count).fill(0).map(() => {
                 const z = Math.random();
                 const colorIdx = Math.random() < 0.04 ? 4 : Math.floor(Math.random() * 4);

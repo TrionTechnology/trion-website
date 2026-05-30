@@ -1,7 +1,14 @@
 /* ════════════════════════════════════════════════════════════
-   TRION SCROLL CINEMA — v2 (smooth, ambient, cinematic)
-   Inertial scroll · dampened scrub · gentle reveals · counters
-   3D card entrance · scroll-velocity FX · scroll-progress halo
+   TRION SCROLL CINEMA — v3 (Lenis-lite virtual scroll)
+   ────────────────────────────────────────────────────────────
+   The page content is translated by a single transform on a
+   wrapper. Body height matches the content so the native
+   scrollbar still works, anchor links still scroll, keyboard
+   nav still works — but every visible pixel is interpolated
+   toward the native scrollY value with a critically-damped
+   lerp. All scroll-driven effects subscribe to the same
+   `currentY` (the *displayed* position), so the scrub matches
+   what the eye sees exactly.
    ════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -10,7 +17,6 @@
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isTouch = window.matchMedia('(hover: none)').matches;
 
-    /* ──────────── core helpers ──────────── */
     const lerp = (a, b, t) => a + (b - a) * t;
     const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
     const smoothstep = (e0, e1, x) => {
@@ -18,66 +24,112 @@
         return t * t * (3 - 2 * t);
     };
     const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-    /* ──────────── inertial scroll bus ──────────── */
-    // We don't hijack scroll (that breaks anchors, accessibility, mobile feel).
-    // Instead we expose a *smoothed* scroll value that effects subscribe to,
-    // so spikes from trackpads / wheels don't propagate as jitter.
-    let rawY = window.scrollY;
-    let smoothY = rawY;
-    let smoothVel = 0;
-    let lastSmoothY = smoothY;
+    /* ──────────── shared smooth scroll bus ──────────── */
+    let displayY = window.scrollY;   // what the wrapper transform shows
+    let targetY = displayY;          // native scrollY
+    let velocityY = 0;
+    let lastDisplayY = displayY;
     let mouseSmoothX = window.innerWidth / 2;
     let mouseSmoothY = window.innerHeight / 2;
     let mouseTargetX = mouseSmoothX;
     let mouseTargetY = mouseSmoothY;
+    let isScrolling = false;
+    let scrollIdleTimer = null;
 
     const subs = [];
     const onTick = (fn) => subs.push(fn);
 
-    window.addEventListener('scroll', () => { rawY = window.scrollY; }, { passive: true });
+    window.addEventListener('scroll', () => {
+        targetY = window.scrollY;
+        if (!isScrolling) {
+            isScrolling = true;
+            document.body.classList.add('is-scrolling');
+        }
+        clearTimeout(scrollIdleTimer);
+        scrollIdleTimer = setTimeout(() => {
+            isScrolling = false;
+            document.body.classList.remove('is-scrolling');
+        }, 160);
+    }, { passive: true });
+
     window.addEventListener('mousemove', (e) => {
         mouseTargetX = e.clientX;
         mouseTargetY = e.clientY;
     }, { passive: true });
-    window.addEventListener('touchmove', (e) => {
-        if (e.touches[0]) { mouseTargetX = e.touches[0].clientX; mouseTargetY = e.touches[0].clientY; }
-    }, { passive: true });
 
+    /* ──────────── Lenis-lite wrapper ──────────── */
+    let wrapper = null;
+    function initSmoothWrapper() {
+        if (isTouch || reducedMotion) return false;
+        const main = document.querySelector('.main-content');
+        const footer = document.querySelector('.footer');
+        if (!main) return false;
+
+        wrapper = document.createElement('div');
+        wrapper.className = 'smooth-wrapper';
+        main.parentNode.insertBefore(wrapper, main);
+        wrapper.appendChild(main);
+        if (footer) wrapper.appendChild(footer);
+
+        // Make body tall enough that native scroll works
+        function syncHeight() {
+            const h = wrapper.offsetHeight;
+            document.body.style.height = h + 'px';
+        }
+        syncHeight();
+
+        // Re-sync on resize and on content mutations (Lottie loads, image decode, etc.)
+        const ro = new ResizeObserver(syncHeight);
+        ro.observe(wrapper);
+        window.addEventListener('load', syncHeight);
+
+        // Tab switches change content height dramatically
+        document.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', () => requestAnimationFrame(syncHeight));
+        });
+
+        return true;
+    }
+
+    /* ──────────── master rAF ──────────── */
     function tick() {
-        // Heavier damping — fewer spikes
-        smoothY = lerp(smoothY, rawY, 0.07);
-        if (Math.abs(smoothY - rawY) < 0.05) smoothY = rawY;
-        const instVel = smoothY - lastSmoothY;
-        smoothVel = lerp(smoothVel, instVel, 0.08);
-        lastSmoothY = smoothY;
+        // Two-tier lerp: feels heavier without being laggy
+        const lerpRate = isScrolling ? 0.10 : 0.18;
+        displayY = lerp(displayY, targetY, lerpRate);
+        if (Math.abs(displayY - targetY) < 0.08) displayY = targetY;
 
-        // Lazy ambient cursor (intentionally slow)
-        mouseSmoothX = lerp(mouseSmoothX, mouseTargetX, 0.06);
-        mouseSmoothY = lerp(mouseSmoothY, mouseTargetY, 0.06);
+        if (wrapper) {
+            wrapper.style.transform = `translate3d(0, ${-displayY}px, 0)`;
+        }
 
-        for (const fn of subs) fn(smoothY, smoothVel, mouseSmoothX, mouseSmoothY);
+        const instVel = displayY - lastDisplayY;
+        velocityY = lerp(velocityY, instVel, 0.10);
+        lastDisplayY = displayY;
+
+        mouseSmoothX = lerp(mouseSmoothX, mouseTargetX, 0.08);
+        mouseSmoothY = lerp(mouseSmoothY, mouseTargetY, 0.08);
+
+        for (const fn of subs) fn(displayY, velocityY, mouseSmoothX, mouseSmoothY);
+
         requestAnimationFrame(tick);
     }
 
-    /* ──────────── 1. Holographic scroll progress halo ──────────── */
+    /* ──────────── 1. Scroll-progress halo ──────────── */
     function initProgressBar() {
         const bar = document.createElement('div');
         bar.className = 'holo-progress';
         bar.innerHTML = '<div class="holo-progress-fill"></div>';
         document.body.appendChild(bar);
         const fill = bar.querySelector('.holo-progress-fill');
-        let p = 0, target = 0;
         onTick((y) => {
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            target = max > 0 ? clamp(y / max, 0, 1) : 0;
-            p = lerp(p, target, 0.15);
+            const max = (wrapper ? wrapper.offsetHeight : document.documentElement.scrollHeight) - window.innerHeight;
+            const p = max > 0 ? clamp(y / max, 0, 1) : 0;
             fill.style.transform = `scaleX(${p})`;
         });
     }
 
-    /* ──────────── 2. Pinned hero — dampened scrub ──────────── */
+    /* ──────────── 2. Hero pin — reads cached rect ──────────── */
     function initHeroPin() {
         const hero = document.querySelector('.hero-section');
         if (!hero) return;
@@ -86,38 +138,48 @@
         const stats = hero.querySelector('.hero-stats');
         const subtitle = hero.querySelector('.hero-subtitle');
 
-        // Heavily smoothed progress — magnitudes cut in half
+        // Cache hero offset so we don't call getBoundingClientRect per frame
+        let heroTop = 0;
+        let heroHeight = 0;
+        function measure() {
+            const r = hero.getBoundingClientRect();
+            heroTop = r.top + (wrapper ? displayY : window.scrollY);
+            heroHeight = r.height;
+        }
+        measure();
+        window.addEventListener('resize', measure);
+        window.addEventListener('load', measure);
+
         let progress = 0;
         onTick((y) => {
-            const rect = hero.getBoundingClientRect();
             const vh = window.innerHeight;
-            const target = clamp(-rect.top / (vh * 1.8), 0, 1); // even longer ramp
-            progress = lerp(progress, target, 0.07);
+            // Pin range: top of hero -> 1.8 viewports below
+            const target = clamp((y - heroTop) / (vh * 1.8), 0, 1);
+            progress = lerp(progress, target, 0.12);
 
             const p = smoothstep(0, 1, progress);
-            const fade = 1 - smoothstep(0.25, 1, progress);
+            const fade = 1 - smoothstep(0.30, 1, progress);
 
             if (text) {
-                text.style.transform = `translate3d(0, ${p * -20}px, 0)`;
+                text.style.transform = `translate3d(0, ${p * -18}px, 0)`;
                 text.style.opacity = fade;
-                // no blur — was the loudest spike
             }
             if (image) {
-                image.style.transform = `perspective(1400px) rotateY(${-4 + p * 3}deg) rotateX(${1 - p}deg) translate3d(0, ${p * 14}px, 0)`;
+                image.style.transform = `perspective(1400px) rotateY(${-3 + p * 3}deg) translate3d(0, ${p * 12}px, 0)`;
                 image.style.opacity = lerp(1, 0.85, p);
             }
             if (subtitle) {
-                subtitle.style.transform = `translate3d(${p * -14}px, 0, 0)`;
+                subtitle.style.transform = `translate3d(${p * -12}px, 0, 0)`;
                 subtitle.style.opacity = fade;
             }
             if (stats) {
-                stats.style.transform = `translate3d(0, ${p * 14}px, 0)`;
+                stats.style.transform = `translate3d(0, ${p * 12}px, 0)`;
                 stats.style.opacity = fade;
             }
         });
     }
 
-    /* ──────────── 3. Word-by-word reveal (gentle) ──────────── */
+    /* ──────────── 3. Word reveal ──────────── */
     function initWordReveal() {
         const selectors = [
             '.features-section h2',
@@ -160,13 +222,13 @@
                 if (e.isIntersecting) {
                     const words = e.target.querySelectorAll('.word-rev');
                     words.forEach((w, i) => {
-                        w.style.transitionDelay = `${i * 120}ms`;
+                        w.style.transitionDelay = `${i * 110}ms`;
                         requestAnimationFrame(() => w.classList.add('in'));
                     });
                     io.unobserve(e.target);
                 }
             }
-        }, { threshold: 0.2 });
+        }, { threshold: 0.18 });
         els.forEach((el) => io.observe(el));
     }
 
@@ -178,9 +240,9 @@
             const raw = el.textContent.trim();
             const m = raw.match(/([\d,]+(?:\.\d+)?)/);
             if (!m) return;
-            const targetNum = parseFloat(m[1].replace(/,/g, ''));
-            if (isNaN(targetNum)) return;
-            el.dataset.target = targetNum;
+            const t = parseFloat(m[1].replace(/,/g, ''));
+            if (isNaN(t)) return;
+            el.dataset.target = t;
             el.dataset.prefix = raw.slice(0, m.index);
             el.dataset.suffix = raw.slice(m.index + m[0].length);
             el.textContent = `${el.dataset.prefix}0${el.dataset.suffix}`;
@@ -210,14 +272,14 @@
         nums.forEach((el) => el.dataset.target && io.observe(el));
     }
 
-    /* ──────────── 5. Card entrance — gentler 3D float-up ──────────── */
+    /* ──────────── 5. Card entrance ──────────── */
     function initCardEntrance() {
         const grids = document.querySelectorAll('.features-grid, .services-grid, .portfolio-grid, .partnerships-grid, .testimonials-grid, .achievements-grid, .tech-stack-grid, .values-grid');
         grids.forEach((grid) => {
             Array.from(grid.children).forEach((card, i) => {
                 if (!card.classList.contains('reveal-3d')) {
                     card.classList.add('reveal-3d');
-                    card.style.transitionDelay = `${(i % 6) * 160}ms`;
+                    card.style.transitionDelay = `${(i % 6) * 140}ms`;
                 }
             });
         });
@@ -232,44 +294,18 @@
         document.querySelectorAll('.reveal-3d').forEach((el) => io.observe(el));
     }
 
-    /* ──────────── 6. Multi-layer parallax (smoothed) ──────────── */
-    function initSectionParallax() {
-        if (isTouch || reducedMotion) return;
-        const sections = document.querySelectorAll('.page-header.with-banner');
-        const layers = Array.from(sections).map((el) => ({
-            el,
-            speed: 0.18,
-            pos: 0,
-            target: 0,
-        }));
-        onTick(() => {
-            for (const l of layers) {
-                const rect = l.el.getBoundingClientRect();
-                const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-                l.target = -center * l.speed;
-                l.pos = lerp(l.pos, l.target, 0.12);
-                l.el.style.backgroundPositionY = `calc(50% + ${l.pos}px)`;
-            }
-        });
-    }
-
-    /* ──────────── 7. Canvas scroll-velocity reaction — DISABLED ────────────
-       Was a major spike source — even with smoothing it read as the canvas
-       "flashing" on fast scroll. Removed entirely; ambient motion is enough. */
-    function initCanvasScrollFx() {}
-
-    /* ──────────── 8. Ambient mouse-follow halo ──────────── */
+    /* ──────────── 6. Ambient halo (idle only) ──────────── */
     function initAmbientHalo() {
         if (isTouch || reducedMotion) return;
         const halo = document.createElement('div');
         halo.className = 'ambient-halo';
         document.body.appendChild(halo);
         onTick((_y, _v, mx, my) => {
-            halo.style.transform = `translate3d(${mx - 300}px, ${my - 300}px, 0)`;
+            halo.style.transform = `translate3d(${mx - 250}px, ${my - 250}px, 0)`;
         });
     }
 
-    /* ──────────── 9. Tab-switch cinematic reset ──────────── */
+    /* ──────────── 7. Tab hooks ──────────── */
     function initTabHooks() {
         document.querySelectorAll('.nav-link').forEach((link) => {
             link.addEventListener('click', () => {
@@ -278,6 +314,8 @@
                     document.querySelectorAll('.reveal-3d').forEach((c) => c.classList.remove('reveal-3d-in'));
                     initWordReveal();
                     initCardEntrance();
+                    // Snap virtual scroll to top on tab change (scripted scroll did this natively)
+                    requestAnimationFrame(() => { displayY = window.scrollY; });
                 }, 80);
             });
         });
@@ -285,13 +323,20 @@
 
     /* ──────────── INIT ──────────── */
     function start() {
+        // Disable browser scroll restoration jump so we control the start position
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+        initSmoothWrapper();
+        // Sync to current native scroll position so reload doesn't animate from 0
+        displayY = window.scrollY;
+        targetY = window.scrollY;
+        lastDisplayY = displayY;
+
         initProgressBar();
         if (!reducedMotion) initHeroPin();
         initWordReveal();
         initCounters();
         initCardEntrance();
-        initSectionParallax();
-        if (!reducedMotion) initCanvasScrollFx();
         initAmbientHalo();
         initTabHooks();
         requestAnimationFrame(tick);
