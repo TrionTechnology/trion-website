@@ -1,62 +1,75 @@
-// Service Worker for Trion Creation Website
-const CACHE_NAME = 'trion-creation-v1';
-const urlsToCache = [
+/* ════════════════════════════════════════════════════════════
+   Trion Creation — Service Worker
+   ────────────────────────────────────────────────────────────
+   v3: cache only files that actually exist; use Promise.allSettled
+   so one missing asset never kills the whole install. v1/v2 are
+   purged on activate.
+   ════════════════════════════════════════════════════════════ */
+
+const CACHE_NAME = 'trion-creation-v3';
+
+// Core shell: small set that actually exists. Runtime caching picks
+// up the rest as the user navigates.
+const SHELL = [
     '/',
     '/index.html',
     '/styles.css',
     '/script.js',
-    '/sw.js',
+    '/futuristic.js',
+    '/scroll.js',
     '/manifest.json',
-    '/logo.svg',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
-    'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80',
-    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
-    'https://images.unsplash.com/photo-1592478411213-6153e4c4a3e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80',
-    'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    '/trion-favicon.png',
+    '/logo%20master%20-%20Trion-07%203.png',
 ];
 
-// Install event
-self.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function(cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
-    );
+// Install — cache the shell, but never fail install on a single miss
+self.addEventListener('install', (event) => {
+    event.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+        const results = await Promise.allSettled(
+            SHELL.map((url) => cache.add(url).catch((e) => {
+                console.warn('[SW] skip cache:', url, e.message);
+                throw e;
+            }))
+        );
+        const failed = results.filter((r) => r.status === 'rejected').length;
+        if (failed) console.warn(`[SW] ${failed}/${SHELL.length} shell items missed cache (non-fatal)`);
+        self.skipWaiting();
+    })());
 });
 
-// Fetch event
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                // Return cached version or fetch from network
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
+// Activate — purge any caches that aren't the current version
+self.addEventListener('activate', (event) => {
+    event.waitUntil((async () => {
+        const keys = await caches.keys();
+        await Promise.all(
+            keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
+        );
+        await self.clients.claim();
+    })());
+});
+
+// Fetch — cache-first for same-origin GETs, network-first otherwise.
+// Avoid intercepting cross-origin / non-GET / chrome-extension etc.
+self.addEventListener('fetch', (event) => {
+    const req = event.request;
+    if (req.method !== 'GET') return;
+    const url = new URL(req.url);
+    if (url.origin !== self.location.origin) return;
+
+    event.respondWith((async () => {
+        const cached = await caches.match(req);
+        if (cached) return cached;
+        try {
+            const fresh = await fetch(req);
+            // Opportunistic runtime cache for same-origin HTML / CSS / JS / images
+            if (fresh && fresh.status === 200 && fresh.type === 'basic') {
+                const clone = fresh.clone();
+                caches.open(CACHE_NAME).then((c) => c.put(req, clone)).catch(() => {});
             }
-        )
-    );
-});
-
-// Activate event
-self.addEventListener('activate', function(event) {
-    event.waitUntil(
-        caches.keys().then(function(cacheNames) {
-            return Promise.all(
-                cacheNames.map(function(cacheName) {
-                    if (cacheName !== CACHE_NAME) {
-                        console.log('Deleting old cache:', cacheName);
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
-    );
+            return fresh;
+        } catch (e) {
+            return cached || Response.error();
+        }
+    })());
 });
