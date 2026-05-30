@@ -133,8 +133,9 @@
 
     /* ──────────── master rAF ──────────── */
     function tick() {
-        // Two-tier lerp: feels heavier without being laggy
-        const lerpRate = isScrolling ? 0.10 : 0.18;
+        // Tuned for responsiveness over butter — light smoothing only.
+        // Earlier rates (0.10) made the page lag ~130ms behind input.
+        const lerpRate = isScrolling ? 0.30 : 0.45;
         displayY = lerp(displayY, targetY, lerpRate);
         if (Math.abs(displayY - targetY) < 0.08) displayY = targetY;
 
