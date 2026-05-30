@@ -380,39 +380,6 @@ style.textContent = `
         background-color: rgba(255, 255, 255, 0.2);
     }
     
-    /* Mobile Navigation Styles */
-    @media (max-width: 768px) {
-        .nav-list {
-            position: fixed;
-            top: 80px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding-top: 40px;
-            transition: left 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-        }
-        
-        .nav-list.active {
-            left: 0;
-        }
-        
-        .nav-list li {
-            margin: 20px 0;
-        }
-        
-        .nav-link {
-            font-size: 18px;
-            padding: 10px 20px;
-        }
-    }
-    
     /* Loading states */
     .loading {
         opacity: 0.6;
