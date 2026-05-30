@@ -14,31 +14,42 @@ document.addEventListener('DOMContentLoaded', function() {
 function initTabNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const tabContents = document.querySelectorAll('.tab-content');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Remove active class from all nav links
-            navLinks.forEach(navLink => navLink.classList.remove('active'));
-            
-            // Add active class to clicked link
-            this.classList.add('active');
-            
-            // Hide all tab contents
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Show selected tab content
-            const targetTab = this.getAttribute('href').substring(1);
-            const targetContent = document.getElementById(targetTab);
-            
-            if (targetContent) {
-                targetContent.classList.add('active');
-                
-                // Scroll to top of page
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    function switchTab(tabId) {
+        const targetContent = document.getElementById(tabId);
+        if (!targetContent) return false;
+        navLinks.forEach((l) => l.classList.toggle('active',
+            (l.getAttribute('href') || '').replace(/^#/, '') === tabId));
+        tabContents.forEach((c) => c.classList.remove('active'));
+        targetContent.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return true;
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href') || '';
+            // Only intercept same-page hash links (e.g. "#about").
+            // Cross-page links like "../index.html#about" must navigate
+            // normally so they actually leave the page.
+            if (!href.startsWith('#')) return;
+            const tabId = href.slice(1);
+            if (switchTab(tabId)) {
+                e.preventDefault();
+                history.replaceState(null, '', '#' + tabId);
             }
         });
+    });
+
+    // On load, honour the URL hash so visitors landing on
+    // /index.html#services actually see the services tab.
+    if (location.hash) {
+        const tabId = location.hash.slice(1);
+        switchTab(tabId);
+    }
+    // Also handle back/forward hash changes
+    window.addEventListener('hashchange', () => {
+        if (location.hash) switchTab(location.hash.slice(1));
     });
 }
 
