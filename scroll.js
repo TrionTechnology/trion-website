@@ -312,9 +312,13 @@
         nums.forEach((el) => el.dataset.target && io.observe(el));
     }
 
-    /* ──────────── 5. Card entrance ──────────── */
+    /* ──────────── 5. Card entrance ────────────
+       Excludes .portfolio-grid intentionally: the portfolio cards are
+       hero content and should be visible immediately. The reveal-3d
+       opacity:0 starting state combined with IntersectionObserver math
+       inside the Lenis wrapper sometimes left side cards stuck blank. */
     function initCardEntrance() {
-        const grids = document.querySelectorAll('.features-grid, .services-grid, .portfolio-grid, .partnerships-grid, .testimonials-grid, .achievements-grid, .tech-stack-grid, .values-grid');
+        const grids = document.querySelectorAll('.features-grid, .services-grid, .partnerships-grid, .testimonials-grid, .achievements-grid, .tech-stack-grid, .values-grid');
         grids.forEach((grid) => {
             Array.from(grid.children).forEach((card, i) => {
                 if (!card.classList.contains('reveal-3d')) {
