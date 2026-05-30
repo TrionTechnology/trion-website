@@ -1438,34 +1438,34 @@ a:hover { color: var(--holo-mint); }
 }
 .whatsapp-button svg { width: 30px; height: 30px; fill: white; }
 
-/* Custom holographic cursor */
+/* Custom holographic cursor — cheap version (no backdrop-filter / blend modes
+   which were forcing the GPU to re-snapshot + invert + hue-rotate the area
+   behind the cursor every frame). Pure transform-only render now. */
 .holo-cursor {
     position: fixed;
+    top: 0; left: 0;
     width: 28px; height: 28px;
-    border: 1px solid var(--holo-cyan);
+    border: 1.5px solid var(--holo-cyan);
     border-radius: 50%;
     pointer-events: none;
     z-index: var(--z-cursor);
-    transform: translate(-50%, -50%);
-    transition: width 200ms ease, height 200ms ease, border-color 200ms ease, background 200ms ease;
-    backdrop-filter: invert(1) hue-rotate(180deg);
-    -webkit-backdrop-filter: invert(1) hue-rotate(180deg);
-    mix-blend-mode: difference;
+    will-change: transform;
+    box-shadow: 0 0 10px rgba(0,240,255,0.4);
 }
 .holo-cursor-dot {
     position: fixed;
-    width: 4px; height: 4px;
+    top: 0; left: 0;
+    width: 5px; height: 5px;
     background: var(--holo-cyan);
     border-radius: 50%;
     pointer-events: none;
     z-index: var(--z-cursor);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 12px var(--holo-cyan);
+    will-change: transform;
+    box-shadow: 0 0 8px var(--holo-cyan);
 }
 .holo-cursor.active {
-    width: 40px; height: 40px;
     border-color: var(--holo-violet);
-    background: rgba(123,91,255,0.05);
+    box-shadow: 0 0 14px rgba(123,91,255,0.55);
 }
 @media (hover: none), (max-width: 768px) {
     .holo-cursor, .holo-cursor-dot { display: none; }
@@ -1580,6 +1580,33 @@ body.is-scrolling .achievement-card,
 body.is-scrolling .tech-category,
 body.is-scrolling .testimonial-card {
     transition: none !important;
+}
+
+/* Strip the heavy hero-video compositing during scroll.
+   mix-blend-mode + hue-rotate filter on a video element forces the GPU
+   to re-process every frame the area below scrolls. We swap to a plain
+   low-opacity video while moving; visuals snap back at idle. */
+body.is-scrolling .hero-video-wrapper video,
+body.is-scrolling .hero-video-wrapper img {
+    mix-blend-mode: normal !important;
+    filter: none !important;
+    opacity: 0.10 !important;
+}
+body.is-scrolling .hero-image::before,
+body.is-scrolling .about-image::after,
+body.is-scrolling .service-image::after {
+    mix-blend-mode: normal !important;
+}
+/* Hide the ambient halo while scrolling — recomposites under everything */
+body.is-scrolling .ambient-halo {
+    opacity: 0 !important;
+}
+/* Pause the highlight gradient shift during scroll */
+body.is-scrolling .highlight,
+body.is-scrolling .holo-text,
+body.is-scrolling .stat-number,
+body.is-scrolling .achievement-number {
+    animation-play-state: paused !important;
 }
 
 /* ── Scroll progress halo ── */

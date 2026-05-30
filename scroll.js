@@ -40,17 +40,27 @@
     const subs = [];
     const onTick = (fn) => subs.push(fn);
 
+    // Lottie players are the single most expensive thing on the home page
+    // (each is an SVG animation rendered on the main thread). We pause them
+    // when scrolling starts and resume after idle.
+    let lotties = [];
+    function refreshLotties() {
+        lotties = Array.from(document.querySelectorAll('lottie-player'));
+    }
+
     window.addEventListener('scroll', () => {
         targetY = window.scrollY;
         if (!isScrolling) {
             isScrolling = true;
             document.body.classList.add('is-scrolling');
+            for (const p of lotties) { try { p.pause(); } catch (e) {} }
         }
         clearTimeout(scrollIdleTimer);
         scrollIdleTimer = setTimeout(() => {
             isScrolling = false;
             document.body.classList.remove('is-scrolling');
-        }, 160);
+            for (const p of lotties) { try { p.play(); } catch (e) {} }
+        }, 180);
     }, { passive: true });
 
     window.addEventListener('mousemove', (e) => {
@@ -325,6 +335,10 @@
     function start() {
         // Disable browser scroll restoration jump so we control the start position
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+        // Initial lottie scan + re-scan after window load (they upgrade async)
+        refreshLotties();
+        window.addEventListener('load', refreshLotties);
 
         initSmoothWrapper();
         // Sync to current native scroll position so reload doesn't animate from 0
