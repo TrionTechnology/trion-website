@@ -46,15 +46,16 @@
     }, { passive: true });
 
     function tick() {
-        // Soft critically-damped follow (smaller = smoother / more inertia)
-        smoothY = lerp(smoothY, rawY, 0.12);
+        // Heavier damping — fewer spikes
+        smoothY = lerp(smoothY, rawY, 0.07);
         if (Math.abs(smoothY - rawY) < 0.05) smoothY = rawY;
         const instVel = smoothY - lastSmoothY;
-        smoothVel = lerp(smoothVel, instVel, 0.15);
+        smoothVel = lerp(smoothVel, instVel, 0.08);
         lastSmoothY = smoothY;
 
-        mouseSmoothX = lerp(mouseSmoothX, mouseTargetX, 0.10);
-        mouseSmoothY = lerp(mouseSmoothY, mouseTargetY, 0.10);
+        // Lazy ambient cursor (intentionally slow)
+        mouseSmoothX = lerp(mouseSmoothX, mouseTargetX, 0.06);
+        mouseSmoothY = lerp(mouseSmoothY, mouseTargetY, 0.06);
 
         for (const fn of subs) fn(smoothY, smoothVel, mouseSmoothX, mouseSmoothY);
         requestAnimationFrame(tick);
@@ -85,33 +86,32 @@
         const stats = hero.querySelector('.hero-stats');
         const subtitle = hero.querySelector('.hero-subtitle');
 
-        // Smoothed progress — never spikes
+        // Heavily smoothed progress — magnitudes cut in half
         let progress = 0;
         onTick((y) => {
             const rect = hero.getBoundingClientRect();
             const vh = window.innerHeight;
-            const target = clamp(-rect.top / (vh * 1.4), 0, 1); // longer scrub distance
-            progress = lerp(progress, target, 0.12);
+            const target = clamp(-rect.top / (vh * 1.8), 0, 1); // even longer ramp
+            progress = lerp(progress, target, 0.07);
 
-            // Easing — smoothstep takes the bite off both ends
             const p = smoothstep(0, 1, progress);
-            const fade = 1 - smoothstep(0.15, 0.95, progress);
+            const fade = 1 - smoothstep(0.25, 1, progress);
 
             if (text) {
-                text.style.transform = `translate3d(0, ${p * -40}px, 0) scale(${1 - p * 0.04})`;
+                text.style.transform = `translate3d(0, ${p * -20}px, 0)`;
                 text.style.opacity = fade;
-                text.style.filter = `blur(${p * 6}px)`;
+                // no blur — was the loudest spike
             }
             if (image) {
-                image.style.transform = `perspective(1400px) rotateY(${-5 + p * 5}deg) rotateX(${2 - p * 2}deg) translate3d(0, ${p * 24}px, 0) scale(${1 + p * 0.05})`;
-                image.style.opacity = lerp(1, 0.7, p);
+                image.style.transform = `perspective(1400px) rotateY(${-4 + p * 3}deg) rotateX(${1 - p}deg) translate3d(0, ${p * 14}px, 0)`;
+                image.style.opacity = lerp(1, 0.85, p);
             }
             if (subtitle) {
-                subtitle.style.transform = `translate3d(${p * -28}px, 0, 0)`;
+                subtitle.style.transform = `translate3d(${p * -14}px, 0, 0)`;
                 subtitle.style.opacity = fade;
             }
             if (stats) {
-                stats.style.transform = `translate3d(0, ${p * 24}px, 0)`;
+                stats.style.transform = `translate3d(0, ${p * 14}px, 0)`;
                 stats.style.opacity = fade;
             }
         });
@@ -160,8 +160,7 @@
                 if (e.isIntersecting) {
                     const words = e.target.querySelectorAll('.word-rev');
                     words.forEach((w, i) => {
-                        // Gentler stagger — 80ms per word instead of 50
-                        w.style.transitionDelay = `${i * 80}ms`;
+                        w.style.transitionDelay = `${i * 120}ms`;
                         requestAnimationFrame(() => w.classList.add('in'));
                     });
                     io.unobserve(e.target);
@@ -218,7 +217,7 @@
             Array.from(grid.children).forEach((card, i) => {
                 if (!card.classList.contains('reveal-3d')) {
                     card.classList.add('reveal-3d');
-                    card.style.transitionDelay = `${(i % 6) * 120}ms`;
+                    card.style.transitionDelay = `${(i % 6) * 160}ms`;
                 }
             });
         });
@@ -254,22 +253,10 @@
         });
     }
 
-    /* ──────────── 7. Scroll-velocity reactive canvas (soft) ──────────── */
-    function initCanvasScrollFx() {
-        const canvas = document.getElementById('trion-canvas');
-        if (!canvas) return;
-        let smoothed = 0;
-        onTick((_y, v) => {
-            const target = clamp(Math.abs(v) / 60, 0, 1);
-            smoothed = lerp(smoothed, target, 0.08);
-            const hue = smoothed * 22;
-            const sat = 1 + smoothed * 0.25;
-            const blur = smoothed * 0.8;
-            const scale = 1 + smoothed * 0.018;
-            canvas.style.filter = `hue-rotate(${hue}deg) saturate(${sat}) blur(${blur}px)`;
-            canvas.style.transform = `scale(${scale})`;
-        });
-    }
+    /* ──────────── 7. Canvas scroll-velocity reaction — DISABLED ────────────
+       Was a major spike source — even with smoothing it read as the canvas
+       "flashing" on fast scroll. Removed entirely; ambient motion is enough. */
+    function initCanvasScrollFx() {}
 
     /* ──────────── 8. Ambient mouse-follow halo ──────────── */
     function initAmbientHalo() {

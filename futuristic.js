@@ -129,10 +129,8 @@
             mouseSm.lx = mouseSm.x;
             mouseSm.ly = mouseSm.y;
 
-            // Soft trail effect — instead of clearing fully, fade to deep void
-            ctx.globalCompositeOperation = 'source-over';
-            ctx.fillStyle = 'rgba(5, 3, 20, 0.18)';
-            ctx.fillRect(0, 0, W, H);
+            // Full clear — no trail ghosting
+            ctx.clearRect(0, 0, W, H);
 
             // ── Nebula layer (soft, slow drift)
             ctx.globalCompositeOperation = 'lighter';
@@ -149,84 +147,53 @@
                 ctx.fillRect(0, 0, W, H);
             }
 
-            // ── Particles — curl-noise flow + soft cursor influence
+            // ── Particles — slow curl flow, no trail streaks
             const scale = 0.0018;
+            // Clamp dt so frame hitches don't manifest as visible spikes
+            const sdt = Math.min(dt, 1.2);
             for (const p of particles) {
-                // curl flow field
-                const f = curl((p.x + p.seed) * scale, (p.y + p.seed) * scale, t * 0.6);
-                const speed = (0.35 + p.z * 0.6) * dt;
-                p.vx = lerp(p.vx, f.x * speed, 0.10);
-                p.vy = lerp(p.vy, f.y * speed, 0.10);
+                const f = curl((p.x + p.seed) * scale, (p.y + p.seed) * scale, t * 0.4);
+                const speed = (0.18 + p.z * 0.3) * sdt;
+                p.vx = lerp(p.vx, f.x * speed, 0.06);
+                p.vy = lerp(p.vy, f.y * speed, 0.06);
 
-                // gentle cursor pull (not repulsion — feels nicer)
+                // soft cursor pull
                 const dx = mouseSm.x - p.x;
                 const dy = mouseSm.y - p.y;
                 const d2 = dx * dx + dy * dy;
                 const R = 260;
                 if (d2 < R * R && mouseSm.x > -9000) {
                     const d = Math.sqrt(d2) || 0.001;
-                    const w = (1 - d / R) * 0.05 * (0.5 + p.z);
+                    const w = (1 - d / R) * 0.025 * (0.5 + p.z);
                     p.vx += (dx / d) * w;
                     p.vy += (dy / d) * w;
                 }
 
-                p.px = p.x;
-                p.py = p.y;
                 p.x += p.vx;
-                p.y += p.vy - scrollY * 0.0003 * p.z;
-                p.twinkle += 0.03 * dt;
+                p.y += p.vy - scrollY * 0.0002 * p.z;
+                p.twinkle += 0.02 * sdt;
 
-                // wrap with continuity (skip line if wrapping)
-                let wrapped = false;
-                if (p.x < -10) { p.x = W + 10; wrapped = true; }
-                if (p.x > W + 10) { p.x = -10; wrapped = true; }
-                if (p.y < -10) { p.y = H + 10; wrapped = true; }
-                if (p.y > H + 10) { p.y = -10; wrapped = true; }
+                if (p.x < -10) p.x = W + 10;
+                if (p.x > W + 10) p.x = -10;
+                if (p.y < -10) p.y = H + 10;
+                if (p.y > H + 10) p.y = -10;
 
-                const tw = (Math.sin(p.twinkle) * 0.5 + 0.5) * 0.6 + 0.4;
+                const tw = (Math.sin(p.twinkle) * 0.5 + 0.5) * 0.5 + 0.5;
                 const a = p.a * tw;
                 const c = p.color;
 
-                // Trail streak — short line from prev → current
-                if (!wrapped) {
-                    ctx.strokeStyle = `rgba(${c.r},${c.g},${c.b},${a * 0.55})`;
-                    ctx.lineWidth = p.r * 0.8;
-                    ctx.lineCap = 'round';
-                    ctx.beginPath();
-                    ctx.moveTo(p.px, p.py);
-                    ctx.lineTo(p.x, p.y);
-                    ctx.stroke();
-                }
-
-                // soft halo
-                ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${a * 0.18})`;
+                ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${a * 0.14})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
                 ctx.fill();
 
-                // bright core
-                ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${a})`;
+                ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${a * 0.85})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
                 ctx.fill();
             }
 
-            // ── Cursor aura particles (mouse-driven sparkle)
-            if (mouseSm.x > -9000) {
-                const mv = Math.min(Math.hypot(mouse.vx, mouse.vy), 30);
-                if (mv > 0.3) {
-                    const burst = Math.min(Math.floor(mv * 0.6), 4);
-                    for (let i = 0; i < burst; i++) {
-                        const ang = Math.random() * Math.PI * 2;
-                        const d = Math.random() * 30 + 6;
-                        const c = palette[Math.floor(Math.random() * 4)];
-                        ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${0.5 + Math.random() * 0.3})`;
-                        ctx.beginPath();
-                        ctx.arc(mouseSm.x + Math.cos(ang) * d, mouseSm.y + Math.sin(ang) * d, Math.random() * 1.4 + 0.4, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
+            // Cursor sparkle burst removed — was a per-frame spike on fast moves.
 
             ctx.globalCompositeOperation = 'source-over';
             requestAnimationFrame(frame);
@@ -332,9 +299,9 @@
                 setTimeout(() => { active = false; if (raf) cancelAnimationFrame(raf); card.style.transform = ''; }, 600);
             });
             function loop() {
-                tx = lerp(tx, tgX, 0.10);
-                ty = lerp(ty, tgY, 0.10);
-                card.style.transform = `perspective(1400px) rotateY(${tx * 4}deg) rotateX(${-ty * 4}deg) translate3d(0, -4px, 0)`;
+                tx = lerp(tx, tgX, 0.07);
+                ty = lerp(ty, tgY, 0.07);
+                card.style.transform = `perspective(1600px) rotateY(${tx * 2.5}deg) rotateX(${-ty * 2.5}deg) translate3d(0, -2px, 0)`;
                 if (active) raf = requestAnimationFrame(loop);
             }
         });
@@ -348,8 +315,8 @@
             let tx = 0, ty = 0, tgX = 0, tgY = 0, raf = null, active = false;
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
-                tgX = (e.clientX - rect.left - rect.width / 2) * 0.18;
-                tgY = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                tgX = (e.clientX - rect.left - rect.width / 2) * 0.10;
+                tgY = (e.clientY - rect.top - rect.height / 2) * 0.10;
                 if (!active) { active = true; loop(); }
             });
             btn.addEventListener('mouseleave', () => {
@@ -358,8 +325,8 @@
                 setTimeout(() => { active = false; if (raf) cancelAnimationFrame(raf); btn.style.transform = ''; }, 500);
             });
             function loop() {
-                tx = lerp(tx, tgX, 0.18);
-                ty = lerp(ty, tgY, 0.18);
+                tx = lerp(tx, tgX, 0.12);
+                ty = lerp(ty, tgY, 0.12);
                 btn.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
                 if (active) raf = requestAnimationFrame(loop);
             }

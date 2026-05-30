@@ -259,6 +259,11 @@ a:hover { color: var(--holo-mint); }
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
+/* Slow the holo gradient drift everywhere — was reading as flicker */
+.btn-primary, .nav-link.active, .highlight, .holo-text,
+.holo-progress-fill, .stat-number, .achievement-number {
+    animation-duration: 14s !important;
+}
 
 /* ════════════════════════ BUTTONS ════════════════════════ */
 .btn {
@@ -430,9 +435,8 @@ a:hover { color: var(--holo-mint); }
 .tab-content.active { display: block; animation: holoEnter 0.9s cubic-bezier(.16,1,.3,1); }
 
 @keyframes holoEnter {
-    0%   { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(20px); }
-    60%  { opacity: 1; filter: blur(0); }
-    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ════════════════════════ HERO ════════════════════════ */
@@ -578,16 +582,11 @@ a:hover { color: var(--holo-mint); }
     content: "";
     position: absolute;
     inset: 0;
-    border: 1px solid var(--holo-cyan);
+    border: 1px solid rgba(0,240,255,0.55);
     border-radius: var(--radius-2xl);
-    box-shadow: inset 0 0 80px rgba(0,240,255,0.18);
+    box-shadow: inset 0 0 60px rgba(0,240,255,0.10);
     z-index: 3;
     pointer-events: none;
-    animation: scanline 4s ease-in-out infinite;
-}
-@keyframes scanline {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
 }
 .hero-image img {
     width: 100%; height: 100%; object-fit: cover;
@@ -665,9 +664,9 @@ a:hover { color: var(--holo-mint); }
 .partnership-card:hover,
 .tech-category:hover,
 .achievement-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow:
-        0 40px 100px rgba(0,0,0,0.6),
+        0 40px 100px rgba(0,0,0,0.55),
         var(--glow-violet);
 }
 .feature-card:hover::before,
@@ -1432,9 +1431,9 @@ a:hover { color: var(--holo-mint); }
     box-shadow: 0 0 12px var(--holo-cyan);
 }
 .holo-cursor.active {
-    width: 56px; height: 56px;
+    width: 40px; height: 40px;
     border-color: var(--holo-violet);
-    background: rgba(123,91,255,0.08);
+    background: rgba(123,91,255,0.05);
 }
 @media (hover: none), (max-width: 768px) {
     .holo-cursor, .holo-cursor-dot { display: none; }
@@ -1539,30 +1538,21 @@ a:hover { color: var(--holo-mint); }
     transform: translateY(0);
 }
 
-/* ── 3D card stagger entrance — softened ── */
+/* ── 3D card stagger entrance — minimal, no blur ── */
 .reveal-3d {
     opacity: 0;
-    transform: translate3d(0, 50px, 0) scale(0.97);
-    transform-origin: 50% 100%;
-    filter: blur(6px);
+    transform: translate3d(0, 32px, 0);
     transition:
         opacity 1.4s cubic-bezier(.16,1,.3,1),
-        transform 1.4s cubic-bezier(.16,1,.3,1),
-        filter 1.2s cubic-bezier(.16,1,.3,1);
-    will-change: opacity, transform, filter;
+        transform 1.4s cubic-bezier(.16,1,.3,1);
+    will-change: opacity, transform;
 }
 .reveal-3d-in {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
 }
 
-/* Canvas reacts to scroll velocity — extra-smooth */
-#trion-canvas {
-    transition: filter 600ms cubic-bezier(.2,.8,.2,1), transform 600ms cubic-bezier(.2,.8,.2,1);
-    will-change: filter, transform;
-    transform-origin: 50% 50%;
-}
+/* Canvas no longer scroll-reactive — leave it pure */
 
 /* Hero elements driven by scroll scrub — disable CSS transitions */
 .hero-text, .hero-image, .hero-subtitle, .hero-stats {
@@ -1603,19 +1593,18 @@ a:hover { color: var(--holo-mint); }
 .ambient-halo {
     position: fixed;
     top: 0; left: 0;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     background: radial-gradient(circle,
-        rgba(123,91,255,0.10) 0%,
-        rgba(0,240,255,0.06) 40%,
+        rgba(123,91,255,0.06) 0%,
+        rgba(0,240,255,0.03) 40%,
         transparent 70%);
     pointer-events: none;
     z-index: -1;
     will-change: transform;
-    mix-blend-mode: screen;
-    filter: blur(40px);
 }
+@media (max-width: 768px) { .ambient-halo { display: none; } }
 
 /* ════════════════════════ SOFT HOLO CURSOR (override) ══════════════ */
 .holo-cursor {
