@@ -517,24 +517,29 @@ a:hover { color: var(--holo-mint); }
     gap: var(--space-6);
     padding: var(--space-6);
     background: var(--glass-1);
-    border: 1px solid var(--glass-border);
+    /* Use a regular bordered look + holographic border-image instead of
+       mask-composite: xor (the latter is one of the most expensive composite
+       ops in CSS, hurting scroll fps on the home page). */
+    border: 1px solid transparent;
     border-radius: var(--radius-xl);
-    backdrop-filter: blur(20px);
-    box-shadow: var(--glow-soft), inset 0 1px 0 rgba(255,255,255,0.08);
+    background-clip: padding-box;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 0 1px rgba(155,130,255,0.35),
+        var(--glow-soft),
+        inset 0 1px 0 rgba(255,255,255,0.08);
     position: relative;
 }
+/* Decorative outer ring drawn with a single static gradient — no mask compositing */
 .hero-stats::before {
     content: "";
     position: absolute;
     inset: -1px;
     border-radius: var(--radius-xl);
-    padding: 1px;
-    background: var(--grad-holo);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.5;
+    background: linear-gradient(135deg, rgba(123,91,255,0.6), rgba(0,240,255,0.4));
+    z-index: -1;
     pointer-events: none;
+    opacity: 0.6;
 }
 .stat { text-align: center; position: relative; }
 .stat-number {
@@ -563,9 +568,11 @@ a:hover { color: var(--holo-mint); }
     aspect-ratio: 5/6;
     transform: perspective(1200px) rotateY(-6deg) rotateX(3deg);
     transition: transform var(--transition-cinematic);
+    /* Tightened shadows — 100px + 80px blurs were repainting on every
+       scroll frame because they extend far past the box bounds */
     box-shadow:
-        0 40px 100px rgba(0,0,0,0.6),
-        0 0 80px rgba(123,91,255,0.3),
+        0 16px 32px rgba(0,0,0,0.55),
+        0 0 28px rgba(123,91,255,0.22),
         inset 0 0 0 1px rgba(0,240,255,0.2);
 }
 .hero-image:hover { transform: perspective(1200px) rotateY(0) rotateX(0); }

@@ -40,12 +40,37 @@
     const subs = [];
     const onTick = (fn) => subs.push(fn);
 
-    // Lottie players are the single most expensive thing on the home page
-    // (each is an SVG animation rendered on the main thread). We pause them
-    // when scrolling starts and resume after idle.
+    // Lottie players are the dominant cost on the home page (6 of them in
+    // the features grid, each a 200x200 SVG animation on the main thread).
+    // We do TWO things:
+    //   1. IntersectionObserver: only play Lotties currently in viewport.
+    //      On a long scroll, only 2-3 are visible at any time, not all 6/9.
+    //   2. Pause every Lottie during active scroll, resume at idle.
     let lotties = [];
+    const visibleLotties = new WeakSet();
+    let lottieIO = null;
     function refreshLotties() {
         lotties = Array.from(document.querySelectorAll('lottie-player'));
+        if (!lottieIO) {
+            lottieIO = new IntersectionObserver((entries) => {
+                for (const e of entries) {
+                    if (e.isIntersecting) {
+                        visibleLotties.add(e.target);
+                        if (!isScrolling) { try { e.target.play(); } catch (_) {} }
+                    } else {
+                        visibleLotties.delete(e.target);
+                        try { e.target.pause(); } catch (_) {}
+                    }
+                }
+            }, { rootMargin: '100px' });
+        }
+        lotties.forEach((p) => lottieIO.observe(p));
+    }
+
+    // Hero video — also expensive (mix-blend + filter recomposite per frame)
+    let heroVideo = null;
+    function refreshHeroVideo() {
+        heroVideo = document.querySelector('.hero-video-wrapper video');
     }
 
     window.addEventListener('scroll', () => {
@@ -53,13 +78,17 @@
         if (!isScrolling) {
             isScrolling = true;
             document.body.classList.add('is-scrolling');
-            for (const p of lotties) { try { p.pause(); } catch (e) {} }
+            for (const p of lotties) { try { p.pause(); } catch (_) {} }
+            if (heroVideo) { try { heroVideo.pause(); } catch (_) {} }
         }
         clearTimeout(scrollIdleTimer);
         scrollIdleTimer = setTimeout(() => {
             isScrolling = false;
             document.body.classList.remove('is-scrolling');
-            for (const p of lotties) { try { p.play(); } catch (e) {} }
+            for (const p of lotties) {
+                if (visibleLotties.has(p)) { try { p.play(); } catch (_) {} }
+            }
+            if (heroVideo) { try { heroVideo.play(); } catch (_) {} }
         }, 180);
     }, { passive: true });
 
@@ -338,7 +367,8 @@
 
         // Initial lottie scan + re-scan after window load (they upgrade async)
         refreshLotties();
-        window.addEventListener('load', refreshLotties);
+        refreshHeroVideo();
+        window.addEventListener('load', () => { refreshLotties(); refreshHeroVideo(); });
 
         initSmoothWrapper();
         // Sync to current native scroll position so reload doesn't animate from 0
