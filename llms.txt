@@ -21,19 +21,19 @@ We are an official Alibaba Cloud Partner and a recognised MDEC (Malaysia Digital
 
 ## Services
 
-- [Mobile & Web App Development](https://trioncreation.com/services/mobile-web-app-development.html): React Native, Flutter, Next.js, iOS (Swift), Android (Kotlin), full-stack web apps with real-time backend. Proven at 5M+ user scale.
-- ERP/CRM Development: Custom ERP modules, CRM pipeline management, business process automation, integrated reporting dashboards.
-- AI Automation + Chatbot: AI-powered chatbots, process automation, natural language processing, machine learning integration.
-- Odoo Customisation: Custom Odoo modules, workflow customisation, third-party integrations, theme/UI customisation.
-- POS & Inventory Management: Real-time inventory tracking, multi-location POS, barcode scanning, sales analytics. Retail and F&B.
-- Booking System Development: Multi-service booking, calendar integration, payment gateways, automated reminders.
-- Loan Management System: Loan application processing, credit scoring, automated approval workflow, repayment tracking.
-- API Integration & Development: RESTful and GraphQL APIs, third-party integrations, payment gateway APIs (Stripe, PayPal, iPay88), SMS/email services.
-- Blockchain & Web3 Solutions: Multi-chain NFT launchpads, smart contract automation, DeFi protocols, gasless transactions.
-- AR/VR & Metaverse Development: Unity game development, Spatial metaverse integration, VR/AR mobile applications.
-- Cloud Infrastructure & DevOps: Cross-border CDN, real-time video transcoding, Alibaba Cloud integration, 99%+ uptime SLA.
-- Product Design & UX: User experience design, interface prototyping, usability testing, design system creation.
-- Enterprise Solutions & Workflow: Case management systems, document processing, role-based access control, real-time status tracking.
+- [Mobile & Web App Development](https://trioncreation.com/services/mobile-web-app-development.html): Full-stack development of scalable mobile and web applications with modern frameworks and cloud-native architecture.
+- [ERP & CRM Development](https://trioncreation.com/services/erp-crm-development.html): Custom Enterprise Resource Planning and Customer Relationship Management systems tailored to your business workflow.
+- [AI Automation & Chatbot](https://trioncreation.com/services/ai-automation-chatbot.html): Intelligent automation systems and conversational AI chatbots that enhance customer engagement and streamline operations.
+- [Odoo Customisation](https://trioncreation.com/services/odoo-customisation.html): Tailored Odoo ERP solutions with custom modules, workflows, and integrations to match your business needs.
+- [POS & Inventory Management](https://trioncreation.com/services/pos-inventory-management.html): Complete Point of Sale systems with real-time inventory tracking, multi-location support, and comprehensive reporting.
+- [Booking System Development](https://trioncreation.com/services/booking-system-development.html): Custom booking and reservation systems for appointments, services, events and resource management.
+- [Loan Management System](https://trioncreation.com/services/loan-management-system.html): Complete loan application and management systems with automated processing, credit scoring and repayment tracking.
+- [API Integration & Development](https://trioncreation.com/services/api-integration-development.html): Custom API development and third-party integrations to connect your systems and streamline data flow.
+- [Blockchain & Web3 Solutions](https://trioncreation.com/services/blockchain-web3-solutions.html): End-to-end Web3 platform development with multi-chain support, NFT integration, and smart contract automation.
+- [AR/VR & Metaverse Development](https://trioncreation.com/services/ar-vr-metaverse-development.html): Immersive virtual experiences and metaverse applications using Unity, Spatial and cutting-edge VR/AR technologies.
+- [Cloud Infrastructure & DevOps](https://trioncreation.com/services/cloud-infrastructure-devops.html): Scalable cloud solutions with cross-border CDN, real-time video processing, and 99%+ uptime guarantee.
+- [Product Design & UX](https://trioncreation.com/services/product-design-ux.html): User-centred design with modern interfaces, seamless user experiences and data-driven design decisions.
+
 
 ## Pricing
 

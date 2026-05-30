@@ -92,4 +92,81 @@
         <priority>0.5</priority>
     </url>
 
+
+    <url>
+        <loc>https://trioncreation.com/services/erp-crm-development.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/ai-automation-chatbot.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/odoo-customisation.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/pos-inventory-management.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/booking-system-development.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/loan-management-system.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/api-integration-development.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/blockchain-web3-solutions.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/ar-vr-metaverse-development.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/cloud-infrastructure-devops.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/product-design-ux.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

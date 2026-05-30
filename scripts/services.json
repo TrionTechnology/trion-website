@@ -1,0 +1,362 @@
+[
+    {
+        "slug": "mobile-web-app-development",
+        "title": "Mobile & Web App Development",
+        "tagline": "Full-stack development of scalable mobile and web applications with modern frameworks and cloud-native architecture.",
+        "image": "service-web-mobile.jpg",
+        "metaTitle": "Mobile & Web App Development Malaysia | Trion Creation",
+        "metaDescription": "Trion Creation builds custom mobile and web apps in Malaysia: React Native, Flutter, Next.js, iOS, Android. Proven at 5M+ user scale with real-time backend, payment integration and cloud-native architecture.",
+        "keywords": "mobile app development malaysia, web app development malaysia, react native developer malaysia, flutter app development, ios android app developer, custom mobile app, full stack development malaysia, scalable web application",
+        "ogShort": "Custom mobile and web apps in Malaysia. React Native, Flutter, Next.js. Proven at 5M+ user scale.",
+        "schemaServiceType": "Mobile and Web Application Development",
+        "schemaDescription": "Full-stack development of scalable mobile and web applications using React Native, Flutter, Next.js, Swift, Kotlin and cloud-native architecture. Proven at 5M+ user scale with real-time backend and payment integration.",
+        "priceMin": 15000,
+        "priceMax": 500000,
+        "features": [
+            "React Native & Cross-Platform Apps",
+            "Real-time Communication Systems",
+            "Payment Gateway Integration",
+            "5M+ Users Proven Scalability"
+        ],
+        "overview": [
+            "We build high-performance mobile and web applications that scale with your business. Our team uses cutting-edge technologies and proven engineering practices to deliver solutions that are fast, secure and user-friendly.",
+            "From concept to deployment we handle every aspect of the development process — discovery, design, development, QA, launch, and post-launch support. Our work powers production systems serving 5M+ users."
+        ],
+        "expertise": [
+            { "title": "Mobile Development", "desc": "Native iOS and Android apps, cross-platform solutions using React Native, Flutter and Swift/Kotlin." },
+            { "title": "Web Development", "desc": "Modern web applications using React, Vue.js, Next.js, TypeScript and Tailwind." },
+            { "title": "Backend Development", "desc": "Scalable APIs and microservices using Node.js, Laravel, PHP and cloud-native architecture." },
+            { "title": "Cloud Integration", "desc": "Deployment on AWS, Alibaba Cloud and other platforms with CI/CD pipelines and 99%+ uptime." }
+        ]
+    },
+    {
+        "slug": "erp-crm-development",
+        "title": "ERP & CRM Development",
+        "tagline": "Custom Enterprise Resource Planning and Customer Relationship Management systems tailored to your business workflow.",
+        "image": "service-erp-crm.jpg",
+        "metaTitle": "Custom ERP & CRM Development Malaysia | Trion Creation",
+        "metaDescription": "Custom ERP and CRM development in Malaysia. Tailored modules, CRM pipelines, business process automation and integrated reporting dashboards for SMEs and enterprises.",
+        "keywords": "erp development malaysia, custom erp malaysia, crm development malaysia, business process automation, erp customisation malaysia, integrated reporting dashboard, sme erp solution",
+        "ogShort": "Custom ERP and CRM tailored to your workflow — process automation, dashboards, full integration.",
+        "schemaServiceType": "Enterprise Resource Planning System Development",
+        "schemaDescription": "Custom Enterprise Resource Planning (ERP) and Customer Relationship Management (CRM) systems tailored to your business workflow, with business process automation and integrated reporting dashboards.",
+        "priceMin": 40000,
+        "priceMax": 300000,
+        "features": [
+            "Custom ERP Modules",
+            "CRM Pipeline Management",
+            "Business Process Automation",
+            "Integrated Reporting Dashboard"
+        ],
+        "overview": [
+            "Off-the-shelf ERP often forces your business to bend around the software. We do the opposite — we build ERP and CRM systems around your actual workflows so finance, sales, operations and inventory speak one language.",
+            "We have delivered custom ERP and CRM platforms across retail, logistics, professional services and finance — from MVP launch to enterprise-grade scale with multi-entity, multi-currency and role-based access."
+        ],
+        "expertise": [
+            { "title": "ERP Modules", "desc": "Inventory, finance, procurement, HR, manufacturing — built modularly so you only pay for what you use." },
+            { "title": "CRM Pipelines", "desc": "Sales pipelines, contact management, deal tracking, automated follow-ups and email integration." },
+            { "title": "Process Automation", "desc": "Approval workflows, scheduled tasks, document generation, multi-step automations across departments." },
+            { "title": "Reporting & BI", "desc": "Power BI dashboards, custom reports, exportable data, real-time KPI tracking." }
+        ]
+    },
+    {
+        "slug": "ai-automation-chatbot",
+        "title": "AI Automation & Chatbot",
+        "tagline": "Intelligent automation systems and conversational AI chatbots that enhance customer engagement and streamline operations.",
+        "image": "service-ai-chatbot.jpg",
+        "metaTitle": "AI Automation & Chatbot Development Malaysia | Trion Creation",
+        "metaDescription": "AI chatbot and automation development in Malaysia. WhatsApp, web and messaging chatbots, RPA-style process automation, OpenAI integration and 24/7 customer support automation.",
+        "keywords": "ai chatbot malaysia, chatbot development malaysia, ai automation malaysia, whatsapp chatbot, openai integration malaysia, nlp chatbot, ai customer service automation",
+        "ogShort": "AI chatbots and process automation in Malaysia — WhatsApp, web, NLP, OpenAI integration.",
+        "schemaServiceType": "Artificial Intelligence and Chatbot Development",
+        "schemaDescription": "AI-powered chatbots and intelligent automation including WhatsApp and web chatbots, natural language processing, OpenAI API integration and 24/7 customer support automation.",
+        "priceMin": 20000,
+        "priceMax": 200000,
+        "features": [
+            "AI-Powered Chatbots",
+            "Process Automation",
+            "Natural Language Processing",
+            "Machine Learning Integration"
+        ],
+        "overview": [
+            "We build AI assistants that talk to your customers on WhatsApp, your website and your messaging platforms — handling enquiries, qualifying leads, booking appointments and resolving common requests 24/7.",
+            "Beyond chatbots, we automate the repetitive office work that slows your team down: document parsing, invoice routing, lead scoring, internal notifications and multi-step approval flows."
+        ],
+        "expertise": [
+            { "title": "Conversational AI", "desc": "Multi-channel chatbots on WhatsApp, web widgets, Facebook Messenger and Telegram with context memory." },
+            { "title": "OpenAI Integration", "desc": "GPT-powered support, summarisation, content generation and Retrieval Augmented Generation over your private knowledge base." },
+            { "title": "Process Automation", "desc": "Document workflows, scheduled jobs, n8n / Zapier-style flows and bespoke integrations with your existing tools." },
+            { "title": "Machine Learning", "desc": "Credit scoring, recommendation systems, image classification and NLP pipelines with TensorFlow and PyTorch." }
+        ]
+    },
+    {
+        "slug": "odoo-customisation",
+        "title": "Odoo Customisation",
+        "tagline": "Tailored Odoo ERP solutions with custom modules, workflows, and integrations to match your business needs.",
+        "image": "service-odoo.jpg",
+        "metaTitle": "Odoo Customisation & Development Malaysia | Trion Creation",
+        "metaDescription": "Odoo customisation and implementation in Malaysia. Custom Odoo modules, workflow customisation, third-party integrations, theme/UI work and migration from legacy ERP.",
+        "keywords": "odoo malaysia, odoo customisation, odoo developer malaysia, odoo implementation malaysia, odoo erp consultant, custom odoo modules, odoo migration",
+        "ogShort": "Custom Odoo modules, workflows and integrations — full Odoo customisation in Malaysia.",
+        "schemaServiceType": "Odoo ERP Customisation",
+        "schemaDescription": "Tailored Odoo ERP customisation, including custom Odoo modules, workflow customisation, third-party integrations, theme/UI customisation and migration from legacy ERP systems.",
+        "priceMin": 20000,
+        "priceMax": 250000,
+        "features": [
+            "Custom Odoo Modules",
+            "Workflow Customisation",
+            "Third-Party Integrations",
+            "Theme & UI Customisation"
+        ],
+        "overview": [
+            "Odoo gives you a powerful ERP foundation — but only customisation makes it truly yours. We build custom Odoo modules, adapt standard ones to your processes, and integrate Odoo with the rest of your stack.",
+            "We work with both Odoo Community and Enterprise editions, handle full migration from legacy ERP systems, and provide ongoing support for Odoo deployments on your own server or in the cloud."
+        ],
+        "expertise": [
+            { "title": "Custom Modules", "desc": "From simple form overrides to fully bespoke modules with their own models, views, workflows and reports." },
+            { "title": "Workflow Tuning", "desc": "Custom approval rules, automated actions, scheduled jobs and multi-company / multi-warehouse configurations." },
+            { "title": "Integrations", "desc": "Connect Odoo to payment gateways, e-commerce platforms, WhatsApp, accounting tools and government e-invoicing." },
+            { "title": "UI / Theme", "desc": "Branded backend themes, custom dashboards and POS interfaces tailored to your team's day-to-day work." }
+        ]
+    },
+    {
+        "slug": "pos-inventory-management",
+        "title": "POS & Inventory Management",
+        "tagline": "Complete Point of Sale systems with real-time inventory tracking, multi-location support, and comprehensive reporting.",
+        "image": "service-pos.jpg",
+        "metaTitle": "POS & Inventory Management System Malaysia | Trion Creation",
+        "metaDescription": "Custom POS and inventory management systems in Malaysia. Real-time stock tracking, multi-location POS, barcode scanning, mobile POS, kitchen display and sales analytics for retail and F&B.",
+        "keywords": "pos system malaysia, point of sale malaysia, inventory management system malaysia, retail pos malaysia, restaurant pos malaysia, f&b pos system, multi-location pos, barcode inventory",
+        "ogShort": "Custom POS and real-time inventory for retail and F&B in Malaysia.",
+        "schemaServiceType": "Point of Sale and Inventory Management System Development",
+        "schemaDescription": "Custom Point of Sale (POS) and inventory management systems with real-time stock tracking, multi-location support, barcode scanning, mobile POS and kitchen display systems for retail and F&B businesses.",
+        "priceMin": 25000,
+        "priceMax": 200000,
+        "features": [
+            "Real-time Inventory Tracking",
+            "Multi-location POS Systems",
+            "Barcode Scanning Integration",
+            "Sales Analytics & Reports"
+        ],
+        "overview": [
+            "We build POS and inventory systems for retailers and F&B operators who have outgrown off-the-shelf software — chains with multi-outlet operations, complex menus, kitchen workflows or unique loyalty programmes.",
+            "Our systems run on tablets, desktops and mobile, sync in real time across locations, and integrate with your accounting, e-commerce, supplier portals and government e-invoicing systems."
+        ],
+        "expertise": [
+            { "title": "Retail POS", "desc": "Barcode scanning, multi-payment, returns, loyalty, promotions, customer profiles and discount logic." },
+            { "title": "F&B POS", "desc": "Table management, split bills, kitchen display systems (KDS), e-menu, QR ordering and ingredient-level stock control." },
+            { "title": "Inventory Control", "desc": "Real-time stock across warehouses and outlets, batch and expiry tracking, purchase orders, supplier portals." },
+            { "title": "Reporting", "desc": "Sales by hour, item, cashier and outlet; profit margin analysis; predictive reordering and BI dashboards." }
+        ]
+    },
+    {
+        "slug": "booking-system-development",
+        "title": "Booking System Development",
+        "tagline": "Custom booking and reservation systems for appointments, services, events and resource management.",
+        "image": "service-booking.jpg",
+        "metaTitle": "Custom Booking System Development Malaysia | Trion Creation",
+        "metaDescription": "Custom booking and reservation system development in Malaysia. Multi-service booking, calendar integration, payment gateways, automated reminders and resource management.",
+        "keywords": "booking system malaysia, reservation system malaysia, appointment system malaysia, online booking platform, custom booking software, service booking app, salon booking system",
+        "ogShort": "Custom booking systems — appointments, services, events, calendars, payments, reminders.",
+        "schemaServiceType": "Booking and Reservation System Development",
+        "schemaDescription": "Custom booking and reservation system development including multi-service booking, calendar integration, payment gateway integration, automated reminders and resource management.",
+        "priceMin": 18000,
+        "priceMax": 150000,
+        "features": [
+            "Multi-service Booking",
+            "Calendar Integration",
+            "Payment Gateway Integration",
+            "Automated Reminders"
+        ],
+        "overview": [
+            "We build custom booking platforms for clinics, salons, wellness centres, pet services, event spaces, professional services and on-demand industries. Every business books differently — your system should reflect that.",
+            "Our booking systems handle complex availability rules, recurring bookings, staff matching, resource constraints, group bookings, deposits, refunds and multi-channel notifications (email, SMS, WhatsApp, push)."
+        ],
+        "expertise": [
+            { "title": "Multi-service Booking", "desc": "Configurable services, durations, staff assignment, resource allocation and pricing rules." },
+            { "title": "Calendar Sync", "desc": "Two-way sync with Google Calendar, Outlook, Apple Calendar; staff blockout times; real-time availability." },
+            { "title": "Payments", "desc": "Online deposits, full payments, package vouchers and refund handling via Stripe, iPay88 and PayPal." },
+            { "title": "Notifications", "desc": "Automated confirmations, reminders, no-show follow-ups via email, SMS and WhatsApp." }
+        ]
+    },
+    {
+        "slug": "loan-management-system",
+        "title": "Loan Management System",
+        "tagline": "Complete loan application and management systems with automated processing, credit scoring and repayment tracking.",
+        "image": "service-loan.jpg",
+        "metaTitle": "Loan Management System Development Malaysia | Trion Creation",
+        "metaDescription": "Custom loan management system development in Malaysia. Loan origination, AI credit scoring, automated approval workflow, repayment tracking, admin portal — built for lenders, fintechs and micro-finance.",
+        "keywords": "loan management system malaysia, lending platform development, loan origination system, credit scoring system, micro loan system malaysia, fintech development malaysia, mycashout style platform",
+        "ogShort": "End-to-end loan systems — origination, credit scoring, approval, repayment, admin portal.",
+        "schemaServiceType": "Loan Management System Development",
+        "schemaDescription": "End-to-end loan management system development with loan origination, AI-based credit scoring, automated approval workflow, repayment tracking and admin portal — built for lenders, fintechs and micro-finance providers.",
+        "priceMin": 60000,
+        "priceMax": 400000,
+        "features": [
+            "Loan Application Processing",
+            "Credit Scoring Integration",
+            "Automated Approval Workflow",
+            "Repayment Tracking & Reminders"
+        ],
+        "overview": [
+            "We have built end-to-end loan management platforms for lenders, fintechs and micro-finance operators — including MyCashOut. Borrower onboarding, KYC, credit scoring, approval flows, disbursement, repayment and collections all in one system.",
+            "Our loan systems integrate with credit bureaus, payment rails, e-KYC providers, accounting and SMS gateways. Admins get a real-time view of portfolio health, NPL ratios and collection performance."
+        ],
+        "expertise": [
+            { "title": "Loan Origination", "desc": "Application forms, eKYC, document upload, OCR, automated eligibility checks." },
+            { "title": "Credit Scoring", "desc": "Rules-based + machine-learning credit scoring with credit bureau integration." },
+            { "title": "Workflow & Approval", "desc": "Multi-tier approval, exception handling, audit trails, role-based access for credit officers." },
+            { "title": "Repayment & Collections", "desc": "Schedule generation, automated reminders, online repayment, collections dashboard, NPL tracking." }
+        ]
+    },
+    {
+        "slug": "api-integration-development",
+        "title": "API Integration & Development",
+        "tagline": "Custom API development and third-party integrations to connect your systems and streamline data flow.",
+        "image": "service-api.jpg",
+        "metaTitle": "API Integration & Development Malaysia | Trion Creation",
+        "metaDescription": "Custom API development and third-party integration in Malaysia. REST and GraphQL APIs, payment gateway, SMS/email, CRM and accounting integrations with secure auth and full documentation.",
+        "keywords": "api development malaysia, api integration malaysia, rest api developer, graphql developer malaysia, payment gateway integration, third party api integration, webhook development",
+        "ogShort": "REST and GraphQL APIs, payment gateways, third-party integrations with full documentation.",
+        "schemaServiceType": "API Development and Integration",
+        "schemaDescription": "Custom API development and third-party integration services including RESTful and GraphQL APIs, payment gateway integration, SMS and email service integration, webhook implementation and full API documentation.",
+        "priceMin": 10000,
+        "priceMax": 200000,
+        "features": [
+            "RESTful & GraphQL APIs",
+            "Third-Party Integrations",
+            "API Documentation",
+            "Webhook Implementation"
+        ],
+        "overview": [
+            "Modern systems live or die by how well they integrate. We design and build APIs that are well-documented, properly versioned, secured and scalable — and we make existing systems talk to each other when they were never meant to.",
+            "We have integrated payment gateways (Stripe, PayPal, iPay88), messaging (Twilio, WhatsApp Business), CRMs (HubSpot, Salesforce), e-commerce (Shopify, WooCommerce), accounting (Xero, AutoCount) and many more."
+        ],
+        "expertise": [
+            { "title": "REST & GraphQL", "desc": "Idiomatic REST APIs and GraphQL schemas with auth, rate limiting, caching and full OpenAPI documentation." },
+            { "title": "Payment Integration", "desc": "Stripe, PayPal, iPay88, Razer Merchant Services, FPX, Boost, GrabPay and crypto rails." },
+            { "title": "Third-Party Glue", "desc": "Connect CRMs, ERPs, e-commerce, marketing, analytics and accounting platforms reliably." },
+            { "title": "Webhooks & Events", "desc": "Event-driven architecture, webhook delivery with retries, queue-based processing and observability." }
+        ]
+    },
+    {
+        "slug": "blockchain-web3-solutions",
+        "title": "Blockchain & Web3 Solutions",
+        "tagline": "End-to-end Web3 platform development with multi-chain support, NFT integration, and smart contract automation.",
+        "image": "service-blockchain.jpg",
+        "metaTitle": "Blockchain & Web3 Development Malaysia | Trion Creation",
+        "metaDescription": "Blockchain and Web3 development in Malaysia. Multi-chain NFT launchpads, smart contracts (Solidity), DeFi protocols, gasless transactions and Web3 dApps — built by the team behind Colorverse.",
+        "keywords": "blockchain development malaysia, web3 developer malaysia, smart contract development, nft launchpad development, solidity developer malaysia, defi development, web3 dapp development",
+        "ogShort": "NFT launchpads, smart contracts, DeFi, gasless transactions — Web3 dev in Malaysia.",
+        "schemaServiceType": "Blockchain and Web3 Development",
+        "schemaDescription": "End-to-end Web3 platform development with multi-chain support, NFT launchpad development, smart contract automation, DeFi protocol development and gasless transaction solutions.",
+        "priceMin": 50000,
+        "priceMax": 500000,
+        "features": [
+            "Multi-Chain NFT Launchpads",
+            "Smart Contract Automation",
+            "DeFi Protocol Development",
+            "Gasless Transaction Solutions"
+        ],
+        "overview": [
+            "We have built production Web3 platforms used by real consumers — most notably Colorverse, a multi-chain Social-Fi platform endorsed by Malaysia Tourism Board. Smart contracts in production, NFTs minted, real users on-chain.",
+            "Whether you need an NFT launchpad, a DeFi protocol, a token economy or a Web3 dApp with traditional UX (think 'Web2 feel, Web3 backend'), we engineer the on-chain and off-chain parts together."
+        ],
+        "expertise": [
+            { "title": "Smart Contracts", "desc": "Solidity contracts with full test coverage, audits-ready code, upgradeable patterns (proxy) and gas optimisation." },
+            { "title": "NFT Platforms", "desc": "Launchpads, marketplaces, multi-chain minting, IPFS / Arweave storage, royalty enforcement." },
+            { "title": "DeFi & Tokens", "desc": "Token contracts (ERC-20, ERC-721, ERC-1155), staking, liquidity, vesting, governance." },
+            { "title": "Gasless UX", "desc": "Meta-transactions, account abstraction (ERC-4337), session keys — Web3 that feels like Web2." }
+        ]
+    },
+    {
+        "slug": "ar-vr-metaverse-development",
+        "title": "AR/VR & Metaverse Development",
+        "tagline": "Immersive virtual experiences and metaverse applications using Unity, Spatial and cutting-edge VR/AR technologies.",
+        "image": "service-ar-vr.jpg",
+        "metaTitle": "AR/VR & Metaverse Development Malaysia | Trion Creation",
+        "metaDescription": "AR, VR and metaverse development in Malaysia. Unity-based game and 3D apps, Spatial metaverse integration, mobile AR experiences and interactive virtual worlds.",
+        "keywords": "ar vr development malaysia, metaverse development malaysia, unity developer malaysia, vr app development, augmented reality app, spatial metaverse, vr training application",
+        "ogShort": "Unity 3D, AR mobile, VR training, metaverse spaces — immersive dev in Malaysia.",
+        "schemaServiceType": "AR VR Metaverse Application Development",
+        "schemaDescription": "Immersive AR, VR and metaverse application development using Unity, Spatial and cutting-edge VR/AR platforms — including mobile AR experiences and interactive virtual worlds.",
+        "priceMin": 40000,
+        "priceMax": 400000,
+        "features": [
+            "Unity Game Development",
+            "Spatial Metaverse Integration",
+            "VR/AR Mobile Applications",
+            "Interactive Virtual Worlds"
+        ],
+        "overview": [
+            "We have shipped immersive products including the LAC Temple Run game and AR solutions for Pictureworks Air. From mobile AR campaigns to fully immersive VR training simulations, we build experiences that go beyond the flat screen.",
+            "Our 3D pipeline supports both real-time engines (Unity, WebXR) and metaverse platforms (Spatial), and we handle the full production cycle from concept art to deployment on iOS, Android, web and headset platforms."
+        ],
+        "expertise": [
+            { "title": "Unity / 3D Games", "desc": "2D and 3D game development for mobile and web, with multiplayer, in-app purchases and live ops." },
+            { "title": "Mobile AR", "desc": "ARKit and ARCore experiences, face filters, marker-based AR, location-based AR." },
+            { "title": "VR Experiences", "desc": "Training simulations, virtual showrooms, immersive education on Meta Quest and other headsets." },
+            { "title": "Metaverse Spaces", "desc": "Spatial worlds, WebXR experiences, branded virtual venues for events, retail and education." }
+        ]
+    },
+    {
+        "slug": "cloud-infrastructure-devops",
+        "title": "Cloud Infrastructure & DevOps",
+        "tagline": "Scalable cloud solutions with cross-border CDN, real-time video processing, and 99%+ uptime guarantee.",
+        "image": "service-cloud.jpg",
+        "metaTitle": "Cloud Infrastructure & DevOps Malaysia | Trion Creation",
+        "metaDescription": "Cloud infrastructure and DevOps in Malaysia. AWS, Alibaba Cloud, Docker, Kubernetes, CI/CD pipelines, cross-border CDN, real-time video transcoding and 99%+ uptime SLA. Official Alibaba Cloud Partner.",
+        "keywords": "cloud infrastructure malaysia, devops malaysia, alibaba cloud partner malaysia, aws consultant malaysia, kubernetes malaysia, ci cd pipeline, cross border cdn, real-time video transcoding",
+        "ogShort": "AWS, Alibaba Cloud, Kubernetes, CDN, CI/CD — 99%+ uptime cloud and DevOps in Malaysia.",
+        "schemaServiceType": "Cloud Infrastructure and DevOps Services",
+        "schemaDescription": "Scalable cloud infrastructure and DevOps services including AWS, Alibaba Cloud, Docker, Kubernetes, CI/CD pipelines, cross-border CDN solutions, real-time video transcoding and 99%+ uptime SLA.",
+        "priceMin": 15000,
+        "priceMax": 300000,
+        "features": [
+            "Cross-Border CDN Solutions",
+            "Real-time Video Transcoding",
+            "Alibaba Cloud Integration",
+            "99%+ Uptime SLA"
+        ],
+        "overview": [
+            "As an official Alibaba Cloud Partner, we design and operate cloud infrastructure that scales globally — including the cross-border CDN architecture that powers Yippi's 5M+ users and 50K+ concurrent live streams.",
+            "We work across AWS, Alibaba Cloud, Google Cloud and on-premise, handle migrations, set up CI/CD pipelines, container orchestration with Kubernetes, monitoring and 24/7 incident response."
+        ],
+        "expertise": [
+            { "title": "Multi-Cloud", "desc": "AWS, Alibaba Cloud, GCP and on-premise — including cross-region replication and disaster recovery." },
+            { "title": "Containers", "desc": "Docker, Kubernetes (EKS, ACK), Helm charts, service mesh, autoscaling and zero-downtime deploys." },
+            { "title": "CI/CD", "desc": "GitHub Actions, GitLab CI, automated test pipelines, deployment gating and rollback strategies." },
+            { "title": "Observability & SRE", "desc": "Centralised logging, metrics, distributed tracing, alerting and 24/7 on-call cover for critical workloads." }
+        ]
+    },
+    {
+        "slug": "product-design-ux",
+        "title": "Product Design & UX",
+        "tagline": "User-centred design with modern interfaces, seamless user experiences and data-driven design decisions.",
+        "image": "service-ux.jpg",
+        "metaTitle": "Product Design & UX Services Malaysia | Trion Creation",
+        "metaDescription": "Product design and UX services in Malaysia. User research, interface prototyping, usability testing, design systems and multi-platform UI design for mobile, web and enterprise products.",
+        "keywords": "product design malaysia, ux design malaysia, ui design malaysia, design system malaysia, usability testing malaysia, mobile app ux, figma design service",
+        "ogShort": "User research, prototyping, design systems, usability testing — UX in Malaysia.",
+        "schemaServiceType": "Product Design and UX Services",
+        "schemaDescription": "User-centred product design and UX services including user experience design, interface prototyping, usability testing and design system creation across mobile, web and enterprise products.",
+        "priceMin": 10000,
+        "priceMax": 150000,
+        "features": [
+            "User Experience Design",
+            "Interface Prototyping",
+            "Usability Testing",
+            "Design System Creation"
+        ],
+        "overview": [
+            "Great design is the difference between a product people use and one they abandon. Our design team partners with our engineers from day one, so the UX you sign off on is the UX you actually ship — no compromises lost in handover.",
+            "We design for mobile, web and complex enterprise systems. Every project includes user research, low-fi to high-fi prototyping, usability testing and a documented design system your team can extend long after launch."
+        ],
+        "expertise": [
+            { "title": "UX Research", "desc": "User interviews, journey mapping, competitive analysis and behavioural analytics to ground design in evidence." },
+            { "title": "UI & Prototyping", "desc": "Figma-native design with interactive prototypes, motion specs and developer-friendly handoff." },
+            { "title": "Design Systems", "desc": "Token-based design systems with variants, theming and component documentation for long-term consistency." },
+            { "title": "Usability Testing", "desc": "Moderated and unmoderated testing, A/B experiment design and iteration based on real user feedback." }
+        ]
+    }
+]

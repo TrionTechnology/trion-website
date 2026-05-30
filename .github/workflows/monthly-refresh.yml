@@ -1,0 +1,45 @@
+name: Monthly SEO Refresh
+
+# Re-runs scripts/build-site.js on the 1st of every month at 02:00 UTC.
+# This refreshes <lastmod> dates in sitemap.xml and the "last updated"
+# stamps in llms.txt / llms-full.txt — signals to search engines and
+# AI crawlers that the content is actively maintained.
+#
+# Can also be triggered manually from the Actions tab.
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'   # 02:00 UTC, 1st of each month
+  workflow_dispatch:       # manual run button
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Regenerate service pages + refresh dates
+        run: node scripts/build-site.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          if [ -n "$(git status --porcelain)" ]; then
+            git add services/*.html sitemap.xml llms.txt llms-full.txt
+            git commit -m "chore: monthly SEO refresh — regenerate service pages + bump lastmod"
+            git push
+          else
+            echo "No changes — skipping commit."
+          fi

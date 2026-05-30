@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Trion Creation Website - Static HTML Site",
   "scripts": {
-    "build": "echo 'No build step needed for static site'"
+    "build": "node scripts/build-site.js",
+    "refresh": "node scripts/build-site.js"
   },
   "engines": {
     "node": "22.x"
   }
 }
-
