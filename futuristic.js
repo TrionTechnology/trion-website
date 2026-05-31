@@ -261,7 +261,8 @@
             t.style.height = size + 'px';
             t.style.opacity = (0.7 - i * 0.18).toFixed(2);
             document.body.appendChild(t);
-            trails.push({ el: t, x: window.innerWidth / 2, y: window.innerHeight / 2, rate: 0.38 - i * 0.10 });
+            // Lower rates = more inertia = smoother trailing
+            trails.push({ el: t, x: window.innerWidth / 2, y: window.innerHeight / 2, rate: 0.26 - i * 0.07 });
         }
 
         document.body.appendChild(ring);
@@ -294,13 +295,15 @@
 
         let lastWriteX = -9999, lastWriteY = -9999;
         function tickCursor() {
-            // Snappy core
-            dx = lerp(dx, mx, 0.42);
-            dy = lerp(dy, my, 0.42);
+            // Smoother lerp — was 0.42, now 0.28 for more inertia
+            dx = lerp(dx, mx, 0.28);
+            dy = lerp(dy, my, 0.28);
 
-            // Skip per-frame writes when nothing has moved more than 0.3px
+            // Sub-pixel skip threshold — smaller (0.08 vs 0.3) so we
+            // keep writing while the lerp is still settling, avoiding
+            // the "two-step settle" perception users read as jitter.
             const moved = Math.abs(dx - lastWriteX) + Math.abs(dy - lastWriteY);
-            if (moved < 0.3) {
+            if (moved < 0.08) {
                 requestAnimationFrame(tickCursor);
                 return;
             }
@@ -309,20 +312,21 @@
             // Velocity from smoothed positions
             const newVx = dx - prevX;
             const newVy = dy - prevY;
-            vx = lerp(vx, newVx, 0.22);
-            vy = lerp(vy, newVy, 0.22);
+            vx = lerp(vx, newVx, 0.18);
+            vy = lerp(vy, newVy, 0.18);
             prevX = dx; prevY = dy;
 
             const speed = Math.hypot(vx, vy);
 
-            // Lazy ring with velocity-driven stretch + rotation (only when moving)
-            rx = lerp(rx, mx, 0.13);
-            ry = lerp(ry, my, 0.13);
+            // Lazy ring — was 0.13, now 0.09 for noticeably softer follow
+            rx = lerp(rx, mx, 0.09);
+            ry = lerp(ry, my, 0.09);
             if (speed > 1.5) {
-                const stretch = clamp(1 + speed * 0.05, 1, 1.9);
+                // Smaller stretch + slower angle settle for a less twitchy comet
+                const stretch = clamp(1 + speed * 0.035, 1, 1.6);
                 const inv = 1 / Math.sqrt(stretch);
                 const angle = Math.atan2(vy, vx) * 180 / Math.PI;
-                smoothAngle = lerp(smoothAngle, angle, 0.4);
+                smoothAngle = lerp(smoothAngle, angle, 0.25);
                 ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) rotate(${smoothAngle}deg) scaleX(${stretch}) scaleY(${inv})`;
             } else {
                 ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
@@ -473,13 +477,13 @@
         });
     }
 
-    /* ─────────── 6. 3D TORUS KNOT (about section centerpiece) ───────────
+    /* ─────────── 6. 3D TORUS KNOT (hero centerpiece) ───────────
        A trefoil torus knot (p=2, q=3) rendered in canvas. Rotates on its
        own + tilts with mouse + spins with scroll velocity. Two-pass glow
        (thick low-alpha for halo + thin high-alpha for core). Animated dot
        travels along the curve to show "data flow". No 3D library needed. */
     function init3DTorusKnot() {
-        const wrap = document.querySelector('.about-3d');
+        const wrap = document.querySelector('.hero-3d');
         if (!wrap) return;
         const canvas = wrap.querySelector('canvas');
         if (!canvas) return;
