@@ -352,31 +352,42 @@
         const sphere = document.querySelector('.hero-3d');
         if (!sphere) return;
         // `peak` = monotonic max-so-far (instant growth while scrolling).
-        // `display` = what's actually rendered, lerps DOWN smoothly when
-        // `peak` collapses (user returns to top) but tracks `peak`
-        // instantly when growing — so the scroll-driven growth still
-        // feels glued to your scroll position, but the return-to-top
-        // animation is a smooth ~1.5s shrink instead of a snap.
+        // `display` = what's actually rendered.
+        //   • growing — display = peak (no lag, glued to scroll)
+        //   • shrinking — fixed-duration easeInOutCubic from current
+        //     value to 0 over ~1.2s. Fixed duration + symmetric easing
+        //     produces a much smoother feel than a lerp, which gets
+        //     slower as it approaches the target ("long tail").
         let peak = 0;
         let display = 0;
+        let shrink = null; // { start, from } when a shrink animation is in flight
+
+        const easeInOutCubic = (t) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
         onTick((y) => {
             const vh = window.innerHeight;
             const live = clamp(y / (vh * 0.9), 0, 1);
 
-            // Peak: monotonic. Resets only when fully back at the top.
+            // Peak: monotonic; resets only when fully back at the top.
             if (y < 5) peak = 0;
             else if (live > peak) peak = live;
 
-            // Display: instant when growing, smooth lerp when shrinking
             if (peak >= display) {
+                // Growing (or in sync) — instant, kill any active shrink
                 display = peak;
+                shrink = null;
             } else {
-                display = lerp(display, peak, 0.05);
-                if (display - peak < 0.001) display = peak;
+                // Shrinking — fixed-duration smooth animation
+                if (!shrink) shrink = { start: performance.now(), from: display };
+                const t = clamp((performance.now() - shrink.start) / 1200, 0, 1);
+                const eased = easeInOutCubic(t);
+                display = shrink.from + (peak - shrink.from) * eased;
+                if (t >= 1) { display = peak; shrink = null; }
             }
 
-            const eased = display * display;
-            const scale = 1 + eased * 3.2;
+            const e = display * display;
+            const scale = 1 + e * 3.2;
             const opacity = 1 - smoothstep(0.05, 0.92, display);
             sphere.style.transform = `translate3d(0, ${-display * 30}px, 0) scale(${scale})`;
             sphere.style.opacity = String(opacity);
