@@ -340,24 +340,33 @@
 
     /* ──────────── 6b. Hero sphere zoom-and-dissolve ────────────
        As the user scrolls past the hero, the particle sphere grows
-       (fly-through effect) and fades to fully transparent. Reverses
-       cleanly when scrolling back up. */
+       (fly-through effect) and fades to fully transparent.
+
+       Monotonic: progress only ever increases, so scrolling back up a
+       bit does not shrink the sphere — once it's grown, it stays grown
+       (which is what the eye expects from a "fly past" effect). The
+       state resets only when the user returns fully to the top. */
     function initHeroSphereZoom() {
         const sphere = document.querySelector('.hero-3d');
         if (!sphere) return;
+        let maxProgress = 0;
         let lastP = -1;
         onTick((y) => {
             const vh = window.innerHeight;
-            // Progress goes 0 -> 1 across one viewport of scroll
-            const progress = clamp(y / (vh * 0.9), 0, 1);
-            // Avoid writes for tiny changes
-            if (Math.abs(progress - lastP) < 0.003) return;
-            lastP = progress;
-            // Ease — slow start, accelerating zoom toward the end
-            const eased = progress * progress;
-            const scale = 1 + eased * 3.2;          // 1   -> 4.2
-            const opacity = 1 - smoothstep(0.05, 0.92, progress); // 1 -> 0
-            sphere.style.transform = `translate3d(0, ${-progress * 30}px, 0) scale(${scale})`;
+            const live = clamp(y / (vh * 0.9), 0, 1);
+
+            // Reset only when we are truly back at the top (< 5px).
+            // Otherwise progress can only grow.
+            if (y < 5) maxProgress = 0;
+            else if (live > maxProgress) maxProgress = live;
+
+            if (Math.abs(maxProgress - lastP) < 0.003) return;
+            lastP = maxProgress;
+
+            const eased = maxProgress * maxProgress;
+            const scale = 1 + eased * 3.2;
+            const opacity = 1 - smoothstep(0.05, 0.92, maxProgress);
+            sphere.style.transform = `translate3d(0, ${-maxProgress * 30}px, 0) scale(${scale})`;
             sphere.style.opacity = String(opacity);
         });
     }
