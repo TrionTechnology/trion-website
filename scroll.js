@@ -190,6 +190,12 @@
         window.addEventListener('resize', measure);
         window.addEventListener('load', measure);
 
+        // initHeroSphereZoom drives the .hero-image (.hero-3d) element
+        // independently with its own monotonic scale/opacity, so we no
+        // longer touch `image` here. Otherwise the two would race per
+        // frame and the sphere would snap back to its original size as
+        // soon as the user stopped scrolling.
+
         let progress = 0;
         onTick((y) => {
             const vh = window.innerHeight;
@@ -203,10 +209,6 @@
             if (text) {
                 text.style.transform = `translate3d(0, ${p * -18}px, 0)`;
                 text.style.opacity = fade;
-            }
-            if (image) {
-                image.style.transform = `perspective(1400px) rotateY(${-3 + p * 3}deg) translate3d(0, ${p * 12}px, 0)`;
-                image.style.opacity = lerp(1, 0.85, p);
             }
             if (subtitle) {
                 subtitle.style.transform = `translate3d(${p * -12}px, 0, 0)`;
@@ -350,18 +352,18 @@
         const sphere = document.querySelector('.hero-3d');
         if (!sphere) return;
         let maxProgress = 0;
-        let lastP = -1;
+        // We always write transform + opacity every frame so no other
+        // per-tick subscriber can stomp on them later. (Removed the
+        // "skip if unchanged" early-exit — it was letting initHeroPin's
+        // perspective transform win on idle frames, which reset the
+        // sphere to its original size when the user stopped scrolling.)
         onTick((y) => {
             const vh = window.innerHeight;
             const live = clamp(y / (vh * 0.9), 0, 1);
 
-            // Reset only when we are truly back at the top (< 5px).
-            // Otherwise progress can only grow.
+            // Reset only when truly back at the top (< 5px).
             if (y < 5) maxProgress = 0;
             else if (live > maxProgress) maxProgress = live;
-
-            if (Math.abs(maxProgress - lastP) < 0.003) return;
-            lastP = maxProgress;
 
             const eased = maxProgress * maxProgress;
             const scale = 1 + eased * 3.2;
