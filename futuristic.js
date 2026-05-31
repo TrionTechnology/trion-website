@@ -228,7 +228,27 @@
     function initHoloCursor() {
         if (window.matchMedia('(hover: none)').matches) return;
 
-        const ring  = document.createElement('div'); ring.className  = 'holo-cursor';
+        const ring = document.createElement('div');
+        ring.className = 'holo-cursor';
+        // AI-feel reticle: hexagonal outline + center core + cardinal ticks
+        // + slowly rotating scan ring. Everything inherits currentColor so
+        // .active can swap the whole thing to violet in one rule.
+        ring.innerHTML = `
+            <svg class="hc-svg" viewBox="-20 -20 40 40" aria-hidden="true">
+                <polygon class="hc-hex" points="0,-15 13,-7.5 13,7.5 0,15 -13,7.5 -13,-7.5"
+                         fill="none" stroke="currentColor" stroke-width="1"/>
+                <circle class="hc-core-ring" cx="0" cy="0" r="4"
+                         fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.55"/>
+                <circle class="hc-core" cx="0" cy="0" r="1.2" fill="currentColor"/>
+                <g class="hc-ticks" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <line x1="0"   y1="-18" x2="0"   y2="-16"/>
+                    <line x1="0"   y1="16"  x2="0"   y2="18"/>
+                    <line x1="-18" y1="0"   x2="-16" y2="0"/>
+                    <line x1="16"  y1="0"   x2="18"  y2="0"/>
+                </g>
+            </svg>
+            <div class="hc-scan" aria-hidden="true"></div>
+        `;
         const dot   = document.createElement('div'); dot.className   = 'holo-cursor-dot';
         const label = document.createElement('div'); label.className = 'cursor-label';
 
@@ -453,6 +473,199 @@
         });
     }
 
+    /* ─────────── 6. 3D TORUS KNOT (about section centerpiece) ───────────
+       A trefoil torus knot (p=2, q=3) rendered in canvas. Rotates on its
+       own + tilts with mouse + spins with scroll velocity. Two-pass glow
+       (thick low-alpha for halo + thin high-alpha for core). Animated dot
+       travels along the curve to show "data flow". No 3D library needed. */
+    function init3DTorusKnot() {
+        const wrap = document.querySelector('.about-3d');
+        if (!wrap) return;
+        const canvas = wrap.querySelector('canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        let W = 0, H = 0, DPR = 1;
+        function resize() {
+            DPR = Math.min(window.devicePixelRatio || 1, 2);
+            const rect = wrap.getBoundingClientRect();
+            W = rect.width;
+            H = rect.height;
+            if (W < 10 || H < 10) return;
+            canvas.width = W * DPR;
+            canvas.height = H * DPR;
+            canvas.style.width = W + 'px';
+            canvas.style.height = H + 'px';
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        new ResizeObserver(resize).observe(wrap);
+
+        // Trefoil torus knot points: (cos(2t)(2+cos(3t)), sin(2t)(2+cos(3t)), sin(3t))
+        // p=2 q=3 -> trefoil. We slightly squeeze Y so it sits well in 4:5.
+        const N = 280;
+        const pts = new Array(N);
+        for (let i = 0; i < N; i++) {
+            const t = (i / N) * Math.PI * 2;
+            const a = 2.2 + Math.cos(3 * t);
+            pts[i] = {
+                x: a * Math.cos(2 * t),
+                y: a * Math.sin(2 * t) * 0.75,
+                z: Math.sin(3 * t)
+            };
+        }
+
+        // Mouse + scroll state, smoothed
+        let tgMx = 0, tgMy = 0;
+        let mx = 0, my = 0;
+        let scroll = 0, tgScroll = window.scrollY;
+        let scrollVel = 0, lastScroll = tgScroll;
+
+        wrap.addEventListener('mousemove', (e) => {
+            const r = wrap.getBoundingClientRect();
+            tgMx = (e.clientX - r.left) / r.width - 0.5;
+            tgMy = (e.clientY - r.top) / r.height - 0.5;
+        });
+        wrap.addEventListener('mouseleave', () => { tgMx = 0; tgMy = 0; });
+        window.addEventListener('scroll', () => { tgScroll = window.scrollY; }, { passive: true });
+
+        // Only run when the about tab is the active one OR the wrap is in
+        // viewport, to save CPU when the user is on other tabs.
+        let active = true;
+        const io = new IntersectionObserver((entries) => {
+            for (const e of entries) active = e.isIntersecting;
+        }, { threshold: 0.05 });
+        io.observe(wrap);
+
+        const projected = new Array(N);
+
+        function frame() {
+            if (!active) { requestAnimationFrame(frame); return; }
+
+            mx = lerp(mx, tgMx, 0.06);
+            my = lerp(my, tgMy, 0.06);
+            scroll = lerp(scroll, tgScroll, 0.10);
+            scrollVel = lerp(scrollVel, scroll - lastScroll, 0.15);
+            lastScroll = scroll;
+
+            const now = performance.now() * 0.001;
+            // Continuous auto-rotation + mouse tilt + scroll-driven extra spin
+            const angX = my * 0.9 + now * 0.18 + scroll * 0.0008;
+            const angY = mx * 1.4 + now * 0.25 + scroll * 0.0014;
+            const cosX = Math.cos(angX), sinX = Math.sin(angX);
+            const cosY = Math.cos(angY), sinY = Math.sin(angY);
+
+            const scale = Math.min(W, H) * 0.20;
+            const cx = W / 2;
+            const cy = H / 2;
+
+            // Project all points to 2D
+            for (let i = 0; i < N; i++) {
+                const p = pts[i];
+                // Rotate around Y axis
+                let x = p.x * cosY + p.z * sinY;
+                let z = -p.x * sinY + p.z * cosY;
+                // Rotate around X axis
+                let y = p.y * cosX - z * sinX;
+                z = p.y * sinX + z * cosX;
+                const persp = 5 / (5 - z);
+                projected[i] = {
+                    sx: cx + x * scale * persp,
+                    sy: cy + y * scale * persp,
+                    z: z,
+                    persp: persp
+                };
+            }
+
+            ctx.clearRect(0, 0, W, H);
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // PASS 1: wide soft halo
+            ctx.lineWidth = 4;
+            for (let i = 0; i < N; i++) {
+                const a = projected[i];
+                const b = projected[(i + 1) % N];
+                if (!a || !b) continue;
+                const depth = (a.z + 1.2) / 2.4; // 0..1
+                const t = i / N;
+                // Holographic gradient along curve: violet -> blue -> cyan -> violet
+                const phase = (t * 2 + now * 0.05) % 1;
+                const col = sampleHolo(phase);
+                ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.08 + depth * 0.10})`;
+                ctx.beginPath();
+                ctx.moveTo(a.sx, a.sy);
+                ctx.lineTo(b.sx, b.sy);
+                ctx.stroke();
+            }
+
+            // PASS 2: bright thin core
+            ctx.lineWidth = 1.2;
+            for (let i = 0; i < N; i++) {
+                const a = projected[i];
+                const b = projected[(i + 1) % N];
+                if (!a || !b) continue;
+                const depth = (a.z + 1.2) / 2.4;
+                const t = i / N;
+                const phase = (t * 2 + now * 0.05) % 1;
+                const col = sampleHolo(phase);
+                ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.45 + depth * 0.55})`;
+                ctx.beginPath();
+                ctx.moveTo(a.sx, a.sy);
+                ctx.lineTo(b.sx, b.sy);
+                ctx.stroke();
+            }
+
+            // PASS 3: data-flow particle traveling along the curve
+            const travelers = 3;
+            for (let k = 0; k < travelers; k++) {
+                const phase = ((now * 0.18 + k / travelers) % 1);
+                const idx = Math.floor(phase * N);
+                const p = projected[idx];
+                if (!p) continue;
+                const col = sampleHolo((idx / N * 2) % 1);
+                const r = 3 * p.persp;
+                // glow
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},0.25)`;
+                ctx.beginPath();
+                ctx.arc(p.sx, p.sy, r * 3, 0, Math.PI * 2);
+                ctx.fill();
+                // core
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},1)`;
+                ctx.beginPath();
+                ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(frame);
+        }
+
+        function sampleHolo(t) {
+            // 3-stop gradient: violet (123,91,255) -> blue (47,102,255) -> cyan (0,240,255) -> back
+            const stops = [
+                [123, 91,  255],
+                [47,  102, 255],
+                [0,   240, 255],
+                [123, 91,  255]
+            ];
+            const seg = t * (stops.length - 1);
+            const i = Math.floor(seg);
+            const f = seg - i;
+            const a = stops[i];
+            const b = stops[i + 1] || stops[0];
+            return [
+                Math.round(a[0] + (b[0] - a[0]) * f),
+                Math.round(a[1] + (b[1] - a[1]) * f),
+                Math.round(a[2] + (b[2] - a[2]) * f),
+            ];
+        }
+
+        requestAnimationFrame(frame);
+    }
+
     /* ─────────── INIT ─────────── */
     function start() {
         initIntroSequence();
@@ -460,6 +673,7 @@
         initHoloCursor();
         initParallaxTilt();
         initMagneticButtons();
+        init3DTorusKnot();
     }
 
     if (document.readyState === 'loading') {

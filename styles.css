@@ -796,10 +796,103 @@ a:hover { color: var(--holo-mint); }
     border-radius: var(--radius-2xl);
     overflow: hidden;
     aspect-ratio: 4/5;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 80px rgba(123,91,255,0.2);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 40px rgba(123,91,255,0.2);
     position: relative;
     transform: perspective(1200px) rotateY(4deg);
     transition: transform var(--transition-cinematic);
+}
+
+/* 3D torus knot canvas (replaces the old team photo). Centerpiece is
+   driven by mouse position + scroll velocity for a "movement-detection"
+   feel — see init3DTorusKnot in futuristic.js. */
+.about-3d {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(123, 91, 255, 0.18), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(0, 240, 255, 0.12), transparent 70%),
+        linear-gradient(160deg, rgba(11, 8, 38, 0.85) 0%, rgba(7, 5, 26, 0.95) 100%);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.55),
+        0 0 60px rgba(123, 91, 255, 0.18),
+        inset 0 0 60px rgba(0, 240, 255, 0.04);
+    transform: perspective(1200px) rotateY(4deg);
+    transition: transform var(--transition-cinematic);
+    isolation: isolate;
+}
+.about-3d:hover { transform: perspective(1200px) rotateY(0); }
+.about-3d canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* Decorative grid + corner brackets so the canvas reads as "scope/HUD" */
+.about-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+    z-index: 1;
+}
+.about-3d::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    pointer-events: none;
+    z-index: 2;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(to right,  var(--holo-cyan) 0 18px, transparent 18px 100%) top    left  / 18px 1px no-repeat,
+        linear-gradient(to bottom, var(--holo-cyan) 0 18px, transparent 18px 100%) top    left  / 1px 18px no-repeat,
+        linear-gradient(to left,   var(--holo-cyan) 0 18px, transparent 18px 100%) top    right / 18px 1px no-repeat,
+        linear-gradient(to bottom, var(--holo-cyan) 0 18px, transparent 18px 100%) top    right / 1px 18px no-repeat,
+        linear-gradient(to right,  var(--holo-cyan) 0 18px, transparent 18px 100%) bottom left  / 18px 1px no-repeat,
+        linear-gradient(to top,    var(--holo-cyan) 0 18px, transparent 18px 100%) bottom left  / 1px 18px no-repeat,
+        linear-gradient(to left,   var(--holo-cyan) 0 18px, transparent 18px 100%) bottom right / 18px 1px no-repeat,
+        linear-gradient(to top,    var(--holo-cyan) 0 18px, transparent 18px 100%) bottom right / 1px 18px no-repeat;
+    filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.5));
+}
+/* Status readout */
+.about-3d .about-3d-readout {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--holo-cyan);
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+    pointer-events: none;
+}
+.about-3d .about-3d-readout::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--holo-mint);
+    box-shadow: 0 0 8px var(--holo-mint);
+    margin-right: 6px;
+    vertical-align: middle;
+    animation: aboutBlink 1.4s ease-in-out infinite;
+}
+@keyframes aboutBlink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
 }
 .about-image:hover { transform: perspective(1200px) rotateY(0); }
 .about-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) brightness(0.95); }
@@ -1448,52 +1541,73 @@ a:hover { color: var(--holo-mint); }
 /* ════════════════════════ HOLOGRAPHIC CURSOR SYSTEM ════════════════════════
    Transform-only — no backdrop-filter / blend modes anywhere. */
 
+/* AI HUD reticle: hexagonal outline + core ring + center dot + cardinal
+   ticks + rotating dashed scan ring. Background-free, all via SVG so
+   currentColor controls the entire reticle's hue at once. */
 .holo-cursor {
     position: fixed;
     top: 0; left: 0;
-    width: 32px; height: 32px;
-    border-radius: 50%;
+    width: 42px; height: 42px;
     pointer-events: none;
     z-index: var(--z-cursor);
     will-change: transform;
-    /* Concentric look: outer thin ring + soft inner glow */
-    border: 1px solid var(--holo-cyan);
-    box-shadow:
-        0 0 12px rgba(0,240,255,0.45),
-        inset 0 0 8px rgba(0,240,255,0.15);
+    color: var(--holo-cyan);
+    filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.45));
+    transition: color 200ms ease, filter 200ms ease, transform-origin 0s;
 }
-/* Crosshair corner brackets that appear on .active (hover state) */
-.holo-cursor::before,
-.holo-cursor::after {
-    content: "";
+.holo-cursor .hc-svg {
     position: absolute;
-    inset: -8px;
-    border: 1.5px solid var(--holo-violet);
-    border-radius: 4px;
-    opacity: 0;
-    transition: opacity 200ms ease, inset 300ms cubic-bezier(.16,1,.3,1);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.holo-cursor .hc-core {
+    animation: hcCorePulse 1.4s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+@keyframes hcCorePulse {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%      { transform: scale(1.7); opacity: 0.55; }
+}
+.holo-cursor .hc-core-ring {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: hcRingPulse 2.6s ease-in-out infinite;
+}
+@keyframes hcRingPulse {
+    0%, 100% { transform: scale(1);   opacity: 0.6; }
+    50%      { transform: scale(1.35);opacity: 0.15; }
+}
+.holo-cursor .hc-ticks {
+    transition: stroke-width 200ms ease;
+}
+/* Slowly rotating dashed scan ring around the reticle */
+.holo-cursor .hc-scan {
+    position: absolute;
+    inset: -6px;
+    border: 1px dashed currentColor;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: hcScanRotate 18s linear infinite;
     pointer-events: none;
 }
-.holo-cursor::before {
-    /* top-left + bottom-right corners */
-    clip-path: polygon(0 0, 30% 0, 30% 6%, 6% 6%, 6% 30%, 0 30%,
-                       100% 100%, 70% 100%, 70% 94%, 94% 94%, 94% 70%, 100% 70%);
+@keyframes hcScanRotate {
+    to { transform: rotate(360deg); }
 }
-.holo-cursor::after {
-    /* top-right + bottom-left corners */
-    clip-path: polygon(100% 0, 70% 0, 70% 6%, 94% 6%, 94% 30%, 100% 30%,
-                       0 100%, 30% 100%, 30% 94%, 6% 94%, 6% 70%, 0 70%);
-}
+
+/* Hover state — whole reticle goes violet, scan accelerates, ticks bolden */
 .holo-cursor.active {
-    border-color: var(--holo-violet);
-    box-shadow:
-        0 0 18px rgba(123,91,255,0.55),
-        inset 0 0 12px rgba(123,91,255,0.2);
+    color: var(--holo-violet);
+    filter: drop-shadow(0 0 10px rgba(123, 91, 255, 0.6));
 }
-.holo-cursor.active::before,
-.holo-cursor.active::after {
-    opacity: 1;
-    inset: -10px;
+.holo-cursor.active .hc-scan {
+    animation-duration: 6s;
+    opacity: 0.7;
+}
+.holo-cursor.active .hc-ticks {
+    stroke-width: 2.3;
 }
 
 .holo-cursor-dot {
@@ -1520,7 +1634,7 @@ a:hover { color: var(--holo-mint); }
     box-shadow: 0 0 6px rgba(0,240,255,0.6);
 }
 
-/* Mode label pill near cursor */
+/* Mode label — terminal/HUD readout, "> EXPLORE" style */
 .cursor-label {
     position: fixed;
     top: 0; left: 0;
@@ -1529,32 +1643,45 @@ a:hover { color: var(--holo-mint); }
     font-family: var(--font-mono);
     font-size: 0.62rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--void-0);
-    background: var(--holo-cyan);
-    padding: 4px 8px;
-    border-radius: 4px;
+    color: var(--holo-cyan);
+    background: rgba(7, 5, 26, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 5px 10px 5px 20px;
+    border-radius: 3px;
+    border: 1px solid var(--holo-cyan);
     white-space: nowrap;
     opacity: 0;
     transform-origin: 0 0;
     transition: opacity 220ms cubic-bezier(.16,1,.3,1);
-    box-shadow: 0 0 16px rgba(0,240,255,0.5);
+    box-shadow:
+        0 0 16px rgba(0, 240, 255, 0.35),
+        inset 0 0 8px rgba(0, 240, 255, 0.1);
     will-change: transform, opacity;
 }
 .cursor-label.show { opacity: 1; }
 .cursor-label::before {
-    /* small connecting line */
-    content: "";
+    /* terminal-style prompt character */
+    content: ">";
     position: absolute;
-    top: -8px;
-    left: -8px;
-    width: 12px;
-    height: 8px;
-    border-left: 1px solid var(--holo-cyan);
-    border-bottom: 1px solid var(--holo-cyan);
-    border-bottom-left-radius: 4px;
-    box-shadow: -2px 2px 6px rgba(0,240,255,0.4);
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--holo-mint);
+    font-weight: 700;
+    text-shadow: 0 0 6px var(--holo-mint);
+}
+.cursor-label::after {
+    /* blinking caret at the end */
+    content: "_";
+    margin-left: 4px;
+    animation: hcCaret 1s steps(2) infinite;
+}
+@keyframes hcCaret {
+    0%, 50%  { opacity: 1; }
+    51%, 100%{ opacity: 0; }
 }
 
 /* Click ping ripple — expands from click point and fades */
