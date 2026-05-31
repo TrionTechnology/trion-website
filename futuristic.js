@@ -520,8 +520,7 @@
                 x: Math.cos(theta) * r,
                 y: y,
                 z: Math.sin(theta) * r,
-                hue: i / N,
-                pulse: 0   // 0..1 — "neuron firing" intensity, decays each frame
+                hue: i / N
             };
         }
 
@@ -585,13 +584,6 @@
         }, { threshold: 0.05 });
         io.observe(wrap);
 
-        // ─── "Data pulses" — bright dots that travel along constellation
-        // edges. Periodically spawned, fade in/out across their journey.
-        let activePulses = [];
-        let lastPulseSpawn = 0;
-        const MAX_PULSES = reducedMotion ? 4 : 14;
-        const PULSE_INTERVAL = 90; // ms between spawn attempts
-
         // Reused projection buffer
         const proj = new Array(N);
         for (let i = 0; i < N; i++) proj[i] = { sx: 0, sy: 0, z: 0, persp: 1 };
@@ -636,8 +628,7 @@
             const cosX = Math.cos(angX), sinX = Math.sin(angX);
             const cosY = Math.cos(angY), sinY = Math.sin(angY);
 
-            // BIGGER: 0.34 → 0.46 of min dimension
-            const scale = Math.min(W, H) * 0.46;
+            const scale = Math.min(W, H) * 0.40;
             const cx = W / 2;
             const cy = H / 2;
             const breath = 1 + Math.sin(now * 0.6) * 0.025;
@@ -680,26 +671,6 @@
                 op.size = o.size;
             }
 
-            // ── Neuron firing — a tiny % of nodes spark each frame and
-            //    decay over ~30 frames. Existing fires keep decaying.
-            for (let i = 0; i < N; i++) {
-                if (sphere[i].pulse > 0.02) sphere[i].pulse *= 0.92;
-                else if (sphere[i].pulse > 0) sphere[i].pulse = 0;
-                else if (Math.random() < 0.0006) sphere[i].pulse = 1;
-            }
-
-            // ── Spawn periodic edge pulses
-            if (edges.length && nowMs - lastPulseSpawn > PULSE_INTERVAL) {
-                lastPulseSpawn = nowMs;
-                if (activePulses.length < MAX_PULSES) {
-                    activePulses.push({
-                        edgeIdx: Math.floor(Math.random() * edges.length),
-                        start: nowMs,
-                        duration: 900 + Math.random() * 700
-                    });
-                }
-            }
-
             ctx.clearRect(0, 0, W, H);
             ctx.globalCompositeOperation = 'lighter';
 
@@ -739,14 +710,13 @@
                 const sp = sphere[i];
                 const depth = (p.z + 1.2) / 2.4;
                 const col = sampleHolo((sp.hue + now * 0.04) % 1);
-                const pulse = sp.pulse;
-                const baseR = (0.8 + depth * 2.6) * p.persp * (1 + pulse * 3);
-                const alpha = Math.min(1, (0.18 + depth * 0.82) + pulse * 0.6);
+                const baseR = (0.7 + depth * 2.4) * p.persp;
+                const alpha = 0.18 + depth * 0.82;
 
-                // soft halo (boosted when firing)
-                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${alpha * (0.14 + pulse * 0.4)})`;
+                // soft halo
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${alpha * 0.14})`;
                 ctx.beginPath();
-                ctx.arc(p.sx, p.sy, baseR * (3.5 + pulse * 3), 0, Math.PI * 2);
+                ctx.arc(p.sx, p.sy, baseR * 3.5, 0, Math.PI * 2);
                 ctx.fill();
                 // core
                 ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${alpha})`;
@@ -754,34 +724,6 @@
                 ctx.arc(p.sx, p.sy, baseR, 0, Math.PI * 2);
                 ctx.fill();
             }
-
-            // ── Data pulses traveling along edges (drawn on top, only
-            //    if the edge is at least partially front-facing).
-            const keptPulses = [];
-            for (let i = 0; i < activePulses.length; i++) {
-                const p = activePulses[i];
-                const t = (nowMs - p.start) / p.duration;
-                if (t >= 1) continue;
-                keptPulses.push(p);
-                const [ia, ib] = edges[p.edgeIdx];
-                const a = proj[ia], b = proj[ib];
-                if (a.z < -0.4 && b.z < -0.4) continue;
-                const px = a.sx + (b.sx - a.sx) * t;
-                const py = a.sy + (b.sy - a.sy) * t;
-                const fade = Math.sin(t * Math.PI);
-                const col = sampleHolo((p.edgeIdx / edges.length + now * 0.03) % 1);
-                // glow
-                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${fade * 0.5})`;
-                ctx.beginPath();
-                ctx.arc(px, py, 6, 0, Math.PI * 2);
-                ctx.fill();
-                // bright core
-                ctx.fillStyle = `rgba(255,255,255,${fade * 0.85})`;
-                ctx.beginPath();
-                ctx.arc(px, py, 1.6, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            activePulses = keptPulses;
 
             // ── Orbiters
             for (let i = 0; i < M; i++) {
