@@ -338,7 +338,31 @@
         document.querySelectorAll('.reveal-3d').forEach((el) => io.observe(el));
     }
 
-    /* ──────────── 6. Ambient halo (idle only) ──────────── */
+    /* ──────────── 6b. Hero sphere zoom-and-dissolve ────────────
+       As the user scrolls past the hero, the particle sphere grows
+       (fly-through effect) and fades to fully transparent. Reverses
+       cleanly when scrolling back up. */
+    function initHeroSphereZoom() {
+        const sphere = document.querySelector('.hero-3d');
+        if (!sphere) return;
+        let lastP = -1;
+        onTick((y) => {
+            const vh = window.innerHeight;
+            // Progress goes 0 -> 1 across one viewport of scroll
+            const progress = clamp(y / (vh * 0.9), 0, 1);
+            // Avoid writes for tiny changes
+            if (Math.abs(progress - lastP) < 0.003) return;
+            lastP = progress;
+            // Ease — slow start, accelerating zoom toward the end
+            const eased = progress * progress;
+            const scale = 1 + eased * 3.2;          // 1   -> 4.2
+            const opacity = 1 - smoothstep(0.05, 0.92, progress); // 1 -> 0
+            sphere.style.transform = `translate3d(0, ${-progress * 30}px, 0) scale(${scale})`;
+            sphere.style.opacity = String(opacity);
+        });
+    }
+
+    /* ──────────── 7. Ambient halo (idle only) ──────────── */
     function initAmbientHalo() {
         if (isTouch || reducedMotion) return;
         const halo = document.createElement('div');
@@ -383,6 +407,7 @@
 
         initProgressBar();
         if (!reducedMotion) initHeroPin();
+        if (!reducedMotion) initHeroSphereZoom();
         initWordReveal();
         initCounters();
         initCardEntrance();

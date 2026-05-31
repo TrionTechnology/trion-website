@@ -617,10 +617,12 @@ a:hover { color: var(--holo-mint); }
     border-radius: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
-    transform: none !important;
+    /* JS drives scale + opacity on scroll — don't force transform here */
+    transform-origin: center center;
+    will-change: transform, opacity;
     transition: none !important;
 }
-.hero-3d:hover { transform: none !important; }
+.hero-3d:hover { transform: none; }
 /* Kill the .hero-image overlay gradient + scan border so the canvas
    sits clean against the hero background */
 .hero-3d::before,
