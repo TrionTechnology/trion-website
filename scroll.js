@@ -351,24 +351,34 @@
     function initHeroSphereZoom() {
         const sphere = document.querySelector('.hero-3d');
         if (!sphere) return;
-        let maxProgress = 0;
-        // We always write transform + opacity every frame so no other
-        // per-tick subscriber can stomp on them later. (Removed the
-        // "skip if unchanged" early-exit — it was letting initHeroPin's
-        // perspective transform win on idle frames, which reset the
-        // sphere to its original size when the user stopped scrolling.)
+        // `peak` = monotonic max-so-far (instant growth while scrolling).
+        // `display` = what's actually rendered, lerps DOWN smoothly when
+        // `peak` collapses (user returns to top) but tracks `peak`
+        // instantly when growing — so the scroll-driven growth still
+        // feels glued to your scroll position, but the return-to-top
+        // animation is a smooth ~1.5s shrink instead of a snap.
+        let peak = 0;
+        let display = 0;
         onTick((y) => {
             const vh = window.innerHeight;
             const live = clamp(y / (vh * 0.9), 0, 1);
 
-            // Reset only when truly back at the top (< 5px).
-            if (y < 5) maxProgress = 0;
-            else if (live > maxProgress) maxProgress = live;
+            // Peak: monotonic. Resets only when fully back at the top.
+            if (y < 5) peak = 0;
+            else if (live > peak) peak = live;
 
-            const eased = maxProgress * maxProgress;
+            // Display: instant when growing, smooth lerp when shrinking
+            if (peak >= display) {
+                display = peak;
+            } else {
+                display = lerp(display, peak, 0.05);
+                if (display - peak < 0.001) display = peak;
+            }
+
+            const eased = display * display;
             const scale = 1 + eased * 3.2;
-            const opacity = 1 - smoothstep(0.05, 0.92, maxProgress);
-            sphere.style.transform = `translate3d(0, ${-maxProgress * 30}px, 0) scale(${scale})`;
+            const opacity = 1 - smoothstep(0.05, 0.92, display);
+            sphere.style.transform = `translate3d(0, ${-display * 30}px, 0) scale(${scale})`;
             sphere.style.opacity = String(opacity);
         });
     }
