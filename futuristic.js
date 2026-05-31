@@ -477,11 +477,13 @@
         });
     }
 
-    /* ─────────── 6. 3D TORUS KNOT (hero centerpiece) ───────────
-       A trefoil torus knot (p=2, q=3) rendered in canvas. Rotates on its
-       own + tilts with mouse + spins with scroll velocity. Two-pass glow
-       (thick low-alpha for halo + thin high-alpha for core). Animated dot
-       travels along the curve to show "data flow". No 3D library needed. */
+    /* ─────────── 6. 3D PARTICLE SPHERE (hero centerpiece) ───────────
+       Dense Fibonacci-distributed particle sphere — the "Alantes ball"
+       look. ~700 particles on a sphere surface, each rendered with
+       depth-based size/alpha. Pre-computed nearest-neighbor edges
+       create a faint constellation web. Holographic gradient cycles
+       across the sphere. Mouse tilts, scroll spins, time auto-rotates.
+       Pure canvas, no 3D library. */
     function init3DTorusKnot() {
         const wrap = document.querySelector('.hero-3d');
         if (!wrap) return;
@@ -506,25 +508,67 @@
         window.addEventListener('resize', resize);
         new ResizeObserver(resize).observe(wrap);
 
-        // Trefoil torus knot points: (cos(2t)(2+cos(3t)), sin(2t)(2+cos(3t)), sin(3t))
-        // p=2 q=3 -> trefoil. We slightly squeeze Y so it sits well in 4:5.
-        const N = 280;
-        const pts = new Array(N);
+        // ─── Fibonacci sphere — evenly-distributed points on unit sphere
+        const N = reducedMotion ? 220 : 680;
+        const sphere = new Array(N);
+        const golden = Math.PI * (3 - Math.sqrt(5));
         for (let i = 0; i < N; i++) {
-            const t = (i / N) * Math.PI * 2;
-            const a = 2.2 + Math.cos(3 * t);
-            pts[i] = {
-                x: a * Math.cos(2 * t),
-                y: a * Math.sin(2 * t) * 0.75,
-                z: Math.sin(3 * t)
+            const y = 1 - (i / (N - 1)) * 2;     // -1 .. 1
+            const r = Math.sqrt(1 - y * y);
+            const theta = golden * i;
+            sphere[i] = {
+                x: Math.cos(theta) * r,
+                y: y,
+                z: Math.sin(theta) * r,
+                hue: i / N
             };
         }
 
-        // Mouse + scroll state, smoothed
+        // Pre-compute up to 3 nearest-neighbour edges per point — done once
+        // since the sphere structure never changes. We dedupe with a Set.
+        const K = 3;
+        const edgeSet = new Set();
+        const edges = [];
+        for (let i = 0; i < N; i++) {
+            const a = sphere[i];
+            const dists = [];
+            for (let j = 0; j < N; j++) {
+                if (i === j) continue;
+                const b = sphere[j];
+                const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+                dists.push({ j, d: dx * dx + dy * dy + dz * dz });
+            }
+            dists.sort((p, q) => p.d - q.d);
+            for (let k = 0; k < K; k++) {
+                const j = dists[k].j;
+                const key = i < j ? `${i}-${j}` : `${j}-${i}`;
+                if (edgeSet.has(key)) continue;
+                edgeSet.add(key);
+                edges.push([i, j]);
+            }
+        }
+
+        // Orbiting outer particles for extra atmosphere
+        const M = reducedMotion ? 30 : 80;
+        const orbiters = new Array(M);
+        for (let i = 0; i < M; i++) {
+            const ang1 = Math.random() * Math.PI * 2;
+            const ang2 = Math.acos(2 * Math.random() - 1);
+            const radius = 1.25 + Math.random() * 0.35;
+            orbiters[i] = {
+                base: radius,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.2 + Math.random() * 0.5,
+                axis: ang1,
+                tilt: ang2,
+                size: 0.5 + Math.random() * 1.2
+            };
+        }
+
+        // Input state, smoothed
         let tgMx = 0, tgMy = 0;
         let mx = 0, my = 0;
         let scroll = 0, tgScroll = window.scrollY;
-        let scrollVel = 0, lastScroll = tgScroll;
 
         wrap.addEventListener('mousemove', (e) => {
             const r = wrap.getBoundingClientRect();
@@ -534,137 +578,164 @@
         wrap.addEventListener('mouseleave', () => { tgMx = 0; tgMy = 0; });
         window.addEventListener('scroll', () => { tgScroll = window.scrollY; }, { passive: true });
 
-        // Only run when the about tab is the active one OR the wrap is in
-        // viewport, to save CPU when the user is on other tabs.
         let active = true;
         const io = new IntersectionObserver((entries) => {
             for (const e of entries) active = e.isIntersecting;
         }, { threshold: 0.05 });
         io.observe(wrap);
 
-        const projected = new Array(N);
+        // Reused projection buffer
+        const proj = new Array(N);
+        for (let i = 0; i < N; i++) proj[i] = { sx: 0, sy: 0, z: 0, persp: 1 };
+        const orbProj = new Array(M);
+        for (let i = 0; i < M; i++) orbProj[i] = { sx: 0, sy: 0, z: 0, persp: 1, size: 0, col: null };
+
+        // Index list for depth-sorting
+        const order = new Array(N);
+        for (let i = 0; i < N; i++) order[i] = i;
+
+        function sampleHolo(t) {
+            const stops = [
+                [123, 91,  255],   // violet
+                [47,  102, 255],   // blue
+                [0,   240, 255],   // cyan
+                [107, 255, 227],   // mint
+                [123, 91,  255]    // back to violet
+            ];
+            const seg = t * (stops.length - 1);
+            const i = Math.floor(seg) % (stops.length - 1);
+            const f = seg - Math.floor(seg);
+            const a = stops[i];
+            const b = stops[i + 1];
+            return [
+                Math.round(a[0] + (b[0] - a[0]) * f),
+                Math.round(a[1] + (b[1] - a[1]) * f),
+                Math.round(a[2] + (b[2] - a[2]) * f)
+            ];
+        }
 
         function frame() {
             if (!active) { requestAnimationFrame(frame); return; }
 
-            mx = lerp(mx, tgMx, 0.06);
-            my = lerp(my, tgMy, 0.06);
-            scroll = lerp(scroll, tgScroll, 0.10);
-            scrollVel = lerp(scrollVel, scroll - lastScroll, 0.15);
-            lastScroll = scroll;
+            mx = lerp(mx, tgMx, 0.05);
+            my = lerp(my, tgMy, 0.05);
+            scroll = lerp(scroll, tgScroll, 0.08);
 
             const now = performance.now() * 0.001;
-            // Continuous auto-rotation + mouse tilt + scroll-driven extra spin
-            const angX = my * 0.9 + now * 0.18 + scroll * 0.0008;
-            const angY = mx * 1.4 + now * 0.25 + scroll * 0.0014;
+            const angX = my * 0.7 + now * 0.10 + scroll * 0.0006;
+            const angY = mx * 1.0 + now * 0.18 + scroll * 0.0011;
             const cosX = Math.cos(angX), sinX = Math.sin(angX);
             const cosY = Math.cos(angY), sinY = Math.sin(angY);
 
-            const scale = Math.min(W, H) * 0.20;
+            const scale = Math.min(W, H) * 0.34;
             const cx = W / 2;
             const cy = H / 2;
+            const breath = 1 + Math.sin(now * 0.6) * 0.025;
 
-            // Project all points to 2D
+            // ── Project sphere particles
             for (let i = 0; i < N; i++) {
-                const p = pts[i];
-                // Rotate around Y axis
-                let x = p.x * cosY + p.z * sinY;
+                const p = sphere[i];
+                let x = (p.x * cosY + p.z * sinY) * breath;
                 let z = -p.x * sinY + p.z * cosY;
-                // Rotate around X axis
-                let y = p.y * cosX - z * sinX;
-                z = p.y * sinX + z * cosX;
-                const persp = 5 / (5 - z);
-                projected[i] = {
-                    sx: cx + x * scale * persp,
-                    sy: cy + y * scale * persp,
-                    z: z,
-                    persp: persp
-                };
+                let y = (p.y * cosX - z * sinX) * breath;
+                z = (p.y * sinX + z * cosX) * breath;
+                const persp = 4.5 / (4.5 - z);
+                const pp = proj[i];
+                pp.sx = cx + x * scale * persp;
+                pp.sy = cy + y * scale * persp;
+                pp.z = z;
+                pp.persp = persp;
+            }
+
+            // ── Project orbiters
+            for (let i = 0; i < M; i++) {
+                const o = orbiters[i];
+                const t = now * o.speed + o.phase;
+                // Orbit in tilted plane
+                let ox = Math.cos(t) * o.base;
+                let oy = Math.sin(t) * o.base * Math.cos(o.tilt);
+                let oz = Math.sin(t) * o.base * Math.sin(o.tilt);
+                // Rotate around vertical by axis
+                let rx = ox * Math.cos(o.axis) - oz * Math.sin(o.axis);
+                let rz = ox * Math.sin(o.axis) + oz * Math.cos(o.axis);
+                ox = rx; oz = rz;
+                // Apply view rotation
+                rx = ox * cosY + oz * sinY;
+                rz = -ox * sinY + oz * cosY;
+                let ry = oy * cosX - rz * sinX;
+                rz = oy * sinX + rz * cosX;
+                const persp = 4.5 / (4.5 - rz);
+                const op = orbProj[i];
+                op.sx = cx + rx * scale * persp;
+                op.sy = cy + ry * scale * persp;
+                op.z = rz;
+                op.persp = persp;
+                op.size = o.size;
             }
 
             ctx.clearRect(0, 0, W, H);
             ctx.globalCompositeOperation = 'lighter';
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
 
-            // PASS 1: wide soft halo
-            ctx.lineWidth = 4;
-            for (let i = 0; i < N; i++) {
-                const a = projected[i];
-                const b = projected[(i + 1) % N];
-                if (!a || !b) continue;
-                const depth = (a.z + 1.2) / 2.4; // 0..1
-                const t = i / N;
-                // Holographic gradient along curve: violet -> blue -> cyan -> violet
-                const phase = (t * 2 + now * 0.05) % 1;
-                const col = sampleHolo(phase);
-                ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.08 + depth * 0.10})`;
+            // ── Constellation lines (faint, behind particles)
+            // Only draw edges where both endpoints face camera enough
+            ctx.lineWidth = 0.6;
+            for (let e = 0; e < edges.length; e++) {
+                const [i, j] = edges[e];
+                const a = proj[i], b = proj[j];
+                if (a.z < -0.4 && b.z < -0.4) continue; // skip far back
+                const depth = (Math.max(a.z, b.z) + 1.2) / 2.4;
+                const col = sampleHolo((sphere[i].hue + now * 0.04) % 1);
+                ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.04 + depth * 0.12})`;
                 ctx.beginPath();
                 ctx.moveTo(a.sx, a.sy);
                 ctx.lineTo(b.sx, b.sy);
                 ctx.stroke();
             }
 
-            // PASS 2: bright thin core
-            ctx.lineWidth = 1.2;
-            for (let i = 0; i < N; i++) {
-                const a = projected[i];
-                const b = projected[(i + 1) % N];
-                if (!a || !b) continue;
-                const depth = (a.z + 1.2) / 2.4;
-                const t = i / N;
-                const phase = (t * 2 + now * 0.05) % 1;
-                const col = sampleHolo(phase);
-                ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.45 + depth * 0.55})`;
-                ctx.beginPath();
-                ctx.moveTo(a.sx, a.sy);
-                ctx.lineTo(b.sx, b.sy);
-                ctx.stroke();
-            }
+            // ── Depth-sort sphere particles (back-to-front)
+            order.sort((a, b) => proj[a].z - proj[b].z);
 
-            // PASS 3: data-flow particle traveling along the curve
-            const travelers = 3;
-            for (let k = 0; k < travelers; k++) {
-                const phase = ((now * 0.18 + k / travelers) % 1);
-                const idx = Math.floor(phase * N);
-                const p = projected[idx];
-                if (!p) continue;
-                const col = sampleHolo((idx / N * 2) % 1);
-                const r = 3 * p.persp;
-                // glow
-                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},0.25)`;
+            // ── Draw sphere particles
+            for (let k = 0; k < N; k++) {
+                const i = order[k];
+                const p = proj[i];
+                const sp = sphere[i];
+                const depth = (p.z + 1.2) / 2.4; // 0 back .. 1 front
+                const col = sampleHolo((sp.hue + now * 0.04) % 1);
+                const baseR = (0.6 + depth * 2.4) * p.persp;
+                const alpha = 0.15 + depth * 0.85;
+
+                // soft halo
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${alpha * 0.12})`;
                 ctx.beginPath();
-                ctx.arc(p.sx, p.sy, r * 3, 0, Math.PI * 2);
+                ctx.arc(p.sx, p.sy, baseR * 3.5, 0, Math.PI * 2);
                 ctx.fill();
                 // core
-                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},1)`;
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${alpha})`;
                 ctx.beginPath();
-                ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
+                ctx.arc(p.sx, p.sy, baseR, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // ── Orbiters on top (mostly the front-facing ones)
+            for (let i = 0; i < M; i++) {
+                const op = orbProj[i];
+                if (op.z < -0.5) continue;
+                const depth = (op.z + 1.6) / 3;
+                const col = sampleHolo((i / M + now * 0.02) % 1);
+                const r = op.size * 1.2 * op.persp;
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${0.3 + depth * 0.5})`;
+                ctx.beginPath();
+                ctx.arc(op.sx, op.sy, r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${depth * 0.6})`;
+                ctx.beginPath();
+                ctx.arc(op.sx, op.sy, r * 2.5, 0, Math.PI * 2);
                 ctx.fill();
             }
 
             ctx.globalCompositeOperation = 'source-over';
             requestAnimationFrame(frame);
-        }
-
-        function sampleHolo(t) {
-            // 3-stop gradient: violet (123,91,255) -> blue (47,102,255) -> cyan (0,240,255) -> back
-            const stops = [
-                [123, 91,  255],
-                [47,  102, 255],
-                [0,   240, 255],
-                [123, 91,  255]
-            ];
-            const seg = t * (stops.length - 1);
-            const i = Math.floor(seg);
-            const f = seg - i;
-            const a = stops[i];
-            const b = stops[i + 1] || stops[0];
-            return [
-                Math.round(a[0] + (b[0] - a[0]) * f),
-                Math.round(a[1] + (b[1] - a[1]) * f),
-                Math.round(a[2] + (b[2] - a[2]) * f),
-            ];
         }
 
         requestAnimationFrame(frame);

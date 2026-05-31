@@ -476,7 +476,7 @@ a:hover { color: var(--holo-mint); }
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: var(--space-16);
-    align-items: center;
+    align-items: start;
     position: relative;
     z-index: 2;
 }
@@ -600,27 +600,32 @@ a:hover { color: var(--holo-mint); }
     filter: saturate(1.2) contrast(1.05) brightness(0.95);
 }
 
-/* ────────────── HERO 3D — torus knot canvas ──────────────
-   Replaces the old hero photo. The .hero-image wrapper already gives
-   us border-radius, aspect-ratio, perspective, shadow and the ::after
-   scanline border. We just need to suppress its overlay blends (which
-   would wash out the dark canvas) and style the canvas + readout. */
+/* ────────────── HERO 3D — frameless particle sphere ──────────────
+   No border, no HUD frame, no readout. The visualization blends into
+   the hero: a soft dark radial "weight" sits behind the sphere and
+   fades to fully transparent at the edges, so the canvas appears to
+   float in the same space as the hero background. */
 .hero-3d {
-    background:
-        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(123, 91, 255, 0.20), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(0, 240, 255, 0.14), transparent 70%),
-        linear-gradient(160deg, rgba(11, 8, 38, 0.95) 0%, rgba(7, 5, 26, 1) 100%);
+    /* Override every framing rule inherited from .hero-image */
+    background: radial-gradient(
+        ellipse 55% 50% at 50% 50%,
+        rgba(5, 3, 20, 0.55) 0%,
+        rgba(7, 5, 26, 0.25) 45%,
+        transparent 80%
+    ) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    transform: none !important;
+    transition: none !important;
 }
-.hero-3d::before {
-    /* Override the hero-image overlay-blend gradient — we want the
-       canvas to show clean, not be tinted by an overlay. */
-    background:
-        linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px) !important;
-    background-size: 32px 32px !important;
-    mix-blend-mode: normal !important;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+.hero-3d:hover { transform: none !important; }
+/* Kill the .hero-image overlay gradient + scan border so the canvas
+   sits clean against the hero background */
+.hero-3d::before,
+.hero-3d::after {
+    display: none !important;
 }
 .hero-3d canvas {
     position: absolute;
@@ -630,31 +635,8 @@ a:hover { color: var(--holo-mint); }
     display: block;
     z-index: 1;
 }
-.hero-3d-readout {
-    position: absolute;
-    bottom: 22px;
-    left: 22px;
-    z-index: 4;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    color: var(--holo-cyan);
-    text-transform: uppercase;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
-    pointer-events: none;
-}
-.hero-3d-readout::before {
-    content: "";
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--holo-mint);
-    box-shadow: 0 0 8px var(--holo-mint);
-    margin-right: 6px;
-    vertical-align: middle;
-    animation: aboutBlink 1.4s ease-in-out infinite;
-}
+/* Status readout removed for the frameless look */
+.hero-3d-readout { display: none !important; }
 
 /* ════════════════════════ FEATURES ════════════════════════ */
 .features-section {
