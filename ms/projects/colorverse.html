@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajian Kes Platform Web3 Social-Fi Colorverse | Trion Creation</title>
+    <meta name="description" content="Kajian kes: Trion Creation membina Colorverse, platform Web3 Social-Fi dengan launchpad NFT, kontrak pintar berbilang rangkaian, transaksi tanpa gas dan pengiktirafan rasmi Lembaga Pelancongan Malaysia.">
+    <meta name="keywords" content="kajian kes colorverse, pembangunan web3 malaysia, platform social-fi, pembangunan launchpad NFT, pembangunan kontrak pintar, blockchain malaysia, transaksi tanpa gas">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/ms/projects/colorverse.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/colorverse.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/colorverse.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/colorverse.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/colorverse.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/ms/projects/colorverse.html">
+    <meta property="og:locale" content="ms_MY">
+    <meta property="og:title" content="Kajian Kes Platform Web3 Social-Fi Colorverse | Trion Creation">
+    <meta property="og:description" content="Platform Web3 Social-Fi dengan launchpad NFT, kontrak pintar berbilang rangkaian dan pengiktirafan rasmi Lembaga Pelancongan Malaysia — oleh Trion Creation.">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Colorverse Web3 Social-Fi Platform — Case Study",
+        "description": "How Trion Creation built Colorverse, a Web3 Social-Fi platform with NFT launchpad, multi-chain smart contracts, gasless transactions and Malaysia Tourism Board endorsement.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/colorverse.html"
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">Utama</a></li>
+                        <li><a href="../index.html#about" class="nav-link">Tentang</a></li>
+                        <li><a href="../index.html#services" class="nav-link">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">Portfolio</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">Perkongsian</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">Teknologi</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">Soalan Lazim</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">Hubungi</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/colorverse.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/colorverse.html" class="lang-link" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="https://trioncreation.com/ms/projects/colorverse.html" class="lang-link active" hreflang="ms" lang="ms" aria-current="true">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">Mula Sekarang</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">Utama</a> / <a href="../index.html#portfolio">Portfolio</a> / <span>Colorverse</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>Colorverse</h1>
+                        <p class="project-subtitle">Platform Web3 berkuasa Social-Fi yang direka khas untuk pencipta kandungan, membolehkan penerbitan kandungan, interaksi peminat, dan pendapatan insentif melalui teknologi Web3 serta ekonomi token</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Aplikasi Web</span>
+                            <span class="tag">Reka Bentuk Produk</span>
+                            <span class="tag">Blockchain</span>
+                            <span class="tag">NFT</span>
+                        </div>
+                        <div class="endorsement-badge">
+                            <span class="badge-icon">🏆</span>
+                            <span>Diiktiraf secara rasmi oleh Lembaga Pelancongan Malaysia</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">Multi-Chain</div>
+                            <div class="stat-label">Ethereum, Polygon, BNB, Avalanche</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Tanpa Gas</div>
+                            <div class="stat-label">Mint NFT</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3 Peringkat</div>
+                            <div class="stat-label">Perkongsian Pendapatan</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Hibrid</div>
+                            <div class="stat-label">Log Masuk Web2 & Web3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Gambaran Keseluruhan Projek</h2>
+                    <p>Colorverse ialah platform Social-Fi berasaskan Web3 yang direka untuk pencipta kandungan, dengan ciri-ciri seumpama Patreon, membolehkan pencipta menerbitkan kandungan dan berinteraksi dengan peminat, sambil memperoleh insentif melalui teknologi Web3 dan ekonomi token.</p>
+
+                    <h3>Cabaran</h3>
+                    <p>Mewujudkan jambatan yang lancar antara pengalaman Web2 dan Web3 sambil mengekalkan antara muka yang mesra pengguna serta melaksanakan automasi kontrak pintar yang kompleks untuk perkongsian pendapatan merentasi pelbagai rangkaian blockchain.</p>
+
+                    <h3>Penyelesaian</h3>
+                    <p>Kami membangunkan platform hibrid yang menggabungkan ciri media sosial tradisional dengan teknologi Web3 termaju, termasuk minting NFT tanpa gas, sokongan berbilang rangkaian, dan pengagihan pendapatan automatik melalui kontrak pintar.</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Platform Web3 Colorverse" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>Pencapaian Teknikal</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🤖</span>
+                    </div>
+                    <h3>Automasi Kontrak Pintar</h3>
+                    <p>Melaksanakan perkongsian pendapatan dan pengagihan hasil secara automatik merentasi tiga peringkat, memastikan ketelusan dan keadilan dalam pampasan pencipta kandungan.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Sistem 3 Peringkat</span>
+                        <span class="metric">Pengagihan Automatik</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🚀</span>
+                    </div>
+                    <h3>Launchpad NFT Terbina Dalam</h3>
+                    <p>Membangunkan launchpad NFT yang menyeluruh menyokong minting tanpa gas dan ekosistem berbilang rangkaian (Ethereum, Polygon, BNB Chain, Avalanche).</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">4 Blockchain</span>
+                        <span class="metric">Minting Tanpa Gas</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🔗</span>
+                    </div>
+                    <h3>Integrasi NFT Yang Lancar</h3>
+                    <p>Mewujudkan integrasi koleksi NFT yang lancar dengan kandungan jana pengguna, merapatkan pengalaman Web2 dan Web3 untuk penerimaan arus perdana.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Jambatan Web2/Web3</span>
+                        <span class="metric">Integrasi Kandungan</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🔐</span>
+                    </div>
+                    <h3>Sokongan Log Masuk Hibrid</h3>
+                    <p>Melaksanakan sistem pengesahan dwi yang menyokong dompet Web3 dan log masuk Web2 tradisional (Google, Facebook) untuk capaian yang lebih luas.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Pelbagai Pengesahan</span>
+                        <span class="metric">Mesra Pengguna</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>Ciri Utama</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">👤</div>
+                    <h3>Profil Pencipta</h3>
+                    <p>Profil pencipta yang menyeluruh dengan koleksi NFT, perpustakaan kandungan, dan alat penglibatan peminat</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Penerokaan Kandungan</h3>
+                    <p>Penerokaan kandungan termaju dengan cadangan video dan saluran berkuasa metadata Web3</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Perkongsian Pendapatan</h3>
+                    <p>Sistem perkongsian pendapatan tiga peringkat secara automatik dengan transaksi blockchain yang telus</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Koleksi NFT</h3>
+                    <p>Minting dan dagangan NFT tanpa gas dengan kandungan pencipta bersepadu dan ganjaran peminat</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsif Mudah Alih</h3>
+                    <p>Reka bentuk responsif sepenuhnya dioptimumkan untuk interaksi Web3 pada mudah alih dan desktop</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Sokongan Multi-Chain</h3>
+                    <p>Sokongan untuk rangkaian Ethereum, Polygon, BNB Chain, dan Avalanche</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Malaysia Tourism Board Endorsement -->
+    <section class="endorsement-section">
+        <div class="container">
+            <div class="endorsement-content">
+                <div class="endorsement-badge-large">
+                    <div class="badge-content">
+                        <span class="badge-icon">🏆</span>
+                        <h3>Diiktiraf Secara Rasmi</h3>
+                        <p>Projek ini diiktiraf secara rasmi oleh Lembaga Pelancongan Malaysia sebagai sebahagian daripada inisiatif pelancaran metaverse mereka.</p>
+                    </div>
+                    <div class="tourism-logo">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Lembaga Pelancongan Malaysia" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    "Platform Web3 yang mereka bina untuk kami melebihi jangkaan. Kepakaran blockchain dan reka bentuk pengalaman pengguna mereka mewujudkan pengalaman Social-Fi yang lancar, merapatkan media sosial tradisional dengan teknologi Web3 termaju. Ciri sokongan multi-chain dan minting NFT tanpa gas telah mengubah landskap komuniti pencipta kami."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Pasukan Pembangunan Colorverse</h4>
+                        <span>Platform Web3 Social-Fi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>Tumpukan Teknologi</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Web3.js</span>
+                        <span class="tech-tag">Ethers.js</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Blockchain</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Solidity</span>
+                        <span class="tech-tag">Hardhat</span>
+                        <span class="tech-tag">IPFS</span>
+                        <span class="tech-tag">OpenZeppelin</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Networks</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">Polygon</span>
+                        <span class="tech-tag">BNB Chain</span>
+                        <span class="tech-tag">Avalanche</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>Hasil Projek</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">4</div>
+                    <div class="result-label">Rangkaian Blockchain</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Tanpa Gas</div>
+                    <div class="result-label">Minting NFT</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">3 Peringkat</div>
+                    <div class="result-label">Sistem Pendapatan</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Hibrid</div>
+                    <div class="result-label">Pengesahan</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Rasmi</div>
+                    <div class="result-label">Pengiktirafan Lembaga Pelancongan</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Web2/Web3</div>
+                    <div class="result-label">Jambatan Lancar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bersedia Membina Platform Web3 Anda?</h2>
+                <p>Mari kita bincangkan bagaimana kami boleh membantu anda mencipta aplikasi Web3 termaju dengan integrasi blockchain</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">Mulakan Projek Anda</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">Lihat Lebih Banyak Projek</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>Membina masa depan dengan penyelesaian pintar</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Pautan Pantas</h4>
+                    <ul>
+                        <li><a href="../index.html">Utama</a></li>
+                        <li><a href="../index.html#about">Tentang</a></li>
+                        <li><a href="../index.html#services">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi</h4>
+                    <p>Bersedia untuk memulakan projek anda?</p>
+                    <a href="../index.html#contact" class="btn btn-primary">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. Hak cipta terpelihara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>

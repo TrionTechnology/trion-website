@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDDrive 代驾服务平台案例研究 | Trion Creation</title>
+    <meta name="description" content="案例研究：Trion Creation 如何打造 DDDrive——一个集实时 GPS 定位、安全支付、路线优化与多城市车队运营于一体的代驾出行平台。">
+    <meta name="keywords" content="dddrive 案例研究, 代驾 App 开发 马来西亚, 出行平台开发, 实时 GPS 定位 App, 车队管理系统 马来西亚, 派单系统, 网约车 App">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/zh/projects/dddrive.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/dddrive.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/dddrive.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/dddrive.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/dddrive.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/zh/projects/dddrive.html">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="DDDrive 代驾服务平台案例研究 | Trion Creation">
+    <meta property="og:description" content="实时派单、GPS 定位、路线优化与多城市车队运营——Trion Creation 案例研究。">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DDDrive Driver Services Platform — Case Study",
+        "description": "How Trion Creation built DDDrive — real-time dispatch, GPS tracking, route optimisation and multi-city fleet operations.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/dddrive.html"
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">首页</a></li>
+                        <li><a href="../index.html#about" class="nav-link">关于我们</a></li>
+                        <li><a href="../index.html#services" class="nav-link">服务</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">作品集</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">合作伙伴</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">技术栈</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">常见问题</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">联系我们</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/dddrive.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/dddrive.html" class="lang-link active" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a><a href="https://trioncreation.com/ms/projects/dddrive.html" class="lang-link" hreflang="ms" lang="ms">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">立即咨询</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">首页</a> / <a href="../index.html#portfolio">作品集</a> / <span>DDDrive</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>DDDrive</h1>
+                        <p class="project-subtitle">规模化打造值得信赖的代驾服务平台</p>
+                        <p class="project-description">一个贴心的代驾服务平台，让用户预约值得信赖的司机，享受安全出行——具备流畅易用的体验、实时司机匹配、安全支付集成与行程追踪。</p>
+                        <div class="project-tags">
+                            <span class="tag primary">移动应用</span>
+                            <span class="tag">后端 / API</span>
+                            <span class="tag">产品设计</span>
+                            <span class="tag">实时追踪</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">实时</div>
+                            <div class="stat-label">司机派单</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">安全</div>
+                            <div class="stat-label">支付处理</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">多城市</div>
+                            <div class="stat-label">部署</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">可扩展</div>
+                            <div class="stat-label">后端架构</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>项目概述</h2>
+                    <p>DDDrive 是一个功能完备的代驾服务平台，为用户对接值得信赖的司机，提供安全出行。平台以先进技术与以用户为中心的设计，着力打造安全、可靠与便捷的体验。</p>
+
+                    <h3>挑战</h3>
+                    <p>打造一套可靠的司机派单系统，既能处理实时匹配、安全支付、司机入驻与评价机制，又能保持可扩展性以支持多城市部署。</p>
+
+                    <h3>解决方案</h3>
+                    <p>我们开发了一个稳健的平台，集实时司机派单、应用内钱包集成、完善的司机入驻系统以及支持多城市运营的可扩展后端架构于一体。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="DDDrive 应用界面" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>技术成果</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🚗</span>
+                    </div>
+                    <h3>实时司机派单</h3>
+                    <p>采用先进的 GPS 定位与路线优化技术，实现亚秒级响应的实时司机匹配与行程追踪。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">GPS 定位</span>
+                        <span class="metric">路线优化</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">💳</span>
+                    </div>
+                    <h3>应用内钱包与支付</h3>
+                    <p>构建集应用内钱包功能于一体的安全支付处理系统，支持多种支付方式与即时交易处理。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">多种支付</span>
+                        <span class="metric">即时处理</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">👨‍💼</span>
+                    </div>
+                    <h3>司机入驻系统</h3>
+                    <p>打造完善的司机审核与评价系统，涵盖背景调查、证件验证与表现追踪。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">背景调查</span>
+                        <span class="metric">评价系统</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🌍</span>
+                    </div>
+                    <h3>可扩展的多城市后端</h3>
+                    <p>设计并部署可扩展的后端架构，通过负载均衡与地理分布支持多城市运营。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">多城市</span>
+                        <span class="metric">负载均衡</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📍</div>
+                    <h3>智能地点选择</h3>
+                    <p>直观选择上车与下车地点，支持地址自动补全与收藏</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏰</div>
+                    <h3>即时与预约用车</h3>
+                    <p>即刻用车或预约稍后出行，时间安排灵活自如</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>司机沟通</h3>
+                    <p>实时消息与备注系统，让司乘沟通畅通无阻</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h3>评分与评价系统</h3>
+                    <p>面向司机与乘客的完善评分系统，支持详细反馈</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>司机收入追踪</h3>
+                    <p>实时收入面板，含接单记录与表现分析</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>任务管理</h3>
+                    <p>为司机打造的进阶任务管理系统，支持路线优化与排程</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Experience Flow -->
+    <section class="user-flow">
+        <div class="container">
+            <h2>用户体验流程</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>预约用车</h3>
+                        <p>用户选择上车与下车地点，选择即时或预约用车，并添加特别备注</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>司机匹配</h3>
+                        <p>实时算法依据位置、评分与偏好，匹配最合适的可用司机</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>实时追踪</h3>
+                        <p>实时 GPS 定位显示司机位置、预计到达时间与路线，并即时更新</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>安全支付</h3>
+                        <p>自动化支付处理，提供多种支付方式与即时确认</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>评分与反馈</h3>
+                        <p>行程结束后的评分系统，让用户与司机均可提供反馈与评分</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    “Trion Creation 交付的代驾服务平台稳健且可扩展，超出了我们的预期。他们在实时追踪、支付集成与多城市部署方面的专业能力，帮助我们打造出深受用户信赖的可靠服务。司机入驻系统与评价机制尤为出色。”
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>DDDrive 开发团队</h4>
+                        <span>代驾服务平台</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>技术栈</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>移动应用</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">iOS/Android</span>
+                        <span class="tech-tag">Google Maps API</span>
+                        <span class="tech-tag">推送通知</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>后端</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>支付</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">PayPal</span>
+                        <span class="tech-tag">应用内钱包</span>
+                        <span class="tech-tag">支付网关</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>基础设施</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">负载均衡</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>项目成果</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">实时</div>
+                    <div class="result-label">司机派单</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">安全</div>
+                    <div class="result-label">支付集成</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">多城市</div>
+                    <div class="result-label">可扩展部署</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">进阶</div>
+                    <div class="result-label">评价系统</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">GPS</div>
+                    <div class="result-label">实时追踪</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">友好易用</div>
+                    <div class="result-label">界面设计</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>准备好打造您的出行平台了吗？</h2>
+                <p>让我们一起探讨，如何帮助您构建可靠的代驾服务应用</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">启动您的项目</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">查看更多项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>以智能方案构建未来</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../index.html#about">关于我们</a></li>
+                        <li><a href="../index.html#services">服务</a></li>
+                        <li><a href="../index.html#portfolio">作品集</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>准备好启动您的项目了吗？</p>
+                    <a href="../index.html#contact" class="btn btn-primary">取得联系</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>

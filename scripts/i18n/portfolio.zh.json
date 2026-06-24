@@ -1,0 +1,366 @@
+[
+    {
+        "slug": "social-media-super-app",
+        "title": "社交媒体超级应用",
+        "category": "mobileweb",
+        "categoryLabel": "移动与网页应用",
+        "tagline": "集即时通讯、内容信息流、奖励机制与变现于一体的多功能社区平台。",
+        "longDescription": "一款功能完备的社交超级应用：即时通讯、内容信息流、短视频、直播、创作者变现、应用内支付、奖励与发现一应俱全。借助跨境 CDN 与实时后端架构精心打造，可平滑扩展至数百万级并发用户。",
+        "gradient": "linear-gradient(135deg, #2F66FF 0%, #1a3db5 100%)",
+        "accent": "#2F66FF",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"2\"/><path d=\"M12 18h.01\"/></svg>",
+        "stats": [
+            { "number": "5M+",   "label": "累计服务用户" },
+            { "number": "50K+",  "label": "同时在线直播" },
+            { "number": "99.9%", "label": "可用性 SLA" }
+        ],
+        "features": [
+            { "title": "即时通讯",         "desc": "支持单聊与群聊，集成媒体、语音消息、已读回执，并通过 WebSocket 实现推送通知。" },
+            { "title": "内容信息流与发现",   "desc": "个性化信息流、话题标签、热门趋势、关注关系图谱与智能推荐引擎。" },
+            { "title": "直播",            "desc": "跨境低延迟直播，支持实时转码、礼物打赏、弹幕评论与录制回放。" },
+            { "title": "创作者变现",       "desc": "打赏、付费订阅、应用内购买、虚拟商品、提现与 KYC 身份核验。" },
+            { "title": "奖励与任务",       "desc": "每日签到、好友邀请、徽章、排行榜以及代币化奖励体系。" },
+            { "title": "跨境 CDN",        "desc": "边缘缓存、区域容灾与自适应流媒体，为全球用户带来流畅体验。" }
+        ],
+        "techStack": ["React Native", "Node.js", "WebSocket", "PostgreSQL", "Redis", "Alibaba Cloud CDN", "FFmpeg", "Stripe"],
+        "useCases": ["垂直社交社区", "创作者主导型平台", "直播应用", "区域性超级应用", "Web3 社交平台"],
+        "industries": ["社交媒体", "娱乐", "创作者经济", "直播", "Web3"],
+        "tags": ["iOS / Android", "后端/API", "实时通信"]
+    },
+    {
+        "slug": "loan-management-platform",
+        "title": "贷款管理系统",
+        "category": "fintech",
+        "categoryLabel": "金融与贷款",
+        "tagline": "端到端贷款发放、信用评分、审批流程与还款追踪一站式解决。",
+        "longDescription": "为放贷机构、金融科技公司与小额信贷运营商打造的生产级贷款管理系统。涵盖借款人引导、eKYC、AI 信用评分、审批流程、放款、还款与催收，并配备完整的管理后台与合规报表。",
+        "gradient": "linear-gradient(135deg, #00a870 0%, #005f3e 100%)",
+        "accent": "#00d4a8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"/><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "<3min",  "label": "从申请到决策" },
+            { "number": "100%",   "label": "审计轨迹覆盖" },
+            { "number": "24/7",   "label": "全天候自动审批" }
+        ],
+        "features": [
+            { "title": "申请门户",         "desc": "借款人引导流程，集成 eKYC、文件上传、OCR 识别与即时资格审核。" },
+            { "title": "AI 信用评分",      "desc": "规则与机器学习相结合的评分模型，对接征信机构并支持自定义风险策略。" },
+            { "title": "审批流程",         "desc": "多级审批、异常处理、基于角色的访问控制与完整审计日志。" },
+            { "title": "放款",            "desc": "集成银行转账、FPX/DuitNow，支持定时放款与币种管控。" },
+            { "title": "还款与催收",       "desc": "自动生成还款计划、自动提醒（短信/邮件/WhatsApp）、在线还款与不良贷款追踪。" },
+            { "title": "管理仪表盘",       "desc": "实时呈现资产组合健康度、不良贷款率、催收 KPI 与合规报表。" }
+        ],
+        "techStack": ["Laravel", "PostgreSQL", "Redis", "AWS", "iPay88", "Twilio", "OCR / OpenAI"],
+        "useCases": ["个人贷款产品", "中小企业贷款", "先买后付（BNPL）平台", "小额信贷", "P2P 借贷"],
+        "industries": ["金融科技", "借贷", "银行", "小额信贷"],
+        "tags": ["AI 信用评分", "管理后台", "工作流"]
+    },
+    {
+        "slug": "driver-transport-platform",
+        "title": "司机与运输平台",
+        "category": "mobileweb",
+        "categoryLabel": "移动与网页应用",
+        "tagline": "实时派单、GPS 追踪、路线优化与多城市车队运营管理。",
+        "longDescription": "一套完整的网约车 / 代驾 / 运输平台。集实时 GPS 追踪、司机匹配、路线优化、动态定价、应用内支付、评价系统于一体，并配备具备城市级运营管控能力的车队管理后台。",
+        "gradient": "linear-gradient(135deg, #ff6b35 0%, #c2410c 100%)",
+        "accent": "#ff8a4c",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20\"/></svg>",
+        "stats": [
+            { "number": "<2s",  "label": "司机匹配耗时" },
+            { "number": "10+",  "label": "支持城市数" },
+            { "number": "24/7", "label": "全天候实时派单" }
+        ],
+        "features": [
+            { "title": "实时 GPS 追踪",     "desc": "在地图上实时追踪司机与行程，平滑插值显示并具备离线容错能力。" },
+            { "title": "司机匹配",         "desc": "基于地理位置的司机匹配，支持高峰加价、预计到达时间估算与重新派单逻辑。" },
+            { "title": "路线优化",         "desc": "集成 Google Maps / Mapbox 路线规划，支持多点优化与实时路况感知的 ETA。" },
+            { "title": "应用内支付",       "desc": "无现金行程、多种支付方式、应用内钱包与司机自动结算。" },
+            { "title": "司机端应用",       "desc": "原生司机端应用，支持上线/下线模式、收入查询、评价与文件上传。" },
+            { "title": "车队运营控制台",     "desc": "多城市管控、司机入驻、KYC、结算、纠纷处理与数据看板。" }
+        ],
+        "techStack": ["Flutter", "React Native", "Node.js", "PostgreSQL + PostGIS", "Redis", "Google Maps", "Stripe / iPay88"],
+        "useCases": ["网约车", "即时配送", "代驾服务", "物流调度", "车队运营"],
+        "industries": ["运输", "物流", "配送", "出行"],
+        "tags": ["实时 GPS", "移动应用", "支付"]
+    },
+    {
+        "slug": "hrms-payroll-system",
+        "title": "人力资源与薪资管理系统",
+        "category": "enterprise",
+        "categoryLabel": "企业与 ERP",
+        "tagline": "考勤、休假、薪资、报销与员工自助服务，专为马来西亚合规需求打造。",
+        "longDescription": "专为马来西亚中小企业与大型企业设计的完整人力资源与薪资管理系统。涵盖支持移动打卡的考勤、带审批流程的休假管理、内含 EPF/SOCSO/EIS/PCB 计算的薪资核算、费用报销、员工自助门户与管理层数据看板。",
+        "gradient": "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+        "accent": "#a78bfa",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+        "stats": [
+            { "number": "100%", "label": "马来西亚合规" },
+            { "number": "1-click", "label": "一键发薪" },
+            { "number": "Mobile", "label": "移动打卡 / 报销" }
+        ],
+        "features": [
+            { "title": "考勤与工时",       "desc": "支持地理围栏移动打卡、二维码签到、班次排程与加班追踪。" },
+            { "title": "休假管理",         "desc": "多类型休假额度、审批链、日历视图与休假余额看板。" },
+            { "title": "薪资核算",         "desc": "自动计算 EPF、SOCSO、EIS、HRDF、PCB，生成 PDF 工资单、银行代发文件与年终报表。" },
+            { "title": "费用报销",         "desc": "票据上传、OCR 识别、多级审批、报销对接与审计轨迹。" },
+            { "title": "员工自助服务",      "desc": "查看工资单、申请休假、提交报销、更新个人资料并访问培训记录。" },
+            { "title": "合规报表",         "desc": "Form E、EA、CP8D 等法定申报，并支持 LHDN 电子发票。" }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS", "iPay88", "PDF generation", "OCR"],
+        "useCases": ["20-500 人规模的中小企业", "多地点运营企业", "餐饮连锁", "物流公司", "专业服务机构"],
+        "industries": ["人力资源", "专业服务", "制造业", "零售", "餐饮"],
+        "tags": ["薪资核算", "电子休假", "报表"]
+    },
+    {
+        "slug": "erp-business-suite",
+        "title": "ERP 企业管理套件",
+        "category": "enterprise",
+        "categoryLabel": "企业与 ERP",
+        "tagline": "为中小企业与大型企业统一管理库存、财务、采购与运营的一体化看板。",
+        "longDescription": "一套统一的 ERP 系统，覆盖库存、财务、采购、销售、生产与人力资源。基于 Odoo 并搭配定制模块——支持多公司、多币种、多仓库——并与您的会计、电商、支付及政府电子发票系统无缝集成。",
+        "gradient": "linear-gradient(135deg, #0ea5e9 0%, #075985 100%)",
+        "accent": "#38bdf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "多公司 / 多币种" },
+            { "number": "Real-time", "label": "库存实时同步" },
+            { "number": "LHDN", "label": "电子发票就绪" }
+        ],
+        "features": [
+            { "title": "库存与仓储",       "desc": "多仓库库存、批次/批号追踪、有效期管理、调拨、循环盘点与条码扫描。" },
+            { "title": "财务与会计",       "desc": "总账、应收、应付、多币种、银行对账、财务报表与审计轨迹。" },
+            { "title": "采购管理",         "desc": "供应商管理、询价、采购订单、收货与三方匹配。" },
+            { "title": "销售与 CRM",       "desc": "报价、销售订单、开票、客户门户与一体化 CRM 销售管道。" },
+            { "title": "生产制造",         "desc": "物料清单（BOM）、工单、MRP、工艺路线、质量控制与车间数据采集。" },
+            { "title": "电子发票（LHDN）",  "desc": "对接马来西亚电子发票，支持校验、归档与合并申报。" }
+        ],
+        "techStack": ["Odoo", "Python", "PostgreSQL", "Nginx", "Docker", "MyInvois (LHDN)"],
+        "useCases": ["多实体中小企业", "批发分销商", "轻型制造业", "多门店零售", "服务型企业"],
+        "industries": ["制造业", "批发", "零售", "分销", "服务业"],
+        "tags": ["Odoo", "定制 ERP", "财务"]
+    },
+    {
+        "slug": "legal-case-management",
+        "title": "法律案件管理系统",
+        "category": "operations",
+        "categoryLabel": "运营与管理",
+        "tagline": "为律师事务所提供云端案件追踪、文档保险库、开票与基于角色的访问控制。",
+        "longDescription": "面向律师事务所的执业管理系统——涵盖案件档案、文档保险库、工时记录、信托账户、开票、日历、基于角色的访问控制与客户门户。采用云优先架构与精细化权限管理，专为混合办公与分布式团队打造。",
+        "gradient": "linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%)",
+        "accent": "#f87171",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"9\" y1=\"13\" x2=\"15\" y2=\"13\"/><line x1=\"9\" y1=\"17\" x2=\"15\" y2=\"17\"/></svg>",
+        "stats": [
+            { "number": "40%",  "label": "效率提升" },
+            { "number": "RBAC", "label": "精细化权限" },
+            { "number": "Cloud","label": "随时随地访问" }
+        ],
+        "features": [
+            { "title": "案件管理",         "desc": "完整案件档案，包含当事人、开庭日期、状态、里程碑与关联文档。" },
+            { "title": "文档保险库",       "desc": "安全的文档存储，支持版本管理、OCR 检索、访问控制与审计日志。" },
+            { "title": "工时记录",         "desc": "按案件与律师统计计费工时，支持工时表审批与发票生成。" },
+            { "title": "开票与信托账户",     "desc": "明细发票、信托账户管理、预付费、对账单与在线支付。" },
+            { "title": "日历与提醒",       "desc": "开庭日期、归档截止期、自动提醒，并在全所范围内进行利益冲突检查。" },
+            { "title": "基于角色的访问控制", "desc": "针对角色、案件与文档设置精细化权限——覆盖合伙人、律师与律师助理。" }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS S3", "OCR", "Stripe / iPay88"],
+        "useCases": ["精品律师事务所", "中型律所", "法律顾问", "跨境法律团队", "公证 / 产权转让"],
+        "industries": ["法律", "专业服务", "咨询"],
+        "tags": ["云端", "电子发票", "RBAC"]
+    },
+    {
+        "slug": "project-management-suite",
+        "title": "项目管理套件",
+        "category": "operations",
+        "categoryLabel": "运营与管理",
+        "tagline": "任务、时间线、资源与预算管理，支持实时协作与报表分析。",
+        "longDescription": "端到端项目管理——看板、甘特图时间线、资源分配、预算追踪、客户门户与实时协作。专为需要超越通用 SaaS 工具的代理机构、承包商及以项目驱动的团队打造。",
+        "gradient": "linear-gradient(135deg, #f59e0b 0%, #92400e 100%)",
+        "accent": "#fbbf24",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "实时协作" },
+            { "number": "Gantt + Kanban", "label": "双视图模式" },
+            { "number": "Multi-project", "label": "项目组合视图" }
+        ],
+        "features": [
+            { "title": "任务与看板",       "desc": "拖拽式看板，支持清单、评论、附件、依赖关系与关注者。" },
+            { "title": "甘特时间线",       "desc": "交互式甘特图，包含里程碑、关键路径、基线与进度追踪。" },
+            { "title": "资源分配",         "desc": "产能规划、利用率报表、冲突检测与团队工作量均衡。" },
+            { "title": "预算与工时",       "desc": "项目预算、成本分类、工时记录，按项目与客户核算盈利能力。" },
+            { "title": "客户门户",         "desc": "面向外部客户展示进度、里程碑、交付物、评论与审批。" },
+            { "title": "报表与看板",       "desc": "项目组合健康度、燃尽图、速率、盈利能力与自定义看板组件。" }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Redis", "WebSocket", "AWS"],
+        "useCases": ["数字代理机构", "建筑公司", "咨询机构", "建筑与设计", "软件团队"],
+        "industries": ["代理机构", "建筑", "咨询", "建筑设计", "软件"],
+        "tags": ["看板", "时间线", "报表"]
+    },
+    {
+        "slug": "feedback-bi-dashboard",
+        "title": "反馈与 BI 数据看板",
+        "category": "enterprise",
+        "categoryLabel": "企业与 ERP",
+        "tagline": "采集客户反馈并结合 Power BI 分析，助力实时决策。",
+        "longDescription": "全渠道反馈采集（二维码、自助终端、短信、邮件），汇入 Power BI / 定制分析层。提供情感分析、NPS 追踪、门店级数据看板、负面反馈预警，以及跨产品、跨门店、跨时段的趋势分析。",
+        "gradient": "linear-gradient(135deg, #0891b2 0%, #164e63 100%)",
+        "accent": "#22d3ee",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "看板实时刷新" },
+            { "number": "NPS + CSAT","label": "内置指标" },
+            { "number": "Sentiment", "label": "AI 情感分析" }
+        ],
+        "features": [
+            { "title": "多渠道采集",       "desc": "二维码、自助终端、短信、邮件、网页——各渠道反馈汇入统一管道。" },
+            { "title": "情感分析",         "desc": "基于 NLP 的情感识别与主题提取，让您洞悉客户真正关心的问题。" },
+            { "title": "Power BI 看板",    "desc": "开箱即用的看板，并提供可按门店 / 产品 / 时段筛选的自定义视图。" },
+            { "title": "预警与分派",       "desc": "负面反馈即时触发 Slack / 邮件 / WhatsApp 提醒，直达相应负责人。" },
+            { "title": "NPS / CSAT 追踪",  "desc": "采用行业标准评分，呈现纵向趋势与基准对比。" },
+            { "title": "闭环工作流",       "desc": "分派、跟进、解决并生成报表——将投诉转化为可衡量的改进成果。" }
+        ],
+        "techStack": ["Power BI", "Node.js", "PostgreSQL", "OpenAI / NLP", "AWS", "Twilio"],
+        "useCases": ["零售连锁", "餐饮运营商", "医院与诊所", "酒店", "服务供应商"],
+        "industries": ["零售", "餐饮", "医疗健康", "酒店业", "政务服务"],
+        "tags": ["Power BI", "问卷调查", "数据分析"]
+    },
+    {
+        "slug": "pet-services-platform",
+        "title": "宠物服务平台",
+        "category": "mobileweb",
+        "categoryLabel": "移动与网页应用",
+        "tagline": "预约、宠物档案、美容护理、兽医预约与社区商城一体化。",
+        "longDescription": "为宠物护理经济量身打造的完整平台——涵盖宠物档案、美容与寄养预约、兽医预约排程、食品与用品电商商城、社区论坛与会员忠诚计划。覆盖 iOS、Android 与网页端，并为美容师与诊所提供专属服务商端应用。",
+        "gradient": "linear-gradient(135deg, #ec4899 0%, #831843 100%)",
+        "accent": "#f472b6",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"11\" cy=\"4\" r=\"2\"/><circle cx=\"18\" cy=\"8\" r=\"2\"/><circle cx=\"20\" cy=\"16\" r=\"2\"/><path d=\"M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z\"/></svg>",
+        "stats": [
+            { "number": "Multi-provider", "label": "多服务商商城" },
+            { "number": "Booking + Shop", "label": "预约与购物一体" },
+            { "number": "iOS / Android",  "label": "+ 网页端" }
+        ],
+        "features": [
+            { "title": "宠物档案",         "desc": "一位主人可管理多只宠物，记录病历、疫苗、过敏史、照片与备注。" },
+            { "title": "美容预约",         "desc": "浏览美容师、查看可预约时段、按服务下单、预付、提醒与评价。" },
+            { "title": "兽医预约",         "desc": "诊所列表、时段预约、视频问诊、处方与复诊跟进。" },
+            { "title": "商城",            "desc": "宠物食品、用品与配件电商，并集成配送服务。" },
+            { "title": "服务商端应用",      "desc": "美容师与诊所可管理可预约时段、订单、客户与收入。" },
+            { "title": "社区与会员忠诚",     "desc": "主人社区、文章、徽章与会员积分奖励计划。" }
+        ],
+        "techStack": ["Flutter", "Node.js", "PostgreSQL", "Stripe", "AWS S3", "Twilio"],
+        "useCases": ["宠物护理连锁", "兽医诊所网络", "宠物零售品牌", "宠物社区平台"],
+        "industries": ["宠物护理", "兽医", "零售", "电商平台"],
+        "tags": ["预约", "电商平台", "移动应用"]
+    },
+    {
+        "slug": "wellness-booking-app",
+        "title": "康养预约应用",
+        "category": "mobileweb",
+        "categoryLabel": "移动与网页应用",
+        "tagline": "按需预约按摩、水疗与康养服务，支持理疗师匹配与支付。",
+        "longDescription": "支持即时与预约式康养服务——涵盖按摩、水疗、美容、健身、瑜伽等。提供客户端应用、理疗师/从业者端应用、商家管理控制台、应用内支付、评价系统、基于位置的匹配与周期性预约。",
+        "gradient": "linear-gradient(135deg, #10b981 0%, #064e3b 100%)",
+        "accent": "#34d399",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>",
+        "stats": [
+            { "number": "On-demand",   "label": "即时或预约" },
+            { "number": "GPS",         "label": "理疗师匹配" },
+            { "number": "In-app pay",  "label": "银行卡 + 钱包" }
+        ],
+        "features": [
+            { "title": "服务目录",         "desc": "可配置的服务项目，包含时长、定价、前置条件与分类筛选。" },
+            { "title": "理疗师匹配",       "desc": "按技能、距离、评分与可用时段匹配——支持手动或自动。" },
+            { "title": "预约与周期性服务",   "desc": "支持单次与周期性预约、套餐、取消规则与改期。" },
+            { "title": "应用内支付",       "desc": "支持银行卡、钱包、套餐、打赏与理疗师自动结算。" },
+            { "title": "理疗师端应用",      "desc": "排程、导航、客户备注、收入、评价、KYC 与文件上传。" },
+            { "title": "商家控制台",       "desc": "多门店管理、员工入驻、结算与绩效报表。" }
+        ],
+        "techStack": ["React Native", "Node.js", "PostgreSQL + PostGIS", "Stripe", "Twilio", "Google Maps"],
+        "useCases": ["按需上门按摩", "水疗连锁", "美容服务", "健身指导", "瑜伽与康养"],
+        "industries": ["康养", "美容", "健身", "酒店业"],
+        "tags": ["按需服务", "支付", "移动应用"]
+    },
+    {
+        "slug": "supplier-inventory-system",
+        "title": "供应商与库存管理系统",
+        "category": "operations",
+        "categoryLabel": "运营与管理",
+        "tagline": "库存追踪、采购订单、供应商门户与多仓库管理。",
+        "longDescription": "面向分销商、电商与多门店零售商的库存与供应商管理系统。提供跨仓库实时库存、采购订单流程、供应商门户、条码与批次追踪、需求预测，以及与会计和电商系统的集成。",
+        "gradient": "linear-gradient(135deg, #6366f1 0%, #312e81 100%)",
+        "accent": "#818cf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "多仓库" },
+            { "number": "Barcode", "label": "+ 批次追踪" },
+            { "number": "Real-time", "label": "库存实时同步" }
+        ],
+        "features": [
+            { "title": "实时库存",         "desc": "跨仓库与门店的库存、即时更新、调拨流程与循环盘点。" },
+            { "title": "采购订单",         "desc": "询价、生成采购订单、审批流程、收货与三方匹配。" },
+            { "title": "供应商门户",       "desc": "供应商可登录查看采购订单、确认交货、上传发票并回复询价。" },
+            { "title": "条码与批次追踪",     "desc": "条码/二维码扫描、批次与序列号追踪、有效期预警、先进先出/后进先出。" },
+            { "title": "需求预测",         "desc": "基于销售的再订货点、自动触发采购订单、季节性与趋势分析。" },
+            { "title": "系统集成",         "desc": "与 Shopify / WooCommerce / Lazada / Shopee / AutoCount / QuickBooks 同步。" }
+        ],
+        "techStack": ["Laravel", "Vue.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+        "useCases": ["批发分销商", "电商卖家", "多门店零售", "药房连锁", "餐饮中央厨房"],
+        "industries": ["批发", "电商", "零售", "药房", "餐饮"],
+        "tags": ["库存", "采购订单系统", "条码"]
+    },
+    {
+        "slug": "visitor-management-system",
+        "title": "访客管理系统",
+        "category": "operations",
+        "categoryLabel": "运营与管理",
+        "tagline": "为办公场所提供数字签到、二维码通行证、接待人通知与安防分析。",
+        "longDescription": "面向办公楼、工厂、学校与住宅小区的现代访客管理系统。提供预先登记、自助终端或二维码数字签到、接待人自动通知、胸卡打印、保密协议签署、黑名单筛查与安防分析，并具备完整审计轨迹。",
+        "gradient": "linear-gradient(135deg, #14b8a6 0%, #134e4a 100%)",
+        "accent": "#5eead4",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>",
+        "stats": [
+            { "number": "Touchless", "label": "无接触二维码签到" },
+            { "number": "Instant",   "label": "即时通知接待人" },
+            { "number": "Full",      "label": "完整审计轨迹" }
+        ],
+        "features": [
+            { "title": "预先登记",         "desc": "提前邀请访客，集成日历、保密协议预签署与预先打印的二维码。" },
+            { "title": "自助终端签到",      "desc": "平板自助终端供访客自助签到，支持证件扫描、拍照与胸卡打印。" },
+            { "title": "接待人通知",       "desc": "访客到达时，即时向接待人发送 WhatsApp / 邮件 / 短信 / Slack 通知。" },
+            { "title": "保密协议与合规",     "desc": "数字签署保密协议 / 安全须知，逐次到访留存，随时可供审计。" },
+            { "title": "黑名单与关注名单",   "desc": "拦截已知人员、标记 VIP，并可对接企业安防数据库。" },
+            { "title": "安防分析",         "desc": "到访量、高峰时段、平均停留时长、重复到访模式与事件日志。" }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Twilio", "QR Code", "Docker"],
+        "useCases": ["企业办公场所", "联合办公空间", "工厂与仓库", "学校", "住宅小区与封闭社区"],
+        "industries": ["企业", "制造业", "教育", "物业", "政府机构"],
+        "tags": ["二维码通行证", "自助终端", "数据分析"]
+    },
+    {
+        "slug": "fnb-retail-pos",
+        "title": "餐饮与零售 POS 系统",
+        "category": "retail",
+        "categoryLabel": "零售与餐饮",
+        "tagline": "为餐厅与零售门店提供 POS 收银、厨房显示、扫码点餐、会员忠诚与电子菜单。",
+        "longDescription": "面向餐厅与零售门店的完整 POS 系统——支持多门店、实时库存同步、厨房显示系统、扫码点餐、电子菜单、客户忠诚计划、在线点餐与集成支付（银行卡、电子钱包、FPX、GrabPay、Boost、ShopeePay）。",
+        "gradient": "linear-gradient(135deg, #f43f5e 0%, #881337 100%)",
+        "accent": "#fb7185",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"9\" cy=\"21\" r=\"1\"/><circle cx=\"20\" cy=\"21\" r=\"1\"/><path d=\"M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6\"/></svg>",
+        "stats": [
+            { "number": "Multi-outlet", "label": "多门店实时同步" },
+            { "number": "QR Order",     "label": "+ 电子菜单" },
+            { "number": "All Payments", "label": "银行卡 / 电子钱包" }
+        ],
+        "features": [
+            { "title": "平板与桌面 POS",    "desc": "快捷的平板与桌面收银，支持分单、桌位布局、加料选项与离线模式。" },
+            { "title": "厨房显示系统（KDS）","desc": "实时将订单分派至各厨房工位，支持出菜节奏控制与订单状态追踪。" },
+            { "title": "扫码点餐",         "desc": "顾客扫码即可浏览电子菜单、下单、付款——无需等待，免去人手瓶颈。" },
+            { "title": "库存与配方",       "desc": "原料级库存管控、配方管理，随销售自动扣减库存。" },
+            { "title": "会员忠诚与电子钱包",  "desc": "会员等级、积分、优惠券、促销推送与集成电子钱包，提升复购率。" },
+            { "title": "支付",            "desc": "银行卡、FPX、DuitNow QR、GrabPay、Boost、ShopeePay、TnG、现金与分单结账。" }
+        ],
+        "techStack": ["React", "Electron / Tablet", "Node.js", "PostgreSQL", "iPay88 / Razer / Stripe"],
+        "useCases": ["餐厅连锁", "咖啡馆与珍珠奶茶店", "快餐店", "多门店零售", "美食广场"],
+        "industries": ["餐饮", "零售", "酒店业", "快餐服务（QSR）"],
+        "tags": ["POS", "电子菜单", "会员忠诚"]
+    }
+]

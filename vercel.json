@@ -6,6 +6,14 @@
   "installCommand": null,
   "rewrites": [
     {
+      "source": "/zh/(.*)",
+      "destination": "/zh/index.html"
+    },
+    {
+      "source": "/ms/(.*)",
+      "destination": "/ms/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

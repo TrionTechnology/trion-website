@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorverse Web3 Social-Fi 平台案例研究 | Trion Creation</title>
+    <meta name="description" content="案例研究：Trion Creation 打造 Colorverse——一个集 NFT 发射台、多链智能合约、零 Gas 交易于一体的 Web3 Social-Fi 平台，并获马来西亚旅游局官方认可。">
+    <meta name="keywords" content="colorverse 案例研究, Web3 开发 马来西亚, Social-Fi 平台, NFT 发射台开发, 智能合约开发, 区块链 马来西亚, 零 Gas 交易">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/zh/projects/colorverse.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/colorverse.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/colorverse.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/colorverse.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/colorverse.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/zh/projects/colorverse.html">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Colorverse Web3 Social-Fi 平台案例研究 | Trion Creation">
+    <meta property="og:description" content="集 NFT 发射台、多链智能合约于一体并获马来西亚旅游局认可的 Web3 Social-Fi 平台——由 Trion Creation 打造。">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Colorverse Web3 Social-Fi Platform — Case Study",
+        "description": "How Trion Creation built Colorverse, a Web3 Social-Fi platform with NFT launchpad, multi-chain smart contracts, gasless transactions and Malaysia Tourism Board endorsement.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/colorverse.html"
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">首页</a></li>
+                        <li><a href="../index.html#about" class="nav-link">关于我们</a></li>
+                        <li><a href="../index.html#services" class="nav-link">服务</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">作品集</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">合作伙伴</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">技术栈</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">常见问题</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">联系我们</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/colorverse.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/colorverse.html" class="lang-link active" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a><a href="https://trioncreation.com/ms/projects/colorverse.html" class="lang-link" hreflang="ms" lang="ms">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">立即咨询</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">首页</a> / <a href="../index.html#portfolio">作品集</a> / <span>Colorverse</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>Colorverse</h1>
+                        <p class="project-subtitle">一个以 Social-Fi 为核心、专为创作者打造的 Web3 平台，借助 Web3 技术与代币经济，帮助创作者发布内容、与粉丝互动并获得收益激励</p>
+                        <div class="project-tags">
+                            <span class="tag primary">网页应用</span>
+                            <span class="tag">产品设计</span>
+                            <span class="tag">区块链</span>
+                            <span class="tag">NFT</span>
+                        </div>
+                        <div class="endorsement-badge">
+                            <span class="badge-icon">🏆</span>
+                            <span>获马来西亚旅游局官方认可</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">多链</div>
+                            <div class="stat-label">Ethereum、Polygon、BNB、Avalanche</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">零 Gas</div>
+                            <div class="stat-label">NFT 铸造</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">三级</div>
+                            <div class="stat-label">收益分成</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">混合</div>
+                            <div class="stat-label">Web2 与 Web3 登录</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>项目概述</h2>
+                    <p>Colorverse 是一个基于 Web3 的 Social-Fi 平台，专为创作者打造，功能类似 Patreon，让创作者得以发布内容、与粉丝互动，同时借助 Web3 技术与代币经济获得收益激励。</p>
+
+                    <h3>挑战</h3>
+                    <p>在保持友好易用界面的同时，无缝衔接 Web2 与 Web3 体验，并实现跨多条区块链网络的复杂智能合约自动化收益分成。</p>
+
+                    <h3>解决方案</h3>
+                    <p>我们打造了一个混合型平台，将传统社交媒体功能与前沿 Web3 技术相结合，涵盖零 Gas NFT 铸造、多链支持以及智能合约自动收益分配。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colorverse Web3 平台" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>技术成果</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🤖</span>
+                    </div>
+                    <h3>智能合约自动化</h3>
+                    <p>实现跨三个层级的自动化收益分成与收益分配，确保创作者报酬的透明与公平。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">三级体系</span>
+                        <span class="metric">自动分配</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🚀</span>
+                    </div>
+                    <h3>内置 NFT 发射台</h3>
+                    <p>打造功能完备的 NFT 发射台，支持零 Gas 铸造及多链生态（Ethereum、Polygon、BNB Chain、Avalanche）。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">4 条区块链</span>
+                        <span class="metric">零 Gas 铸造</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🔗</span>
+                    </div>
+                    <h3>无缝 NFT 集成</h3>
+                    <p>将 NFT 藏品与用户原创内容无缝集成，打通 Web2 与 Web3 体验，助力主流用户接纳。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Web2/Web3 衔接</span>
+                        <span class="metric">内容集成</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🔐</span>
+                    </div>
+                    <h3>混合登录支持</h3>
+                    <p>实现双重身份验证系统，同时支持 Web3 钱包与传统 Web2 登录（Google、Facebook），覆盖更广泛用户群体。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">多重验证</span>
+                        <span class="metric">友好易用</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">👤</div>
+                    <h3>创作者主页</h3>
+                    <p>功能完整的创作者主页，集成 NFT 藏品、内容库及粉丝互动工具</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎥</div>
+                    <h3>内容发现</h3>
+                    <p>由 Web3 元数据驱动的进阶内容发现，提供视频与频道智能推荐</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>收益分成</h3>
+                    <p>自动化三级收益分成系统，区块链交易全程透明可查</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>NFT 藏品</h3>
+                    <p>零 Gas NFT 铸造与交易，深度整合创作者内容与粉丝奖励</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>移动端适配</h3>
+                    <p>完全响应式设计，为移动端与桌面端 Web3 交互全面优化</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h3>多链支持</h3>
+                    <p>支持 Ethereum、Polygon、BNB Chain 及 Avalanche 网络</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Malaysia Tourism Board Endorsement -->
+    <section class="endorsement-section">
+        <div class="container">
+            <div class="endorsement-content">
+                <div class="endorsement-badge-large">
+                    <div class="badge-content">
+                        <span class="badge-icon">🏆</span>
+                        <h3>官方认可</h3>
+                        <p>本项目作为马来西亚旅游局元宇宙启动计划的一部分，获其官方认可。</p>
+                    </div>
+                    <div class="tourism-logo">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="马来西亚旅游局" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    “他们为我们打造的 Web3 平台超出预期。其区块链专业能力与用户体验设计，创造出衔接传统社交媒体与前沿 Web3 技术的无缝 Social-Fi 体验。多链支持与零 Gas NFT 铸造功能，为我们的创作者社区带来了颠覆性的改变。”
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Colorverse 开发团队</h4>
+                        <span>Web3 Social-Fi 平台</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>技术栈</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>前端</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Web3.js</span>
+                        <span class="tech-tag">Ethers.js</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>区块链</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Solidity</span>
+                        <span class="tech-tag">Hardhat</span>
+                        <span class="tech-tag">IPFS</span>
+                        <span class="tech-tag">OpenZeppelin</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>后端</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>网络</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">Polygon</span>
+                        <span class="tech-tag">BNB Chain</span>
+                        <span class="tech-tag">Avalanche</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>项目成果</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">4</div>
+                    <div class="result-label">条区块链网络</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">零 Gas</div>
+                    <div class="result-label">NFT 铸造</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">三级</div>
+                    <div class="result-label">收益体系</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">混合</div>
+                    <div class="result-label">身份验证</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">官方</div>
+                    <div class="result-label">旅游局认可</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Web2/Web3</div>
+                    <div class="result-label">无缝衔接</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>准备好打造您的 Web3 平台了吗？</h2>
+                <p>让我们一起探讨，如何帮助您构建集区块链于一体的前沿 Web3 应用</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">启动您的项目</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">查看更多项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>以智能方案构建未来</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../index.html#about">关于我们</a></li>
+                        <li><a href="../index.html#services">服务</a></li>
+                        <li><a href="../index.html#portfolio">作品集</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>准备好启动您的项目了吗？</p>
+                    <a href="../index.html#contact" class="btn btn-primary">取得联系</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>

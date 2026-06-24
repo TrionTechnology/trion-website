@@ -226,7 +226,7 @@
 
 ## Update info
 
-- This file last updated: 2026-06-01
+- This file last updated: 2026-06-24
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml

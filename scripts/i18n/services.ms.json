@@ -1,0 +1,362 @@
+[
+    {
+        "slug": "mobile-web-app-development",
+        "title": "Pembangunan Aplikasi Mudah Alih & Web",
+        "tagline": "Pembangunan full-stack untuk aplikasi mudah alih dan web yang berskala dengan framework moden dan seni bina cloud-native.",
+        "image": "service-web-mobile.jpg",
+        "metaTitle": "Pembangunan Aplikasi Mudah Alih & Web Malaysia | Trion Creation",
+        "metaDescription": "Trion Creation membina aplikasi mudah alih dan web tersuai di Malaysia: React Native, Flutter, Next.js, iOS, Android. Terbukti pada skala 5J+ pengguna dengan backend masa nyata, integrasi pembayaran dan seni bina cloud-native.",
+        "keywords": "pembangunan aplikasi mudah alih malaysia, pembangunan aplikasi web malaysia, pembangun react native malaysia, pembangunan aplikasi flutter, pembangun aplikasi ios android, aplikasi mudah alih tersuai, pembangunan full stack malaysia, aplikasi web berskala",
+        "ogShort": "Aplikasi mudah alih dan web tersuai di Malaysia. React Native, Flutter, Next.js. Terbukti pada skala 5J+ pengguna.",
+        "schemaServiceType": "Pembangunan Aplikasi Mudah Alih dan Web",
+        "schemaDescription": "Pembangunan full-stack untuk aplikasi mudah alih dan web yang berskala menggunakan React Native, Flutter, Next.js, Swift, Kotlin dan seni bina cloud-native. Terbukti pada skala 5J+ pengguna dengan backend masa nyata dan integrasi pembayaran.",
+        "priceMin": 15000,
+        "priceMax": 500000,
+        "features": [
+            "Aplikasi React Native & Merentas Platform",
+            "Sistem Komunikasi Masa Nyata",
+            "Integrasi Gerbang Pembayaran",
+            "Kebolehskalaan Terbukti 5J+ Pengguna"
+        ],
+        "overview": [
+            "Kami membina aplikasi mudah alih dan web berprestasi tinggi yang berskala seiring pertumbuhan perniagaan anda. Pasukan kami menggunakan teknologi termaju dan amalan kejuruteraan yang terbukti untuk menghasilkan penyelesaian yang pantas, selamat dan mesra pengguna.",
+            "Daripada konsep sehingga pelancaran, kami menguruskan setiap aspek proses pembangunan — penerokaan, reka bentuk, pembangunan, QA, pelancaran dan sokongan selepas pelancaran. Hasil kerja kami menggerakkan sistem produksi yang melayani 5J+ pengguna."
+        ],
+        "expertise": [
+            { "title": "Pembangunan Mudah Alih", "desc": "Aplikasi native iOS dan Android, penyelesaian merentas platform menggunakan React Native, Flutter dan Swift/Kotlin." },
+            { "title": "Pembangunan Web", "desc": "Aplikasi web moden menggunakan React, Vue.js, Next.js, TypeScript dan Tailwind." },
+            { "title": "Pembangunan Backend", "desc": "API dan microservices berskala menggunakan Node.js, Laravel, PHP dan seni bina cloud-native." },
+            { "title": "Integrasi Cloud", "desc": "Penggunaan pada AWS, Alibaba Cloud dan platform lain dengan saluran paip CI/CD dan masa operasi 99%+." }
+        ]
+    },
+    {
+        "slug": "erp-crm-development",
+        "title": "Pembangunan ERP & CRM",
+        "tagline": "Sistem Enterprise Resource Planning dan Customer Relationship Management tersuai yang diselaraskan dengan aliran kerja perniagaan anda.",
+        "image": "service-erp-crm.jpg",
+        "metaTitle": "Pembangunan ERP & CRM Tersuai Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan ERP dan CRM tersuai di Malaysia. Modul tersuai, saluran CRM, automasi proses perniagaan dan papan pemuka pelaporan bersepadu untuk PKS dan perusahaan.",
+        "keywords": "pembangunan erp malaysia, erp tersuai malaysia, pembangunan crm malaysia, automasi proses perniagaan, penyesuaian erp malaysia, papan pemuka pelaporan bersepadu, penyelesaian erp pks",
+        "ogShort": "ERP dan CRM tersuai yang diselaraskan dengan aliran kerja anda — automasi proses, papan pemuka, integrasi penuh.",
+        "schemaServiceType": "Pembangunan Sistem Enterprise Resource Planning",
+        "schemaDescription": "Sistem Enterprise Resource Planning (ERP) dan Customer Relationship Management (CRM) tersuai yang diselaraskan dengan aliran kerja perniagaan anda, dengan automasi proses perniagaan dan papan pemuka pelaporan bersepadu.",
+        "priceMin": 40000,
+        "priceMax": 300000,
+        "features": [
+            "Modul ERP Tersuai",
+            "Pengurusan Saluran CRM",
+            "Automasi Proses Perniagaan",
+            "Papan Pemuka Pelaporan Bersepadu"
+        ],
+        "overview": [
+            "ERP siap pakai sering memaksa perniagaan anda menyesuaikan diri dengan perisian. Kami melakukan sebaliknya — kami membina sistem ERP dan CRM mengikut aliran kerja sebenar anda supaya kewangan, jualan, operasi dan inventori bertutur dalam satu bahasa.",
+            "Kami telah menghasilkan platform ERP dan CRM tersuai merentasi sektor runcit, logistik, perkhidmatan profesional dan kewangan — daripada pelancaran MVP sehingga skala bertaraf perusahaan dengan sokongan pelbagai entiti, pelbagai mata wang dan akses berasaskan peranan."
+        ],
+        "expertise": [
+            { "title": "Modul ERP", "desc": "Inventori, kewangan, perolehan, HR, pembuatan — dibina secara modular supaya anda hanya membayar untuk apa yang digunakan." },
+            { "title": "Saluran CRM", "desc": "Saluran jualan, pengurusan kenalan, penjejakan tawaran, susulan automatik dan integrasi e-mel." },
+            { "title": "Automasi Proses", "desc": "Aliran kerja kelulusan, tugasan berjadual, penjanaan dokumen dan automasi pelbagai langkah merentasi jabatan." },
+            { "title": "Pelaporan & BI", "desc": "Papan pemuka Power BI, laporan tersuai, data boleh dieksport dan penjejakan KPI masa nyata." }
+        ]
+    },
+    {
+        "slug": "ai-automation-chatbot",
+        "title": "Automasi AI & Chatbot",
+        "tagline": "Sistem automasi pintar dan chatbot AI perbualan yang meningkatkan penglibatan pelanggan dan memperkemas operasi.",
+        "image": "service-ai-chatbot.jpg",
+        "metaTitle": "Pembangunan Automasi AI & Chatbot Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan chatbot AI dan automasi di Malaysia. Chatbot WhatsApp, web dan pemesejan, automasi proses gaya RPA, integrasi OpenAI dan automasi sokongan pelanggan 24/7.",
+        "keywords": "chatbot ai malaysia, pembangunan chatbot malaysia, automasi ai malaysia, chatbot whatsapp, integrasi openai malaysia, chatbot nlp, automasi khidmat pelanggan ai",
+        "ogShort": "Chatbot AI dan automasi proses di Malaysia — WhatsApp, web, NLP, integrasi OpenAI.",
+        "schemaServiceType": "Pembangunan Kecerdasan Buatan dan Chatbot",
+        "schemaDescription": "Chatbot berkuasa AI dan automasi pintar termasuk chatbot WhatsApp dan web, pemprosesan bahasa tabii, integrasi OpenAI API dan automasi sokongan pelanggan 24/7.",
+        "priceMin": 20000,
+        "priceMax": 200000,
+        "features": [
+            "Chatbot Berkuasa AI",
+            "Automasi Proses",
+            "Pemprosesan Bahasa Tabii",
+            "Integrasi Machine Learning"
+        ],
+        "overview": [
+            "Kami membina pembantu AI yang berinteraksi dengan pelanggan anda melalui WhatsApp, laman web dan platform pemesejan anda — menguruskan pertanyaan, menyaring prospek, menempah temujanji dan menyelesaikan permintaan biasa 24/7.",
+            "Selain chatbot, kami mengautomasikan kerja pejabat berulang yang melambatkan pasukan anda: penghuraian dokumen, penghalaan invois, pemarkahan prospek, pemberitahuan dalaman dan aliran kelulusan pelbagai langkah."
+        ],
+        "expertise": [
+            { "title": "AI Perbualan", "desc": "Chatbot pelbagai saluran pada WhatsApp, widget web, Facebook Messenger dan Telegram dengan memori konteks." },
+            { "title": "Integrasi OpenAI", "desc": "Sokongan berkuasa GPT, ringkasan, penjanaan kandungan dan Retrieval Augmented Generation atas pangkalan pengetahuan persendirian anda." },
+            { "title": "Automasi Proses", "desc": "Aliran kerja dokumen, tugasan berjadual, aliran gaya n8n / Zapier dan integrasi tersuai dengan alatan sedia ada anda." },
+            { "title": "Machine Learning", "desc": "Pemarkahan kredit, sistem cadangan, klasifikasi imej dan saluran paip NLP dengan TensorFlow dan PyTorch." }
+        ]
+    },
+    {
+        "slug": "odoo-customisation",
+        "title": "Penyesuaian Odoo",
+        "tagline": "Penyelesaian ERP Odoo tersuai dengan modul khas, aliran kerja dan integrasi yang sepadan dengan keperluan perniagaan anda.",
+        "image": "service-odoo.jpg",
+        "metaTitle": "Penyesuaian & Pembangunan Odoo Malaysia | Trion Creation",
+        "metaDescription": "Penyesuaian dan pelaksanaan Odoo di Malaysia. Modul Odoo tersuai, penyesuaian aliran kerja, integrasi pihak ketiga, kerja tema/UI dan migrasi daripada ERP lama.",
+        "keywords": "odoo malaysia, penyesuaian odoo, pembangun odoo malaysia, pelaksanaan odoo malaysia, perunding erp odoo, modul odoo tersuai, migrasi odoo",
+        "ogShort": "Modul Odoo tersuai, aliran kerja dan integrasi — penyesuaian Odoo lengkap di Malaysia.",
+        "schemaServiceType": "Penyesuaian ERP Odoo",
+        "schemaDescription": "Penyesuaian ERP Odoo tersuai, termasuk modul Odoo khas, penyesuaian aliran kerja, integrasi pihak ketiga, penyesuaian tema/UI dan migrasi daripada sistem ERP lama.",
+        "priceMin": 20000,
+        "priceMax": 250000,
+        "features": [
+            "Modul Odoo Tersuai",
+            "Penyesuaian Aliran Kerja",
+            "Integrasi Pihak Ketiga",
+            "Penyesuaian Tema & UI"
+        ],
+        "overview": [
+            "Odoo memberi anda asas ERP yang berkuasa — tetapi hanya penyesuaian menjadikannya benar-benar milik anda. Kami membina modul Odoo tersuai, menyesuaikan modul standard mengikut proses anda, dan menyepadukan Odoo dengan seluruh sistem teknologi anda.",
+            "Kami bekerja dengan kedua-dua edisi Odoo Community dan Enterprise, menguruskan migrasi penuh daripada sistem ERP lama, dan menyediakan sokongan berterusan untuk penggunaan Odoo di pelayan anda sendiri atau di cloud."
+        ],
+        "expertise": [
+            { "title": "Modul Tersuai", "desc": "Daripada penggantian borang ringkas sehingga modul khas sepenuhnya dengan model, paparan, aliran kerja dan laporan tersendiri." },
+            { "title": "Penalaan Aliran Kerja", "desc": "Peraturan kelulusan tersuai, tindakan automatik, tugasan berjadual dan konfigurasi pelbagai syarikat / pelbagai gudang." },
+            { "title": "Integrasi", "desc": "Sambungkan Odoo dengan gerbang pembayaran, platform e-dagang, WhatsApp, alatan perakaunan dan e-invois kerajaan." },
+            { "title": "UI / Tema", "desc": "Tema backend berjenama, papan pemuka tersuai dan antara muka POS yang disesuaikan dengan kerja harian pasukan anda." }
+        ]
+    },
+    {
+        "slug": "pos-inventory-management",
+        "title": "Pengurusan POS & Inventori",
+        "tagline": "Sistem Point of Sale lengkap dengan penjejakan inventori masa nyata, sokongan pelbagai lokasi dan pelaporan menyeluruh.",
+        "image": "service-pos.jpg",
+        "metaTitle": "Sistem Pengurusan POS & Inventori Malaysia | Trion Creation",
+        "metaDescription": "Sistem POS dan pengurusan inventori tersuai di Malaysia. Penjejakan stok masa nyata, POS pelbagai lokasi, pengimbasan kod bar, POS mudah alih, paparan dapur dan analitik jualan untuk runcit dan F&B.",
+        "keywords": "sistem pos malaysia, point of sale malaysia, sistem pengurusan inventori malaysia, pos runcit malaysia, pos restoran malaysia, sistem pos f&b, pos pelbagai lokasi, inventori kod bar",
+        "ogShort": "POS tersuai dan inventori masa nyata untuk runcit dan F&B di Malaysia.",
+        "schemaServiceType": "Pembangunan Sistem Point of Sale dan Pengurusan Inventori",
+        "schemaDescription": "Sistem Point of Sale (POS) dan pengurusan inventori tersuai dengan penjejakan stok masa nyata, sokongan pelbagai lokasi, pengimbasan kod bar, POS mudah alih dan sistem paparan dapur untuk perniagaan runcit dan F&B.",
+        "priceMin": 25000,
+        "priceMax": 200000,
+        "features": [
+            "Penjejakan Inventori Masa Nyata",
+            "Sistem POS Pelbagai Lokasi",
+            "Integrasi Pengimbasan Kod Bar",
+            "Analitik & Laporan Jualan"
+        ],
+        "overview": [
+            "Kami membina sistem POS dan inventori untuk peruncit dan pengusaha F&B yang telah melepasi kemampuan perisian siap pakai — rangkaian dengan operasi pelbagai cawangan, menu kompleks, aliran kerja dapur atau program kesetiaan yang unik.",
+            "Sistem kami beroperasi pada tablet, desktop dan mudah alih, menyegerak secara masa nyata merentasi lokasi, dan menyepadu dengan sistem perakaunan, e-dagang, portal pembekal dan e-invois kerajaan anda."
+        ],
+        "expertise": [
+            { "title": "POS Runcit", "desc": "Pengimbasan kod bar, pelbagai pembayaran, pemulangan, kesetiaan, promosi, profil pelanggan dan logik diskaun." },
+            { "title": "POS F&B", "desc": "Pengurusan meja, bil terpisah, sistem paparan dapur (KDS), e-menu, pesanan QR dan kawalan stok pada peringkat bahan." },
+            { "title": "Kawalan Inventori", "desc": "Stok masa nyata merentasi gudang dan cawangan, penjejakan kelompok dan tarikh luput, pesanan belian, portal pembekal." },
+            { "title": "Pelaporan", "desc": "Jualan mengikut jam, item, juruwang dan cawangan; analisis margin keuntungan; pemesanan semula ramalan dan papan pemuka BI." }
+        ]
+    },
+    {
+        "slug": "booking-system-development",
+        "title": "Pembangunan Sistem Tempahan",
+        "tagline": "Sistem tempahan dan reservasi tersuai untuk temujanji, perkhidmatan, acara dan pengurusan sumber.",
+        "image": "service-booking.jpg",
+        "metaTitle": "Pembangunan Sistem Tempahan Tersuai Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan sistem tempahan dan reservasi tersuai di Malaysia. Tempahan pelbagai perkhidmatan, integrasi kalendar, gerbang pembayaran, peringatan automatik dan pengurusan sumber.",
+        "keywords": "sistem tempahan malaysia, sistem reservasi malaysia, sistem temujanji malaysia, platform tempahan dalam talian, perisian tempahan tersuai, aplikasi tempahan perkhidmatan, sistem tempahan salun",
+        "ogShort": "Sistem tempahan tersuai — temujanji, perkhidmatan, acara, kalendar, pembayaran, peringatan.",
+        "schemaServiceType": "Pembangunan Sistem Tempahan dan Reservasi",
+        "schemaDescription": "Pembangunan sistem tempahan dan reservasi tersuai termasuk tempahan pelbagai perkhidmatan, integrasi kalendar, integrasi gerbang pembayaran, peringatan automatik dan pengurusan sumber.",
+        "priceMin": 18000,
+        "priceMax": 150000,
+        "features": [
+            "Tempahan Pelbagai Perkhidmatan",
+            "Integrasi Kalendar",
+            "Integrasi Gerbang Pembayaran",
+            "Peringatan Automatik"
+        ],
+        "overview": [
+            "Kami membina platform tempahan tersuai untuk klinik, salun, pusat kesihatan, perkhidmatan haiwan peliharaan, ruang acara, perkhidmatan profesional dan industri atas permintaan. Setiap perniagaan menempah secara berbeza — sistem anda sepatutnya mencerminkan perkara itu.",
+            "Sistem tempahan kami menguruskan peraturan ketersediaan kompleks, tempahan berulang, padanan staf, kekangan sumber, tempahan berkumpulan, deposit, bayaran balik dan pemberitahuan pelbagai saluran (e-mel, SMS, WhatsApp, push)."
+        ],
+        "expertise": [
+            { "title": "Tempahan Pelbagai Perkhidmatan", "desc": "Perkhidmatan boleh dikonfigur, tempoh, tugasan staf, peruntukan sumber dan peraturan harga." },
+            { "title": "Penyegerakan Kalendar", "desc": "Penyegerakan dua hala dengan Google Calendar, Outlook, Apple Calendar; masa sekatan staf; ketersediaan masa nyata." },
+            { "title": "Pembayaran", "desc": "Deposit dalam talian, pembayaran penuh, baucar pakej dan pengendalian bayaran balik melalui Stripe, iPay88 dan PayPal." },
+            { "title": "Pemberitahuan", "desc": "Pengesahan automatik, peringatan, susulan ketidakhadiran melalui e-mel, SMS dan WhatsApp." }
+        ]
+    },
+    {
+        "slug": "loan-management-system",
+        "title": "Sistem Pengurusan Pinjaman",
+        "tagline": "Sistem permohonan dan pengurusan pinjaman lengkap dengan pemprosesan automatik, pemarkahan kredit dan penjejakan pembayaran balik.",
+        "image": "service-loan.jpg",
+        "metaTitle": "Pembangunan Sistem Pengurusan Pinjaman Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan sistem pengurusan pinjaman tersuai di Malaysia. Permulaan pinjaman, pemarkahan kredit AI, aliran kerja kelulusan automatik, penjejakan pembayaran balik, portal admin — dibina untuk pemberi pinjaman, fintech dan kewangan mikro.",
+        "keywords": "sistem pengurusan pinjaman malaysia, pembangunan platform pinjaman, sistem permulaan pinjaman, sistem pemarkahan kredit, sistem pinjaman mikro malaysia, pembangunan fintech malaysia, platform gaya mycashout",
+        "ogShort": "Sistem pinjaman hujung ke hujung — permulaan, pemarkahan kredit, kelulusan, pembayaran balik, portal admin.",
+        "schemaServiceType": "Pembangunan Sistem Pengurusan Pinjaman",
+        "schemaDescription": "Pembangunan sistem pengurusan pinjaman hujung ke hujung dengan permulaan pinjaman, pemarkahan kredit berasaskan AI, aliran kerja kelulusan automatik, penjejakan pembayaran balik dan portal admin — dibina untuk pemberi pinjaman, fintech dan penyedia kewangan mikro.",
+        "priceMin": 60000,
+        "priceMax": 400000,
+        "features": [
+            "Pemprosesan Permohonan Pinjaman",
+            "Integrasi Pemarkahan Kredit",
+            "Aliran Kerja Kelulusan Automatik",
+            "Penjejakan & Peringatan Pembayaran Balik"
+        ],
+        "overview": [
+            "Kami telah membina platform pengurusan pinjaman hujung ke hujung untuk pemberi pinjaman, fintech dan pengusaha kewangan mikro — termasuk MyCashOut. Pendaftaran peminjam, KYC, pemarkahan kredit, aliran kelulusan, pengeluaran, pembayaran balik dan kutipan, semuanya dalam satu sistem.",
+            "Sistem pinjaman kami menyepadu dengan biro kredit, landasan pembayaran, penyedia e-KYC, perakaunan dan gerbang SMS. Admin memperoleh pandangan masa nyata tentang kesihatan portfolio, nisbah NPL dan prestasi kutipan."
+        ],
+        "expertise": [
+            { "title": "Permulaan Pinjaman", "desc": "Borang permohonan, eKYC, muat naik dokumen, OCR, semakan kelayakan automatik." },
+            { "title": "Pemarkahan Kredit", "desc": "Pemarkahan kredit berasaskan peraturan + machine learning dengan integrasi biro kredit." },
+            { "title": "Aliran Kerja & Kelulusan", "desc": "Kelulusan pelbagai peringkat, pengendalian pengecualian, jejak audit, akses berasaskan peranan untuk pegawai kredit." },
+            { "title": "Pembayaran Balik & Kutipan", "desc": "Penjanaan jadual, peringatan automatik, pembayaran balik dalam talian, papan pemuka kutipan, penjejakan NPL." }
+        ]
+    },
+    {
+        "slug": "api-integration-development",
+        "title": "Integrasi & Pembangunan API",
+        "tagline": "Pembangunan API tersuai dan integrasi pihak ketiga untuk menghubungkan sistem anda dan memperkemas aliran data.",
+        "image": "service-api.jpg",
+        "metaTitle": "Integrasi & Pembangunan API Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan API tersuai dan integrasi pihak ketiga di Malaysia. API REST dan GraphQL, gerbang pembayaran, integrasi SMS/e-mel, CRM dan perakaunan dengan pengesahan selamat dan dokumentasi penuh.",
+        "keywords": "pembangunan api malaysia, integrasi api malaysia, pembangun rest api, pembangun graphql malaysia, integrasi gerbang pembayaran, integrasi api pihak ketiga, pembangunan webhook",
+        "ogShort": "API REST dan GraphQL, gerbang pembayaran, integrasi pihak ketiga dengan dokumentasi penuh.",
+        "schemaServiceType": "Pembangunan dan Integrasi API",
+        "schemaDescription": "Perkhidmatan pembangunan API tersuai dan integrasi pihak ketiga termasuk API RESTful dan GraphQL, integrasi gerbang pembayaran, integrasi perkhidmatan SMS dan e-mel, pelaksanaan webhook dan dokumentasi API penuh.",
+        "priceMin": 10000,
+        "priceMax": 200000,
+        "features": [
+            "API RESTful & GraphQL",
+            "Integrasi Pihak Ketiga",
+            "Dokumentasi API",
+            "Pelaksanaan Webhook"
+        ],
+        "overview": [
+            "Sistem moden bergantung sepenuhnya pada sebaik mana ia berintegrasi. Kami mereka bentuk dan membina API yang didokumentasikan dengan baik, diversi dengan betul, selamat dan berskala — dan kami membuat sistem sedia ada berkomunikasi antara satu sama lain walaupun ia tidak pernah direka untuk berbuat demikian.",
+            "Kami telah menyepadukan gerbang pembayaran (Stripe, PayPal, iPay88), pemesejan (Twilio, WhatsApp Business), CRM (HubSpot, Salesforce), e-dagang (Shopify, WooCommerce), perakaunan (Xero, AutoCount) dan banyak lagi."
+        ],
+        "expertise": [
+            { "title": "REST & GraphQL", "desc": "API REST idiomatik dan skema GraphQL dengan pengesahan, had kadar, caching dan dokumentasi OpenAPI penuh." },
+            { "title": "Integrasi Pembayaran", "desc": "Stripe, PayPal, iPay88, Razer Merchant Services, FPX, Boost, GrabPay dan landasan crypto." },
+            { "title": "Penghubung Pihak Ketiga", "desc": "Hubungkan CRM, ERP, e-dagang, pemasaran, analitik dan platform perakaunan dengan boleh dipercayai." },
+            { "title": "Webhook & Peristiwa", "desc": "Seni bina dipacu peristiwa, penghantaran webhook dengan percubaan semula, pemprosesan berasaskan baris gilir dan kebolehperhatian." }
+        ]
+    },
+    {
+        "slug": "blockchain-web3-solutions",
+        "title": "Penyelesaian Blockchain & Web3",
+        "tagline": "Pembangunan platform Web3 hujung ke hujung dengan sokongan pelbagai rantaian, integrasi NFT dan automasi smart contract.",
+        "image": "service-blockchain.jpg",
+        "metaTitle": "Pembangunan Blockchain & Web3 Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan blockchain dan Web3 di Malaysia. Launchpad NFT pelbagai rantaian, smart contract (Solidity), protokol DeFi, transaksi tanpa gas dan dApp Web3 — dibina oleh pasukan di sebalik Colorverse.",
+        "keywords": "pembangunan blockchain malaysia, pembangun web3 malaysia, pembangunan smart contract, pembangunan launchpad nft, pembangun solidity malaysia, pembangunan defi, pembangunan dapp web3",
+        "ogShort": "Launchpad NFT, smart contract, DeFi, transaksi tanpa gas — pembangunan Web3 di Malaysia.",
+        "schemaServiceType": "Pembangunan Blockchain dan Web3",
+        "schemaDescription": "Pembangunan platform Web3 hujung ke hujung dengan sokongan pelbagai rantaian, pembangunan launchpad NFT, automasi smart contract, pembangunan protokol DeFi dan penyelesaian transaksi tanpa gas.",
+        "priceMin": 50000,
+        "priceMax": 500000,
+        "features": [
+            "Launchpad NFT Pelbagai Rantaian",
+            "Automasi Smart Contract",
+            "Pembangunan Protokol DeFi",
+            "Penyelesaian Transaksi Tanpa Gas"
+        ],
+        "overview": [
+            "Kami telah membina platform Web3 produksi yang digunakan oleh pengguna sebenar — yang paling ketara Colorverse, platform Social-Fi pelbagai rantaian yang disokong oleh Lembaga Pelancongan Malaysia. Smart contract dalam produksi, NFT dilombong, pengguna sebenar di rantaian.",
+            "Sama ada anda memerlukan launchpad NFT, protokol DeFi, ekonomi token atau dApp Web3 dengan UX tradisional (bayangkan 'rasa Web2, backend Web3'), kami merekayasa bahagian on-chain dan off-chain bersama-sama."
+        ],
+        "expertise": [
+            { "title": "Smart Contract", "desc": "Kontrak Solidity dengan liputan ujian penuh, kod sedia audit, corak boleh naik taraf (proxy) dan pengoptimuman gas." },
+            { "title": "Platform NFT", "desc": "Launchpad, pasaran, pelombongan pelbagai rantaian, storan IPFS / Arweave, penguatkuasaan royalti." },
+            { "title": "DeFi & Token", "desc": "Kontrak token (ERC-20, ERC-721, ERC-1155), staking, kecairan, vesting, tadbir urus." },
+            { "title": "UX Tanpa Gas", "desc": "Meta-transaksi, account abstraction (ERC-4337), session keys — Web3 yang terasa seperti Web2." }
+        ]
+    },
+    {
+        "slug": "ar-vr-metaverse-development",
+        "title": "Pembangunan AR/VR & Metaverse",
+        "tagline": "Pengalaman maya mendalam dan aplikasi metaverse menggunakan Unity, Spatial dan teknologi VR/AR termaju.",
+        "image": "service-ar-vr.jpg",
+        "metaTitle": "Pembangunan AR/VR & Metaverse Malaysia | Trion Creation",
+        "metaDescription": "Pembangunan AR, VR dan metaverse di Malaysia. Permainan dan aplikasi 3D berasaskan Unity, integrasi metaverse Spatial, pengalaman AR mudah alih dan dunia maya interaktif.",
+        "keywords": "pembangunan ar vr malaysia, pembangunan metaverse malaysia, pembangun unity malaysia, pembangunan aplikasi vr, aplikasi realiti terimbuh, metaverse spatial, aplikasi latihan vr",
+        "ogShort": "Unity 3D, AR mudah alih, latihan VR, ruang metaverse — pembangunan mendalam di Malaysia.",
+        "schemaServiceType": "Pembangunan Aplikasi AR VR Metaverse",
+        "schemaDescription": "Pembangunan aplikasi AR, VR dan metaverse mendalam menggunakan Unity, Spatial dan platform VR/AR termaju — termasuk pengalaman AR mudah alih dan dunia maya interaktif.",
+        "priceMin": 40000,
+        "priceMax": 400000,
+        "features": [
+            "Pembangunan Permainan Unity",
+            "Integrasi Metaverse Spatial",
+            "Aplikasi Mudah Alih VR/AR",
+            "Dunia Maya Interaktif"
+        ],
+        "overview": [
+            "Kami telah menghasilkan produk mendalam termasuk permainan LAC Temple Run dan penyelesaian AR untuk Pictureworks Air. Daripada kempen AR mudah alih sehingga simulasi latihan VR yang mendalam sepenuhnya, kami membina pengalaman yang melangkaui skrin rata.",
+            "Saluran paip 3D kami menyokong kedua-dua enjin masa nyata (Unity, WebXR) dan platform metaverse (Spatial), dan kami menguruskan kitaran produksi penuh daripada seni konsep sehingga penggunaan pada platform iOS, Android, web dan headset."
+        ],
+        "expertise": [
+            { "title": "Permainan Unity / 3D", "desc": "Pembangunan permainan 2D dan 3D untuk mudah alih dan web, dengan pelbagai pemain, pembelian dalam aplikasi dan live ops." },
+            { "title": "AR Mudah Alih", "desc": "Pengalaman ARKit dan ARCore, penapis muka, AR berasaskan penanda, AR berasaskan lokasi." },
+            { "title": "Pengalaman VR", "desc": "Simulasi latihan, bilik pameran maya, pendidikan mendalam pada Meta Quest dan headset lain." },
+            { "title": "Ruang Metaverse", "desc": "Dunia Spatial, pengalaman WebXR, tempat maya berjenama untuk acara, runcit dan pendidikan." }
+        ]
+    },
+    {
+        "slug": "cloud-infrastructure-devops",
+        "title": "Infrastruktur Cloud & DevOps",
+        "tagline": "Penyelesaian cloud berskala dengan CDN merentas sempadan, pemprosesan video masa nyata dan jaminan masa operasi 99%+.",
+        "image": "service-cloud.jpg",
+        "metaTitle": "Infrastruktur Cloud & DevOps Malaysia | Trion Creation",
+        "metaDescription": "Infrastruktur cloud dan DevOps di Malaysia. AWS, Alibaba Cloud, Docker, Kubernetes, saluran paip CI/CD, CDN merentas sempadan, transkod video masa nyata dan SLA masa operasi 99%+. Rakan Rasmi Alibaba Cloud.",
+        "keywords": "infrastruktur cloud malaysia, devops malaysia, rakan alibaba cloud malaysia, perunding aws malaysia, kubernetes malaysia, saluran paip ci cd, cdn merentas sempadan, transkod video masa nyata",
+        "ogShort": "AWS, Alibaba Cloud, Kubernetes, CDN, CI/CD — cloud dan DevOps masa operasi 99%+ di Malaysia.",
+        "schemaServiceType": "Perkhidmatan Infrastruktur Cloud dan DevOps",
+        "schemaDescription": "Infrastruktur cloud berskala dan perkhidmatan DevOps termasuk AWS, Alibaba Cloud, Docker, Kubernetes, saluran paip CI/CD, penyelesaian CDN merentas sempadan, transkod video masa nyata dan SLA masa operasi 99%+.",
+        "priceMin": 15000,
+        "priceMax": 300000,
+        "features": [
+            "Penyelesaian CDN Merentas Sempadan",
+            "Transkod Video Masa Nyata",
+            "Integrasi Alibaba Cloud",
+            "SLA Masa Operasi 99%+"
+        ],
+        "overview": [
+            "Sebagai Rakan Rasmi Alibaba Cloud, kami mereka bentuk dan mengendalikan infrastruktur cloud yang berskala secara global — termasuk seni bina CDN merentas sempadan yang menggerakkan 5J+ pengguna Yippi dan 50K+ siaran langsung serentak.",
+            "Kami bekerja merentasi AWS, Alibaba Cloud, Google Cloud dan on-premise, menguruskan migrasi, menyediakan saluran paip CI/CD, orkestrasi kontena dengan Kubernetes, pemantauan dan tindak balas insiden 24/7."
+        ],
+        "expertise": [
+            { "title": "Pelbagai Cloud", "desc": "AWS, Alibaba Cloud, GCP dan on-premise — termasuk replikasi merentas wilayah dan pemulihan bencana." },
+            { "title": "Kontena", "desc": "Docker, Kubernetes (EKS, ACK), carta Helm, service mesh, autoskala dan penggunaan tanpa henti." },
+            { "title": "CI/CD", "desc": "GitHub Actions, GitLab CI, saluran paip ujian automatik, gerbang penggunaan dan strategi roll back." },
+            { "title": "Kebolehperhatian & SRE", "desc": "Pengelogan berpusat, metrik, penjejakan teragih, pemberitahuan dan liputan on-call 24/7 untuk beban kerja kritikal." }
+        ]
+    },
+    {
+        "slug": "product-design-ux",
+        "title": "Reka Bentuk Produk & UX",
+        "tagline": "Reka bentuk berpusatkan pengguna dengan antara muka moden, pengalaman pengguna lancar dan keputusan reka bentuk dipacu data.",
+        "image": "service-ux.jpg",
+        "metaTitle": "Perkhidmatan Reka Bentuk Produk & UX Malaysia | Trion Creation",
+        "metaDescription": "Perkhidmatan reka bentuk produk dan UX di Malaysia. Penyelidikan pengguna, prototaip antara muka, ujian kebolehgunaan, sistem reka bentuk dan reka bentuk UI pelbagai platform untuk produk mudah alih, web dan perusahaan.",
+        "keywords": "reka bentuk produk malaysia, reka bentuk ux malaysia, reka bentuk ui malaysia, sistem reka bentuk malaysia, ujian kebolehgunaan malaysia, ux aplikasi mudah alih, perkhidmatan reka bentuk figma",
+        "ogShort": "Penyelidikan pengguna, prototaip, sistem reka bentuk, ujian kebolehgunaan — UX di Malaysia.",
+        "schemaServiceType": "Perkhidmatan Reka Bentuk Produk dan UX",
+        "schemaDescription": "Perkhidmatan reka bentuk produk dan UX berpusatkan pengguna termasuk reka bentuk pengalaman pengguna, prototaip antara muka, ujian kebolehgunaan dan penciptaan sistem reka bentuk merentasi produk mudah alih, web dan perusahaan.",
+        "priceMin": 10000,
+        "priceMax": 150000,
+        "features": [
+            "Reka Bentuk Pengalaman Pengguna",
+            "Prototaip Antara Muka",
+            "Ujian Kebolehgunaan",
+            "Penciptaan Sistem Reka Bentuk"
+        ],
+        "overview": [
+            "Reka bentuk yang hebat ialah perbezaan antara produk yang digunakan orang dan produk yang ditinggalkan. Pasukan reka bentuk kami bekerjasama dengan jurutera kami sejak hari pertama, supaya UX yang anda luluskan ialah UX yang benar-benar dihantar — tiada kompromi hilang dalam penyerahan.",
+            "Kami mereka bentuk untuk mudah alih, web dan sistem perusahaan kompleks. Setiap projek merangkumi penyelidikan pengguna, prototaip lo-fi sehingga hi-fi, ujian kebolehgunaan dan sistem reka bentuk berdokumen yang boleh dilanjutkan oleh pasukan anda lama selepas pelancaran."
+        ],
+        "expertise": [
+            { "title": "Penyelidikan UX", "desc": "Temu bual pengguna, pemetaan perjalanan, analisis persaingan dan analitik tingkah laku untuk mendasarkan reka bentuk pada bukti." },
+            { "title": "UI & Prototaip", "desc": "Reka bentuk asli Figma dengan prototaip interaktif, spesifikasi gerakan dan penyerahan mesra pembangun." },
+            { "title": "Sistem Reka Bentuk", "desc": "Sistem reka bentuk berasaskan token dengan varian, tema dan dokumentasi komponen untuk konsistensi jangka panjang." },
+            { "title": "Ujian Kebolehgunaan", "desc": "Ujian diselia dan tanpa selia, reka bentuk eksperimen A/B dan lelaran berdasarkan maklum balas pengguna sebenar." }
+        ]
+    }
+]

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajian Kes Platform Perkhidmatan Pemandu DDDrive | Trion Creation</title>
+    <meta name="description" content="Kajian kes: bagaimana Trion Creation membina DDDrive — platform pemandu upah dengan penjejakan GPS masa nyata, pembayaran selamat, pengoptimuman laluan dan operasi armada berbilang bandar.">
+    <meta name="keywords" content="kajian kes dddrive, pembangunan aplikasi pemandu malaysia, pembangunan platform pengangkutan, aplikasi penjejakan GPS masa nyata, sistem pengurusan armada malaysia, sistem penghantaran, aplikasi tempahan kenderaan">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/ms/projects/dddrive.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/dddrive.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/dddrive.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/dddrive.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/dddrive.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/ms/projects/dddrive.html">
+    <meta property="og:locale" content="ms_MY">
+    <meta property="og:title" content="Kajian Kes Platform Perkhidmatan Pemandu DDDrive | Trion Creation">
+    <meta property="og:description" content="Penghantaran masa nyata, penjejakan GPS, pengoptimuman laluan dan operasi armada berbilang bandar — kajian kes oleh Trion Creation.">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DDDrive Driver Services Platform — Case Study",
+        "description": "How Trion Creation built DDDrive — real-time dispatch, GPS tracking, route optimisation and multi-city fleet operations.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/dddrive.html"
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">Utama</a></li>
+                        <li><a href="../index.html#about" class="nav-link">Tentang</a></li>
+                        <li><a href="../index.html#services" class="nav-link">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">Portfolio</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">Perkongsian</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">Teknologi</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">Soalan Lazim</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">Hubungi</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/dddrive.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/dddrive.html" class="lang-link" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="https://trioncreation.com/ms/projects/dddrive.html" class="lang-link active" hreflang="ms" lang="ms" aria-current="true">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">Mula Sekarang</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">Utama</a> / <a href="../index.html#portfolio">Portfolio</a> / <span>DDDrive</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>DDDrive</h1>
+                        <p class="project-subtitle">Memperluas Platform Perkhidmatan Pemandu Upah Yang Boleh Dipercayai</p>
+                        <p class="project-description">Platform perkhidmatan pemandu peneman yang membolehkan pengguna menempah pemandu yang dipercayai untuk pengangkutan selamat dengan kebolehgunaan yang lancar, padanan pemandu masa nyata, integrasi pembayaran selamat, dan penjejakan perjalanan.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Aplikasi Mudah Alih</span>
+                            <span class="tag">Backend/API</span>
+                            <span class="tag">Reka Bentuk Produk</span>
+                            <span class="tag">Penjejakan Masa Nyata</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">Masa Nyata</div>
+                            <div class="stat-label">Penghantaran Pemandu</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Selamat</div>
+                            <div class="stat-label">Pemprosesan Pembayaran</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Berbilang Bandar</div>
+                            <div class="stat-label">Penyebaran</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Boleh Skala</div>
+                            <div class="stat-label">Seni Bina Backend</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Gambaran Keseluruhan Projek</h2>
+                    <p>DDDrive ialah platform perkhidmatan pemandu upah yang menyeluruh yang menghubungkan pengguna dengan pemandu yang dipercayai untuk pengangkutan selamat. Platform ini mengutamakan keselamatan, kebolehpercayaan, dan kemudahan melalui teknologi termaju serta reka bentuk berpusatkan pengguna.</p>
+
+                    <h3>Cabaran</h3>
+                    <p>Mewujudkan sistem penghantaran pemandu yang boleh dipercayai yang mampu mengendalikan padanan masa nyata, pembayaran selamat, pendaftaran pemandu, dan sistem penilaian sambil mengekalkan kebolehskalaan untuk penyebaran berbilang bandar.</p>
+
+                    <h3>Penyelesaian</h3>
+                    <p>Kami membangunkan platform yang teguh dengan penghantaran pemandu masa nyata, integrasi dompet dalam aplikasi, sistem pendaftaran pemandu yang menyeluruh, dan seni bina backend boleh skala yang menyokong operasi berbilang bandar.</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Antara Muka Aplikasi DDDrive" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>Pencapaian Teknikal</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🚗</span>
+                    </div>
+                    <h3>Penghantaran Pemandu Masa Nyata</h3>
+                    <p>Melaksanakan penjejakan GPS termaju dan pengoptimuman laluan untuk padanan pemandu masa nyata dan penjejakan perjalanan dengan masa tindak balas kurang daripada sesaat.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Penjejakan GPS</span>
+                        <span class="metric">Pengoptimuman Laluan</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">💳</span>
+                    </div>
+                    <h3>Dompet & Pembayaran Dalam Aplikasi</h3>
+                    <p>Membina sistem pemprosesan pembayaran selamat dengan fungsi dompet dalam aplikasi, menyokong pelbagai kaedah pembayaran dan pemprosesan transaksi serta-merta.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Pelbagai Pembayaran</span>
+                        <span class="metric">Pemprosesan Serta-merta</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">👨‍💼</span>
+                    </div>
+                    <h3>Sistem Pendaftaran Pemandu</h3>
+                    <p>Mewujudkan sistem pengesahan dan penilaian pemandu yang menyeluruh dengan semakan latar belakang, pengesahan dokumen, dan penjejakan prestasi.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Semakan Latar Belakang</span>
+                        <span class="metric">Sistem Penilaian</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🌍</span>
+                    </div>
+                    <h3>Backend Berbilang Bandar Boleh Skala</h3>
+                    <p>Mereka bentuk dan menyebarkan seni bina backend boleh skala yang menyokong operasi berbilang bandar dengan pengimbangan beban dan pengagihan geografi.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Berbilang Bandar</span>
+                        <span class="metric">Pengimbangan Beban</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>Ciri Utama</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📍</div>
+                    <h3>Pemilihan Lokasi Pintar</h3>
+                    <p>Pemilihan titik penjemputan dan penurunan yang intuitif dengan autolengkap alamat dan kegemaran</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Tempahan Segera & Berjadual</h3>
+                    <p>Tempah perjalanan secara segera atau jadualkan untuk kemudian dengan pilihan masa yang fleksibel</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>Komunikasi Pemandu</h3>
+                    <p>Sistem pemesejan dan nota masa nyata untuk komunikasi pemandu-penumpang yang lancar</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Sistem Penilaian & Ulasan</h3>
+                    <p>Sistem penilaian menyeluruh untuk pemandu dan penumpang dengan maklum balas terperinci</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Penjejakan Pendapatan Pemandu</h3>
+                    <p>Papan pemuka pendapatan masa nyata dengan sejarah kerja dan analitik prestasi</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>Pengurusan Tugas</h3>
+                    <p>Sistem pengurusan tugas termaju untuk pemandu dengan pengoptimuman laluan dan penjadualan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Experience Flow -->
+    <section class="user-flow">
+        <div class="container">
+            <h2>Aliran Pengalaman Pengguna</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Tempah Perjalanan</h3>
+                        <p>Pengguna memilih titik penjemputan dan penurunan, memilih tempahan segera atau berjadual, dan menambah nota khas</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Padanan Pemandu</h3>
+                        <p>Algoritma masa nyata memadankan pemandu terbaik yang tersedia berdasarkan lokasi, penilaian, dan keutamaan</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Penjejakan Langsung</h3>
+                        <p>Penjejakan GPS masa nyata memaparkan lokasi pemandu, anggaran masa tiba, dan laluan dengan kemas kini langsung</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Pembayaran Selamat</h3>
+                        <p>Pemprosesan pembayaran automatik dengan pelbagai pilihan pembayaran dan pengesahan serta-merta</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Penilaian & Maklum Balas</h3>
+                        <p>Sistem penilaian selepas perjalanan membolehkan pengguna dan pemandu memberikan maklum balas dan penilaian</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    "Trion Creation menghasilkan platform perkhidmatan pemandu yang teguh dan boleh skala yang melebihi jangkaan kami. Kepakaran mereka dalam penjejakan masa nyata, integrasi pembayaran, dan penyebaran berbilang bandar membantu kami mencipta perkhidmatan yang boleh dipercayai oleh pengguna kami. Sistem pendaftaran pemandu dan mekanisme penilaian amat berkesan."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Pasukan Pembangunan DDDrive</h4>
+                        <span>Platform Perkhidmatan Pemandu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>Tumpukan Teknologi</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Aplikasi Mudah Alih</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">iOS/Android</span>
+                        <span class="tech-tag">Google Maps API</span>
+                        <span class="tech-tag">Push Notifications</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Pembayaran</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">PayPal</span>
+                        <span class="tech-tag">In-app Wallet</span>
+                        <span class="tech-tag">Payment Gateway</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Infrastruktur</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">Load Balancer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>Hasil Projek</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">Masa Nyata</div>
+                    <div class="result-label">Penghantaran Pemandu</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Selamat</div>
+                    <div class="result-label">Integrasi Pembayaran</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Berbilang Bandar</div>
+                    <div class="result-label">Penyebaran Boleh Skala</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Termaju</div>
+                    <div class="result-label">Sistem Penilaian</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">GPS</div>
+                    <div class="result-label">Penjejakan Langsung</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">Mesra Pengguna</div>
+                    <div class="result-label">Reka Bentuk Antara Muka</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bersedia Membina Platform Pengangkutan Anda?</h2>
+                <p>Mari kita bincangkan bagaimana kami boleh membantu anda mencipta aplikasi perkhidmatan pemandu yang boleh dipercayai</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">Mulakan Projek Anda</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">Lihat Lebih Banyak Projek</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>Membina masa depan dengan penyelesaian pintar</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Pautan Pantas</h4>
+                    <ul>
+                        <li><a href="../index.html">Utama</a></li>
+                        <li><a href="../index.html#about">Tentang</a></li>
+                        <li><a href="../index.html#services">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi</h4>
+                    <p>Bersedia untuk memulakan projek anda?</p>
+                    <a href="../index.html#contact" class="btn btn-primary">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. Hak cipta terpelihara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>

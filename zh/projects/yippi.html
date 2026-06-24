@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yippi 社交媒体超级应用案例研究 | Trion Creation</title>
+    <meta name="description" content="案例研究：Trion Creation 如何打造 Yippi——一款规模化扩展至 500 万以上用户的社交媒体超级应用，集直播、内容流、奖励与跨境 CDN 于一体。涵盖移动端 + 网页端 + 实时后端技术栈。">
+    <meta name="keywords" content="yippi 案例研究, 社交媒体 App 开发 马来西亚, 超级应用开发, 直播 App, 500 万用户 App, 跨境 CDN, 实时聊天 App 马来西亚">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/zh/projects/yippi.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/yippi.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/yippi.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/yippi.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/yippi.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/zh/projects/yippi.html">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Yippi 社交媒体超级应用案例研究 | Trion Creation">
+    <meta property="og:description" content="Trion Creation 如何打造 Yippi——一款规模化扩展至 500 万以上用户、集直播、实时消息与跨境 CDN 于一体的社交媒体超级应用。">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yippi 社交媒体超级应用案例研究">
+    <meta name="twitter:description" content="500 万以上用户、直播、跨境 CDN——Trion Creation 案例研究。">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Yippi Social Media Super App — Case Study",
+        "description": "How Trion Creation built Yippi, a social media super app scaled to 5M+ users with live streaming, real-time messaging, content feed and cross-border CDN.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/yippi.html",
+        "about": { "@type": "SoftwareApplication", "name": "Yippi", "applicationCategory": "SocialNetworkingApplication" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trioncreation.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://trioncreation.com/#portfolio" },
+            { "@type": "ListItem", "position": 3, "name": "Yippi", "item": "https://trioncreation.com/projects/yippi.html" }
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">首页</a></li>
+                        <li><a href="../index.html#about" class="nav-link">关于我们</a></li>
+                        <li><a href="../index.html#services" class="nav-link">服务</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">作品集</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">合作伙伴</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">技术栈</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">常见问题</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">联系我们</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/yippi.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/yippi.html" class="lang-link active" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a><a href="https://trioncreation.com/ms/projects/yippi.html" class="lang-link" hreflang="ms" lang="ms">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">立即咨询</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">首页</a> / <a href="../index.html#portfolio">作品集</a> / <span>Yippi</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>Yippi 社交媒体超级应用</h1>
+                        <p class="project-subtitle">一个服务亚洲市场的综合性社交平台，集直播、短视频、电商与即时通讯于一体</p>
+                        <div class="project-tags">
+                            <span class="tag primary">移动应用</span>
+                            <span class="tag">后端 / API</span>
+                            <span class="tag">DevOps</span>
+                            <span class="tag">产品设计</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">5M+</div>
+                            <div class="stat-label">用户总数</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">200K+</div>
+                            <div class="stat-label">月活跃用户</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">40K+</div>
+                            <div class="stat-label">日活跃用户</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">内容创作者</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>项目概述</h2>
+                    <p>Yippi 是一个聚焦亚洲地区（主要为中国、印度尼西亚、马来西亚与越南）的社交平台，涵盖直播、短视频、电商、即时通讯、小程序与会员积分等多项核心社交应用功能。</p>
+
+                    <h3>挑战</h3>
+                    <p>打造一个可扩展的社交媒体平台，既能承载横跨多个亚洲市场的海量并发用户，又能保持流畅的直播性能，并确保跨境内容的无缝分发。</p>
+
+                    <h3>解决方案</h3>
+                    <p>我们开发了一款综合性社交媒体超级应用，采用先进的 CDN 优化、实时视频转码以及支持数万并发用户的高度可扩展架构。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yippi 应用界面" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>技术成果</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🌐</span>
+                    </div>
+                    <h3>跨境 CDN 方案</h3>
+                    <p>部署跨境 CDN 方案，并针对中国境内的流媒体进行专项优化，确保不同国家的用户都能流畅观看直播内容。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">99.9% 在线率</span>
+                        <span class="metric">12 个国家</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">⚡</span>
+                    </div>
+                    <h3>高度可扩展架构</h3>
+                    <p>设计并实现高度可扩展的架构，借助微服务架构与负载均衡，支持数万名用户同时在线。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">5 万以上并发</span>
+                        <span class="metric">微服务</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🎥</span>
+                    </div>
+                    <h3>实时视频转码</h3>
+                    <p>构建实时视频转码管线，依据用户的网络带宽自动以不同分辨率分发视频内容。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">5 种分辨率</span>
+                        <span class="metric">自动适配</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">☁️</span>
+                    </div>
+                    <h3>阿里云集成</h3>
+                    <p>与阿里云合作，在中国境外测试并部署新技术，持续优化系统性能与全球覆盖。</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">全球覆盖</span>
+                        <span class="metric">云原生</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>直播</h3>
+                    <p>高画质直播，配备实时聊天、礼物及互动功能</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎬</div>
+                    <h3>短视频</h3>
+                    <p>抖音风格的短视频内容，搭载 AI 智能推荐</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛒</div>
+                    <h3>电商集成</h3>
+                    <p>无缝购物体验，支持应用内购买与会员积分</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>即时通讯</h3>
+                    <p>实时消息，支持多媒体内容与群聊</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3>排行榜系统</h3>
+                    <p>每日与每周创作者排行榜，配以奖励与荣誉认可</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>变现</h3>
+                    <p>为创作者提供多元收益来源，涵盖礼物、订阅与任务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    “Trion Creation 为我们的社交媒体平台交付了卓越成果。他们在构建可扩展架构与跨境 CDN 方案方面的技术实力，帮助我们将用户规模扩展至横跨多个亚洲市场的 500 万。他们实现的实时视频转码系统显著提升了用户体验。”
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Yippi 开发团队</h4>
+                        <span>社交媒体平台</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>技术栈</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>前端</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">iOS/Android</span>
+                        <span class="tech-tag">WebRTC</span>
+                        <span class="tech-tag">Redux</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>后端</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">微服务</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>基础设施</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">阿里云</span>
+                        <span class="tech-tag">CDN</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>视频处理</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">FFmpeg</span>
+                        <span class="tech-tag">HLS</span>
+                        <span class="tech-tag">RTMP</span>
+                        <span class="tech-tag">转码</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>项目成果</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">5M+</div>
+                    <div class="result-label">注册用户总数</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">200K+</div>
+                    <div class="result-label">月活跃用户</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">40K+</div>
+                    <div class="result-label">日活跃用户</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">10K+</div>
+                    <div class="result-label">内容创作者</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">99.9%</div>
+                    <div class="result-label">系统在线率</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">12</div>
+                    <div class="result-label">服务覆盖国家</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>准备好打造您的社交平台了吗？</h2>
+                <p>让我们一起探讨，如何帮助您构建可扩展、功能丰富的社交媒体应用</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">启动您的项目</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">查看更多项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>以智能方案构建未来</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../index.html#about">关于我们</a></li>
+                        <li><a href="../index.html#services">服务</a></li>
+                        <li><a href="../index.html#portfolio">作品集</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>准备好启动您的项目了吗？</p>
+                    <a href="../index.html#contact" class="btn btn-primary">取得联系</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>

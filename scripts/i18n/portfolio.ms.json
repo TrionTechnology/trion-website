@@ -1,0 +1,366 @@
+[
+    {
+        "slug": "social-media-super-app",
+        "title": "Aplikasi Super Media Sosial",
+        "category": "mobileweb",
+        "categoryLabel": "Aplikasi Mudah Alih & Web",
+        "tagline": "Platform komuniti pelbagai fungsi dengan pemesejan, suapan kandungan, ganjaran dan pengewangan.",
+        "longDescription": "Aplikasi super sosial yang lengkap: pemesejan masa nyata, suapan kandungan, video pendek, siaran langsung, pengewangan pencipta kandungan, pembayaran dalam aplikasi, ganjaran dan penemuan. Direka bina untuk dikembangkan kepada jutaan pengguna serentak dengan CDN rentas sempadan dan backend masa nyata.",
+        "gradient": "linear-gradient(135deg, #2F66FF 0%, #1a3db5 100%)",
+        "accent": "#2F66FF",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"2\"/><path d=\"M12 18h.01\"/></svg>",
+        "stats": [
+            { "number": "5M+",   "label": "Pengguna Dilayani" },
+            { "number": "50K+",  "label": "Siaran Langsung Serentak" },
+            { "number": "99.9%", "label": "SLA Masa Operasi" }
+        ],
+        "features": [
+            { "title": "Pemesejan Masa Nyata",     "desc": "Sembang satu-dengan-satu dan kumpulan dengan media, nota suara, resit dibaca dan pemberitahuan tolak menerusi WebSocket." },
+            { "title": "Suapan Kandungan & Penemuan","desc": "Suapan diperibadikan, hashtag, sohor kini, graf ikutan dan enjin cadangan." },
+            { "title": "Siaran Langsung",          "desc": "Siaran langsung rentas sempadan dengan transkod kependaman rendah, hadiah, komen dan rakaman." },
+            { "title": "Pengewangan Pencipta",     "desc": "Tip, langganan berbayar, pembelian dalam aplikasi, barangan maya, pengeluaran dana dan KYC." },
+            { "title": "Ganjaran & Tugasan",        "desc": "Log masuk harian, rujukan, lencana, papan pendahulu dan ekonomi ganjaran bertoken." },
+            { "title": "CDN Rentas Sempadan",       "desc": "Caching tepi, peralihan rizab serantau dan penstriman boleh suai untuk pengguna di seluruh dunia." }
+        ],
+        "techStack": ["React Native", "Node.js", "WebSocket", "PostgreSQL", "Redis", "Alibaba Cloud CDN", "FFmpeg", "Stripe"],
+        "useCases": ["Komuniti sosial khusus", "Platform diterajui pencipta", "Aplikasi siaran langsung", "Aplikasi super serantau", "Platform sosial Web3"],
+        "industries": ["Media Sosial", "Hiburan", "Ekonomi Pencipta", "Siaran Langsung", "Web3"],
+        "tags": ["iOS / Android", "Backend/API", "Masa Nyata"]
+    },
+    {
+        "slug": "loan-management-platform",
+        "title": "Sistem Pengurusan Pinjaman",
+        "category": "fintech",
+        "categoryLabel": "Kewangan & Pinjaman",
+        "tagline": "Pemberian pinjaman hujung ke hujung, pemarkahan kredit, aliran kerja kelulusan dan penjejakan bayaran balik.",
+        "longDescription": "Pengurusan pinjaman bertaraf produksi yang dibina untuk pemberi pinjaman, syarikat fintech dan pengendali pembiayaan mikro. Pendaftaran peminjam, eKYC, pemarkahan kredit AI, aliran kerja kelulusan, pengeluaran dana, bayaran balik dan kutipan — lengkap dengan portal pentadbir dan pelaporan kawal selia.",
+        "gradient": "linear-gradient(135deg, #00a870 0%, #005f3e 100%)",
+        "accent": "#00d4a8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"/><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "<3min",  "label": "Permohonan ke Keputusan" },
+            { "number": "100%",   "label": "Liputan Jejak Audit" },
+            { "number": "24/7",   "label": "Automasi Kelulusan" }
+        ],
+        "features": [
+            { "title": "Portal Permohonan",      "desc": "Pendaftaran peminjam dengan eKYC, muat naik dokumen, OCR dan semakan kelayakan segera." },
+            { "title": "Pemarkahan Kredit AI",       "desc": "Pemarkahan berasaskan peraturan + pembelajaran mesin dengan integrasi biro kredit dan polisi risiko boleh suai." },
+            { "title": "Aliran Kerja Kelulusan",       "desc": "Kelulusan berbilang peringkat, pengendalian pengecualian, akses berasaskan peranan dan log audit penuh." },
+            { "title": "Pengeluaran Dana",            "desc": "Integrasi pemindahan bank, FPX/DuitNow, pembayaran berjadual, kawalan mata wang." },
+            { "title": "Bayaran Balik & Kutipan", "desc": "Penjanaan jadual, peringatan automatik (SMS/e-mel/WhatsApp), bayaran balik dalam talian, penjejakan NPL." },
+            { "title": "Papan Pemuka Pentadbir",         "desc": "Kesihatan portfolio masa nyata, nisbah NPL, KPI kutipan dan laporan kawal selia." }
+        ],
+        "techStack": ["Laravel", "PostgreSQL", "Redis", "AWS", "iPay88", "Twilio", "OCR / OpenAI"],
+        "useCases": ["Produk pinjaman peribadi", "Pembiayaan PKS", "Platform BNPL", "Pembiayaan mikro", "Pinjaman P2P"],
+        "industries": ["Fintech", "Pemberian Pinjaman", "Perbankan", "Pembiayaan Mikro"],
+        "tags": ["Pemarkahan Kredit AI", "Portal Pentadbir", "Aliran Kerja"]
+    },
+    {
+        "slug": "driver-transport-platform",
+        "title": "Platform Pemandu & Pengangkutan",
+        "category": "mobileweb",
+        "categoryLabel": "Aplikasi Mudah Alih & Web",
+        "tagline": "Penghantaran masa nyata, penjejakan GPS, pengoptimuman laluan dan operasi armada berbilang bandar.",
+        "longDescription": "Platform pengangkutan / panggilan tambang / pemandu upahan yang lengkap. Penjejakan GPS masa nyata, pemadanan pemandu, pengoptimuman laluan, penetapan harga dinamik, pembayaran dalam aplikasi, penilaian dan konsol pentadbir armada dengan kawalan operasi peringkat bandar.",
+        "gradient": "linear-gradient(135deg, #ff6b35 0%, #c2410c 100%)",
+        "accent": "#ff8a4c",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20\"/></svg>",
+        "stats": [
+            { "number": "<2s",  "label": "Masa Pemadanan Pemandu" },
+            { "number": "10+",  "label": "Bandar Disokong" },
+            { "number": "24/7", "label": "Penghantaran Langsung" }
+        ],
+        "features": [
+            { "title": "Penjejakan GPS Masa Nyata",  "desc": "Penjejakan pemandu dan perjalanan secara langsung pada peta dengan interpolasi lancar dan toleransi luar talian." },
+            { "title": "Pemadanan Pemandu",         "desc": "Pemadanan pemandu geo-ruang dengan harga lonjakan, anggaran ETA dan logik penugasan semula." },
+            { "title": "Pengoptimuman Laluan",      "desc": "Penghalaan Google Maps / Mapbox, pengoptimuman berbilang henti, ETA peka trafik." },
+            { "title": "Pembayaran Dalam Aplikasi",         "desc": "Perjalanan tanpa tunai, pelbagai kaedah pembayaran, dompet dalam aplikasi, penyelesaian pemandu automatik." },
+            { "title": "Aplikasi Pemandu",              "desc": "Aplikasi pemandu asli dengan mod dalam talian/luar talian, pendapatan, penilaian, muat naik dokumen." },
+            { "title": "Konsol Operasi Armada","desc": "Kawalan berbilang bandar, pendaftaran pemandu, KYC, pembayaran, pertikaian dan papan pemuka." }
+        ],
+        "techStack": ["Flutter", "React Native", "Node.js", "PostgreSQL + PostGIS", "Redis", "Google Maps", "Stripe / iPay88"],
+        "useCases": ["Panggilan tambang", "Penghantaran atas permintaan", "Pemandu upahan", "Penghantaran logistik", "Operasi armada"],
+        "industries": ["Pengangkutan", "Logistik", "Penghantaran", "Mobiliti"],
+        "tags": ["GPS Langsung", "Aplikasi Mudah Alih", "Pembayaran"]
+    },
+    {
+        "slug": "hrms-payroll-system",
+        "title": "Sistem HRMS & Penggajian",
+        "category": "enterprise",
+        "categoryLabel": "Perusahaan & ERP",
+        "tagline": "Kehadiran, cuti, penggajian, tuntutan dan layan diri pekerja yang dibina untuk pematuhan Malaysia.",
+        "longDescription": "Pengurusan HR dan penggajian yang lengkap direka untuk PKS dan perusahaan Malaysia. Kehadiran dengan daftar masuk mudah alih, cuti dengan aliran kerja kelulusan, penggajian dengan pengiraan EPF/SOCSO/EIS/PCB, tuntutan perbelanjaan, portal layan diri pekerja dan papan pemuka pengurusan.",
+        "gradient": "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+        "accent": "#a78bfa",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+        "stats": [
+            { "number": "100%", "label": "Pematuhan Malaysia" },
+            { "number": "1-click", "label": "Larian Penggajian" },
+            { "number": "Mobile", "label": "Daftar Masuk / Tuntutan" }
+        ],
+        "features": [
+            { "title": "Kehadiran & Masa",       "desc": "Daftar masuk mudah alih dengan geo-pagar, daftar masuk QR, jadual syif dan penjejakan kerja lebih masa." },
+            { "title": "Pengurusan Cuti",        "desc": "Cuti pelbagai jenis dengan kuota, rantaian kelulusan, kalendar dan papan pemuka baki cuti." },
+            { "title": "Pemprosesan Penggajian",      "desc": "Pengiraan EPF, SOCSO, EIS, HRDF, PCB, slip gaji PDF, eksport fail bank dan borang penghujung tahun." },
+            { "title": "Tuntutan Perbelanjaan",          "desc": "Muat naik resit, OCR, kelulusan berbilang peringkat, integrasi bayaran balik, jejak audit." },
+            { "title": "Layan Diri Pekerja",   "desc": "Lihat slip gaji, mohon cuti, hantar tuntutan, kemas kini profil dan akses rekod latihan." },
+            { "title": "Laporan Pematuhan",      "desc": "Borang E, EA, CP8D, penyerahan berkanun dan sedia e-pengfakturan LHDN." }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS", "iPay88", "PDF generation", "OCR"],
+        "useCases": ["PKS dengan 20-500 pekerja", "Operasi berbilang lokasi", "Rangkaian F&B", "Syarikat logistik", "Perkhidmatan profesional"],
+        "industries": ["Sumber Manusia", "Perkhidmatan Profesional", "Pembuatan", "Runcit", "F&B"],
+        "tags": ["Penggajian", "E-Cuti", "Laporan"]
+    },
+    {
+        "slug": "erp-business-suite",
+        "title": "ERP & Suite Perniagaan",
+        "category": "enterprise",
+        "categoryLabel": "Perusahaan & ERP",
+        "tagline": "Papan pemuka inventori, kewangan, perolehan dan operasi bersepadu untuk PKS & perusahaan.",
+        "longDescription": "Satu ERP bersepadu merangkumi inventori, kewangan, perolehan, jualan, pembuatan dan HR. Dibina pada Odoo dengan modul tersuai — berbilang syarikat, berbilang mata wang, berbilang gudang — dan disepadukan dengan sistem perakaunan, e-dagang, pembayaran dan e-pengfakturan kerajaan anda.",
+        "gradient": "linear-gradient(135deg, #0ea5e9 0%, #075985 100%)",
+        "accent": "#38bdf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "Syarikat / Mata Wang" },
+            { "number": "Real-time", "label": "Penyegerakan Inventori" },
+            { "number": "LHDN", "label": "Sedia E-Invois" }
+        ],
+        "features": [
+            { "title": "Inventori & Gudang",   "desc": "Stok berbilang gudang, penjejakan lot/kelompok, tarikh luput, pemindahan, kiraan kitaran dan imbasan kod bar." },
+            { "title": "Kewangan & Perakaunan",    "desc": "GL, AR, AP, berbilang mata wang, penyesuaian bank, penyata kewangan dan jejak audit." },
+            { "title": "Perolehan",             "desc": "Pengurusan vendor, RFQ, pesanan belian, penerimaan barang dan pemadanan tiga hala." },
+            { "title": "Jualan & CRM",             "desc": "Sebut harga, pesanan jualan, pengfakturan, portal pelanggan dan saluran CRM bersepadu." },
+            { "title": "Pembuatan",           "desc": "BOM, pesanan kerja, MRP, penghalaan, kawalan kualiti dan penangkapan data lantai kilang." },
+            { "title": "E-Invois (LHDN)",        "desc": "Integrasi e-invois Malaysia dengan pengesahan, pengarkiban dan penyerahan disatukan." }
+        ],
+        "techStack": ["Odoo", "Python", "PostgreSQL", "Nginx", "Docker", "MyInvois (LHDN)"],
+        "useCases": ["PKS berbilang entiti", "Pengedar borong", "Pembuatan ringan", "Runcit berbilang cawangan", "Perniagaan perkhidmatan"],
+        "industries": ["Pembuatan", "Borong", "Runcit", "Pengedaran", "Perkhidmatan"],
+        "tags": ["Odoo", "ERP Tersuai", "Kewangan"]
+    },
+    {
+        "slug": "legal-case-management",
+        "title": "Pengurusan Kes Guaman",
+        "category": "operations",
+        "categoryLabel": "Operasi & Pengurusan",
+        "tagline": "Penjejakan kes berasaskan awan, peti dokumen, pengfakturan dan akses berasaskan peranan untuk firma guaman.",
+        "longDescription": "Pengurusan amalan untuk firma guaman — fail kes, peti dokumen, penjejakan masa, akaun amanah, pengfakturan, kalendar, akses berasaskan peranan dan portal pelanggan. Dibina untuk pasukan hibrid dan teragih dengan seni bina mengutamakan awan dan kebenaran terperinci.",
+        "gradient": "linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%)",
+        "accent": "#f87171",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"9\" y1=\"13\" x2=\"15\" y2=\"13\"/><line x1=\"9\" y1=\"17\" x2=\"15\" y2=\"17\"/></svg>",
+        "stats": [
+            { "number": "40%",  "label": "Peningkatan Kecekapan" },
+            { "number": "RBAC", "label": "Akses Terperinci" },
+            { "number": "Cloud","label": "Akses Di Mana Sahaja" }
+        ],
+        "features": [
+            { "title": "Pengurusan Kes",         "desc": "Fail kes lengkap dengan pihak, tarikh mahkamah, status, pencapaian dan dokumen berkaitan." },
+            { "title": "Peti Dokumen",          "desc": "Simpanan dokumen selamat dengan versi, carian OCR, kawalan akses dan log audit." },
+            { "title": "Penjejakan Masa",           "desc": "Jam boleh bil mengikut kes dan peguam, dengan kelulusan lembaran masa dan penjanaan invois." },
+            { "title": "Pengfakturan & Amanah",       "desc": "Invois berperincian, pengurusan akaun amanah, retainer, penyata dan pembayaran dalam talian." },
+            { "title": "Kalendar & Peringatan",    "desc": "Tarikh mahkamah, tarikh akhir pemfailan, peringatan automatik, semakan konflik di seluruh firma." },
+            { "title": "Akses Berasaskan Peranan",       "desc": "Kebenaran terperinci mengikut peranan, kes dan dokumen — rakan kongsi, rakan sekutu, paralegal." }
+        ],
+        "techStack": ["Laravel", "React", "PostgreSQL", "AWS S3", "OCR", "Stripe / iPay88"],
+        "useCases": ["Firma guaman butik", "Amalan bersaiz sederhana", "Perunding guaman", "Pasukan guaman rentas sempadan", "Notari / pindah milik"],
+        "industries": ["Guaman", "Perkhidmatan Profesional", "Perundingan"],
+        "tags": ["Awan", "E-Invois", "RBAC"]
+    },
+    {
+        "slug": "project-management-suite",
+        "title": "Suite Pengurusan Projek",
+        "category": "operations",
+        "categoryLabel": "Operasi & Pengurusan",
+        "tagline": "Pengurusan tugasan, garis masa, sumber dan bajet dengan kerjasama langsung dan pelaporan.",
+        "longDescription": "Pengurusan projek hujung ke hujung — papan Kanban, garis masa Gantt, peruntukan sumber, penjejakan bajet, portal pelanggan dan kerjasama masa nyata. Dibina untuk agensi, kontraktor dan pasukan berasaskan projek yang memerlukan lebih daripada SaaS siap pakai.",
+        "gradient": "linear-gradient(135deg, #f59e0b 0%, #92400e 100%)",
+        "accent": "#fbbf24",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "Kerjasama" },
+            { "number": "Gantt + Kanban", "label": "Paparan Berkembar" },
+            { "number": "Multi-project", "label": "Paparan Portfolio" }
+        ],
+        "features": [
+            { "title": "Tugasan & Kanban",          "desc": "Kanban seret-lepas dengan senarai semak, komen, lampiran, kebergantungan dan pemerhati." },
+            { "title": "Garis Masa Gantt",          "desc": "Gantt interaktif dengan pencapaian, laluan kritikal, garis dasar dan penjejakan kemajuan." },
+            { "title": "Peruntukan Sumber",     "desc": "Perancangan kapasiti, laporan penggunaan, pengesanan konflik dan pengimbangan beban kerja pasukan." },
+            { "title": "Bajet & Masa",           "desc": "Bajet projek, kategori kos, log masa, keberuntungan mengikut projek dan pelanggan." },
+            { "title": "Portal Pelanggan",           "desc": "Paparan luaran pelanggan tentang kemajuan, pencapaian, penghantaran, komen dan kelulusan." },
+            { "title": "Laporan & Papan Pemuka",    "desc": "Kesihatan portfolio, burn-down, velositi, keberuntungan dan widget papan pemuka tersuai." }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Redis", "WebSocket", "AWS"],
+        "useCases": ["Agensi digital", "Firma pembinaan", "Perundingan", "Seni bina & reka bentuk", "Pasukan perisian"],
+        "industries": ["Agensi", "Pembinaan", "Perundingan", "Seni Bina", "Perisian"],
+        "tags": ["Kanban", "Garis Masa", "Laporan"]
+    },
+    {
+        "slug": "feedback-bi-dashboard",
+        "title": "Papan Pemuka Maklum Balas & BI",
+        "category": "enterprise",
+        "categoryLabel": "Perusahaan & ERP",
+        "tagline": "Pengumpulan maklum balas pelanggan dengan analitik Power BI untuk pembuatan keputusan masa nyata.",
+        "longDescription": "Pengumpulan maklum balas pelbagai saluran (QR, kiosk, SMS, e-mel) yang disalurkan ke lapisan analitik Power BI / tersuai. Analisis sentimen, penjejakan NPS, papan pemuka peringkat lokasi, makluman ke atas maklum balas negatif dan analisis aliran merentas produk, cawangan dan masa.",
+        "gradient": "linear-gradient(135deg, #0891b2 0%, #164e63 100%)",
+        "accent": "#22d3ee",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/></svg>",
+        "stats": [
+            { "number": "Real-time", "label": "Penyegaran Papan Pemuka" },
+            { "number": "NPS + CSAT","label": "Metrik Terbina Dalam" },
+            { "number": "Sentiment", "label": "Analisis AI" }
+        ],
+        "features": [
+            { "title": "Tangkapan Pelbagai Saluran",   "desc": "Kod QR, kiosk, SMS, e-mel, web — maklum balas mengalir ke dalam satu saluran bersepadu." },
+            { "title": "Analisis Sentimen",      "desc": "Sentimen dipacu NLP + pengekstrakan tema supaya anda nampak apa yang dipentingkan pelanggan." },
+            { "title": "Papan Pemuka Power BI",     "desc": "Papan pemuka siap pakai serta paparan boleh suai dengan penapis cawangan / produk / tempoh." },
+            { "title": "Makluman & Penghalaan",        "desc": "Maklum balas negatif mencetuskan makluman Slack / e-mel / WhatsApp kepada pengurus yang betul dengan serta-merta." },
+            { "title": "Penjejakan NPS / CSAT",     "desc": "Pemarkahan piawaian industri dengan aliran membujur dan perbandingan penanda aras." },
+            { "title": "Aliran Kerja Gelung Tertutup",    "desc": "Tugaskan, susuli, selesaikan dan laporkan — ubah aduan menjadi penambahbaikan yang boleh diukur." }
+        ],
+        "techStack": ["Power BI", "Node.js", "PostgreSQL", "OpenAI / NLP", "AWS", "Twilio"],
+        "useCases": ["Rangkaian runcit", "Pengendali F&B", "Hospital & klinik", "Hotel", "Penyedia perkhidmatan"],
+        "industries": ["Runcit", "F&B", "Penjagaan Kesihatan", "Hospitaliti", "Perkhidmatan Kerajaan"],
+        "tags": ["Power BI", "Tinjauan", "Analitik"]
+    },
+    {
+        "slug": "pet-services-platform",
+        "title": "Platform Perkhidmatan Haiwan Peliharaan",
+        "category": "mobileweb",
+        "categoryLabel": "Aplikasi Mudah Alih & Web",
+        "tagline": "Tempahan, profil haiwan, dandanan, temu janji veterinar dan pasar komuniti.",
+        "longDescription": "Platform lengkap untuk ekonomi penjagaan haiwan peliharaan — profil haiwan, tempahan dandanan dan penginapan, penjadualan temu janji veterinar, pasar e-dagang untuk makanan dan bekalan, forum komuniti dan program kesetiaan. iOS, Android dan web dengan aplikasi penyedia untuk pendandan dan klinik.",
+        "gradient": "linear-gradient(135deg, #ec4899 0%, #831843 100%)",
+        "accent": "#f472b6",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"11\" cy=\"4\" r=\"2\"/><circle cx=\"18\" cy=\"8\" r=\"2\"/><circle cx=\"20\" cy=\"16\" r=\"2\"/><path d=\"M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z\"/></svg>",
+        "stats": [
+            { "number": "Multi-provider", "label": "Pasar" },
+            { "number": "Booking + Shop", "label": "Semua-dalam-satu" },
+            { "number": "iOS / Android",  "label": "+ Web" }
+        ],
+        "features": [
+            { "title": "Profil Haiwan Peliharaan",            "desc": "Berbilang haiwan setiap pemilik dengan rekod perubatan, vaksinasi, alahan, foto dan nota." },
+            { "title": "Tempahan Dandanan",       "desc": "Layari pendandan, lihat ketersediaan, tempah mengikut perkhidmatan, prabayar, peringatan dan ulasan." },
+            { "title": "Temu Janji Veterinar",        "desc": "Senarai klinik, tempahan slot, konsultasi video, preskripsi dan susulan." },
+            { "title": "Pasar",             "desc": "E-dagang makanan haiwan, bekalan dan aksesori dengan integrasi penghantaran." },
+            { "title": "Aplikasi Penyedia",            "desc": "Pendandan dan klinik menguruskan ketersediaan, tempahan, pelanggan dan pendapatan." },
+            { "title": "Komuniti & Kesetiaan",     "desc": "Komuniti pemilik, artikel, lencana dan program ganjaran kesetiaan." }
+        ],
+        "techStack": ["Flutter", "Node.js", "PostgreSQL", "Stripe", "AWS S3", "Twilio"],
+        "useCases": ["Rangkaian penjagaan haiwan peliharaan", "Rangkaian klinik veterinar", "Jenama runcit haiwan peliharaan", "Platform komuniti haiwan peliharaan"],
+        "industries": ["Penjagaan Haiwan Peliharaan", "Veterinar", "Runcit", "Pasar"],
+        "tags": ["Tempahan", "Pasar", "Aplikasi Mudah Alih"]
+    },
+    {
+        "slug": "wellness-booking-app",
+        "title": "Aplikasi Kesihatan & Tempahan",
+        "category": "mobileweb",
+        "categoryLabel": "Aplikasi Mudah Alih & Web",
+        "tagline": "Tempahan urutan, spa dan kesihatan atas permintaan dengan pemadanan ahli terapi dan pembayaran.",
+        "longDescription": "Tempahan kesihatan atas permintaan dan berjadual — urutan, spa, kecantikan, kecergasan, yoga dan banyak lagi. Aplikasi pelanggan, aplikasi ahli terapi/pengamal, konsol pentadbir perniagaan, pembayaran dalam aplikasi, penilaian, pemadanan berasaskan lokasi dan tempahan berulang.",
+        "gradient": "linear-gradient(135deg, #10b981 0%, #064e3b 100%)",
+        "accent": "#34d399",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>",
+        "stats": [
+            { "number": "On-demand",   "label": "Atau Berjadual" },
+            { "number": "GPS",         "label": "Pemadanan Ahli Terapi" },
+            { "number": "In-app pay",  "label": "Kad + Dompet" }
+        ],
+        "features": [
+            { "title": "Katalog Perkhidmatan",       "desc": "Perkhidmatan boleh konfigur dengan tempoh, harga, prasyarat dan penapis kategori." },
+            { "title": "Pemadanan Ahli Terapi",      "desc": "Padan mengikut kemahiran, jarak, penilaian dan ketersediaan — manual atau automatik." },
+            { "title": "Tempahan & Pengulangan",   "desc": "Tempahan sekali sahaja dan berulang, pakej, peraturan pembatalan dan penjadualan semula." },
+            { "title": "Pembayaran Dalam Aplikasi",         "desc": "Kad, dompet, pakej, tip, penyelesaian ahli terapi automatik." },
+            { "title": "Aplikasi Ahli Terapi",           "desc": "Jadual, navigasi, nota pelanggan, pendapatan, penilaian, KYC dan muat naik dokumen." },
+            { "title": "Konsol Perniagaan",        "desc": "Pentadbir berbilang cawangan, pendaftaran kakitangan, pembayaran, laporan prestasi." }
+        ],
+        "techStack": ["React Native", "Node.js", "PostgreSQL + PostGIS", "Stripe", "Twilio", "Google Maps"],
+        "useCases": ["Urutan atas permintaan", "Rangkaian spa", "Perkhidmatan kecantikan", "Bimbingan kecergasan", "Yoga & kesihatan"],
+        "industries": ["Kesihatan", "Kecantikan", "Kecergasan", "Hospitaliti"],
+        "tags": ["Atas Permintaan", "Pembayaran", "Aplikasi Mudah Alih"]
+    },
+    {
+        "slug": "supplier-inventory-system",
+        "title": "Sistem Pembekal & Inventori",
+        "category": "operations",
+        "categoryLabel": "Operasi & Pengurusan",
+        "tagline": "Penjejakan stok, pesanan belian, portal pembekal dan pengurusan berbilang gudang.",
+        "longDescription": "Pengurusan inventori dan pembekal untuk pengedar, e-dagang dan peruncit berbilang cawangan. Stok masa nyata merentas gudang, aliran kerja pesanan belian, portal pembekal, penjejakan kod bar dan lot, ramalan permintaan dan integrasi dengan perakaunan dan e-dagang.",
+        "gradient": "linear-gradient(135deg, #6366f1 0%, #312e81 100%)",
+        "accent": "#818cf8",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></svg>",
+        "stats": [
+            { "number": "Multi", "label": "Gudang" },
+            { "number": "Barcode", "label": "+ Penjejakan Lot" },
+            { "number": "Real-time", "label": "Penyegerakan Stok" }
+        ],
+        "features": [
+            { "title": "Inventori Masa Nyata",     "desc": "Stok merentas gudang dan cawangan, kemas kini segera, aliran kerja pemindahan, kiraan kitaran." },
+            { "title": "Pesanan Belian",         "desc": "RFQ, penjanaan PO, aliran kerja kelulusan, penerimaan barang dan pemadanan tiga hala." },
+            { "title": "Portal Pembekal",         "desc": "Pembekal log masuk untuk melihat PO, mengesahkan penghantaran, memuat naik invois dan membalas RFQ." },
+            { "title": "Penjejakan Kod Bar & Lot",  "desc": "Imbasan kod bar/QR, penjejakan kelompok dan bersiri, makluman tarikh luput, FIFO/LIFO." },
+            { "title": "Ramalan Permintaan",      "desc": "Titik pesanan semula dipacu jualan, pencetus auto-PO, analisis bermusim dan aliran." },
+            { "title": "Integrasi",            "desc": "Segerak dengan Shopify / WooCommerce / Lazada / Shopee / AutoCount / QuickBooks." }
+        ],
+        "techStack": ["Laravel", "Vue.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+        "useCases": ["Pengedar borong", "Penjual e-dagang", "Runcit berbilang cawangan", "Rangkaian farmasi", "Dapur pusat F&B"],
+        "industries": ["Borong", "E-dagang", "Runcit", "Farmasi", "F&B"],
+        "tags": ["Inventori", "Sistem PO", "Kod Bar"]
+    },
+    {
+        "slug": "visitor-management-system",
+        "title": "Sistem Pengurusan Pelawat",
+        "category": "operations",
+        "categoryLabel": "Operasi & Pengurusan",
+        "tagline": "Daftar masuk digital, pas QR, pemberitahuan hos dan analitik keselamatan untuk pejabat.",
+        "longDescription": "Pengurusan pelawat moden untuk pejabat, kilang, sekolah dan kondominium. Prapendaftaran, daftar masuk digital melalui kiosk atau QR, pemberitahuan hos automatik, pencetakan lencana, penandatanganan NDA, saringan senarai sekat dan analitik keselamatan dengan jejak audit penuh.",
+        "gradient": "linear-gradient(135deg, #14b8a6 0%, #134e4a 100%)",
+        "accent": "#5eead4",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg>",
+        "stats": [
+            { "number": "Touchless", "label": "Daftar Masuk QR" },
+            { "number": "Instant",   "label": "Maklum Hos" },
+            { "number": "Full",      "label": "Jejak Audit" }
+        ],
+        "features": [
+            { "title": "Prapendaftaran",        "desc": "Jemput pelawat lebih awal dengan integrasi kalendar, prapenandatanganan NDA dan QR pracetak." },
+            { "title": "Daftar Masuk Kiosk",          "desc": "Kiosk tablet untuk daftar masuk sendiri dengan imbasan ID, tangkapan foto dan pencetakan lencana." },
+            { "title": "Pemberitahuan Hos",      "desc": "Pemberitahuan WhatsApp / e-mel / SMS / Slack serta-merta kepada hos apabila tetamu mereka tiba." },
+            { "title": "NDA & Pematuhan",        "desc": "Penandatanganan NDA / taklimat keselamatan digital, disimpan setiap lawatan, sedia audit." },
+            { "title": "Senarai Sekat & Senarai Pantau",   "desc": "Sekat nama dikenali, tandakan VIP, sepadukan dengan pangkalan data keselamatan korporat." },
+            { "title": "Analitik Keselamatan",      "desc": "Jumlah lawatan, waktu puncak, tempoh purata, corak lawatan berulang dan log insiden." }
+        ],
+        "techStack": ["React", "Node.js", "PostgreSQL", "Twilio", "QR Code", "Docker"],
+        "useCases": ["Pejabat korporat", "Ruang kerja bersama", "Kilang & gudang", "Sekolah", "Kondominium & komuniti berpagar"],
+        "industries": ["Korporat", "Pembuatan", "Pendidikan", "Hartanah", "Kerajaan"],
+        "tags": ["Pas QR", "Kiosk", "Analitik"]
+    },
+    {
+        "slug": "fnb-retail-pos",
+        "title": "POS F&B & Runcit",
+        "category": "retail",
+        "categoryLabel": "Runcit & F&B",
+        "tagline": "Tempat jualan, paparan dapur, pesanan meja, kesetiaan dan e-menu untuk restoran & runcit.",
+        "longDescription": "POS lengkap untuk restoran dan runcit — berbilang cawangan, penyegerakan inventori masa nyata, sistem paparan dapur, pesanan meja QR, e-menu, kesetiaan pelanggan, pesanan dalam talian dan pembayaran bersepadu (kad, e-dompet, FPX, GrabPay, Boost, ShopeePay).",
+        "gradient": "linear-gradient(135deg, #f43f5e 0%, #881337 100%)",
+        "accent": "#fb7185",
+        "iconSvg": "<svg width=\"72\" height=\"72\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\"><circle cx=\"9\" cy=\"21\" r=\"1\"/><circle cx=\"20\" cy=\"21\" r=\"1\"/><path d=\"M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6\"/></svg>",
+        "stats": [
+            { "number": "Multi-outlet", "label": "Penyegerakan Masa Nyata" },
+            { "number": "QR Order",     "label": "+ E-Menu" },
+            { "number": "All Payments", "label": "Kad / E-Dompet" }
+        ],
+        "features": [
+            { "title": "POS Tablet & Desktop",    "desc": "POS tablet dan desktop pantas dengan bil terpisah, susun atur meja, pengubah suai dan mod luar talian." },
+            { "title": "Paparan Dapur (KDS)",   "desc": "Penghalaan pesanan masa nyata ke stesen dapur dengan pemasaan hidangan dan status pesanan." },
+            { "title": "Pesanan Meja QR",       "desc": "Tetamu mengimbas, melayari e-menu, memesan, membayar — tiada menunggu, tiada kesesakan kakitangan." },
+            { "title": "Inventori & Resipi",     "desc": "Kawalan stok peringkat bahan, pengurusan resipi, auto-tolak dengan jualan." },
+            { "title": "Kesetiaan & E-Dompet",      "desc": "Peringkat ahli, mata, baucar, promosi tolak, e-dompet bersepadu untuk perniagaan berulang." },
+            { "title": "Pembayaran",                "desc": "Kad, FPX, DuitNow QR, GrabPay, Boost, ShopeePay, TnG, tunai, tender terpisah." }
+        ],
+        "techStack": ["React", "Electron / Tablet", "Node.js", "PostgreSQL", "iPay88 / Razer / Stripe"],
+        "useCases": ["Rangkaian restoran", "Kafe & bubble tea", "Restoran perkhidmatan pantas", "Runcit berbilang cawangan", "Pusat penjaja"],
+        "industries": ["F&B", "Runcit", "Hospitaliti", "QSR"],
+        "tags": ["POS", "E-Menu", "Kesetiaan"]
+    }
+]

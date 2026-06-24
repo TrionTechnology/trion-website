@@ -366,7 +366,7 @@ a:hover { color: var(--holo-mint); }
     position: relative;
 }
 .logo img {
-    height: 44px;
+    height: 51px;
     width: auto;
     filter: drop-shadow(0 0 12px rgba(0,240,255,0.4)) brightness(1.1);
     transition: filter var(--transition-normal);
@@ -409,6 +409,14 @@ a:hover { color: var(--holo-mint); }
 }
 
 .header-actions { display: flex; align-items: center; gap: var(--space-4); }
+
+/* ─── Language switcher ─── */
+.lang-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--glass-border); border-radius: var(--radius-full, 999px); background: rgba(255,255,255,0.04); backdrop-filter: blur(8px); }
+.lang-switch .lang-link { display: inline-flex; align-items: center; justify-content: center; padding: 5px 10px; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1; color: var(--text-300); border-radius: var(--radius-full, 999px); text-decoration: none; transition: color .2s ease, background .2s ease; white-space: nowrap; }
+.lang-switch .lang-link:hover { color: var(--text-100); }
+.lang-switch .lang-link.active { color: var(--void-0, #07051A); background: var(--holo-cyan, #00F0FF); }
+@media (max-width: 992px) { .lang-switch { order: -1; } }
+@media (max-width: 560px) { .lang-switch .lang-link { padding: 5px 7px; font-size: 0.68rem; } }
 
 .mobile-menu-toggle {
     display: none;
@@ -1493,7 +1501,7 @@ a:hover { color: var(--holo-mint); }
     margin-bottom: var(--space-12);
 }
 .footer-brand .logo img {
-    height: 48px;
+    height: 55px;
     width: auto;
     margin-bottom: var(--space-4);
     filter: drop-shadow(0 0 16px rgba(0,240,255,0.4));
@@ -2050,7 +2058,7 @@ body.is-scrolling .achievement-number {
 @media (max-width: 768px) {
     .container { padding: 0 var(--space-4); }
     .header-content { gap: var(--space-3); }
-    .logo img { height: 36px; }
+    .logo img { height: 41px; }
     .hero-section { padding: var(--space-12) 0; }
     .hero-stats { grid-template-columns: 1fr; gap: var(--space-4); }
     .form-row { grid-template-columns: 1fr; }

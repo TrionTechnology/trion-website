@@ -1,263 +1,946 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    <!-- Homepage -->
     <url>
         <loc>https://trioncreation.com/</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/"/>
     </url>
 
-    <!-- Tab Sections -->
+    <url>
+        <loc>https://trioncreation.com/services/mobile-web-app-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/mobile-web-app-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/mobile-web-app-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/mobile-web-app-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/mobile-web-app-development.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/erp-crm-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/erp-crm-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/erp-crm-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/erp-crm-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/erp-crm-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/erp-crm-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/erp-crm-development.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/ai-automation-chatbot.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/ai-automation-chatbot.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/ai-automation-chatbot.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ai-automation-chatbot.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ai-automation-chatbot.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/odoo-customisation.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/odoo-customisation.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/odoo-customisation.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/odoo-customisation.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/odoo-customisation.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/odoo-customisation.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/odoo-customisation.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/pos-inventory-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/pos-inventory-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/pos-inventory-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/pos-inventory-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/pos-inventory-management.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/booking-system-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/booking-system-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/booking-system-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/booking-system-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/booking-system-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/booking-system-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/booking-system-development.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/loan-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/loan-management-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/loan-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/loan-management-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/loan-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/loan-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/loan-management-system.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/api-integration-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/api-integration-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/api-integration-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/api-integration-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/api-integration-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/api-integration-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/api-integration-development.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/blockchain-web3-solutions.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/blockchain-web3-solutions.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/blockchain-web3-solutions.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/blockchain-web3-solutions.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/blockchain-web3-solutions.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/ar-vr-metaverse-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/ar-vr-metaverse-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/ar-vr-metaverse-development.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/ar-vr-metaverse-development.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/ar-vr-metaverse-development.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/cloud-infrastructure-devops.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/cloud-infrastructure-devops.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/cloud-infrastructure-devops.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/cloud-infrastructure-devops.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/cloud-infrastructure-devops.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/services/product-design-ux.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/product-design-ux.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/services/product-design-ux.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/product-design-ux.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/services/product-design-ux.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/services/product-design-ux.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/services/product-design-ux.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/social-media-super-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/social-media-super-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/social-media-super-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/social-media-super-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/social-media-super-app.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/loan-management-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/loan-management-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/loan-management-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/loan-management-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/loan-management-platform.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/driver-transport-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/driver-transport-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/driver-transport-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/driver-transport-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/driver-transport-platform.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/hrms-payroll-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/hrms-payroll-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/hrms-payroll-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/hrms-payroll-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/hrms-payroll-system.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/erp-business-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/erp-business-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/erp-business-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/erp-business-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/erp-business-suite.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/legal-case-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/legal-case-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/legal-case-management.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/legal-case-management.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/legal-case-management.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/project-management-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/project-management-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/project-management-suite.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/project-management-suite.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/project-management-suite.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/feedback-bi-dashboard.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/feedback-bi-dashboard.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/feedback-bi-dashboard.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/feedback-bi-dashboard.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/feedback-bi-dashboard.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/pet-services-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/pet-services-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/pet-services-platform.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/pet-services-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/pet-services-platform.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/wellness-booking-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/wellness-booking-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/wellness-booking-app.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/wellness-booking-app.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/wellness-booking-app.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/supplier-inventory-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/supplier-inventory-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/supplier-inventory-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/supplier-inventory-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/supplier-inventory-system.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/visitor-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/visitor-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/visitor-management-system.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/visitor-management-system.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/visitor-management-system.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/portfolio/fnb-retail-pos.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/portfolio/fnb-retail-pos.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/portfolio/fnb-retail-pos.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/portfolio/fnb-retail-pos.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/portfolio/fnb-retail-pos.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/projects/colorverse.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/colorverse.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/projects/colorverse.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/colorverse.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/projects/colorverse.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/colorverse.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/colorverse.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/projects/dddrive.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/dddrive.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/projects/dddrive.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/dddrive.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/projects/dddrive.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/dddrive.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/dddrive.html"/>
+    </url>
+
+    <url>
+        <loc>https://trioncreation.com/projects/yippi.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/yippi.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/zh/projects/yippi.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/yippi.html"/>
+    </url>
+    <url>
+        <loc>https://trioncreation.com/ms/projects/yippi.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/yippi.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/yippi.html"/>
+    </url>
+
     <url>
         <loc>https://trioncreation.com/#about</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#services</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#portfolio</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#partnerships</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#tech-stack</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#faq</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://trioncreation.com/#contact</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-    </url>
-
-    <!-- Service Detail Pages -->
-    <url>
-        <loc>https://trioncreation.com/services/mobile-web-app-development.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Project Case Studies -->
-    <url>
-        <loc>https://trioncreation.com/projects/colorverse.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://trioncreation.com/projects/dddrive.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://trioncreation.com/projects/yippi.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Machine-readable resources -->
-    <url>
-        <loc>https://trioncreation.com/llms.txt</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-
-    <url>
-        <loc>https://trioncreation.com/services/erp-crm-development.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/ai-automation-chatbot.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/odoo-customisation.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/pos-inventory-management.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/booking-system-development.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/loan-management-system.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/api-integration-development.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/blockchain-web3-solutions.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/ar-vr-metaverse-development.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/cloud-infrastructure-devops.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/services/product-design-ux.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/social-media-super-app.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/loan-management-platform.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/driver-transport-platform.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/hrms-payroll-system.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/erp-business-suite.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/legal-case-management.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/project-management-suite.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/feedback-bi-dashboard.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/pet-services-platform.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/wellness-booking-app.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/supplier-inventory-system.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/visitor-management-system.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://trioncreation.com/portfolio/fnb-retail-pos.html</loc>
-        <lastmod>2026-06-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
     </url>
 </urlset>

@@ -19,6 +19,16 @@ We are an official Alibaba Cloud Partner and a recognised MDEC (Malaysia Digital
 - Languages: English, Malay, Chinese
 - Business hours: Monday–Friday, 09:00–18:00 MYT
 
+## Languages
+
+This website is available in three languages. Each version is fully translated and separately indexable:
+
+- English (default): https://trioncreation.com/
+- 简体中文 (Simplified Chinese): https://trioncreation.com/zh/
+- Bahasa Malaysia (Malay): https://trioncreation.com/ms/
+
+Service and portfolio pages exist in all three languages under the same path prefix (e.g. https://trioncreation.com/zh/services/ and https://trioncreation.com/ms/services/).
+
 ## Services
 
 - [Mobile & Web App Development](https://trioncreation.com/services/mobile-web-app-development.html): Full-stack development of scalable mobile and web applications with modern frameworks and cloud-native architecture.

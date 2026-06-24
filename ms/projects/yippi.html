@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajian Kes Aplikasi Super Media Sosial Yippi | Trion Creation</title>
+    <meta name="description" content="Kajian kes: bagaimana Trion Creation membina Yippi, aplikasi super media sosial yang berkembang kepada 5J+ pengguna dengan siaran langsung, suapan kandungan, ganjaran dan CDN merentas sempadan. Tumpukan mudah alih + web + backend masa nyata.">
+    <meta name="keywords" content="kajian kes yippi, pembangunan aplikasi media sosial malaysia, pembangunan aplikasi super, aplikasi siaran langsung, aplikasi 5 juta pengguna, CDN merentas sempadan, aplikasi sembang masa nyata malaysia">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/ms/projects/yippi.html">
+    <link rel="alternate" hreflang="en" href="https://trioncreation.com/projects/yippi.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://trioncreation.com/zh/projects/yippi.html">
+    <link rel="alternate" hreflang="ms" href="https://trioncreation.com/ms/projects/yippi.html">
+    <link rel="alternate" hreflang="x-default" href="https://trioncreation.com/projects/yippi.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trioncreation.com/ms/projects/yippi.html">
+    <meta property="og:locale" content="ms_MY">
+    <meta property="og:title" content="Kajian Kes Aplikasi Super Media Sosial Yippi | Trion Creation">
+    <meta property="og:description" content="Bagaimana Trion Creation membina Yippi — aplikasi super media sosial yang berkembang kepada 5J+ pengguna dengan siaran langsung, pemesejan masa nyata dan CDN merentas sempadan.">
+    <meta property="og:image" content="https://trioncreation.com/logo%20master%20-%20Trion-07%203.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kajian Kes Aplikasi Super Media Sosial Yippi">
+    <meta name="twitter:description" content="5J+ pengguna, siaran langsung, CDN merentas sempadan — kajian kes oleh Trion Creation.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Yippi Social Media Super App — Case Study",
+        "description": "How Trion Creation built Yippi, a social media super app scaled to 5M+ users with live streaming, real-time messaging, content feed and cross-border CDN.",
+        "image": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png",
+        "author": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Trion Creation Sdn Bhd",
+            "logo": { "@type": "ImageObject", "url": "https://trioncreation.com/logo%20master%20-%20Trion-07%203.png" }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-05-30",
+        "mainEntityOfPage": "https://trioncreation.com/projects/yippi.html",
+        "about": { "@type": "SoftwareApplication", "name": "Yippi", "applicationCategory": "SocialNetworkingApplication" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trioncreation.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://trioncreation.com/#portfolio" },
+            { "@type": "ListItem", "position": 3, "name": "Yippi", "item": "https://trioncreation.com/projects/yippi.html" }
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../logo master - Trion-07 3.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">Utama</a></li>
+                        <li><a href="../index.html#about" class="nav-link">Tentang</a></li>
+                        <li><a href="../index.html#services" class="nav-link">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link active">Portfolio</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">Perkongsian</a></li>
+                        <li><a href="../index.html#tech-stack" class="nav-link">Teknologi</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">Soalan Lazim</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">Hubungi</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-switch" role="group" aria-label="Language"><a href="https://trioncreation.com/projects/yippi.html" class="lang-link" hreflang="en" lang="en">EN</a><a href="https://trioncreation.com/zh/projects/yippi.html" class="lang-link" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="https://trioncreation.com/ms/projects/yippi.html" class="lang-link active" hreflang="ms" lang="ms" aria-current="true">BM</a></div>
+                    <a href="../index.html#contact" class="btn btn-primary">Mula Sekarang</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-breadcrumb">
+                    <a href="../index.html">Utama</a> / <a href="../index.html#portfolio">Portfolio</a> / <span>Yippi</span>
+                </div>
+                <div class="project-header">
+                    <div class="project-info">
+                        <h1>Yippi Social Media Super App</h1>
+                        <p class="project-subtitle">Platform sosial menyeluruh yang melayani pasaran Asia dengan siaran langsung, video pendek, e-dagang, dan pemesejan segera</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Aplikasi Mudah Alih</span>
+                            <span class="tag">Backend/API</span>
+                            <span class="tag">DevOps</span>
+                            <span class="tag">Reka Bentuk Produk</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">5M+</div>
+                            <div class="stat-label">Jumlah Pengguna</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">200K+</div>
+                            <div class="stat-label">Pengguna Aktif Bulanan</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">40K+</div>
+                            <div class="stat-label">Pengguna Aktif Harian</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Pencipta Kandungan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Gambaran Keseluruhan Projek</h2>
+                    <p>Yippi ialah platform sosial yang menumpukan rantau Asia (terutamanya China, Indonesia, Malaysia, dan Vietnam), merangkumi beberapa ciri teras aplikasi sosial seperti siaran langsung, video pendek, e-dagang, pemesejan segera, program mini, dan program kesetiaan.</p>
+
+                    <h3>Cabaran</h3>
+                    <p>Membina platform media sosial boleh skala yang mampu mengendalikan jumlah pengguna serentak yang besar merentasi pelbagai pasaran Asia sambil mengekalkan prestasi siaran langsung yang lancar dan memastikan penyampaian kandungan merentas sempadan yang lancar.</p>
+
+                    <h3>Penyelesaian</h3>
+                    <p>Kami membangunkan aplikasi super media sosial yang menyeluruh dengan pengoptimuman CDN termaju, transkod video masa nyata, dan seni bina yang sangat boleh skala menyokong puluhan ribu pengguna serentak.</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Antara Muka Aplikasi Yippi" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Achievements -->
+    <section class="technical-achievements">
+        <div class="container">
+            <h2>Pencapaian Teknikal</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🌐</span>
+                    </div>
+                    <h3>Penyelesaian CDN Merentas Sempadan</h3>
+                    <p>Menyebarkan penyelesaian CDN merentas sempadan dengan pengoptimuman khas untuk penstriman di China, memastikan penyampaian kandungan langsung yang lancar untuk pengguna di pelbagai negara.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">99.9% Masa Operasi</span>
+                        <span class="metric">12 Negara</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">⚡</span>
+                    </div>
+                    <h3>Seni Bina Sangat Boleh Skala</h3>
+                    <p>Mereka bentuk dan melaksanakan seni bina yang sangat boleh skala menyokong puluhan ribu pengguna dalam talian serentak dengan seni bina perkhidmatan mikro dan pengimbangan beban.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">50K+ Serentak</span>
+                        <span class="metric">Perkhidmatan Mikro</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">🎥</span>
+                    </div>
+                    <h3>Transkod Video Masa Nyata</h3>
+                    <p>Membina saluran transkod video masa nyata yang secara automatik mengagihkan kandungan video dalam resolusi berbeza berdasarkan lebar jalur rangkaian pengguna.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">5 Resolusi</span>
+                        <span class="metric">Penyesuaian Automatik</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <span class="icon">☁️</span>
+                    </div>
+                    <h3>Integrasi Alibaba Cloud</h3>
+                    <p>Bekerjasama dengan Alibaba Cloud untuk menguji dan menyebarkan teknologi baharu di luar China, secara berterusan mengoptimumkan prestasi sistem dan liputan global.</p>
+                    <div class="achievement-metrics">
+                        <span class="metric">Liputan Global</span>
+                        <span class="metric">Cloud-Native</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <h2>Ciri Utama</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Siaran Langsung</h3>
+                    <p>Penyiaran langsung berkualiti tinggi dengan sembang masa nyata, hadiah, dan ciri interaktif</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Video Pendek</h3>
+                    <p>Kandungan video pendek bergaya TikTok dengan cadangan berkuasa AI</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Integrasi E-dagang</h3>
+                    <p>Pengalaman membeli-belah yang lancar dengan pembelian dalam aplikasi dan program kesetiaan</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>Pemesejan Segera</h3>
+                    <p>Pemesejan masa nyata dengan sokongan multimedia dan sembang berkumpulan</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Sistem Kedudukan</h3>
+                    <p>Kedudukan pencipta kandungan harian dan mingguan dengan ganjaran dan pengiktirafan</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Penjanaan Pendapatan</h3>
+                    <p>Pelbagai sumber pendapatan untuk pencipta kandungan termasuk hadiah, langganan, dan tugasan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="client-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <blockquote>
+                    "Trion Creation menghasilkan hasil yang luar biasa untuk platform media sosial kami. Kepakaran teknikal mereka dalam membina seni bina boleh skala dan penyelesaian CDN merentas sempadan membantu kami berkembang kepada 5 juta pengguna merentasi pelbagai pasaran Asia. Sistem transkod video masa nyata yang mereka laksanakan meningkatkan pengalaman pengguna dengan ketara."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Pasukan Pembangunan Yippi</h4>
+                        <span>Platform Media Sosial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2>Tumpukan Teknologi</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">iOS/Android</span>
+                        <span class="tech-tag">WebRTC</span>
+                        <span class="tech-tag">Redux</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Infrastruktur</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Alibaba Cloud</span>
+                        <span class="tech-tag">CDN</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Pemprosesan Video</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">FFmpeg</span>
+                        <span class="tech-tag">HLS</span>
+                        <span class="tech-tag">RTMP</span>
+                        <span class="tech-tag">Transcoding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Results -->
+    <section class="project-results">
+        <div class="container">
+            <h2>Hasil Projek</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">5M+</div>
+                    <div class="result-label">Jumlah Pengguna Berdaftar</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">200K+</div>
+                    <div class="result-label">Pengguna Aktif Bulanan</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">40K+</div>
+                    <div class="result-label">Pengguna Aktif Harian</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">10K+</div>
+                    <div class="result-label">Pencipta Kandungan</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">99.9%</div>
+                    <div class="result-label">Masa Operasi Dicapai</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">12</div>
+                    <div class="result-label">Negara Dilayani</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bersedia Membina Platform Sosial Anda?</h2>
+                <p>Mari kita bincangkan bagaimana kami boleh membantu anda mencipta aplikasi media sosial yang boleh skala dan kaya dengan ciri</p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">Mulakan Projek Anda</a>
+                    <a href="../index.html#portfolio" class="btn btn-secondary">Lihat Lebih Banyak Projek</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo.svg" alt="Trion Creation">
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>Membina masa depan dengan penyelesaian pintar</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Pautan Pantas</h4>
+                    <ul>
+                        <li><a href="../index.html">Utama</a></li>
+                        <li><a href="../index.html#about">Tentang</a></li>
+                        <li><a href="../index.html#services">Perkhidmatan</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi</h4>
+                    <p>Bersedia untuk memulakan projek anda?</p>
+                    <a href="../index.html#contact" class="btn btn-primary">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. Hak cipta terpelihara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../../futuristic.js"></script>
+    <script src="../../scroll.js"></script>
+</body>
+</html>
