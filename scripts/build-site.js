@@ -47,14 +47,22 @@ const escAttr = (s) => esc(s).replace(/"/g, '&quot;');
 const seg = (loc) => (META[loc].dir ? `/${META[loc].dir}` : '');           // '' | '/zh' | '/ms'
 const assetPrefix = (loc) => (META[loc].dir ? '../../' : '../');           // pages live one dir deep
 
-// Cross-language switcher (root-absolute links so depth never matters).
+// Cross-language switcher: 🌐 globe dropdown (root-absolute links so depth never matters).
+const LANG_FULL = { en: 'English', zh: '中文', ms: 'Bahasa Malaysia' };
 function langSwitcher(currentLoc, pathFor) {
     const items = LOCALES.map((loc) => {
-        const cls = loc === currentLoc ? 'lang-link active' : 'lang-link';
+        const cls = loc === currentLoc ? 'lang-option active' : 'lang-option';
         const cur = loc === currentLoc ? ' aria-current="true"' : '';
-        return `<a href="${pathFor(loc)}" class="${cls}" hreflang="${META[loc].hreflang}" lang="${META[loc].htmlLang}"${cur}>${UI[loc].langLabel}</a>`;
+        return `<li role="none"><a role="menuitem" href="${pathFor(loc)}" hreflang="${META[loc].hreflang}" lang="${META[loc].htmlLang}" class="${cls}"${cur}>${LANG_FULL[loc]}</a></li>`;
     }).join('');
-    return `<div class="lang-switch" role="group" aria-label="Language">${items}</div>`;
+    return `<div class="lang-dropdown" data-lang-dropdown>` +
+        `<button type="button" class="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language">` +
+        `<svg class="lang-globe" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg>` +
+        `<span class="lang-current">${UI[currentLoc].langLabel}</span>` +
+        `<svg class="lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>` +
+        `</button>` +
+        `<ul class="lang-dropdown-menu" role="menu">${items}</ul>` +
+        `</div>`;
 }
 
 // hreflang <link> block for <head>. urlFor(loc) → absolute URL.

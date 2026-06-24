@@ -500,3 +500,30 @@ if ('serviceWorker' in navigator) {
         }
     });
 }
+/* ─── Language switcher (🌐 globe dropdown) — click to toggle, outside/Esc to close ─── */
+(function () {
+    function closeAll(except) {
+        document.querySelectorAll('.lang-dropdown.open').forEach(function (d) {
+            if (d === except) return;
+            d.classList.remove('open');
+            var t = d.querySelector('.lang-dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        });
+    }
+    document.addEventListener('click', function (e) {
+        var toggle = e.target.closest('.lang-dropdown-toggle');
+        if (toggle) {
+            e.preventDefault();
+            var dd = toggle.closest('.lang-dropdown');
+            var willOpen = !dd.classList.contains('open');
+            closeAll(dd);
+            dd.classList.toggle('open', willOpen);
+            toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            return;
+        }
+        if (!e.target.closest('.lang-dropdown-menu')) closeAll(null);
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeAll(null);
+    });
+})();
