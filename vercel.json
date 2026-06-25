@@ -1,22 +1,6 @@
 {
   "version": 2,
-  "buildCommand": null,
   "outputDirectory": ".",
-  "framework": null,
-  "installCommand": null,
-  "rewrites": [
-    {
-      "source": "/zh/(.*)",
-      "destination": "/zh/index.html"
-    },
-    {
-      "source": "/ms/(.*)",
-      "destination": "/ms/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "cleanUrls": false,
+  "trailingSlash": false
 }
-
