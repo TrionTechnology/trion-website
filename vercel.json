@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "framework": null,
+  "buildCommand": "node scripts/build-site.js",
   "outputDirectory": ".",
   "cleanUrls": false,
   "trailingSlash": false
