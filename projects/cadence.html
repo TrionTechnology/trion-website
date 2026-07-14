@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadence — The Habit Tracker That Forgives You</title>
+    <meta name="description" content="Cadence is a habit tracker built on weekly goals, not daily guilt. Miss a day and your streak survives. Pay once, no subscription. Works fully offline. By Trion Creation.">
+    <meta name="keywords" content="habit tracker app, gentle habit tracker, habit tracker without streaks, streak anxiety, missed a day habit app, no subscription habit tracker, offline habit tracker, cadence app">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="https://trioncreation.com/projects/cadence.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trioncreation.com/projects/cadence.html">
+    <meta property="og:locale" content="en_MY">
+    <meta property="og:title" content="Cadence — Miss a day. Your streak survives.">
+    <meta property="og:description" content="A habit tracker that doesn't punish you for being human. Weekly goals, a mosaic of every day you showed up, and a streak that forgives a miss.">
+    <meta property="og:image" content="https://trioncreation.com/images/cadence-icon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../images/cadence-icon.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Cadence",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "A habit tracker built on weekly goals rather than daily streaks. Missing a day does not reset your progress.",
+        "image": "https://trioncreation.com/images/cadence-icon.png",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" }
+    }
+    </script>
+
+    <!--
+      DELIBERATELY SELF-CONTAINED. This page does NOT load the site's styles.css or
+      futuristic.js.
+
+      Trion's site is neon, holographic, and animated — a canvas of particles and a
+      "INITIALIZING" preloader. That is a fine voice for an agency selling engineering. It is
+      the WRONG voice for Cadence, whose entire argument is that it will not shout at you,
+      will not punish you, and will not manufacture urgency. A calm product introduced by a
+      spiky page contradicts itself before the user reads a word.
+
+      So this is a product microsite that links back to Trion, rather than a Trion page
+      wearing Cadence's colours. Same company, different room.
+    -->
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: #FAF7F1;                       /* the app's own paper */
+            color: #221E1A;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: #2F6B54; }
+        .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+        /* A quiet bar, not a nav bar. One link home; nothing competing for the eye. */
+        .top { padding: 22px 0; }
+        .top .wrap { display: flex; align-items: center; justify-content: space-between; }
+        .top a { color: #675D53; text-decoration: none; font-size: .92rem; font-weight: 600; }
+        .top a:hover { color: #221E1A; }
+        .top .by { color: #8F857A; font-size: .92rem; }
+
+        .hero {
+            background: linear-gradient(165deg, #1F4136 0%, #0E241E 100%);
+            color: #F4EEE4;
+            border-radius: 28px;
+            padding: 84px 32px 78px;
+            text-align: center;
+            margin-top: 8px;
+        }
+        .hero img.icon {
+            width: 96px; height: 96px; border-radius: 22px;
+            margin: 0 auto 30px;
+            box-shadow: 0 16px 44px rgba(0,0,0,.4);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5.4vw, 3.3rem);
+            line-height: 1.12;
+            letter-spacing: -.02em;
+            margin: 0 0 18px;
+            font-weight: 700;
+        }
+        .beat { color: #57C08F; }
+        .hero p {
+            font-size: clamp(1.02rem, 2vw, 1.25rem);
+            color: #9FB5AB;
+            max-width: 580px;
+            margin: 0 auto 34px;
+        }
+        .stores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .store {
+            padding: 12px 22px; border-radius: 999px;
+            border: 1px solid rgba(244,238,228,.26);
+            color: #9FB5AB; font-size: .92rem; font-weight: 600;
+        }
+
+        section { padding: 78px 0; }
+        h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.015em; margin: 0 0 16px; color: #16302A; }
+        .muted { color: #675D53; }
+
+        .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+        .split img { border-radius: 20px; box-shadow: 0 20px 50px rgba(34,30,26,.16); max-width: 340px; }
+
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-top: 44px; }
+        .card { background: #fff; border: 1px solid #E8E0D2; border-radius: 16px; padding: 26px; }
+        .card h3 { margin: 0 0 8px; font-size: 1.06rem; color: #16302A; }
+        .card p { margin: 0; color: #675D53; font-size: .97rem; }
+
+        .quote {
+            text-align: center;
+            font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+            color: #16302A;
+            letter-spacing: -.015em;
+            margin: 0;
+        }
+
+        footer { border-top: 1px solid #E8E0D2; padding: 40px 0 56px; margin-top: 40px; }
+        footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+        footer a { color: #675D53; text-decoration: none; font-weight: 600; font-size: .92rem; }
+        footer a:hover { color: #221E1A; }
+        footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
+        footer .copy { color: #8F857A; font-size: .88rem; }
+
+        @media (max-width: 820px) {
+            .split { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+            .split img { margin: 0 auto; }
+            .hero { border-radius: 20px; padding: 64px 20px 58px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="wrap">
+            <span class="by">A product by <a href="../index.html">Trion Creation</a></span>
+            <a href="../index.html">← trioncreation.com</a>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="hero">
+            <img src="../images/cadence-icon.png" alt="Cadence app icon" class="icon">
+            <h1>Miss a day.<br>Your streak survives<span class="beat">.</span></h1>
+            <p>
+                Every other habit tracker resets you to zero the moment life gets in the way.
+                Cadence counts your week, not your chain — so one missed Tuesday is just a Tuesday.
+            </p>
+            <div class="stores">
+                <span class="store">Coming soon — App Store</span>
+                <span class="store">Coming soon — Google Play</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="wrap split">
+            <div>
+                <h2>The streak is the problem</h2>
+                <p class="muted">
+                    People don't quit habit apps because they stop caring. They quit because they
+                    miss one day, watch a number they were proud of drop to zero, and decide the
+                    whole thing was pointless.
+                </p>
+                <p class="muted">
+                    Cadence sets a <strong>weekly</strong> goal. Four runs a week, not seven. Miss a
+                    Tuesday and you simply go on Wednesday — the goal is still met, the run
+                    continues, and nothing is taken away from you.
+                </p>
+            </div>
+            <img src="../images/cadence-today.png" alt="Cadence — today's habits, with a weekly goal instead of a daily streak">
+        </div>
+    </section>
+
+    <section style="background:#fff; border-top:1px solid #E8E0D2; border-bottom:1px solid #E8E0D2;">
+        <div class="wrap">
+            <div style="text-align:center; max-width:640px; margin:0 auto;">
+                <h2>Built around one idea</h2>
+                <p class="muted">An empty square is not a failure. It's just a day you didn't go.</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h3>The mosaic</h3>
+                    <p>Every day you showed up, as one growing picture. The gaps stay in — and it
+                       still looks like something you'd want to keep.</p>
+                </div>
+                <div class="card">
+                    <h3>Forgiving streaks</h3>
+                    <p>A run survives a missed week, and the app says so out loud. You're allowed to
+                       miss.</p>
+                </div>
+                <div class="card">
+                    <h3>Rest, don't delete</h3>
+                    <p>Set a habit down for a while without losing its history or dragging your week
+                       down.</p>
+                </div>
+                <div class="card">
+                    <h3>Works offline</h3>
+                    <p>The app is complete on your phone. An account is optional, and only exists to
+                       sync between devices.</p>
+                </div>
+                <div class="card">
+                    <h3>No nagging</h3>
+                    <p>Reminders are spread across the days your goal actually needs — not the same
+                       alarm, every day, until you mute it.</p>
+                </div>
+                <div class="card">
+                    <h3>Pay once</h3>
+                    <p>Cadence Pro is a one-time purchase, not another subscription competing for
+                       your monthly attention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="quote">“Miss a day. The mosaic is still there.”</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <span class="copy">© Trion Creation Sdn. Bhd.</span>
+            <div class="links">
+                <a href="https://cadence-api.trioncreation.com/privacy">Privacy Policy</a>
+                <a href="https://cadence-api.trioncreation.com/terms">Terms of Service</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
