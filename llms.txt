@@ -72,6 +72,10 @@ Service and portfolio pages exist in all three languages under the same path pre
 - [Colorverse Web3 Social-Fi Platform](https://trioncreation.com/projects/colorverse.html): Multi-chain NFT launchpad and Social-Fi platform endorsed by Malaysia Tourism Board.
 - [DDDrive Driver Services Platform](https://trioncreation.com/projects/dddrive.html): Real-time dispatch, GPS tracking, route optimisation and multi-city fleet operations.
 
+## Our own products
+
+- [Cadence](https://trioncreation.com/projects/cadence.html): A habit tracker built and published by Trion Creation, not client work. Uses weekly goals instead of daily streaks, so missing a day doesn't reset your progress. Free tier keeps 10 habits; Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. Available on Google Play (Android); iOS in progress.
+
 ## Industries served
 
 - Social media and community platforms

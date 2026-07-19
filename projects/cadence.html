@@ -13,7 +13,7 @@
     <meta property="og:locale" content="en_MY">
     <meta property="og:title" content="Cadence — Miss a day. Your streak survives.">
     <meta property="og:description" content="A habit tracker that doesn't punish you for being human. Weekly goals, a mosaic of every day you showed up, and a streak that forgives a miss.">
-    <meta property="og:image" content="https://trioncreation.com/images/cadence-icon.png">
+    <meta property="og:image" content="https://trioncreation.com/images/cadence-feature.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../images/cadence-icon.png">
     <script type="application/ld+json">
@@ -27,6 +27,44 @@
         "image": "https://trioncreation.com/images/cadence-icon.png",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "publisher": { "@type": "Organization", "name": "Trion Creation Sdn Bhd", "url": "https://trioncreation.com" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does missing a day reset my streak in Cadence?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Cadence counts a weekly goal instead of a daily chain, so missing one day still leaves the rest of the week to hit your goal. Your run continues instead of resetting to zero." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Cadence free?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free tier keeps up to 10 habits with the full app working — mosaic, weekly goals, reminders and offline sync all included. Cadence Pro unlocks unlimited habits, every colour and theme, and a full year of mosaic history." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Cadence require a subscription?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Cadence Pro leads with a one-time lifetime purchase — pay once, own it forever. Annual and monthly options exist for people who'd rather spread the cost, but nobody has to subscribe to unlock Pro." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Cadence work offline?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The app is fully functional on your phone with no account. An account is optional and only exists to sync your habits between devices." }
+            },
+            {
+                "@type": "Question",
+                "name": "What platforms does Cadence support?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Cadence is available on Android now, on Google Play. An iOS version for the App Store is in progress." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Cadence have a home screen widget?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Android home screen and lock screen widgets let you check off a habit without opening the app." }
+            }
+        ]
     }
     </script>
 
@@ -96,7 +134,21 @@
             padding: 12px 22px; border-radius: 999px;
             border: 1px solid rgba(244,238,228,.26);
             color: #9FB5AB; font-size: .92rem; font-weight: 600;
+            text-decoration: none;
         }
+        a.store { color: #F4EEE4; border-color: rgba(87,192,143,.5); background: rgba(87,192,143,.14); }
+        a.store:hover { background: rgba(87,192,143,.24); }
+
+        .shots { display: flex; gap: 20px; justify-content: center; overflow-x: auto; padding: 8px 4px 4px; }
+        .shots img { width: 220px; flex: 0 0 auto; border-radius: 18px; box-shadow: 0 20px 50px rgba(34,30,26,.16); }
+
+        .faq { max-width: 720px; margin: 0 auto; }
+        .faq details { border-bottom: 1px solid #E8E0D2; padding: 20px 0; }
+        .faq summary { cursor: pointer; font-weight: 600; color: #16302A; font-size: 1.03rem; list-style: none; }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: '+'; float: right; color: #57C08F; font-weight: 700; }
+        .faq details[open] summary::after { content: '−'; }
+        .faq p { margin: 12px 0 0; color: #675D53; }
 
         section { padding: 78px 0; }
         h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.015em; margin: 0 0 16px; color: #16302A; }
@@ -150,7 +202,7 @@
             </p>
             <div class="stores">
                 <span class="store">Coming soon — App Store</span>
-                <span class="store">Coming soon — Google Play</span>
+                <a class="store" href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
             </div>
         </div>
     </div>
@@ -217,7 +269,54 @@
 
     <section>
         <div class="wrap">
-            <p class="quote">“Miss a day. The mosaic is still there.”</p>
+            <p class="quote">&ldquo;Miss a day. The mosaic is still there.&rdquo;</p>
+        </div>
+    </section>
+
+    <section style="background:#fff; border-top:1px solid #E8E0D2; border-bottom:1px solid #E8E0D2;">
+        <div class="wrap">
+            <div style="text-align:center; max-width:640px; margin:0 auto 12px;">
+                <h2>See it in action</h2>
+            </div>
+            <div class="shots">
+                <img src="../images/cadence-shot-forgiving.png" alt="Cadence screenshot — a forgiving streak that survives a missed day" loading="lazy">
+                <img src="../images/cadence-shot-mosaic.png" alt="Cadence screenshot — the mosaic of every day you showed up" loading="lazy">
+                <img src="../images/cadence-shot-rhythm.png" alt="Cadence screenshot — weekly rhythm instead of a daily streak" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <div style="text-align:center; max-width:640px; margin:0 auto 36px;">
+                <h2>Questions people ask</h2>
+            </div>
+            <div class="faq">
+                <details open>
+                    <summary>Does missing a day reset my streak in Cadence?</summary>
+                    <p>No. Cadence counts a weekly goal instead of a daily chain, so missing one day still leaves the rest of the week to hit your goal. Your run continues instead of resetting to zero.</p>
+                </details>
+                <details>
+                    <summary>Is Cadence free?</summary>
+                    <p>Yes. The free tier keeps up to 10 habits with the full app working — mosaic, weekly goals, reminders and offline sync all included. Cadence Pro unlocks unlimited habits, every colour and theme, and a full year of mosaic history.</p>
+                </details>
+                <details>
+                    <summary>Does Cadence require a subscription?</summary>
+                    <p>No. Cadence Pro leads with a one-time lifetime purchase — pay once, own it forever. Annual and monthly options exist for people who'd rather spread the cost, but nobody has to subscribe to unlock Pro.</p>
+                </details>
+                <details>
+                    <summary>Does Cadence work offline?</summary>
+                    <p>Yes. The app is fully functional on your phone with no account. An account is optional and only exists to sync your habits between devices.</p>
+                </details>
+                <details>
+                    <summary>What platforms does Cadence support?</summary>
+                    <p>Cadence is available on Android now, on Google Play. An iOS version for the App Store is in progress.</p>
+                </details>
+                <details>
+                    <summary>Does Cadence have a home screen widget?</summary>
+                    <p>Yes. Android home screen and lock screen widgets let you check off a habit without opening the app.</p>
+                </details>
+            </div>
         </div>
     </section>
 

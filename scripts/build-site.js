@@ -583,6 +583,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                             <li><a href="${N}projects/yippi.html">${t.footer.yippi}</a></li>
                             <li><a href="${N}projects/colorverse.html">Colorverse</a></li>
                             <li><a href="${N}projects/dddrive.html">DDDrive</a></li>
+                            <li><a href="${N}projects/cadence.html">Cadence App</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -658,7 +659,17 @@ console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across $
     groups.push({ pathFor: (loc) => `${seg(loc)}/`, changefreq: 'weekly', priority: '1.0' });
     for (const slug of slugs.services) groups.push({ pathFor: (loc) => `${seg(loc)}/services/${slug}.html`, changefreq: 'monthly', priority: '0.8' });
     for (const slug of slugs.portfolio) groups.push({ pathFor: (loc) => `${seg(loc)}/portfolio/${slug}.html`, changefreq: 'monthly', priority: '0.7' });
-    for (const slug of projectSlugs) groups.push({ pathFor: (loc) => `${seg(loc)}/projects/${slug}.html`, changefreq: 'monthly', priority: '0.7' });
+    // A project page only gets a locale's entry (and hreflang alternate) if that
+    // locale's file actually exists. Emitting zh/ms URLs for a page that was never
+    // translated puts 404s straight into the sitemap and a broken hreflang cluster
+    // in Search Console — which is exactly what happened to projects/cadence.html.
+    for (const slug of projectSlugs) {
+        const locales = LOCALES.filter((loc) => {
+            const dir = META[loc].dir ? path.join(ROOT, META[loc].dir) : ROOT;
+            return fs.existsSync(path.join(dir, 'projects', `${slug}.html`));
+        });
+        groups.push({ pathFor: (loc) => `${seg(loc)}/projects/${slug}.html`, changefreq: 'monthly', priority: '0.7', locales });
+    }
 
     // English-only homepage section anchors (deep-link hints for search).
     const anchors = [
@@ -667,10 +678,11 @@ console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across $
     ];
 
     const urlBlock = (group) => {
-        const alts = LOCALES.map((loc) =>
+        const locs = group.locales || LOCALES;
+        const alts = locs.map((loc) =>
             `        <xhtml:link rel="alternate" hreflang="${META[loc].hreflang}" href="${ORIGIN}${group.pathFor(loc)}"/>`).join('\n')
             + `\n        <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${group.pathFor('en')}"/>`;
-        return LOCALES.map((loc) => `    <url>
+        return locs.map((loc) => `    <url>
         <loc>${ORIGIN}${group.pathFor(loc)}</loc>
         <lastmod>${today}</lastmod>
         <changefreq>${group.changefreq}</changefreq>
