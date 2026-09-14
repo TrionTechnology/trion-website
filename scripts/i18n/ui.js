@@ -21,7 +21,7 @@ const fmtRM = (n) => 'RM' + Number(n).toLocaleString('en-US');
 
 const UI = {
     en: {
-        nav: { home: 'Home', about: 'About', services: 'Services', portfolio: 'Portfolio', partnerships: 'Partnerships', techStack: 'Tech Stack', faq: 'FAQ', contact: 'Contact' },
+        nav: { home: 'Home', about: 'About', services: 'Services', portfolio: 'Portfolio', partnerships: 'Partnerships', products: 'Products', faq: 'FAQ', contact: 'Contact' },
         getStarted: 'Get Started',
         whatsapp: 'WhatsApp Us',
         bookCall: 'Book Discovery Call',
@@ -59,10 +59,17 @@ const UI = {
             { q: `What technologies are used to build a ${p.title.toLowerCase()}?`, a: `Trion Creation typically builds ${p.title.toLowerCase()} using ${p.techStack.join(', ')}.` },
             { q: `Who is a ${p.title.toLowerCase()} suitable for?`, a: `A ${p.title.toLowerCase()} is suitable for ${p.useCases.join(', ')}. We have delivered similar systems across ${p.industries.join(', ')}.` },
         ],
+        prod: {
+            home: 'Home', products: 'Products',
+            eyebrow: 'BUILT & PUBLISHED BY TRION',
+            title: 'Our Products',
+            subtitle: "Apps we design, build and publish ourselves — not client work. A proof of what we ship when we're the customer.",
+            live: 'Live', comingSoon: 'Coming Soon', view: 'View Product', getPlay: 'Get it on Google Play',
+        },
     },
 
     zh: {
-        nav: { home: '首页', about: '关于我们', services: '服务', portfolio: '案例', partnerships: '合作伙伴', techStack: '技术栈', faq: '常见问题', contact: '联系我们' },
+        nav: { home: '首页', about: '关于我们', services: '服务', portfolio: '案例', partnerships: '合作伙伴', products: '产品', faq: '常见问题', contact: '联系我们' },
         getStarted: '立即开始',
         whatsapp: 'WhatsApp 联系',
         bookCall: '预约免费咨询',
@@ -100,10 +107,17 @@ const UI = {
             { q: `构建${p.title}使用哪些技术？`, a: `Trion Creation 通常使用 ${p.techStack.join('、')} 来构建${p.title}。` },
             { q: `${p.title}适合谁使用？`, a: `${p.title}适用于${p.useCases.join('、')}。我们已在${p.industries.join('、')}等行业交付过类似系统。` },
         ],
+        prod: {
+            home: '首页', products: '产品',
+            eyebrow: 'TRION 自主开发并发布',
+            title: '我们的产品',
+            subtitle: '这些是我们自己设计、开发并发布的应用程序 —— 不是客户项目，而是我们作为客户时交付水准的证明。',
+            live: '已上线', comingSoon: '即将推出', view: '查看产品', getPlay: '在 Google Play 上获取',
+        },
     },
 
     ms: {
-        nav: { home: 'Utama', about: 'Tentang', services: 'Perkhidmatan', portfolio: 'Portfolio', partnerships: 'Perkongsian', techStack: 'Teknologi', faq: 'Soalan Lazim', contact: 'Hubungi' },
+        nav: { home: 'Utama', about: 'Tentang', services: 'Perkhidmatan', portfolio: 'Portfolio', partnerships: 'Perkongsian', products: 'Produk', faq: 'Soalan Lazim', contact: 'Hubungi' },
         getStarted: 'Mula Sekarang',
         whatsapp: 'WhatsApp Kami',
         bookCall: 'Tempah Sesi Perundingan',
@@ -141,6 +155,13 @@ const UI = {
             { q: `Apakah teknologi yang digunakan untuk membina ${p.title.toLowerCase()}?`, a: `Trion Creation biasanya membina ${p.title.toLowerCase()} menggunakan ${p.techStack.join(', ')}.` },
             { q: `Untuk siapa ${p.title.toLowerCase()} ini sesuai?`, a: `${p.title} sesuai untuk ${p.useCases.join(', ')}. Kami telah menyampaikan sistem serupa merentasi ${p.industries.join(', ')}.` },
         ],
+        prod: {
+            home: 'Utama', products: 'Produk',
+            eyebrow: 'DIBINA & DITERBITKAN OLEH TRION',
+            title: 'Produk Kami',
+            subtitle: 'Aplikasi yang kami reka bentuk, bina dan terbitkan sendiri — bukan projek klien. Bukti kualiti kerja kami apabila kami sendiri menjadi pelanggan.',
+            live: 'Langsung', comingSoon: 'Akan Datang', view: 'Lihat Produk', getPlay: 'Dapatkan di Google Play',
+        },
     },
 };
 

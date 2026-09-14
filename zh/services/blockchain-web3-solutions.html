@@ -118,18 +118,21 @@
     <link rel="stylesheet" href="../../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../trion-favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../images/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../../images/icons/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="../../images/icons/favicon-180.png">
     <link rel="manifest" href="../../manifest.json">
-    <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#07051A">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html#home" class="logo">
-                    <img src="../../logo master - Trion-07 3.png" alt="Trion Creation">
+                    <picture><source type="image/avif" srcset="../../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../../logo%20master%20-%20Trion-07%203.png" width="440" height="147" alt="Trion Creation" decoding="async" fetchpriority="high"></picture>
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">
@@ -138,7 +141,7 @@
                         <li><a href="../index.html#services" class="nav-link active">服务</a></li>
                         <li><a href="../index.html#portfolio" class="nav-link">案例</a></li>
                         <li><a href="../index.html#partnerships" class="nav-link">合作伙伴</a></li>
-                        <li><a href="../index.html#tech-stack" class="nav-link">技术栈</a></li>
+                        <li><a href="../products.html" class="nav-link">产品</a></li>
                         <li><a href="../index.html#faq" class="nav-link">常见问题</a></li>
                         <li><a href="../index.html#contact" class="nav-link">联系我们</a></li>
                     </ul>
@@ -156,7 +159,7 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main">
         <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(123,91,255,0.4), rgba(0,240,255,0.25)), url('../../images/services/service-blockchain.jpg'); background-size: cover; background-position: center;">
             <div class="container">
                 <div style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
@@ -231,7 +234,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo"><img src="../../logo master - Trion-07 3.png" alt="Trion Creation"></div>
+                    <div class="logo"><picture><source type="image/avif" srcset="../../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../../logo%20master%20-%20Trion-07%203.png" width="440" height="147" alt="Trion Creation" loading="lazy" decoding="async"></picture></div>
                     <p>您需要的任何系统，我们都能打造 —— 快速、现代、完全定制。</p>
                 </div>
                 <div class="footer-links">

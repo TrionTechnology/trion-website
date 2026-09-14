@@ -187,7 +187,7 @@
 
 ## Our own products
 
-Unlike the case studies above, these are apps Trion Creation builds, owns and publishes itself — not client deliverables.
+Unlike the case studies above, these are apps Trion Creation builds, owns and publishes itself — not client deliverables. The current, complete, always-up-to-date list is at https://trioncreation.com/products.html — check that URL for products shipped after this file was last written.
 
 ### Cadence — Habit Tracker
 - URL: https://trioncreation.com/projects/cadence.html
@@ -240,7 +240,7 @@ Unlike the case studies above, these are apps Trion Creation builds, owns and pu
 
 ## Update info
 
-- This file last updated: 2026-07-19
+- This file last updated: 2026-09-14
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml

@@ -1,0 +1,625 @@
+{
+  "images/about/about-team.jpg": {
+    "w": 2070,
+    "h": 1381,
+    "origBytes": 415973,
+    "variants": {
+      "webp": {
+        "400": "images/about/about-team-400.webp",
+        "800": "images/about/about-team-800.webp",
+        "1200": "images/about/about-team-1200.webp"
+      },
+      "avif": {
+        "400": "images/about/about-team-400.avif",
+        "800": "images/about/about-team-800.avif",
+        "1200": "images/about/about-team-1200.avif"
+      }
+    }
+  },
+  "images/banners/banner-about.jpg": {
+    "w": 2070,
+    "h": 1381,
+    "origBytes": 415973,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-about-800.webp",
+        "1600": "images/banners/banner-about-1600.webp",
+        "2000": "images/banners/banner-about-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-about-800.avif",
+        "1600": "images/banners/banner-about-1600.avif",
+        "2000": "images/banners/banner-about-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-contact.jpg": {
+    "w": 2070,
+    "h": 1375,
+    "origBytes": 220357,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-contact-800.webp",
+        "1600": "images/banners/banner-contact-1600.webp",
+        "2000": "images/banners/banner-contact-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-contact-800.avif",
+        "1600": "images/banners/banner-contact-1600.avif",
+        "2000": "images/banners/banner-contact-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-partnerships.jpg": {
+    "w": 2070,
+    "h": 1382,
+    "origBytes": 398516,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-partnerships-800.webp",
+        "1600": "images/banners/banner-partnerships-1600.webp",
+        "2000": "images/banners/banner-partnerships-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-partnerships-800.avif",
+        "1600": "images/banners/banner-partnerships-1600.avif",
+        "2000": "images/banners/banner-partnerships-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-portfolio.jpg": {
+    "w": 2070,
+    "h": 1474,
+    "origBytes": 285627,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-portfolio-800.webp",
+        "1600": "images/banners/banner-portfolio-1600.webp",
+        "2000": "images/banners/banner-portfolio-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-portfolio-800.avif",
+        "1600": "images/banners/banner-portfolio-1600.avif",
+        "2000": "images/banners/banner-portfolio-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-products.jpg": {
+    "w": 2070,
+    "h": 1377,
+    "origBytes": 304444,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-products-800.webp",
+        "1600": "images/banners/banner-products-1600.webp",
+        "2000": "images/banners/banner-products-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-products-800.avif",
+        "1600": "images/banners/banner-products-1600.avif",
+        "2000": "images/banners/banner-products-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-services.jpg": {
+    "w": 2070,
+    "h": 1378,
+    "origBytes": 299128,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-services-800.webp",
+        "1600": "images/banners/banner-services-1600.webp",
+        "2000": "images/banners/banner-services-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-services-800.avif",
+        "1600": "images/banners/banner-services-1600.avif",
+        "2000": "images/banners/banner-services-2000.avif"
+      }
+    }
+  },
+  "images/banners/banner-tech-stack.jpg": {
+    "w": 2070,
+    "h": 1377,
+    "origBytes": 304444,
+    "variants": {
+      "webp": {
+        "800": "images/banners/banner-tech-stack-800.webp",
+        "1600": "images/banners/banner-tech-stack-1600.webp",
+        "2000": "images/banners/banner-tech-stack-2000.webp"
+      },
+      "avif": {
+        "800": "images/banners/banner-tech-stack-800.avif",
+        "1600": "images/banners/banner-tech-stack-1600.avif",
+        "2000": "images/banners/banner-tech-stack-2000.avif"
+      }
+    }
+  },
+  "images/cadence-feature.png": {
+    "w": 1024,
+    "h": 500,
+    "origBytes": 23382,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-feature-440.webp",
+        "880": "images/cadence-feature-880.webp"
+      },
+      "avif": {
+        "440": "images/cadence-feature-440.avif",
+        "880": "images/cadence-feature-880.avif"
+      }
+    }
+  },
+  "images/cadence-icon.png": {
+    "w": 1024,
+    "h": 1024,
+    "origBytes": 49132,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-icon-440.webp",
+        "880": "images/cadence-icon-880.webp"
+      },
+      "avif": {
+        "440": "images/cadence-icon-440.avif",
+        "880": "images/cadence-icon-880.avif"
+      }
+    }
+  },
+  "images/cadence-shot-forgiving.png": {
+    "w": 1320,
+    "h": 2868,
+    "origBytes": 454383,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-shot-forgiving-440.webp",
+        "880": "images/cadence-shot-forgiving-880.webp"
+      },
+      "avif": {
+        "440": "images/cadence-shot-forgiving-440.avif",
+        "880": "images/cadence-shot-forgiving-880.avif"
+      }
+    }
+  },
+  "images/cadence-shot-mosaic.png": {
+    "w": 1320,
+    "h": 2868,
+    "origBytes": 556819,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-shot-mosaic-440.webp",
+        "880": "images/cadence-shot-mosaic-880.webp"
+      },
+      "avif": {
+        "440": "images/cadence-shot-mosaic-440.avif",
+        "880": "images/cadence-shot-mosaic-880.avif"
+      }
+    }
+  },
+  "images/cadence-shot-rhythm.png": {
+    "w": 1320,
+    "h": 2868,
+    "origBytes": 758323,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-shot-rhythm-440.webp",
+        "880": "images/cadence-shot-rhythm-880.webp"
+      },
+      "avif": {
+        "440": "images/cadence-shot-rhythm-440.avif",
+        "880": "images/cadence-shot-rhythm-880.avif"
+      }
+    }
+  },
+  "images/cadence-today.png": {
+    "w": 723,
+    "h": 975,
+    "origBytes": 207252,
+    "variants": {
+      "webp": {
+        "440": "images/cadence-today-440.webp"
+      },
+      "avif": {
+        "440": "images/cadence-today-440.avif"
+      }
+    }
+  },
+  "images/hero/hero-main.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 455622,
+    "variants": {
+      "webp": {
+        "800": "images/hero/hero-main-800.webp",
+        "1600": "images/hero/hero-main-1600.webp"
+      },
+      "avif": {
+        "800": "images/hero/hero-main-800.avif",
+        "1600": "images/hero/hero-main-1600.avif"
+      }
+    }
+  },
+  "images/partnerships/alibaba-cloud-logo.png": {
+    "w": 747,
+    "h": 363,
+    "origBytes": 38209,
+    "variants": {
+      "webp": {
+        "400": "images/partnerships/alibaba-cloud-logo-400.webp"
+      },
+      "avif": {
+        "400": "images/partnerships/alibaba-cloud-logo-400.avif"
+      }
+    }
+  },
+  "images/partnerships/lumiso-group-logo.png": {
+    "w": 639,
+    "h": 294,
+    "origBytes": 7459,
+    "variants": {
+      "webp": {
+        "400": "images/partnerships/lumiso-group-logo-400.webp"
+      },
+      "avif": {
+        "400": "images/partnerships/lumiso-group-logo-400.avif"
+      }
+    }
+  },
+  "images/partnerships/mdec-logo.png": {
+    "w": 577,
+    "h": 211,
+    "origBytes": 24530,
+    "variants": {
+      "webp": {
+        "400": "images/partnerships/mdec-logo-400.webp"
+      },
+      "avif": {
+        "400": "images/partnerships/mdec-logo-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-colorverse.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 102097,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-colorverse-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-colorverse-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-dddrive.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 73382,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-dddrive-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-dddrive-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-lac.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 57566,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-lac-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-lac-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-mycashout.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 82526,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-mycashout-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-mycashout-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-pictureworks.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 65583,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-pictureworks-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-pictureworks-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-reskills.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 84971,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-reskills-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-reskills-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-thaiadvocates.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 72219,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-thaiadvocates-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-thaiadvocates-400.avif"
+      }
+    }
+  },
+  "images/portfolio/portfolio-yippi.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 68024,
+    "variants": {
+      "webp": {
+        "400": "images/portfolio/portfolio-yippi-400.webp"
+      },
+      "avif": {
+        "400": "images/portfolio/portfolio-yippi-400.avif"
+      }
+    }
+  },
+  "images/services/service-ai-chatbot.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 145617,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-ai-chatbot-400.webp"
+      },
+      "avif": {
+        "400": "images/services/service-ai-chatbot-400.avif"
+      }
+    }
+  },
+  "images/services/service-api.jpg": {
+    "w": 2070,
+    "h": 1162,
+    "origBytes": 519664,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-api-400.webp",
+        "800": "images/services/service-api-800.webp",
+        "1200": "images/services/service-api-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-api-400.avif",
+        "800": "images/services/service-api-800.avif",
+        "1200": "images/services/service-api-1200.avif"
+      }
+    }
+  },
+  "images/services/service-ar-vr.jpg": {
+    "w": 800,
+    "h": 600,
+    "origBytes": 53332,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-ar-vr-400.webp"
+      },
+      "avif": {
+        "400": "images/services/service-ar-vr-400.avif"
+      }
+    }
+  },
+  "images/services/service-blockchain.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 377152,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-blockchain-400.webp",
+        "800": "images/services/service-blockchain-800.webp",
+        "1200": "images/services/service-blockchain-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-blockchain-400.avif",
+        "800": "images/services/service-blockchain-800.avif",
+        "1200": "images/services/service-blockchain-1200.avif"
+      }
+    }
+  },
+  "images/services/service-booking.jpg": {
+    "w": 2070,
+    "h": 1382,
+    "origBytes": 398516,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-booking-400.webp",
+        "800": "images/services/service-booking-800.webp",
+        "1200": "images/services/service-booking-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-booking-400.avif",
+        "800": "images/services/service-booking-800.avif",
+        "1200": "images/services/service-booking-1200.avif"
+      }
+    }
+  },
+  "images/services/service-cloud.jpg": {
+    "w": 2072,
+    "h": 1379,
+    "origBytes": 304447,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-cloud-400.webp",
+        "800": "images/services/service-cloud-800.webp",
+        "1200": "images/services/service-cloud-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-cloud-400.avif",
+        "800": "images/services/service-cloud-800.avif",
+        "1200": "images/services/service-cloud-1200.avif"
+      }
+    }
+  },
+  "images/services/service-enterprise.jpg": {
+    "w": 2126,
+    "h": 1196,
+    "origBytes": 305439,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-enterprise-400.webp",
+        "800": "images/services/service-enterprise-800.webp",
+        "1200": "images/services/service-enterprise-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-enterprise-400.avif",
+        "800": "images/services/service-enterprise-800.avif",
+        "1200": "images/services/service-enterprise-1200.avif"
+      }
+    }
+  },
+  "images/services/service-erp-crm.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 260965,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-erp-crm-400.webp",
+        "800": "images/services/service-erp-crm-800.webp",
+        "1200": "images/services/service-erp-crm-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-erp-crm-400.avif",
+        "800": "images/services/service-erp-crm-800.avif",
+        "1200": "images/services/service-erp-crm-1200.avif"
+      }
+    }
+  },
+  "images/services/service-loan.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 242263,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-loan-400.webp",
+        "800": "images/services/service-loan-800.webp",
+        "1200": "images/services/service-loan-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-loan-400.avif",
+        "800": "images/services/service-loan-800.avif",
+        "1200": "images/services/service-loan-1200.avif"
+      }
+    }
+  },
+  "images/services/service-odoo.jpg": {
+    "w": 2070,
+    "h": 1164,
+    "origBytes": 91678,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-odoo-400.webp",
+        "800": "images/services/service-odoo-800.webp",
+        "1200": "images/services/service-odoo-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-odoo-400.avif",
+        "800": "images/services/service-odoo-800.avif",
+        "1200": "images/services/service-odoo-1200.avif"
+      }
+    }
+  },
+  "images/services/service-pos.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 516100,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-pos-400.webp",
+        "800": "images/services/service-pos-800.webp",
+        "1200": "images/services/service-pos-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-pos-400.avif",
+        "800": "images/services/service-pos-800.avif",
+        "1200": "images/services/service-pos-1200.avif"
+      }
+    }
+  },
+  "images/services/service-ux.jpg": {
+    "w": 2070,
+    "h": 1380,
+    "origBytes": 502383,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-ux-400.webp",
+        "800": "images/services/service-ux-800.webp",
+        "1200": "images/services/service-ux-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-ux-400.avif",
+        "800": "images/services/service-ux-800.avif",
+        "1200": "images/services/service-ux-1200.avif"
+      }
+    }
+  },
+  "images/services/service-web-mobile.jpg": {
+    "w": 2070,
+    "h": 1164,
+    "origBytes": 591044,
+    "variants": {
+      "webp": {
+        "400": "images/services/service-web-mobile-400.webp",
+        "800": "images/services/service-web-mobile-800.webp",
+        "1200": "images/services/service-web-mobile-1200.webp"
+      },
+      "avif": {
+        "400": "images/services/service-web-mobile-400.avif",
+        "800": "images/services/service-web-mobile-800.avif",
+        "1200": "images/services/service-web-mobile-1200.avif"
+      }
+    }
+  },
+  "logo master - Trion-07 3.png": {
+    "w": 440,
+    "h": 147,
+    "origBytes": 29143,
+    "variants": {
+      "webp": {
+        "400": "images/logo master - Trion-07 3-400.webp"
+      },
+      "avif": {
+        "400": "images/logo master - Trion-07 3-400.avif"
+      }
+    }
+  },
+  "trion-favicon.png": {
+    "w": 1024,
+    "h": 1024,
+    "origBytes": 1159529,
+    "variants": {
+      "webp": {
+        "400": "images/trion-favicon-400.webp",
+        "800": "images/trion-favicon-800.webp"
+      },
+      "avif": {
+        "400": "images/trion-favicon-400.avif",
+        "800": "images/trion-favicon-800.avif"
+      }
+    }
+  }
+}

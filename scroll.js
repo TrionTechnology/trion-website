@@ -1,434 +1,292 @@
-/* ════════════════════════════════════════════════════════════
-   TRION SCROLL CINEMA — v3 (Lenis-lite virtual scroll)
-   ────────────────────────────────────────────────────────────
-   The page content is translated by a single transform on a
-   wrapper. Body height matches the content so the native
-   scrollbar still works, anchor links still scroll, keyboard
-   nav still works — but every visible pixel is interpolated
-   toward the native scrollY value with a critically-damped
-   lerp. All scroll-driven effects subscribe to the same
-   `currentY` (the *displayed* position), so the scrub matches
-   what the eye sees exactly.
-   ════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════════
+   TRION — MOTION RUNTIME
+   ────────────────────────────────────────────────────────────────────
+   Replaces the previous virtual scroller (fixed .smooth-wrapper +
+   synthesised body height). That approach made position:sticky
+   impossible, desynced find-in-page / focus / IntersectionObserver,
+   and killed native scroll restoration.
 
+   This runtime instead:
+     • leaves native scrolling completely alone (no DOM surgery)
+     • defers decorative scroll motion to CSS scroll-driven animations
+       (animation-timeline: view()/scroll()) where supported — those run
+       off the main thread and cannot hurt INP
+     • falls back to one shared IntersectionObserver for older engines
+     • runs ONE rAF ticker for the whole page, paused when hidden
+     • optionally layers Lenis inertia on top of native scroll, gated on
+       fine pointer + no reduced-motion. Lenis wraps native scroll rather
+       than faking it, so sticky / anchors / keyboard / AT keep working.
+   ════════════════════════════════════════════════════════════════════ */
 (function () {
     'use strict';
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouch = window.matchMedia('(hover: none)').matches;
+    var reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+    var coarseMQ = matchMedia('(pointer: coarse)');
+    var reduced = reduceMQ.matches;
 
-    const lerp = (a, b, t) => a + (b - a) * t;
-    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-    const smoothstep = (e0, e1, x) => {
-        const t = clamp((x - e0) / (e1 - e0), 0, 1);
-        return t * t * (3 - 2 * t);
+    /* Does the browser drive animations off the scroll timeline itself?
+       Chrome/Edge 115+, Safari 26+. Firefox stable does not yet. */
+    var NATIVE_TIMELINE =
+        typeof CSS !== 'undefined' &&
+        CSS.supports &&
+        CSS.supports('animation-timeline', 'view()');
+
+    document.documentElement.classList.add(
+        NATIVE_TIMELINE ? 'has-scroll-timeline' : 'no-scroll-timeline'
+    );
+
+    /* ───────────────────────── shared ticker ─────────────────────────
+       Every animated system on the page subscribes here. One rAF, one
+       frame budget, and it stops dead when the tab is hidden or when
+       nothing is subscribed. */
+    var subs = [];
+    var rafId = 0;
+    var lastT = 0;
+
+    /* `running` is the single source of truth, not the rAF handle. Keying
+       restart off a stale handle meant that if the chain ever broke — a
+       cancel racing a queued frame, a visibility flip during navigation —
+       start() saw a truthy id, declined to reschedule, and every animated
+       system on the page stayed frozen with no error anywhere. */
+    var running = false;
+
+    function frame(t) {
+        if (!running) { rafId = 0; return; }
+        rafId = requestAnimationFrame(frame);
+        var dt = lastT ? Math.min((t - lastT) / 1000, 0.05) : 0.016;
+        lastT = t;
+        /* Iterate a copy: subscribers may add or remove during the pass. */
+        var list = subs.slice();
+        for (var i = 0; i < list.length; i++) {
+            try { list[i](dt, t); } catch (e) { /* one broken system must not kill the loop */ }
+        }
+    }
+    function start() {
+        if (running || !subs.length || document.hidden) return;
+        running = true;
+        lastT = 0;
+        rafId = requestAnimationFrame(frame);
+    }
+    function stop() {
+        running = false;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+    }
+    var ticker = {
+        add: function (fn) { if (subs.indexOf(fn) < 0) { subs.push(fn); start(); } },
+        remove: function (fn) {
+            var i = subs.indexOf(fn);
+            if (i >= 0) subs.splice(i, 1);
+            if (!subs.length) stop();
+        }
     };
-    const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    document.addEventListener('visibilitychange', function () {
+        document.hidden ? stop() : start();
+    });
+    /* Belt and braces. If a visibilitychange is ever missed — restored from
+       bfcache, window refocused, an embedding context that never fires it —
+       the page would otherwise sit frozen with no error. Any of these
+       resumes it, and start() is a no-op when already running. */
+    addEventListener('pageshow', start);
+    addEventListener('focus', start);
+    addEventListener('pointerdown', start, { passive: true });
+    addEventListener('scroll', start, { passive: true });
+    window.TrionTicker = ticker;
 
-    /* ──────────── shared smooth scroll bus ──────────── */
-    let displayY = window.scrollY;   // what the wrapper transform shows
-    let targetY = displayY;          // native scrollY
-    let velocityY = 0;
-    let lastDisplayY = displayY;
-    let mouseSmoothX = window.innerWidth / 2;
-    let mouseSmoothY = window.innerHeight / 2;
-    let mouseTargetX = mouseSmoothX;
-    let mouseTargetY = mouseSmoothY;
-    let isScrolling = false;
-    let scrollIdleTimer = null;
+    /* ───────────────────────── reveal on enter ─────────────────────────
+       When the browser supports view() timelines, CSS owns this entirely
+       and we do nothing. Otherwise a single IO adds .is-revealed.
+       Elements opt in with [data-reveal]. */
+    var io = null;
 
-    const subs = [];
-    const onTick = (fn) => subs.push(fn);
-
-    // Lottie players are the dominant cost on the home page (6 of them in
-    // the features grid, each a 200x200 SVG animation on the main thread).
-    // We do TWO things:
-    //   1. IntersectionObserver: only play Lotties currently in viewport.
-    //      On a long scroll, only 2-3 are visible at any time, not all 6/9.
-    //   2. Pause every Lottie during active scroll, resume at idle.
-    let lotties = [];
-    const visibleLotties = new WeakSet();
-    let lottieIO = null;
-    function refreshLotties() {
-        lotties = Array.from(document.querySelectorAll('lottie-player'));
-        if (!lottieIO) {
-            lottieIO = new IntersectionObserver((entries) => {
-                for (const e of entries) {
-                    if (e.isIntersecting) {
-                        visibleLotties.add(e.target);
-                        if (!isScrolling) { try { e.target.play(); } catch (_) {} }
-                    } else {
-                        visibleLotties.delete(e.target);
-                        try { e.target.pause(); } catch (_) {}
-                    }
-                }
-            }, { rootMargin: '100px' });
-        }
-        lotties.forEach((p) => lottieIO.observe(p));
-    }
-
-    // Hero video — also expensive (mix-blend + filter recomposite per frame)
-    let heroVideo = null;
-    function refreshHeroVideo() {
-        heroVideo = document.querySelector('.hero-video-wrapper video');
-    }
-
-    window.addEventListener('scroll', () => {
-        targetY = window.scrollY;
-        if (!isScrolling) {
-            isScrolling = true;
-            document.body.classList.add('is-scrolling');
-            for (const p of lotties) { try { p.pause(); } catch (_) {} }
-            if (heroVideo) { try { heroVideo.pause(); } catch (_) {} }
-        }
-        clearTimeout(scrollIdleTimer);
-        scrollIdleTimer = setTimeout(() => {
-            isScrolling = false;
-            document.body.classList.remove('is-scrolling');
-            for (const p of lotties) {
-                if (visibleLotties.has(p)) { try { p.play(); } catch (_) {} }
-            }
-            if (heroVideo) { try { heroVideo.play(); } catch (_) {} }
-        }, 180);
-    }, { passive: true });
-
-    window.addEventListener('mousemove', (e) => {
-        mouseTargetX = e.clientX;
-        mouseTargetY = e.clientY;
-    }, { passive: true });
-
-    /* ──────────── Lenis-lite wrapper ──────────── */
-    let wrapper = null;
-    function initSmoothWrapper() {
-        if (isTouch || reducedMotion) return false;
-        const main = document.querySelector('.main-content');
-        const footer = document.querySelector('.footer');
-        if (!main) return false;
-
-        wrapper = document.createElement('div');
-        wrapper.className = 'smooth-wrapper';
-        main.parentNode.insertBefore(wrapper, main);
-        wrapper.appendChild(main);
-        if (footer) wrapper.appendChild(footer);
-
-        // Make body tall enough that native scroll works
-        function syncHeight() {
-            const h = wrapper.offsetHeight;
-            document.body.style.height = h + 'px';
-        }
-        syncHeight();
-
-        // Re-sync on resize and on content mutations (Lottie loads, image decode, etc.)
-        const ro = new ResizeObserver(syncHeight);
-        ro.observe(wrapper);
-        window.addEventListener('load', syncHeight);
-
-        // Tab switches change content height dramatically
-        document.querySelectorAll('.nav-link').forEach((link) => {
-            link.addEventListener('click', () => requestAnimationFrame(syncHeight));
-        });
-
-        return true;
-    }
-
-    /* ──────────── master rAF ──────────── */
-    function tick() {
-        // Tuned for responsiveness over butter — light smoothing only.
-        // Earlier rates (0.10) made the page lag ~130ms behind input.
-        const lerpRate = isScrolling ? 0.30 : 0.45;
-        displayY = lerp(displayY, targetY, lerpRate);
-        if (Math.abs(displayY - targetY) < 0.08) displayY = targetY;
-
-        if (wrapper) {
-            wrapper.style.transform = `translate3d(0, ${-displayY}px, 0)`;
-        }
-
-        const instVel = displayY - lastDisplayY;
-        velocityY = lerp(velocityY, instVel, 0.10);
-        lastDisplayY = displayY;
-
-        mouseSmoothX = lerp(mouseSmoothX, mouseTargetX, 0.08);
-        mouseSmoothY = lerp(mouseSmoothY, mouseTargetY, 0.08);
-
-        for (const fn of subs) fn(displayY, velocityY, mouseSmoothX, mouseSmoothY);
-
-        requestAnimationFrame(tick);
-    }
-
-    /* ──────────── 1. Scroll-progress halo ──────────── */
-    function initProgressBar() {
-        const bar = document.createElement('div');
-        bar.className = 'holo-progress';
-        bar.innerHTML = '<div class="holo-progress-fill"></div>';
-        document.body.appendChild(bar);
-        const fill = bar.querySelector('.holo-progress-fill');
-        onTick((y) => {
-            const max = (wrapper ? wrapper.offsetHeight : document.documentElement.scrollHeight) - window.innerHeight;
-            const p = max > 0 ? clamp(y / max, 0, 1) : 0;
-            fill.style.transform = `scaleX(${p})`;
-        });
-    }
-
-    /* ──────────── 2. Hero pin — reads cached rect ──────────── */
-    function initHeroPin() {
-        const hero = document.querySelector('.hero-section');
-        if (!hero) return;
-        const text = hero.querySelector('.hero-text');
-        const image = hero.querySelector('.hero-image');
-        const stats = hero.querySelector('.hero-stats');
-        const subtitle = hero.querySelector('.hero-subtitle');
-
-        // Cache hero offset so we don't call getBoundingClientRect per frame
-        let heroTop = 0;
-        let heroHeight = 0;
-        function measure() {
-            const r = hero.getBoundingClientRect();
-            heroTop = r.top + (wrapper ? displayY : window.scrollY);
-            heroHeight = r.height;
-        }
-        measure();
-        window.addEventListener('resize', measure);
-        window.addEventListener('load', measure);
-
-        // initHeroSphereZoom drives the .hero-image (.hero-3d) element
-        // independently with its own monotonic scale/opacity, so we no
-        // longer touch `image` here. Otherwise the two would race per
-        // frame and the sphere would snap back to its original size as
-        // soon as the user stopped scrolling.
-
-        let progress = 0;
-        onTick((y) => {
-            const vh = window.innerHeight;
-            // Pin range: top of hero -> 1.8 viewports below
-            const target = clamp((y - heroTop) / (vh * 1.8), 0, 1);
-            progress = lerp(progress, target, 0.12);
-
-            const p = smoothstep(0, 1, progress);
-            const fade = 1 - smoothstep(0.30, 1, progress);
-
-            if (text) {
-                text.style.transform = `translate3d(0, ${p * -18}px, 0)`;
-                text.style.opacity = fade;
-            }
-            if (subtitle) {
-                subtitle.style.transform = `translate3d(${p * -12}px, 0, 0)`;
-                subtitle.style.opacity = fade;
-            }
-            if (stats) {
-                stats.style.transform = `translate3d(0, ${p * 12}px, 0)`;
-                stats.style.opacity = fade;
-            }
-        });
-    }
-
-    /* ──────────── 3. Word reveal ──────────── */
-    function initWordReveal() {
-        const selectors = [
-            '.features-section h2',
-            '.achievements-section h2',
-            '.testimonials-section h2',
-            '.page-header h1',
-            '.about-text h2',
-            '.contact-details h2'
-        ];
-        const els = document.querySelectorAll(selectors.join(','));
-        els.forEach((el) => {
-            if (el.dataset.wordSplit) return;
-            const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-            const texts = [];
-            let n;
-            while ((n = walker.nextNode())) texts.push(n);
-            texts.forEach((node) => {
-                const words = node.textContent.split(/(\s+)/);
-                const frag = document.createDocumentFragment();
-                words.forEach((w) => {
-                    if (/^\s+$/.test(w)) {
-                        frag.appendChild(document.createTextNode(w));
-                    } else if (w.length) {
-                        const wrap = document.createElement('span');
-                        wrap.className = 'word-rev-wrap';
-                        const inner = document.createElement('span');
-                        inner.className = 'word-rev';
-                        inner.textContent = w;
-                        wrap.appendChild(inner);
-                        frag.appendChild(wrap);
-                    }
-                });
-                node.parentNode.replaceChild(frag, node);
-            });
-            el.dataset.wordSplit = '1';
-        });
-
-        const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-                if (e.isIntersecting) {
-                    const words = e.target.querySelectorAll('.word-rev');
-                    words.forEach((w, i) => {
-                        w.style.transitionDelay = `${i * 110}ms`;
-                        requestAnimationFrame(() => w.classList.add('in'));
-                    });
-                    io.unobserve(e.target);
+    function ensureObserver() {
+        if (io || !('IntersectionObserver' in window)) return io;
+        io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    entries[i].target.classList.add('is-revealed');
+                    io.unobserve(entries[i].target);
                 }
             }
-        }, { threshold: 0.18 });
-        els.forEach((el) => io.observe(el));
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+        return io;
     }
 
-    /* ──────────── 4. Counters ──────────── */
+    function scanReveals(root) {
+        var nodes = (root || document).querySelectorAll('[data-reveal]:not(.is-revealed)');
+        if (reduced || NATIVE_TIMELINE) {
+            /* Reduced motion: show everything immediately, no animation.
+               Native timeline: CSS drives it, but we still mark items that
+               are already past the viewport so nothing can be stranded. */
+            if (reduced) {
+                for (var i = 0; i < nodes.length; i++) nodes[i].classList.add('is-revealed');
+            }
+            return;
+        }
+        var obs = ensureObserver();
+        if (!obs) {
+            for (var j = 0; j < nodes.length; j++) nodes[j].classList.add('is-revealed');
+            return;
+        }
+        for (var k = 0; k < nodes.length; k++) obs.observe(nodes[k]);
+    }
+
+    /* ───────────────────────── stat counters ─────────────────────────
+       Counts up once when scrolled into view. Parses the number out of
+       the existing text so markup stays the source of truth: "150+",
+       "98%", "5+", "2.4x" all work. */
     function initCounters() {
-        const nums = document.querySelectorAll('.stat-number, .achievement-number');
-        nums.forEach((el) => {
-            if (el.dataset.target) return;
-            const raw = el.textContent.trim();
-            const m = raw.match(/([\d,]+(?:\.\d+)?)/);
-            if (!m) return;
-            const t = parseFloat(m[1].replace(/,/g, ''));
-            if (isNaN(t)) return;
-            el.dataset.target = t;
-            el.dataset.prefix = raw.slice(0, m.index);
-            el.dataset.suffix = raw.slice(m.index + m[0].length);
-            el.textContent = `${el.dataset.prefix}0${el.dataset.suffix}`;
-        });
+        var els = document.querySelectorAll('[data-count], .stat-number, .achievement-number');
+        if (!els.length) return;
 
-        const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-                if (e.isIntersecting) {
-                    const el = e.target;
-                    const target = parseFloat(el.dataset.target);
-                    const prefix = el.dataset.prefix || '';
-                    const suffix = el.dataset.suffix || '';
-                    const dur = 2000;
-                    const t0 = performance.now();
-                    function step(now) {
-                        const p = clamp((now - t0) / dur, 0, 1);
-                        const v = target * easeOutExpo(p);
-                        const out = target >= 10 ? Math.round(v) : v.toFixed(1);
-                        el.textContent = `${prefix}${out}${suffix}`;
-                        if (p < 1) requestAnimationFrame(step);
-                    }
-                    requestAnimationFrame(step);
-                    io.unobserve(el);
+        function run(el) {
+            if (el.dataset.counted) return;
+            el.dataset.counted = '1';
+
+            var raw = el.textContent.trim();
+            var m = raw.match(/^([^\d\-]*)(-?[\d,]*\.?\d+)(.*)$/);
+            if (!m) return;
+            var prefix = m[1];
+            var target = parseFloat(m[2].replace(/,/g, ''));
+            var suffix = m[3];
+            if (!isFinite(target)) return;
+
+            var decimals = (m[2].split('.')[1] || '').length;
+            var grouped = m[2].indexOf(',') >= 0;
+
+            if (reduced) { el.textContent = raw; return; }
+
+            var dur = 1400;
+            var t0 = 0;
+
+            function fmt(v) {
+                var s = v.toFixed(decimals);
+                if (grouped) s = (+s).toLocaleString(undefined, {
+                    minimumFractionDigits: decimals, maximumFractionDigits: decimals
+                });
+                return prefix + s + suffix;
+            }
+
+            function tick(dt, now) {
+                if (!t0) t0 = now;
+                var p = Math.min((now - t0) / dur, 1);
+                /* easeOutExpo — fast start, long settle */
+                var e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+                el.textContent = fmt(target * e);
+                if (p === 1) ticker.remove(tick);
+            }
+            el.textContent = fmt(0);
+            ticker.add(tick);
+        }
+
+        if (!('IntersectionObserver' in window) || reduced) {
+            for (var i = 0; i < els.length; i++) run(els[i]);
+            return;
+        }
+        var cio = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    run(entries[i].target);
+                    cio.unobserve(entries[i].target);
                 }
             }
         }, { threshold: 0.4 });
-        nums.forEach((el) => el.dataset.target && io.observe(el));
+        for (var j = 0; j < els.length; j++) cio.observe(els[j]);
     }
 
-    /* ──────────── 5. Card entrance ────────────
-       Excludes .portfolio-grid intentionally: the portfolio cards are
-       hero content and should be visible immediately. The reveal-3d
-       opacity:0 starting state combined with IntersectionObserver math
-       inside the Lenis wrapper sometimes left side cards stuck blank. */
-    function initCardEntrance() {
-        const grids = document.querySelectorAll('.features-grid, .services-grid, .partnerships-grid, .testimonials-grid, .achievements-grid, .tech-stack-grid, .values-grid');
-        grids.forEach((grid) => {
-            Array.from(grid.children).forEach((card, i) => {
-                if (!card.classList.contains('reveal-3d')) {
-                    card.classList.add('reveal-3d');
-                    card.style.transitionDelay = `${(i % 6) * 140}ms`;
-                }
+    /* ───────────────────────── scroll progress ─────────────────────────
+       CSS owns this via animation-timeline: scroll(root). This is only a
+       fallback for engines without scroll timelines (Firefox today). */
+    function initProgressFallback() {
+        var bar = document.querySelector('.holo-progress');
+        if (!bar || NATIVE_TIMELINE) return;
+        var pending = false;
+        function update() {
+            pending = false;
+            var max = document.documentElement.scrollHeight - innerHeight;
+            var p = max > 0 ? window.scrollY / max : 0;
+            bar.style.transform = 'scaleX(' + Math.min(Math.max(p, 0), 1) + ')';
+        }
+        addEventListener('scroll', function () {
+            if (!pending) { pending = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        addEventListener('resize', update, { passive: true });
+        update();
+    }
+
+    /* ───────────────────────── Lenis inertia ─────────────────────────
+       Lazy, self-hosted, and only where it helps. Touch devices already
+       have excellent native momentum — adding Lenis there makes it worse.
+       Lenis drives its own rAF off our shared ticker so we never run two. */
+    function initLenis() {
+        if (reduced || coarseMQ.matches) return;
+        if (!('IntersectionObserver' in window)) return;
+
+        var base = document.currentScript && document.currentScript.src;
+        var url;
+        try {
+            url = new URL('vendor/lenis.min.mjs', base || location.href).href;
+        } catch (e) { return; }
+
+        import(/* webpackIgnore: true */ url).then(function (mod) {
+            var Lenis = mod && (mod.default || mod.Lenis);
+            if (!Lenis) return;
+            var lenis = new Lenis({
+                autoRaf: false,   // we drive it from the shared ticker
+                lerp: 0.12,
+                wheelMultiplier: 1,
+                smoothWheel: true,
+                /* Let the browser own touch entirely. */
+                syncTouch: false
             });
-        });
-        const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-                if (e.isIntersecting) {
-                    e.target.classList.add('reveal-3d-in');
-                    io.unobserve(e.target);
-                }
+            window.TrionLenis = lenis;
+            ticker.add(function (dt, t) { lenis.raf(t); });
+            document.documentElement.classList.add('has-lenis');
+        }).catch(function () { /* inertia is a nicety; native scroll is fine */ });
+    }
+
+    /* ───────────────────────── tab switching ─────────────────────────
+       The home page swaps .tab-content sections. New content needs its
+       reveals wired up, and we want the counters in the newly shown tab
+       to run. No scroll maths here — native scroll handles itself. */
+    function initTabHook() {
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest && e.target.closest('.nav-link');
+            if (!link) return;
+            /* let script.js switch the tab first */
+            setTimeout(function () {
+                scanReveals(document.querySelector('.tab-content.active') || document);
+                initCounters();
+            }, 60);
+        }, true);
+    }
+
+    /* ───────────────────────── reduced-motion changes live ───────────── */
+    function bindMotionPref() {
+        var on = function () {
+            reduced = reduceMQ.matches;
+            if (reduced) {
+                var n = document.querySelectorAll('[data-reveal]:not(.is-revealed)');
+                for (var i = 0; i < n.length; i++) n[i].classList.add('is-revealed');
+                if (window.TrionLenis) { try { window.TrionLenis.destroy(); } catch (e) {} }
             }
-        }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
-        document.querySelectorAll('.reveal-3d').forEach((el) => io.observe(el));
+        };
+        reduceMQ.addEventListener ? reduceMQ.addEventListener('change', on)
+                                  : reduceMQ.addListener && reduceMQ.addListener(on);
     }
 
-    /* ──────────── 6b. Hero sphere zoom-and-dissolve ────────────
-       As the user scrolls past the hero, the particle sphere grows
-       (fly-through effect) and fades to fully transparent.
-
-       Monotonic: progress only ever increases, so scrolling back up a
-       bit does not shrink the sphere — once it's grown, it stays grown
-       (which is what the eye expects from a "fly past" effect). The
-       state resets only when the user returns fully to the top. */
-    function initHeroSphereZoom() {
-        const sphere = document.querySelector('.hero-3d');
-        if (!sphere) return;
-        // Symmetric scroll-driven scaling — both grow and shrink follow
-        // the scroll position. `display` is a soft-lerped version of the
-        // live progress so motion is buttery in both directions.
-        let display = 0;
-        onTick((y) => {
-            const vh = window.innerHeight;
-            const live = clamp(y / (vh * 0.9), 0, 1);
-
-            // Single rate for both grow + shrink so the motion is
-            // perceived as symmetric and "tracks" the scroll smoothly.
-            display = lerp(display, live, 0.12);
-            if (Math.abs(display - live) < 0.0008) display = live;
-
-            const e = display * display;
-            const scale = 1 + e * 3.2;
-            const opacity = 1 - smoothstep(0.05, 0.92, display);
-            sphere.style.transform = `translate3d(0, ${-display * 30}px, 0) scale(${scale})`;
-            sphere.style.opacity = String(opacity);
-        });
-    }
-
-    /* ──────────── 7. Ambient halo (idle only) ──────────── */
-    function initAmbientHalo() {
-        if (isTouch || reducedMotion) return;
-        const halo = document.createElement('div');
-        halo.className = 'ambient-halo';
-        document.body.appendChild(halo);
-        onTick((_y, _v, mx, my) => {
-            halo.style.transform = `translate3d(${mx - 250}px, ${my - 250}px, 0)`;
-        });
-    }
-
-    /* ──────────── 7. Tab hooks ──────────── */
-    function initTabHooks() {
-        document.querySelectorAll('.nav-link').forEach((link) => {
-            link.addEventListener('click', () => {
-                setTimeout(() => {
-                    document.querySelectorAll('.word-rev').forEach((w) => w.classList.remove('in'));
-                    document.querySelectorAll('.reveal-3d').forEach((c) => c.classList.remove('reveal-3d-in'));
-                    initWordReveal();
-                    initCardEntrance();
-                    // Snap virtual scroll to top on tab change (scripted scroll did this natively)
-                    requestAnimationFrame(() => { displayY = window.scrollY; });
-                }, 80);
-            });
-        });
-    }
-
-    /* ──────────── INIT ──────────── */
-    function start() {
-        // Disable browser scroll restoration jump so we control the start position
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-        // Initial lottie scan + re-scan after window load (they upgrade async)
-        refreshLotties();
-        refreshHeroVideo();
-        window.addEventListener('load', () => { refreshLotties(); refreshHeroVideo(); });
-
-        initSmoothWrapper();
-        // Sync to current native scroll position so reload doesn't animate from 0
-        displayY = window.scrollY;
-        targetY = window.scrollY;
-        lastDisplayY = displayY;
-
-        initProgressBar();
-        if (!reducedMotion) initHeroPin();
-        if (!reducedMotion) initHeroSphereZoom();
-        initWordReveal();
+    function init() {
+        scanReveals(document);
         initCounters();
-        initCardEntrance();
-        initAmbientHalo();
-        initTabHooks();
-        requestAnimationFrame(tick);
+        initProgressFallback();
+        initTabHook();
+        bindMotionPref();
+        initLenis();
+        /* Late layout shifts (webfont swap, image decode) can leave
+           just-off-screen items unobserved — one cheap re-scan. */
+        addEventListener('load', function () { scanReveals(document); });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', start);
-    } else {
-        start();
-    }
+    document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', init)
+        : init();
 })();

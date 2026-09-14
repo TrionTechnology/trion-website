@@ -74,6 +74,8 @@ Service and portfolio pages exist in all three languages under the same path pre
 
 ## Our own products
 
+Trion Creation also designs, builds and publishes its own consumer apps — not client work. The current and complete list always lives at [https://trioncreation.com/products.html](https://trioncreation.com/products.html).
+
 - [Cadence](https://trioncreation.com/projects/cadence.html): A habit tracker built and published by Trion Creation, not client work. Uses weekly goals instead of daily streaks, so missing a day doesn't reset your progress. Free tier keeps 10 habits; Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. Available on Google Play (Android); iOS in progress.
 
 ## Industries served

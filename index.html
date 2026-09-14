@@ -265,7 +265,7 @@
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trioncreation.com/" },
             { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://trioncreation.com/#services" },
             { "@type": "ListItem", "position": 3, "name": "Portfolio", "item": "https://trioncreation.com/#portfolio" },
-            { "@type": "ListItem", "position": 4, "name": "Tech Stack", "item": "https://trioncreation.com/#tech-stack" },
+            { "@type": "ListItem", "position": 4, "name": "Products", "item": "https://trioncreation.com/products.html" },
             { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://trioncreation.com/#contact" }
         ]
     }
@@ -392,21 +392,26 @@
         "about": { "@id": "https://trioncreation.com/#organization" },
         "speakable": {
             "@type": "SpeakableSpecification",
-            "cssSelector": [".hero-title", ".hero-subtitle", ".feature-card h3", ".faq-item summary"]
+            "cssSelector": [".hero-title", "a.hero-seo-text", ".feature-card h3", ".faq-item summary"]
         }
     }
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="icon" type="image/png" href="trion-favicon.png">
-    <link rel="apple-touch-icon" href="trion-favicon.png">
+    <!-- Two families, not four. Inter, Manrope and Poppins were all doing
+         the same job: the old request pulled 114 font files for ~43 KB of
+         CSS. Manrope now carries display + body (weight does the
+         contrast), JetBrains Mono carries anything technical. -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="images/icons/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="images/icons/favicon-180.png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#07051A">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Holographic WebGL particle field -->
     <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <!-- Header -->
@@ -417,15 +422,15 @@
                     <img src="logo master - Trion-07 3.png" alt="Trion Creation">
                 </a>
                 <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="#home" class="nav-link active">Home</a></li>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#services" class="nav-link">Services</a></li>
-                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                        <li><a href="#partnerships" class="nav-link">Partnerships</a></li>
-                        <li><a href="#tech-stack" class="nav-link">Tech Stack</a></li>
-                        <li><a href="#faq" class="nav-link">FAQ</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <ul class="nav-list" role="tablist" aria-label="Sections">
+                        <li role="none"><a href="#home" class="nav-link active" role="tab" id="tab-home" aria-controls="home" aria-selected="true">Home</a></li>
+                        <li role="none"><a href="#about" class="nav-link" role="tab" id="tab-about" aria-controls="about" aria-selected="false">About</a></li>
+                        <li role="none"><a href="#services" class="nav-link" role="tab" id="tab-services" aria-controls="services" aria-selected="false">Services</a></li>
+                        <li role="none"><a href="#portfolio" class="nav-link" role="tab" id="tab-portfolio" aria-controls="portfolio" aria-selected="false">Portfolio</a></li>
+                        <li role="none"><a href="#partnerships" class="nav-link" role="tab" id="tab-partnerships" aria-controls="partnerships" aria-selected="false">Partnerships</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li role="none"><a href="#faq" class="nav-link" role="tab" id="tab-faq" aria-controls="faq" aria-selected="false">FAQ</a></li>
+                        <li role="none"><a href="#contact" class="nav-link" role="tab" id="tab-contact" aria-controls="contact" aria-selected="false">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -442,47 +447,54 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main">
         <!-- Home Tab -->
-        <section id="home" class="tab-content active">
+        <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section">
-                <!-- Hero Video Background (with fallback) -->
-                <div class="hero-video-wrapper">
-                    <video autoplay muted loop playsinline poster="images/hero/hero-main.jpg">
-                        <source src="public/videos/trion-hero.mp4" type="video/mp4">
-                        <source src="public/videos/trion-hero.webm" type="video/webm">
-                        <!-- Fallback image if video doesn't load -->
-                        <img src="images/hero/hero-main.jpg" alt="Hero Background">
-                    </video>
-                </div>
                 <div class="container">
-            <div class="hero-content">
+                    <div class="hero-content">
                         <div class="hero-text">
-                            <h1 class="hero-title">Custom Software Development in Malaysia<br><span class="highlight">We Build Any System You Need — Fast, Modern & Fully Custom</span></h1>
-                            <p class="hero-seo-text" style="font-size: 0.9rem; color: #6B7280; margin-top: 0.5rem;">Leading provider of custom software customisation and development services in Malaysia</p>
-                            <p class="hero-subtitle">Web • Mobile • ERP • CRM • AI • Booking • POS • Loan System • Inventory</p>
+                            <p class="hero-eyebrow">
+                                <span class="pulse-dot" aria-hidden="true"></span>
+                                Kuala Lumpur, Malaysia &middot; Shipping since 2022
+                            </p>
+                            <h1 class="hero-title">Custom Software Development in Malaysia<span class="highlight">We Build Any System You Need &mdash; Fast, Modern &amp; Fully Custom</span></h1>
+                            <p class="hero-seo-text">Leading provider of custom software customisation and development services in Malaysia</p>
+                            <ul class="hero-capabilities" aria-label="What we build">
+                                <li>Web</li>
+                                <li>Mobile</li>
+                                <li>ERP</li>
+                                <li>CRM</li>
+                                <li>AI</li>
+                                <li>Booking</li>
+                                <li>POS</li>
+                                <li>Loan System</li>
+                                <li>Inventory</li>
+                            </ul>
                             <div class="hero-actions">
                                 <a href="#services" class="btn btn-primary">Explore Services</a>
                                 <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
                             </div>
-                            <div class="hero-stats">
+                            <dl class="hero-stats">
                                 <div class="stat">
-                                    <span class="stat-number">150+</span>
-                                    <span class="stat-label">Projects Completed</span>
+                                    <dt class="stat-label">Projects Completed</dt>
+                                    <dd class="stat-number">150+</dd>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">98%</span>
-                                    <span class="stat-label">Client Satisfaction</span>
+                                    <dt class="stat-label">Client Satisfaction</dt>
+                                    <dd class="stat-number">98%</dd>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">5+</span>
-                                    <span class="stat-label">Years Experience</span>
+                                    <dt class="stat-label">Years Experience</dt>
+                                    <dd class="stat-number">5+</dd>
                                 </div>
-                            </div>
+                            </dl>
                         </div>
-                        <div class="hero-image hero-3d" aria-label="Animated 3D torus knot — Trion Creation digital craftsmanship visualization">
+                        <div class="hero-image hero-3d" role="img" aria-label="Animated visualisation of a distributed software system: nodes connected by links with data pulses travelling between them">
                             <canvas aria-hidden="true"></canvas>
-                            <div class="hero-3d-readout">SYS · TRION CORE · ACTIVE</div>
+                            <div class="hero-3d-readout" aria-hidden="true">
+                                <span class="pulse-dot"></span> SYS &middot; TRION CORE &middot; ACTIVE
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -491,45 +503,45 @@
             <div class="features-section">
                 <div class="container">
                     <h2>Why Choose Trion Creation?</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
+                    <div class="features-grid" data-reveal-group>
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/fast-development.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fast delivery"><path d="M3 17.5 10 10l3.5 3.5L21 6"/><path class="ic-live" d="M15 6h6v6"/><path d="M3 21h18" opacity=".35"/></svg>
                             </div>
                             <h3>Fast Development Timeline</h3>
                             <p>Rapid delivery without compromising quality. We streamline development processes to get your system to market faster.</p>
                         </div>
-                        <div class="feature-card">
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/full-customization.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fully customised"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect class="ic-live" x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
                             </div>
                             <h3>Full Customization</h3>
                             <p>Every system is built from scratch to match your exact business needs. No cookie-cutter solutions - 100% tailored to you.</p>
                         </div>
-                        <div class="feature-card">
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/affordable-pricing.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Transparent pricing"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h15A1.5 1.5 0 0 1 21 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5z"/><path d="M3 10.5h18" opacity=".4"/><path class="ic-live" d="M6.5 14.5h4"/></svg>
                             </div>
                             <h3>Affordable Pricing</h3>
                             <p>Competitive pricing with transparent costs. Get enterprise-grade solutions without enterprise-level expenses.</p>
                         </div>
-                        <div class="feature-card">
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/ai-ready.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="AI-ready architecture"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v5.3M12 15.2V21M3 12h5.8M15.2 12H21" opacity=".45"/><circle class="ic-live" cx="12" cy="3" r="1.5"/><circle cx="21" cy="12" r="1.5" opacity=".5"/><circle cx="3" cy="12" r="1.5" opacity=".5"/><circle cx="12" cy="21" r="1.5" opacity=".5"/></svg>
                             </div>
                             <h3>AI-Ready Architecture</h3>
                             <p>Future-proof systems built with AI capabilities in mind. Easy to integrate AI features when you're ready to scale.</p>
                         </div>
-                        <div class="feature-card">
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/professional-team.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Professional team"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle class="ic-live" cx="17" cy="9.5" r="2.4"/><path d="M15 20a5 5 0 0 1 6-4.6" opacity=".45"/></svg>
                             </div>
                             <h3>Professional Team</h3>
                             <p>Experienced developers and designers dedicated to your success. 40+ completed projects across 10+ industries.</p>
                         </div>
-                        <div class="feature-card">
+                        <div class="feature-card" data-reveal="scale">
                             <div class="feature-icon">
-                                <lottie-player src="animations/features/client-references.json" background="transparent" speed="1" loop autoplay style="width: 200px; height: 200px;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Client references"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9A1.5 1.5 0 0 1 18.5 16H9l-5 4z"/><path class="ic-live" d="M8.5 10h7"/><path d="M8.5 7h4" opacity=".45"/></svg>
                             </div>
                             <h3>Strong Client References</h3>
                             <p>98% client satisfaction rate with proven track record. Check our portfolio - 150+ successful projects delivered.</p>
@@ -540,8 +552,8 @@
     </section>
 
         <!-- About Tab -->
-        <section id="about" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-about.jpg');">
+        <section id="about" class="tab-content" role="tabpanel" aria-labelledby="tab-about" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-about.jpg'); background-image: image-set(url('images/banners/banner-about-1600.avif') type('image/avif'), url('images/banners/banner-about-1600.webp') type('image/webp'), url('images/banners/banner-about.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>About Trion Creation</h1>
                     <p>Pioneering the future of technology with innovative AI and quantum solutions</p>
@@ -583,30 +595,34 @@
                         </div>
             </div>
                     <div class="about-image">
-                        <img src="images/about/about-team.jpg" alt="Our Team Collaboration" loading="lazy">
+                        <picture>
+                                <source type="image/avif" srcset="images/about/about-team-400.avif 400w, images/about/about-team-800.avif 800w, images/about/about-team-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/about/about-team-400.webp 400w, images/about/about-team-800.webp 800w, images/about/about-team-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/about/about-team.jpg" alt="Our Team Collaboration" width="2070" height="1381" loading="lazy" decoding="async">
+                            </picture>
                     </div>
                 </div>
 
                 <div class="achievements-section">
                     <h2>Our Achievements</h2>
                     <div class="achievements-grid">
-                        <div class="achievement-card">
+                        <div class="achievement-card" data-reveal="scale">
                             <div class="achievement-icon">
-                                <lottie-player src="animations/achievements/successful-projects.json" background="transparent" speed="1" loop autoplay style="width: 350px; height: 350px; max-width: 100%;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Projects delivered"><path d="M3.5 8 12 3.5 20.5 8v8L12 20.5 3.5 16z"/><path d="M3.5 8 12 12.5 20.5 8M12 12.5V20.5" opacity=".45"/><path class="ic-live" d="M12 3.5 20.5 8"/></svg>
                             </div>
                             <div class="achievement-number">45+</div>
                             <div class="achievement-label">Successful Projects</div>
                         </div>
-                        <div class="achievement-card">
+                        <div class="achievement-card" data-reveal="scale">
                             <div class="achievement-icon">
-                                <lottie-player src="animations/achievements/support-available.json" background="transparent" speed="1" loop autoplay style="width: 350px; height: 350px; max-width: 100%;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Support available"><circle cx="12" cy="12" r="8.5"/><path class="ic-live" d="M12 7v5l3.2 2"/></svg>
                             </div>
                             <div class="achievement-number">24/7</div>
                             <div class="achievement-label">Support Available</div>
                         </div>
-                        <div class="achievement-card">
+                        <div class="achievement-card" data-reveal="scale">
                             <div class="achievement-icon">
-                                <lottie-player src="animations/achievements/client-satisfaction.json" background="transparent" speed="1" loop autoplay style="width: 350px; height: 350px; max-width: 100%;" mode="normal"></lottie-player>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Client satisfaction"><circle cx="12" cy="12" r="8.5" opacity=".45"/><path class="ic-live" d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M8.5 12.5s1.3 2.2 3.5 2.2 3.5-2.2 3.5-2.2"/><circle cx="9.3" cy="9.6" r="1"/><circle cx="14.7" cy="9.6" r="1"/></svg>
                             </div>
                             <div class="achievement-number">98%</div>
                             <div class="achievement-label">Client Satisfaction</div>
@@ -617,8 +633,8 @@
         </section>
 
         <!-- Services Tab -->
-        <section id="services" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-services.jpg');">
+        <section id="services" class="tab-content" role="tabpanel" aria-labelledby="tab-services" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-services.jpg'); background-image: image-set(url('images/banners/banner-services-1600.avif') type('image/avif'), url('images/banners/banner-services-1600.webp') type('image/webp'), url('images/banners/banner-services.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>Our Services</h1>
                     <p>Comprehensive technology solutions tailored to your business needs</p>
@@ -626,10 +642,14 @@
             </div>
             <div class="container">
 
-                <div class="services-grid">
-                <div class="service-card">
+                <div class="services-grid" data-reveal-group>
+                <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-web-mobile.jpg" alt="AI Solutions" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-web-mobile-400.avif 400w, images/services/service-web-mobile-800.avif 800w, images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-web-mobile-400.webp 400w, images/services/service-web-mobile-800.webp 800w, images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-web-mobile.jpg" alt="AI Solutions" width="2070" height="1164" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Mobile & Web App Development</h3>
@@ -647,9 +667,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-blockchain.jpg" alt="Quantum Computing" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-blockchain-400.avif 400w, images/services/service-blockchain-800.avif 800w, images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-blockchain-400.webp 400w, images/services/service-blockchain-800.webp 800w, images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-blockchain.jpg" alt="Quantum Computing" width="2070" height="1380" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Blockchain & Web3 Solutions</h3>
@@ -667,9 +691,13 @@
                 </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-ar-vr.jpg" alt="AR/VR Development" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-ar-vr.jpg" alt="AR/VR Development" width="800" height="600" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>AR/VR & Metaverse Development</h3>
@@ -687,9 +715,13 @@
                 </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-enterprise.jpg" alt="Blockchain Development" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-enterprise-400.avif 400w, images/services/service-enterprise-800.avif 800w, images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-enterprise-400.webp 400w, images/services/service-enterprise-800.webp 800w, images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-enterprise.jpg" alt="Blockchain Development" width="2126" height="1196" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Enterprise Solutions & Workflow</h3>
@@ -707,9 +739,13 @@
                 </div>
             </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-cloud.jpg" alt="Cloud Migration" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-cloud-400.avif 400w, images/services/service-cloud-800.avif 800w, images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-cloud-400.webp 400w, images/services/service-cloud-800.webp 800w, images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-cloud.jpg" alt="Cloud Migration" width="2072" height="1379" loading="lazy" decoding="async">
+                            </picture>
         </div>
                         <div class="service-content">
                             <h3>Cloud Infrastructure & DevOps</h3>
@@ -727,9 +763,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-ux.jpg" alt="CRM Solutions" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-ux-400.avif 400w, images/services/service-ux-800.avif 800w, images/services/service-ux-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-ux-400.webp 400w, images/services/service-ux-800.webp 800w, images/services/service-ux-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-ux.jpg" alt="CRM Solutions" width="2070" height="1380" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Product Design & UX</h3>
@@ -748,9 +788,13 @@
                 </div>
 
                     <!-- Additional Services from Prompt -->
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-erp-crm.jpg" alt="ERP CRM Development" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-erp-crm-400.avif 400w, images/services/service-erp-crm-800.avif 800w, images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-erp-crm-400.webp 400w, images/services/service-erp-crm-800.webp 800w, images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-erp-crm.jpg" alt="ERP CRM Development" width="2070" height="1380" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>ERP/CRM Development</h3>
@@ -768,9 +812,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-ai-chatbot.jpg" alt="AI Automation Chatbot" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-ai-chatbot.jpg" alt="AI Automation Chatbot" width="800" height="600" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>AI Automation + Chatbot</h3>
@@ -788,9 +836,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-pos.jpg" alt="POS Inventory System" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-pos-400.avif 400w, images/services/service-pos-800.avif 800w, images/services/service-pos-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-pos-400.webp 400w, images/services/service-pos-800.webp 800w, images/services/service-pos-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-pos.jpg" alt="POS Inventory System" width="2070" height="1380" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>POS & Inventory Management</h3>
@@ -808,9 +860,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-booking.jpg" alt="Booking System" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-booking-400.avif 400w, images/services/service-booking-800.avif 800w, images/services/service-booking-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-booking-400.webp 400w, images/services/service-booking-800.webp 800w, images/services/service-booking-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-booking.jpg" alt="Booking System" width="2070" height="1382" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Booking System Development</h3>
@@ -828,9 +884,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-loan.jpg" alt="Loan System" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-loan-400.avif 400w, images/services/service-loan-800.avif 800w, images/services/service-loan-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-loan-400.webp 400w, images/services/service-loan-800.webp 800w, images/services/service-loan-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-loan.jpg" alt="Loan System" width="2070" height="1380" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Loan Management System</h3>
@@ -848,9 +908,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-api.jpg" alt="API Integration" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-api-400.avif 400w, images/services/service-api-800.avif 800w, images/services/service-api-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-api-400.webp 400w, images/services/service-api-800.webp 800w, images/services/service-api-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-api.jpg" alt="API Integration" width="2070" height="1162" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>API Integration & Development</h3>
@@ -868,9 +932,13 @@
                         </div>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <img src="images/services/service-odoo.jpg" alt="Odoo Customization" loading="lazy">
+                            <picture>
+                                <source type="image/avif" srcset="images/services/service-odoo-400.avif 400w, images/services/service-odoo-800.avif 800w, images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/services/service-odoo-400.webp 400w, images/services/service-odoo-800.webp 800w, images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img src="images/services/service-odoo.jpg" alt="Odoo Customization" width="2070" height="1164" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="service-content">
                             <h3>Odoo Customization</h3>
@@ -892,8 +960,8 @@
         </section>
 
         <!-- Portfolio Tab -->
-        <section id="portfolio" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-portfolio.jpg');">
+        <section id="portfolio" class="tab-content" role="tabpanel" aria-labelledby="tab-portfolio" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-portfolio.jpg'); background-image: image-set(url('images/banners/banner-portfolio-1600.avif') type('image/avif'), url('images/banners/banner-portfolio-1600.webp') type('image/webp'), url('images/banners/banner-portfolio.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>Solutions We've Delivered</h1>
                     <p>Proven industry solutions — 45+ successful projects across finance, logistics, enterprise, retail and more</p>
@@ -910,234 +978,223 @@
                     <button class="filter-btn" data-filter="retail">Retail & F&B</button>
             </div>
 
-            <div class="portfolio-grid">
-                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/social-media-super-app.html" aria-label="View Social Media Super App details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #2F66FF 0%, #1a3db5 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Social Media Super App</h3>
-                                <p>Multi-feature community platforms with messaging, content feed, rewards and monetization.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">iOS / Android</span>
-                                    <span class="tag">Backend/API</span>
-                                    <span class="tag">Real-time</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="fintech" href="portfolio/loan-management-platform.html" aria-label="View Loan Management System details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #00a870 0%, #005f3e 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Loan Management System</h3>
-                                <p>End-to-end loan origination, credit scoring, approval workflow and repayment tracking.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">AI Credit Scoring</span>
-                                    <span class="tag">Admin Portal</span>
-                                    <span class="tag">Workflow</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/driver-transport-platform.html" aria-label="View Driver & Transport Platform details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #ff6b35 0%, #c2410c 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Driver & Transport Platform</h3>
-                                <p>Real-time dispatch, GPS tracking, route optimization and multi-city fleet operations.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Live GPS</span>
-                                    <span class="tag">Mobile App</span>
-                                    <span class="tag">Payment</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="enterprise" href="portfolio/hrms-payroll-system.html" aria-label="View HRMS & Payroll System details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>HRMS & Payroll System</h3>
-                                <p>Attendance, leave, payroll, claims and employee self-service built for Malaysian compliance.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Payroll</span>
-                                    <span class="tag">E-Leave</span>
-                                    <span class="tag">Reports</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="enterprise" href="portfolio/erp-business-suite.html" aria-label="View ERP & Business Suite details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #0ea5e9 0%, #075985 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>ERP & Business Suite</h3>
-                                <p>Unified inventory, finance, procurement and operations dashboard for SMEs & enterprises.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Odoo</span>
-                                    <span class="tag">Custom ERP</span>
-                                    <span class="tag">Finance</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="operations" href="portfolio/legal-case-management.html" aria-label="View Legal Case Management details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Legal Case Management</h3>
-                                <p>Cloud-based case tracking, document vault, invoicing and role-based access for law firms.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Cloud</span>
-                                    <span class="tag">E-Invoice</span>
-                                    <span class="tag">RBAC</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="operations" href="portfolio/project-management-suite.html" aria-label="View Project Management Suite details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #f59e0b 0%, #92400e 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Project Management Suite</h3>
-                                <p>Task, timeline, resource and budget management with live collaboration and reporting.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Kanban</span>
-                                    <span class="tag">Timeline</span>
-                                    <span class="tag">Reports</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="enterprise" href="portfolio/feedback-bi-dashboard.html" aria-label="View Feedback & BI Dashboard details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #0891b2 0%, #164e63 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Feedback & BI Dashboard</h3>
-                                <p>Customer feedback collection with Power BI analytics for real-time decision making.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Power BI</span>
-                                    <span class="tag">Survey</span>
-                                    <span class="tag">Analytics</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/pet-services-platform.html" aria-label="View Pet Services Platform details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #ec4899 0%, #831843 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Pet Services Platform</h3>
-                                <p>Booking, pet profiles, grooming, vet appointments and community marketplace.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Booking</span>
-                                    <span class="tag">Marketplace</span>
-                                    <span class="tag">Mobile App</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/wellness-booking-app.html" aria-label="View Wellness & Booking App details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Wellness & Booking App</h3>
-                                <p>On-demand massage, spa and wellness booking with therapist matching and payments.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">On-Demand</span>
-                                    <span class="tag">Payment</span>
-                                    <span class="tag">Mobile App</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="operations" href="portfolio/supplier-inventory-system.html" aria-label="View Supplier & Inventory System details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #6366f1 0%, #312e81 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Supplier & Inventory System</h3>
-                                <p>Stock tracking, purchase orders, supplier portal and multi-warehouse management.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Inventory</span>
-                                    <span class="tag">PO System</span>
-                                    <span class="tag">Barcode</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="operations" href="portfolio/visitor-management-system.html" aria-label="View Visitor Management System details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #14b8a6 0%, #134e4a 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>Visitor Management System</h3>
-                                <p>Digital check-in, QR passes, host notifications and security analytics for offices.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">QR Pass</span>
-                                    <span class="tag">Kiosk</span>
-                                    <span class="tag">Analytics</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-
-                    <a class="portfolio-item" data-category="retail" href="portfolio/fnb-retail-pos.html" aria-label="View F&B & Retail POS details">
-                        <div class="portfolio-image solution-card" style="background: linear-gradient(135deg, #f43f5e 0%, #881337 100%);">
-                            <div class="solution-icon">
-                                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                            </div>
-                            <div class="portfolio-overlay">
-                                <h3>F&B & Retail POS</h3>
-                                <p>Point of sale, kitchen display, table order, loyalty and e-menu for restaurants & retail.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">POS</span>
-                                    <span class="tag">E-Menu</span>
-                                    <span class="tag">Loyalty</span>
-                                </div>
-                    </div>
-                    </div>
-                        </a>
-            </div>
+            <div class="portfolio-grid" data-reveal-group>
+                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/social-media-super-app.html" aria-label="View Social Media Super App details" style="--card-accent: #2F66FF;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="118" y="16" width="64" height="112" rx="8"/><path d="M136 24h28" class="w-live"/>
+    <rect x="126" y="40" width="48" height="26" rx="3" opacity=".5"/><path d="M126 76h48M126 88h34M126 100h42" opacity=".45"/>
+    <rect x="20" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M30 48h44M30 60h56M30 72h38" opacity=".3"/>
+    <rect x="204" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M214 48h44M214 60h56M214 72h38" opacity=".3"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Social Media Super App</h3>
+                            <p>Multi-feature community platforms with messaging, content feed, rewards and monetization.</p>
+                            <div class="portfolio-tags"><span class="tag">iOS / Android</span><span class="tag">Backend/API</span><span class="tag">Real-time</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="fintech" href="portfolio/loan-management-platform.html" aria-label="View Loan Management System details" style="--card-accent: #00a870;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="20" y="20" width="104" height="60" rx="7"/><path d="M32 62h34" class="w-live"/><path d="M32 36h22" opacity=".5"/>
+    <path d="M150 116V78M176 116V58M202 116V88M228 116V46M254 116V66" opacity=".5"/>
+    <path d="M150 78l26-20 26 30 26-42 26 20" class="w-live" fill="none"/>
+    <path d="M20 116h260" opacity=".35"/><rect x="20" y="94" width="104" height="8" rx="4" opacity=".3"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Loan Management System</h3>
+                            <p>End-to-end loan origination, credit scoring, approval workflow and repayment tracking.</p>
+                            <div class="portfolio-tags"><span class="tag">AI Credit Scoring</span><span class="tag">Admin Portal</span><span class="tag">Workflow</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/driver-transport-platform.html" aria-label="View Driver & Transport Platform details" style="--card-accent: #ff6b35;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="118" y="16" width="64" height="112" rx="8"/><path d="M136 24h28" class="w-live"/>
+    <rect x="126" y="40" width="48" height="26" rx="3" opacity=".5"/><path d="M126 76h48M126 88h34M126 100h42" opacity=".45"/>
+    <rect x="20" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M30 48h44M30 60h56M30 72h38" opacity=".3"/>
+    <rect x="204" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M214 48h44M214 60h56M214 72h38" opacity=".3"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Driver & Transport Platform</h3>
+                            <p>Real-time dispatch, GPS tracking, route optimization and multi-city fleet operations.</p>
+                            <div class="portfolio-tags"><span class="tag">Live GPS</span><span class="tag">Mobile App</span><span class="tag">Payment</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="enterprise" href="portfolio/hrms-payroll-system.html" aria-label="View HRMS & Payroll System details" style="--card-accent: #7c3aed;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="20" y="20" width="260" height="108" rx="8" opacity=".45"/><path d="M20 44h260" opacity=".45"/>
+    <path d="M74 44v84" opacity=".45"/><path d="M32 58h30M32 72h30M32 86h30" opacity=".4"/><path d="M32 100h30" class="w-live"/>
+    <rect x="88" y="58" width="86" height="26" rx="4" opacity=".4"/><rect x="184" y="58" width="82" height="26" rx="4" class="w-live"/>
+    <rect x="88" y="94" width="178" height="22" rx="4" opacity=".4"/><circle cx="266" cy="32" r="4" opacity=".5"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>HRMS & Payroll System</h3>
+                            <p>Attendance, leave, payroll, claims and employee self-service built for Malaysian compliance.</p>
+                            <div class="portfolio-tags"><span class="tag">Payroll</span><span class="tag">E-Leave</span><span class="tag">Reports</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="enterprise" href="portfolio/erp-business-suite.html" aria-label="View ERP & Business Suite details" style="--card-accent: #0ea5e9;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="20" y="20" width="260" height="108" rx="8" opacity=".45"/><path d="M20 44h260" opacity=".45"/>
+    <path d="M74 44v84" opacity=".45"/><path d="M32 58h30M32 72h30M32 86h30" opacity=".4"/><path d="M32 100h30" class="w-live"/>
+    <rect x="88" y="58" width="86" height="26" rx="4" opacity=".4"/><rect x="184" y="58" width="82" height="26" rx="4" class="w-live"/>
+    <rect x="88" y="94" width="178" height="22" rx="4" opacity=".4"/><circle cx="266" cy="32" r="4" opacity=".5"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>ERP & Business Suite</h3>
+                            <p>Unified inventory, finance, procurement and operations dashboard for SMEs & enterprises.</p>
+                            <div class="portfolio-tags"><span class="tag">Odoo</span><span class="tag">Custom ERP</span><span class="tag">Finance</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="operations" href="portfolio/legal-case-management.html" aria-label="View Legal Case Management details" style="--card-accent: #dc2626;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/>
+    <rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/>
+    <rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/>
+    <rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Legal Case Management</h3>
+                            <p>Cloud-based case tracking, document vault, invoicing and role-based access for law firms.</p>
+                            <div class="portfolio-tags"><span class="tag">Cloud</span><span class="tag">E-Invoice</span><span class="tag">RBAC</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="operations" href="portfolio/project-management-suite.html" aria-label="View Project Management Suite details" style="--card-accent: #f59e0b;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/>
+    <rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/>
+    <rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/>
+    <rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Project Management Suite</h3>
+                            <p>Task, timeline, resource and budget management with live collaboration and reporting.</p>
+                            <div class="portfolio-tags"><span class="tag">Kanban</span><span class="tag">Timeline</span><span class="tag">Reports</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="enterprise" href="portfolio/feedback-bi-dashboard.html" aria-label="View Feedback & BI Dashboard details" style="--card-accent: #0891b2;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="20" y="20" width="260" height="108" rx="8" opacity=".45"/><path d="M20 44h260" opacity=".45"/>
+    <path d="M74 44v84" opacity=".45"/><path d="M32 58h30M32 72h30M32 86h30" opacity=".4"/><path d="M32 100h30" class="w-live"/>
+    <rect x="88" y="58" width="86" height="26" rx="4" opacity=".4"/><rect x="184" y="58" width="82" height="26" rx="4" class="w-live"/>
+    <rect x="88" y="94" width="178" height="22" rx="4" opacity=".4"/><circle cx="266" cy="32" r="4" opacity=".5"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Feedback & BI Dashboard</h3>
+                            <p>Customer feedback collection with Power BI analytics for real-time decision making.</p>
+                            <div class="portfolio-tags"><span class="tag">Power BI</span><span class="tag">Survey</span><span class="tag">Analytics</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/pet-services-platform.html" aria-label="View Pet Services Platform details" style="--card-accent: #ec4899;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="118" y="16" width="64" height="112" rx="8"/><path d="M136 24h28" class="w-live"/>
+    <rect x="126" y="40" width="48" height="26" rx="3" opacity=".5"/><path d="M126 76h48M126 88h34M126 100h42" opacity=".45"/>
+    <rect x="20" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M30 48h44M30 60h56M30 72h38" opacity=".3"/>
+    <rect x="204" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M214 48h44M214 60h56M214 72h38" opacity=".3"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Pet Services Platform</h3>
+                            <p>Booking, pet profiles, grooming, vet appointments and community marketplace.</p>
+                            <div class="portfolio-tags"><span class="tag">Booking</span><span class="tag">Marketplace</span><span class="tag">Mobile App</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="mobileweb" href="portfolio/wellness-booking-app.html" aria-label="View Wellness & Booking App details" style="--card-accent: #10b981;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="118" y="16" width="64" height="112" rx="8"/><path d="M136 24h28" class="w-live"/>
+    <rect x="126" y="40" width="48" height="26" rx="3" opacity=".5"/><path d="M126 76h48M126 88h34M126 100h42" opacity=".45"/>
+    <rect x="20" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M30 48h44M30 60h56M30 72h38" opacity=".3"/>
+    <rect x="204" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M214 48h44M214 60h56M214 72h38" opacity=".3"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Wellness & Booking App</h3>
+                            <p>On-demand massage, spa and wellness booking with therapist matching and payments.</p>
+                            <div class="portfolio-tags"><span class="tag">On-Demand</span><span class="tag">Payment</span><span class="tag">Mobile App</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="operations" href="portfolio/supplier-inventory-system.html" aria-label="View Supplier & Inventory System details" style="--card-accent: #6366f1;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/>
+    <rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/>
+    <rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/>
+    <rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Supplier & Inventory System</h3>
+                            <p>Stock tracking, purchase orders, supplier portal and multi-warehouse management.</p>
+                            <div class="portfolio-tags"><span class="tag">Inventory</span><span class="tag">PO System</span><span class="tag">Barcode</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="operations" href="portfolio/visitor-management-system.html" aria-label="View Visitor Management System details" style="--card-accent: #14b8a6;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/>
+    <rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/>
+    <rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/>
+    <rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>Visitor Management System</h3>
+                            <p>Digital check-in, QR passes, host notifications and security analytics for offices.</p>
+                            <div class="portfolio-tags"><span class="tag">QR Pass</span><span class="tag">Kiosk</span><span class="tag">Analytics</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="portfolio-item" data-category="retail" href="portfolio/fnb-retail-pos.html" aria-label="View F&B & Retail POS details" style="--card-accent: #f43f5e;" data-reveal="scale">
+                        <div class="pi-visual" aria-hidden="true">
+                            <svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+                                <rect x="18" y="20" width="170" height="108" rx="7" opacity=".45"/>
+    <rect x="30" y="32" width="46" height="34" rx="4" opacity=".45"/><rect x="84" y="32" width="46" height="34" rx="4" class="w-live"/><rect x="138" y="32" width="38" height="34" rx="4" opacity=".45"/>
+    <rect x="30" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="84" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="138" y="76" width="38" height="34" rx="4" opacity=".35"/>
+    <path d="M204 20h62v108l-10-8-10 8-10-8-10 8-11-8-11 8z" opacity=".45"/>
+    <path d="M216 40h38M216 54h38M216 68h24" opacity=".4"/><path d="M216 88h38" class="w-live"/>
+                            </svg>
+                        </div>
+                        <div class="pi-body">
+                            <h3>F&B & Retail POS</h3>
+                            <p>Point of sale, kitchen display, table order, loyalty and e-menu for restaurants & retail.</p>
+                            <div class="portfolio-tags"><span class="tag">POS</span><span class="tag">E-Menu</span><span class="tag">Loyalty</span></div>
+                            <span class="pi-cta">View case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                </div>
         </div>
     </section>
 
         <!-- Partnerships & Achievements Tab -->
-        <section id="partnerships" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-partnerships.jpg');">
+        <section id="partnerships" class="tab-content" role="tabpanel" aria-labelledby="tab-partnerships" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-partnerships.jpg'); background-image: image-set(url('images/banners/banner-partnerships-1600.avif') type('image/avif'), url('images/banners/banner-partnerships-1600.webp') type('image/webp'), url('images/banners/banner-partnerships.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>Partnerships & Achievements</h1>
                     <p>Trusted by industry leaders and recognized for excellence</p>
@@ -1148,7 +1205,11 @@
                 <div class="partnerships-grid">
                     <div class="partnership-card">
                         <div class="partnership-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Alibaba_Cloud_logo.svg/512px-Alibaba_Cloud_logo.svg.png" alt="Alibaba Cloud Partnership" loading="lazy" style="background: white; padding: 10px; object-fit: contain;" onerror="this.src='images/partnerships/alibaba-cloud-logo.png';">
+                            <picture>
+                                <source type="image/avif" srcset="images/partnerships/alibaba-cloud-logo-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/partnerships/alibaba-cloud-logo-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img style="background: white; padding: 10px; object-fit: contain;" src="images/partnerships/alibaba-cloud-logo.png" alt="Alibaba Cloud Partnership" width="747" height="363" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <h3>Alibaba Cloud Partner</h3>
                         <p>Official technology partner for cloud infrastructure and global deployment solutions</p>
@@ -1156,7 +1217,11 @@
 
                     <div class="partnership-card">
                         <div class="partnership-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/MDEC_Logo.png/512px-MDEC_Logo.png" alt="MDEC Malaysia Digital" loading="lazy" style="background: white; padding: 15px; object-fit: contain;" onerror="this.src='images/partnerships/mdec-logo.png';">
+                            <picture>
+                                <source type="image/avif" srcset="images/partnerships/mdec-logo-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/partnerships/mdec-logo-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img style="background: white; padding: 15px; object-fit: contain;" src="images/partnerships/mdec-logo.png" alt="MDEC Malaysia Digital" width="577" height="211" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <h3>MDEC - Malaysia Digital Economy Corporation</h3>
                         <p>Recognized digital innovation partner contributing to Malaysia's digital transformation</p>
@@ -1164,7 +1229,11 @@
 
                     <div class="partnership-card">
                         <div class="partnership-logo">
-                            <img src="images/partnerships/lumiso-group-logo.png" alt="Lumiso Group" loading="lazy" style="background: white; padding: 15px; object-fit: contain;" onerror="this.style.display='none';">
+                            <picture>
+                                <source type="image/avif" srcset="images/partnerships/lumiso-group-logo-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <source type="image/webp" srcset="images/partnerships/lumiso-group-logo-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
+                                <img style="background: white; padding: 15px; object-fit: contain;" src="images/partnerships/lumiso-group-logo.png" alt="Lumiso Group" width="639" height="294" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <h3>Lumiso Group Sdn Bhd</h3>
                         <p>Trion Creation is part of Lumiso Group - A strategic merger of Trion Creation and Vulso, focusing on leadership clarity and revenue generation across enterprise, mid-market sales, technical consulting, and product sales.</p>
@@ -1250,125 +1319,9 @@
         </div>
     </section>
 
-        <!-- Tech Stack Tab -->
-        <section id="tech-stack" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-tech-stack.jpg');">
-        <div class="container">
-                    <h1>Technology Stack</h1>
-                    <p>Modern, scalable technologies we use to build world-class systems</p>
-                </div>
-            </div>
-            <div class="container">
-
-                <div class="tech-stack-grid">
-                    <div class="tech-category">
-                        <h3>Backend & API</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/nodejs.svg" alt="Node.js" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Node.js</span>
-                            <span class="tech-tag"><img src="images/tech-icons/laravel.svg" alt="Laravel" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Laravel</span>
-                            <span class="tech-tag"><img src="images/tech-icons/php.svg" alt="PHP" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> PHP</span>
-                            <span class="tech-tag"><img src="images/tech-icons/express.svg" alt="Express.js" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Express.js</span>
-                            <span class="tech-tag"><img src="images/tech-icons/apollo.svg" alt="REST API" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> REST API</span>
-                            <span class="tech-tag"><img src="images/tech-icons/graphql.svg" alt="GraphQL" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> GraphQL</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Frontend & Web</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/nextjs.svg" alt="Next.js" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Next.js</span>
-                            <span class="tech-tag"><img src="images/tech-icons/react.svg" alt="React" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> React</span>
-                            <span class="tech-tag"><img src="images/tech-icons/vuejs.svg" alt="Vue.js" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Vue.js</span>
-                            <span class="tech-tag"><img src="images/tech-icons/typescript.svg" alt="TypeScript" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> TypeScript</span>
-                            <span class="tech-tag"><img src="images/tech-icons/tailwindcss.svg" alt="TailwindCSS" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> TailwindCSS</span>
-                            <span class="tech-tag"><img src="images/tech-icons/html5.svg" alt="HTML5" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> HTML5/CSS3</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Mobile Development</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/flutter.svg" alt="Flutter" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Flutter</span>
-                            <span class="tech-tag"><img src="images/tech-icons/react.svg" alt="React Native" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> React Native</span>
-                            <span class="tech-tag"><img src="images/tech-icons/swift.svg" alt="Swift" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> iOS (Swift)</span>
-                            <span class="tech-tag"><img src="images/tech-icons/kotlin.svg" alt="Kotlin" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Android (Kotlin)</span>
-                            <span class="tech-tag"><img src="images/tech-icons/xamarin.svg" alt="Cross-Platform" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Cross-Platform</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Database & ORM</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/prisma.svg" alt="Prisma" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Prisma</span>
-                            <span class="tech-tag"><img src="images/tech-icons/mongodb.svg" alt="MongoDB" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> MongoDB</span>
-                            <span class="tech-tag"><img src="images/tech-icons/mysql.svg" alt="MySQL" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> MySQL</span>
-                            <span class="tech-tag"><img src="images/tech-icons/postgresql.svg" alt="PostgreSQL" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> PostgreSQL</span>
-                            <span class="tech-tag"><img src="images/tech-icons/redis.svg" alt="Redis" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Redis</span>
-                            <span class="tech-tag"><img src="images/tech-icons/firebase.svg" alt="Firebase" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Firebase</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>ERP & Business Systems</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/odoo.svg" alt="Odoo" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Odoo</span>
-                            <span class="tech-tag"><img src="images/tech-icons/sap.svg" alt="ERP" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Custom ERP</span>
-                            <span class="tech-tag"><img src="images/tech-icons/airflow.svg" alt="Automation" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Workflow Automation</span>
-                            <span class="tech-tag"><img src="images/tech-icons/powerbi.svg" alt="BI" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Business Intelligence</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Cloud & DevOps</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/aws.svg" alt="AWS" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> AWS</span>
-                            <span class="tech-tag"><img src="images/tech-icons/alibaba-cloud.svg" alt="Alibaba Cloud" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Alibaba Cloud</span>
-                            <span class="tech-tag"><img src="images/tech-icons/docker.svg" alt="Docker" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Docker</span>
-                            <span class="tech-tag"><img src="images/tech-icons/kubernetes.svg" alt="Kubernetes" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Kubernetes</span>
-                            <span class="tech-tag"><img src="images/tech-icons/github-actions.svg" alt="CI/CD" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> CI/CD</span>
-                            <span class="tech-tag"><img src="images/tech-icons/nginx.svg" alt="Nginx" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Nginx</span>
-                    </div>
-                </div>
-
-                    <div class="tech-category">
-                        <h3>AI & Machine Learning</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/tensorflow.svg" alt="TensorFlow" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> TensorFlow</span>
-                            <span class="tech-tag"><img src="images/tech-icons/pytorch.svg" alt="PyTorch" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> PyTorch</span>
-                            <span class="tech-tag"><img src="images/tech-icons/openai.svg" alt="OpenAI" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> OpenAI API</span>
-                            <span class="tech-tag"><img src="images/tech-icons/dialogflow.svg" alt="Chatbot" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Chatbot Development</span>
-                            <span class="tech-tag"><img src="images/tech-icons/spacy.svg" alt="NLP" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Natural Language Processing</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Blockchain & Web3</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/ethereum.svg" alt="Ethereum" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Ethereum</span>
-                            <span class="tech-tag"><img src="images/tech-icons/solidity.svg" alt="Solidity" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Solidity</span>
-                            <span class="tech-tag"><img src="images/tech-icons/web3js.svg" alt="Web3.js" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Web3.js</span>
-                            <span class="tech-tag"><img src="images/tech-icons/hardhat.svg" alt="Smart Contracts" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Smart Contracts</span>
-                            <span class="tech-tag"><img src="images/tech-icons/opensea.svg" alt="NFT" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> NFT Development</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>Payment & Integration</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag"><img src="images/tech-icons/stripe.svg" alt="Stripe" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Stripe</span>
-                            <span class="tech-tag"><img src="images/tech-icons/paypal.svg" alt="PayPal" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> PayPal</span>
-                            <span class="tech-tag"><img src="images/tech-icons/square.svg" alt="Payment" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> iPay88</span>
-                            <span class="tech-tag"><img src="images/tech-icons/rapidapi.svg" alt="API" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Payment Gateway APIs</span>
-                            <span class="tech-tag"><img src="images/tech-icons/zapier.svg" alt="Integration" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> Third-Party Integrations</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ Section -->
-        <section id="faq" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg');">
+        <section id="faq" class="tab-content" role="tabpanel" aria-labelledby="tab-faq" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg'); background-image: image-set(url('images/banners/banner-contact-1600.avif') type('image/avif'), url('images/banners/banner-contact-1600.webp') type('image/webp'), url('images/banners/banner-contact.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>Frequently Asked Questions</h1>
                     <p>Everything you need to know before starting your project with us</p>
@@ -1408,8 +1361,8 @@
         </section>
 
         <!-- Contact Tab -->
-        <section id="contact" class="tab-content">
-            <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg');">
+        <section id="contact" class="tab-content" role="tabpanel" aria-labelledby="tab-contact" hidden>
+            <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg'); background-image: image-set(url('images/banners/banner-contact-1600.avif') type('image/avif'), url('images/banners/banner-contact-1600.webp') type('image/webp'), url('images/banners/banner-contact.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h1>Get In Touch</h1>
                     <p>Ready to transform your business with cutting-edge technology?</p>
@@ -1555,7 +1508,7 @@
                     <ul>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="projects/cadence.html">Cadence App</a></li>
+                        <li><a href="products.html">Products</a></li>
                         <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>

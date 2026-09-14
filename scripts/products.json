@@ -1,0 +1,16 @@
+[
+    {
+        "slug": "cadence",
+        "name": "Cadence",
+        "tagline": "The habit tracker that forgives you.",
+        "description": "A habit tracker built on weekly goals instead of daily streaks. Missing a day doesn't reset your progress. Free tier keeps 10 habits with the full app working; Cadence Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable.",
+        "category": "Health & Productivity",
+        "platforms": ["Android", "iOS"],
+        "status": "live",
+        "url": "projects/cadence.html",
+        "icon": "images/cadence-icon.png",
+        "storeUrl": "https://play.google.com/store/apps/details?id=com.trioncreation.cadence",
+        "gradient": "linear-gradient(165deg, #1F4136 0%, #0E241E 100%)",
+        "tags": ["Weekly goals, not streaks", "Pay once", "Works offline"]
+    }
+]

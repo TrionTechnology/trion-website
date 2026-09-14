@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node scripts/build-site.js",
     "refresh": "node scripts/build-site.js",
-    "indexnow": "node scripts/ping-indexnow.js"
+    "indexnow": "node scripts/ping-indexnow.js",
+    "audit": "node scripts/audit-links.js"
   },
   "engines": {
     "node": "22.x"

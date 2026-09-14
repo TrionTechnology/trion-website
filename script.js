@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeader();
     initPortfolioFilter();
     initContactForm();
-    initScrollAnimations();
     initMobileMenu();
     initFooterYear();
 });
@@ -33,11 +32,29 @@ function initTabNavigation() {
     function switchTab(tabId) {
         const targetContent = document.getElementById(tabId);
         if (!targetContent) return false;
+        // Let the browser crossfade the panel swap where it can. It snapshots
+        // before and after, so the whole mutation must happen in the callback.
+        if (document.startViewTransition &&
+            !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.startViewTransition(() => applyTab(tabId, targetContent));
+            return true;
+        }
+        return applyTab(tabId, targetContent);
+    }
+
+    function applyTab(tabId, targetContent) {
         navLinks.forEach((l) => l.classList.toggle('active',
             (l.getAttribute('href') || '').replace(/^#/, '') === tabId));
         tabContents.forEach((c) => c.classList.remove('active'));
         targetContent.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        navLinks.forEach((l) => l.setAttribute('aria-selected',
+            l.classList.contains('active') ? 'true' : 'false'));
+        tabContents.forEach((c) => c.toggleAttribute('hidden', !c.classList.contains('active')));
+        // Jump, don't animate: switching tab replaces the whole view, so
+        // easing it just delays the content. Lenis (when active) needs to
+        // be told directly or it keeps its own target position.
+        if (window.TrionLenis) window.TrionLenis.scrollTo(0, { immediate: true });
+        else window.scrollTo(0, 0);
         return true;
     }
 
@@ -72,24 +89,21 @@ function initTabNavigation() {
 function initHeader() {
     const header = document.querySelector('.header');
     
-    // Add scroll effect to header
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Handle navigation link clicks
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Update active state
-            navLinks.forEach(navLink => navLink.classList.remove('active'));
-            this.classList.add('active');
+    if (!header) return;
+    // rAF-throttled: the raw listener fired on every scroll event and
+    // wrote a class each time. switchTab already owns the .nav-link
+    // active state, so the duplicate click handler here is gone.
+    let ticking = false;
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+            ticking = false;
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
-    });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 }
 
 // Portfolio filtering
@@ -241,27 +255,6 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Scroll animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in-up');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.feature-card, .service-card, .portfolio-item, .team-member, .achievement-card, .contact-method');
-    animateElements.forEach(el => observer.observe(el));
-}
-
 // Mobile menu functionality
 function initMobileMenu() {
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -312,25 +305,6 @@ function initMobileMenu() {
     }
 }
 
-// Image lazy loading enhancement
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-    }
-}
-
 // Utility functions
 function debounce(func, wait) {
     let timeout;
@@ -344,133 +318,12 @@ function debounce(func, wait) {
     };
 }
 
-// Performance optimization
-const debouncedScrollHandler = debounce(function() {
-    // Handle scroll events here if needed
-}, 10);
 
-window.addEventListener('scroll', debouncedScrollHandler);
 
-// Initialize lazy loading
-initLazyLoading();
+/* The runtime-injected stylesheet was removed. It duplicated and
+   overrode rules in styles.css, and its img[loading="lazy"]{opacity:0}
+   rule made lazy images invisible whenever its observer didn't run. */
 
-// Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-    
-    .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-    }
-    
-    .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-        padding: 0;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        transition: background-color 0.2s ease;
-    }
-    
-    .notification-close:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    /* Loading states */
-    .loading {
-        opacity: 0.6;
-        pointer-events: none;
-    }
-    
-    .loading::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        margin: -10px 0 0 -10px;
-        border: 2px solid #f3f3f3;
-        border-top: 2px solid #007AFF;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    /* Image loading animation */
-    img[loading="lazy"] {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    img[loading="lazy"].loaded {
-        opacity: 1;
-    }
-    
-    /* Smooth tab transitions */
-    .tab-content {
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    
-    /* Enhanced button hover effects */
-    .btn {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
-    }
-    
-    .btn:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-`;
-document.head.appendChild(style);
 
 // Error handling
 window.addEventListener('error', function(e) {
@@ -480,7 +333,21 @@ window.addEventListener('error', function(e) {
 
 // Service Worker registration — auto-reload once when a new SW takes over
 // so cached old code doesn't keep running after a deploy.
-if ('serviceWorker' in navigator) {
+// Skip the service worker on localhost. Registering it during local
+// development means every edit is served from the previous build's cache,
+// which silently hides your changes. Production is unaffected.
+var SW_DISABLED = ['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) >= 0;
+
+if (SW_DISABLED && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (rs) {
+        rs.forEach(function (r) { r.unregister(); });
+    }).catch(function () {});
+    if (window.caches) {
+        caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); }).catch(function () {});
+    }
+}
+
+if (!SW_DISABLED && 'serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').catch(() => {});
     });

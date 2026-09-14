@@ -39,3 +39,7 @@ __pycache__/
 *.pyc
 *.pyo
 
+
+# macOS / iCloud filename-collision artifacts ("foo 2.js", "bar 2/")
+* 2
+* 2.*

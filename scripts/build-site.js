@@ -47,6 +47,79 @@ const escAttr = (s) => esc(s).replace(/"/g, '&quot;');
 const seg = (loc) => (META[loc].dir ? `/${META[loc].dir}` : '');           // '' | '/zh' | '/ms'
 const assetPrefix = (loc) => (META[loc].dir ? '../../' : '../');           // pages live one dir deep
 
+// ─── shared <head> fragments (kept in one place so every template agrees) ───
+const FONT_LINK =
+    `<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">`;
+
+// A = relative path from the page back to the site root ('', '../', '../../')
+const faviconLinks = (A) =>
+    `<link rel="icon" href="${A}images/icons/favicon-32.png" sizes="32x32" type="image/png">\n` +
+    `    <link rel="icon" href="${A}images/icons/favicon-16.png" sizes="16x16" type="image/png">\n` +
+    `    <link rel="apple-touch-icon" href="${A}images/icons/favicon-180.png">`;
+
+// <picture> is an inline box by default, which would insert itself between an
+// image and its styled parent (grids, fixed-height crops, baseline gaps).
+// display:contents removes that box while leaving source selection intact.
+// PICTURE_RESET removed: `picture { display: contents; }` now lives in
+// styles.css, which every generated page already loads.
+
+const SKIP_LINK = `<a class="skip-link" href="#main">Skip to content</a>`;
+
+// ─── responsive images ───
+const IMG_MANIFEST = (() => {
+    const f = path.join(__dirname, 'image-manifest.json');
+    if (!fs.existsSync(f)) {
+        console.warn('  ! scripts/image-manifest.json not found — emitting plain <img> tags');
+        return {};
+    }
+    return JSON.parse(fs.readFileSync(f, 'utf8'));
+})();
+
+// Originals whose AVIF derivative came out LARGER than the WebP — ship WebP only.
+const AVIF_SKIP = new Set(['images/hero/hero-main.jpg']);
+
+const encPath = (p) => p.split('/').map(encodeURIComponent).join('/');
+
+/**
+ * Render a <picture> with AVIF + WebP sources and the original as the <img>
+ * fallback, carrying intrinsic width/height so the box is reserved before the
+ * bytes land (no CLS).
+ *
+ * @param key    manifest key = original path relative to the site root
+ * @param A      relative path from the page back to the site root
+ * @param o      { alt, sizes, cls, style, loading, decoding, fetchpriority }
+ */
+function picture(key, A, o = {}) {
+    const m = IMG_MANIFEST[key];
+    const attrs = [
+        `alt="${escAttr(o.alt || '')}"`,
+        o.cls ? `class="${escAttr(o.cls)}"` : '',
+        o.style ? `style="${escAttr(o.style)}"` : '',
+        o.loading ? `loading="${o.loading}"` : '',
+        o.decoding ? `decoding="${o.decoding}"` : '',
+        o.fetchpriority ? `fetchpriority="${o.fetchpriority}"` : '',
+    ].filter(Boolean).join(' ');
+
+    if (!m) return `<img src="${A}${encPath(key)}" ${attrs}>`;
+
+    const srcset = (fmt) => Object.entries(m.variants[fmt] || {})
+        .sort((a, b) => Number(a[0]) - Number(b[0]))
+        .map(([w, p]) => `${A}${encPath(p)} ${w}w`)
+        .join(', ');
+    const sizes = o.sizes ? ` sizes="${escAttr(o.sizes)}"` : '';
+
+    const sources = [];
+    if (!AVIF_SKIP.has(key) && m.variants.avif) sources.push(`<source type="image/avif" srcset="${srcset('avif')}"${sizes}>`);
+    if (m.variants.webp) sources.push(`<source type="image/webp" srcset="${srcset('webp')}"${sizes}>`);
+
+    return `<picture>${sources.join('')}<img src="${A}${encPath(key)}" width="${m.w}" height="${m.h}" ${attrs}></picture>`;
+}
+
+const LOGO = 'logo master - Trion-07 3.png';
+// The logo renders at 51px tall in the header, 55px in the footer — a 400w
+// derivative covers every realistic DPR, so one candidate and a flat size.
+const logoPicture = (A, o = {}) => picture(LOGO, A, { alt: 'Trion Creation', sizes: '160px', ...o });
+
 // Cross-language switcher: 🌐 globe dropdown (root-absolute links so depth never matters).
 const LANG_FULL = { en: 'English', zh: '中文', ms: 'Bahasa Malaysia' };
 function langSwitcher(currentLoc, pathFor) {
@@ -180,18 +253,19 @@ ${JSON.stringify(faqSchema, null, 4)}
     <link rel="stylesheet" href="${A}styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="${A}trion-favicon.png">
+    ${FONT_LINK}
+    ${faviconLinks(A)}
     <link rel="manifest" href="${A}manifest.json">
-    <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#07051A">
 </head>
 <body>
+    ${SKIP_LINK}
     <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="${N}index.html#home" class="logo">
-                    <img src="${A}logo master - Trion-07 3.png" alt="Trion Creation">
+                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">
@@ -200,7 +274,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                         <li><a href="${N}index.html#services" class="nav-link active">${t.nav.services}</a></li>
                         <li><a href="${N}index.html#portfolio" class="nav-link">${t.nav.portfolio}</a></li>
                         <li><a href="${N}index.html#partnerships" class="nav-link">${t.nav.partnerships}</a></li>
-                        <li><a href="${N}index.html#tech-stack" class="nav-link">${t.nav.techStack}</a></li>
+                        <li><a href="${N}products.html" class="nav-link">${t.nav.products}</a></li>
                         <li><a href="${N}index.html#faq" class="nav-link">${t.nav.faq}</a></li>
                         <li><a href="${N}index.html#contact" class="nav-link">${t.nav.contact}</a></li>
                     </ul>
@@ -218,7 +292,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main">
         <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(123,91,255,0.4), rgba(0,240,255,0.25)), url('${A}images/services/${escAttr(s.image)}'); background-size: cover; background-position: center;">
             <div class="container">
                 <div style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
@@ -273,7 +347,7 @@ ${features}
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo"><img src="${A}logo master - Trion-07 3.png" alt="Trion Creation"></div>
+                    <div class="logo">${logoPicture(A, { loading: 'lazy', decoding: 'async' })}</div>
                     <p>${t.footer.tagline}</p>
                 </div>
                 <div class="footer-links">
@@ -424,10 +498,10 @@ ${JSON.stringify(faqSchema, null, 4)}
     <link rel="stylesheet" href="${A}styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="${A}trion-favicon.png">
+    ${FONT_LINK}
+    ${faviconLinks(A)}
     <link rel="manifest" href="${A}manifest.json">
-    <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#07051A">
     <style>
         /* Page-specific accent color override */
         .pf-hero { --pf-accent: ${accent}; }
@@ -435,13 +509,14 @@ ${JSON.stringify(faqSchema, null, 4)}
     </style>
 </head>
 <body>
+    ${SKIP_LINK}
     <canvas id="trion-canvas" aria-hidden="true"></canvas>
 
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="${N}index.html#home" class="logo">
-                    <img src="${A}logo master - Trion-07 3.png" alt="Trion Creation">
+                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">
@@ -450,7 +525,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                         <li><a href="${N}index.html#services" class="nav-link">${t.nav.services}</a></li>
                         <li><a href="${N}index.html#portfolio" class="nav-link active">${t.nav.portfolio}</a></li>
                         <li><a href="${N}index.html#partnerships" class="nav-link">${t.nav.partnerships}</a></li>
-                        <li><a href="${N}index.html#tech-stack" class="nav-link">${t.nav.techStack}</a></li>
+                        <li><a href="${N}products.html" class="nav-link">${t.nav.products}</a></li>
                         <li><a href="${N}index.html#faq" class="nav-link">${t.nav.faq}</a></li>
                         <li><a href="${N}index.html#contact" class="nav-link">${t.nav.contact}</a></li>
                     </ul>
@@ -468,7 +543,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main">
         <!-- ─── PORTFOLIO HERO with tech grid floor + scanline ─── -->
         <section class="pf-hero" style="--pf-gradient: ${p.gradient};">
             <div class="pf-grid-floor" aria-hidden="true"></div>
@@ -572,7 +647,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo"><img src="${A}logo master - Trion-07 3.png" alt="Trion Creation"></div>
+                    <div class="logo">${logoPicture(A, { loading: 'lazy', decoding: 'async' })}</div>
                     <p>${t.footer.tagline}</p>
                 </div>
                 <div class="footer-links">
@@ -583,7 +658,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                             <li><a href="${N}projects/yippi.html">${t.footer.yippi}</a></li>
                             <li><a href="${N}projects/colorverse.html">Colorverse</a></li>
                             <li><a href="${N}projects/dddrive.html">DDDrive</a></li>
-                            <li><a href="${N}projects/cadence.html">Cadence App</a></li>
+                            <li><a href="${N}products.html">${t.nav.products}</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -605,6 +680,186 @@ ${JSON.stringify(faqSchema, null, 4)}
     <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20a%20${encodeURIComponent(p.title)}" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
+
+    <script src="${A}script.js"></script>
+    <script src="${A}futuristic.js"></script>
+    <script src="${A}scroll.js"></script>
+</body>
+</html>
+`;
+}
+
+// ────────────────────────────────────────────────────────────
+//  PRODUCTS HUB — apps Trion builds, owns and publishes itself,
+//  as opposed to the client case studies above. Lives at the SAME
+//  directory depth as index.html for its locale (site root, /zh,
+//  or /ms) — NOT one level deep like services/portfolio pages —
+//  so same-locale links need no "../" prefix, only shared assets
+//  (images/, styles.css, logo) reach one level up on zh/ms.
+// ────────────────────────────────────────────────────────────
+function renderProductsHub(products, locale) {
+    const t = UI[locale];
+    const A = META[locale].dir ? '../' : '';
+    const urlFor = (loc) => `${ORIGIN}${seg(loc)}/products.html`;
+    const url = urlFor(locale);
+
+    const cards = products.map((p) => {
+        const productUrl = `${ORIGIN}/${p.url}`;
+        const statusTag = p.status === 'live' ? t.prod.live : t.prod.comingSoon;
+        const tags = [statusTag, ...(p.tags || [])].map((tg) => `<span class="tag">${esc(tg)}</span>`).join('');
+        return `
+                    <a class="portfolio-item" href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}">
+                        <div class="portfolio-image solution-card" style="background: ${p.gradient};">
+                            <div class="solution-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '64px', style: 'width:64px;height:64px;border-radius:16px;', loading: 'lazy', decoding: 'async' })}</div>
+                            <div class="portfolio-overlay">
+                                <h3>${esc(p.name)}</h3>
+                                <p>${esc(p.tagline)}</p>
+                                <div class="portfolio-tags">${tags}</div>
+                            </div>
+                        </div>
+                    </a>`;
+    }).join('');
+
+    const collectionSchema = {
+        '@context': 'https://schema.org', '@type': 'CollectionPage',
+        name: t.prod.title, description: t.prod.subtitle, url, inLanguage: META[locale].hreflang,
+        isPartOf: { '@type': 'WebSite', url: ORIGIN, name: 'Trion Creation Sdn Bhd' },
+    };
+    const itemListSchema = {
+        '@context': 'https://schema.org', '@type': 'ItemList',
+        itemListElement: products.map((p, i) => ({
+            '@type': 'ListItem', position: i + 1,
+            item: {
+                '@type': 'SoftwareApplication', name: p.name, url: `${ORIGIN}/${p.url}`,
+                description: p.description, applicationCategory: p.category,
+                operatingSystem: p.platforms.join(', '), image: `${ORIGIN}/${p.icon}`,
+            },
+        })),
+    };
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t.prod.home, item: `${ORIGIN}${seg(locale)}/` },
+            { '@type': 'ListItem', position: 2, name: t.prod.title, item: url },
+        ],
+    };
+
+    const metaTitle = `${t.prod.title} | Trion Creation`;
+
+    return `<!DOCTYPE html>
+<html lang="${META[locale].htmlLang}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${escAttr(metaTitle)}</title>
+    <meta name="description" content="${escAttr(t.prod.subtitle)}">
+    <meta name="author" content="Trion Creation Sdn Bhd">
+    <link rel="canonical" href="${url}">
+${hreflangBlock(urlFor)}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${url}">
+    <meta property="og:title" content="${escAttr(metaTitle)}">
+    <meta property="og:description" content="${escAttr(t.prod.subtitle)}">
+    <meta property="og:image" content="${ORIGIN}/images/banners/banner-products.jpg">
+    <meta property="og:locale" content="${META[locale].htmlLang.replace('-', '_')}">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+${JSON.stringify(collectionSchema, null, 4)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(itemListSchema, null, 4)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(breadcrumbSchema, null, 4)}
+    </script>
+    <link rel="stylesheet" href="${A}styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    ${FONT_LINK}
+    ${faviconLinks(A)}
+    <link rel="manifest" href="${A}manifest.json">
+        <meta name="theme-color" content="#07051A">
+</head>
+<body>
+    ${SKIP_LINK}
+    <canvas id="trion-canvas" aria-hidden="true"></canvas>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html#home" class="logo">
+                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
+                </a>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html#home" class="nav-link">${t.nav.home}</a></li>
+                        <li><a href="index.html#about" class="nav-link">${t.nav.about}</a></li>
+                        <li><a href="index.html#services" class="nav-link">${t.nav.services}</a></li>
+                        <li><a href="index.html#portfolio" class="nav-link">${t.nav.portfolio}</a></li>
+                        <li><a href="index.html#partnerships" class="nav-link">${t.nav.partnerships}</a></li>
+                        <li><a href="products.html" class="nav-link active">${t.nav.products}</a></li>
+                        <li><a href="index.html#faq" class="nav-link">${t.nav.faq}</a></li>
+                        <li><a href="index.html#contact" class="nav-link">${t.nav.contact}</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    ${langSwitcher(locale, urlFor)}
+                    <a href="index.html#contact" class="btn btn-primary">${t.getStarted}</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="main">
+        <div class="page-header with-banner" style="background-image: url('${A}images/banners/banner-products.jpg');">
+            <div class="container">
+                <h1>${esc(t.prod.title)}</h1>
+                <p>${esc(t.prod.subtitle)}</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="portfolio-grid" style="margin: var(--space-10) 0;">${cards}
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">${logoPicture(A, { loading: 'lazy', decoding: 'async' })}</div>
+                    <p>${t.footer.tagline}</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>${t.footer.portfolioH}</h4>
+                        <ul>
+                            <li><a href="index.html#portfolio">${t.footer.allSolutions}</a></li>
+                            <li><a href="projects/yippi.html">${t.footer.yippi}</a></li>
+                            <li><a href="projects/colorverse.html">Colorverse</a></li>
+                            <li><a href="projects/dddrive.html">DDDrive</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>${t.footer.companyH}</h4>
+                        <ul>
+                            <li><a href="index.html#about">${t.footer.about}</a></li>
+                            <li><a href="index.html#services">${t.footer.servicesH}</a></li>
+                            <li><a href="index.html#contact">${t.footer.contact}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">${new Date().getFullYear()}</span> Trion Creation Sdn Bhd. ${t.footer.rights}</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="${A}script.js"></script>
     <script src="${A}futuristic.js"></script>
@@ -642,7 +897,11 @@ for (const locale of LOCALES) {
         fs.writeFileSync(path.join(pfDir, `${p.slug}.html`), renderPortfolio(p, locale), 'utf8');
         totalPf += 1;
     }
-    console.log(`  ✓ [${locale}] ${services.length} services, ${portfolio.length} portfolio pages`);
+
+    const products = loadData('products', locale);
+    fs.writeFileSync(path.join(baseDir, 'products.html'), renderProductsHub(products, locale), 'utf8');
+
+    console.log(`  ✓ [${locale}] ${services.length} services, ${portfolio.length} portfolio, ${products.length} products`);
 }
 console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across ${LOCALES.length} locales.`);
 
@@ -657,6 +916,7 @@ console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across $
     // Each "group" is one logical page that exists in all 3 languages.
     const groups = [];
     groups.push({ pathFor: (loc) => `${seg(loc)}/`, changefreq: 'weekly', priority: '1.0' });
+    groups.push({ pathFor: (loc) => `${seg(loc)}/products.html`, changefreq: 'weekly', priority: '0.9' });
     for (const slug of slugs.services) groups.push({ pathFor: (loc) => `${seg(loc)}/services/${slug}.html`, changefreq: 'monthly', priority: '0.8' });
     for (const slug of slugs.portfolio) groups.push({ pathFor: (loc) => `${seg(loc)}/portfolio/${slug}.html`, changefreq: 'monthly', priority: '0.7' });
     // A project page only gets a locale's entry (and hreflang alternate) if that
@@ -674,7 +934,7 @@ console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across $
     // English-only homepage section anchors (deep-link hints for search).
     const anchors = [
         ['#about', '0.8'], ['#services', '0.9'], ['#portfolio', '0.8'],
-        ['#partnerships', '0.7'], ['#tech-stack', '0.7'], ['#faq', '0.7'], ['#contact', '0.8'],
+        ['#partnerships', '0.7'], ['#faq', '0.7'], ['#contact', '0.8'],
     ];
 
     const urlBlock = (group) => {
