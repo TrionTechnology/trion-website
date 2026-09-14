@@ -15,7 +15,13 @@
     <meta property="og:description" content="A habit tracker that doesn't punish you for being human. Weekly goals, a mosaic of every day you showed up, and a streak that forgives a miss.">
     <meta property="og:image" content="https://trioncreation.com/images/cadence-feature.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="../images/cadence-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../images/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../images/icons/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="../images/icons/favicon-180.png">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -93,254 +99,415 @@
       wearing Cadence's colours. Same company, different room.
     -->
     <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            margin: 0;
-            background: #FAF7F1;                       /* the app's own paper */
-            color: #221E1A;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
-        }
-        img { max-width: 100%; display: block; }
-        a { color: #2F6B54; }
-        .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+/* ════════════════════ CADENCE PRODUCT PAGE ════════════════════
+   This page used to be deliberately self-contained: its own cream
+   palette, its own system-font stack, no site nav, no footer. It read
+   as a different company's site, and its split sections collapsed into
+   hundreds of pixels of dead space.
 
-        /* A quiet bar, not a nav bar. One link home; nothing competing for the eye. */
-        .top { padding: 22px 0; }
-        .top .wrap { display: flex; align-items: center; justify-content: space-between; }
-        .top a { color: #675D53; text-decoration: none; font-size: .92rem; font-weight: 600; }
-        .top a:hover { color: #221E1A; }
-        .top .by { color: #8F857A; font-size: .92rem; }
+   It now runs on the site's shell and tokens, and keeps a product
+   identity through one variable — Cadence's green as --card-accent —
+   rather than a parallel stylesheet.
+   ═══════════════════════════════════════════════════════════════ */
+:root { --cad: #57C08F; --cad-deep: #2F6B54; }
 
-        .hero {
-            background: linear-gradient(165deg, #1F4136 0%, #0E241E 100%);
-            color: #F4EEE4;
-            border-radius: 28px;
-            padding: 84px 32px 78px;
-            text-align: center;
-            margin-top: 8px;
-        }
-picture { display: contents; }
-        .hero img.icon {
-            width: 96px; height: 96px; border-radius: 22px;
-            margin: 0 auto 30px;
-            box-shadow: 0 16px 44px rgba(0,0,0,.4);
-        }
-        .hero h1 {
-            font-size: clamp(2rem, 5.4vw, 3.3rem);
-            line-height: 1.12;
-            letter-spacing: -.02em;
-            margin: 0 0 18px;
-            font-weight: 700;
-        }
-        .beat { color: #57C08F; }
-        .hero p {
-            font-size: clamp(1.02rem, 2vw, 1.25rem);
-            color: #9FB5AB;
-            max-width: 580px;
-            margin: 0 auto 34px;
-        }
-        .stores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .store {
-            padding: 12px 22px; border-radius: 999px;
-            border: 1px solid rgba(244,238,228,.26);
-            color: #9FB5AB; font-size: .92rem; font-weight: 600;
-            text-decoration: none;
-        }
-        a.store { color: #F4EEE4; border-color: rgba(87,192,143,.5); background: rgba(87,192,143,.14); }
-        a.store:hover { background: rgba(87,192,143,.24); }
+.cad-page { --card-accent: var(--cad); }
 
-        .shots { display: flex; gap: 20px; justify-content: center; overflow-x: auto; padding: 8px 4px 4px; }
-        .shots img { width: 220px; flex: 0 0 auto; border-radius: 18px; box-shadow: 0 20px 50px rgba(34,30,26,.16); }
+/* Hero */
+.cad-hero {
+    position: relative;
+    padding-block: clamp(3rem, 7vw, var(--space-20)) clamp(2.5rem, 5vw, var(--space-16));
+    text-align: center;
+    overflow: hidden;
+}
+.cad-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 80% at 50% 0%,
+            color-mix(in oklab, var(--cad) 16%, transparent), transparent 70%);
+    pointer-events: none;
+}
+.cad-hero > * { position: relative; z-index: 1; }
+.cad-icon {
+    width: 88px; height: 88px;
+    margin: 0 auto var(--space-6);
+    border-radius: 22px;
+    box-shadow: 0 18px 50px -12px color-mix(in oklab, var(--cad) 45%, transparent);
+}
+.cad-hero h1 {
+    margin: 0 auto var(--space-5);
+    max-width: 16ch;
+    font-size: clamp(2.3rem, 1.7rem + 3vw, 4rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.cad-hero h1 .beat { color: var(--cad); }
+.cad-lede {
+    margin: 0 auto var(--space-8);
+    max-width: 56ch;
+    font-size: var(--step-1);
+    line-height: 1.6;
+    color: var(--text-200);
+}
 
-        .faq { max-width: 720px; margin: 0 auto; }
-        .faq details { border-bottom: 1px solid #E8E0D2; padding: 20px 0; }
-        .faq summary { cursor: pointer; font-weight: 600; color: #16302A; font-size: 1.03rem; list-style: none; }
-        .faq summary::-webkit-details-marker { display: none; }
-        .faq summary::after { content: '+'; float: right; color: #57C08F; font-weight: 700; }
-        .faq details[open] summary::after { content: '−'; }
-        .faq p { margin: 12px 0 0; color: #675D53; }
+/* Store buttons */
+.stores { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; }
+.store {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-full);
+    font-family: var(--font-heading);
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-200);
+    transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+}
+a.store {
+    background: var(--cad);
+    border-color: var(--cad);
+    color: #08120E;
+}
+a.store:hover { background: #6BD0A0; border-color: #6BD0A0; }
+span.store { opacity: .75; }        /* the not-yet-shipped one */
 
-        section { padding: 78px 0; }
-        h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.015em; margin: 0 0 16px; color: #16302A; }
-        .muted { color: #675D53; }
+/* Sections */
+.cad-section { padding-block: clamp(3rem, 6vw, var(--space-24)); }
+.cad-section--panel {
+    background: var(--surface-1);
+    border-block: 1px solid var(--hairline);
+}
+.cad-head { max-width: 640px; margin: 0 auto clamp(2rem, 4vw, var(--space-12)); text-align: center; }
+.cad-head h2 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--step-4);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.cad-head p { margin: 0; color: var(--text-300); font-size: var(--step-1); }
 
-        .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-        .split img { border-radius: 20px; box-shadow: 0 20px 50px rgba(34,30,26,.16); max-width: 340px; }
+/* Split — the old one let a short text column sit beside a very tall
+   image, which produced a huge empty band. Centre them and cap the art. */
+.cad-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, var(--space-16));
+    align-items: center;
+}
+.cad-split h2 {
+    margin: 0 0 var(--space-5);
+    font-size: var(--step-3);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+}
+.cad-split p { margin: 0 0 var(--space-4); max-width: 54ch; color: var(--text-300); line-height: 1.7; }
+.cad-split strong { color: var(--signal); font-weight: 600; }
+.cad-art {
+    margin: 0 auto;
+    max-width: 320px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-lg);
+}
+.cad-art img { width: 100%; height: auto; }
 
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-top: 44px; }
-        .card { background: #fff; border: 1px solid #E8E0D2; border-radius: 16px; padding: 26px; }
-        .card h3 { margin: 0 0 8px; font-size: 1.06rem; color: #16302A; }
-        .card p { margin: 0; color: #675D53; font-size: .97rem; }
+/* Feature cards — the site's card, not a second card system. */
+.cad-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+    gap: clamp(0.9rem, 1.6vw, var(--space-6));
+}
+@media (min-width: 1080px) { .cad-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.cad-card {
+    display: flex; flex-direction: column; gap: var(--space-3);
+    padding: clamp(1.4rem, 2.2vw, var(--space-8));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--surface-1);
+    transition: border-color var(--transition-normal), background var(--transition-normal);
+}
+.cad-card:hover { border-color: color-mix(in oklab, var(--cad) 55%, transparent); background: var(--surface-2); }
+.cad-card h3 { margin: 0; font-size: var(--step-1); font-weight: 600; letter-spacing: -0.02em; color: var(--signal); }
+.cad-card p { margin: 0; font-size: var(--step-0); line-height: 1.62; color: var(--text-300); }
+.cad-num {
+    font-family: var(--font-mono); font-size: var(--step--1); font-weight: 600;
+    letter-spacing: .08em; color: var(--cad);
+}
 
-        .quote {
-            text-align: center;
-            font-size: clamp(1.35rem, 3.2vw, 1.9rem);
-            color: #16302A;
-            letter-spacing: -.015em;
-            margin: 0;
-        }
+/* Pull quote */
+.cad-quote {
+    max-width: 24ch;
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(1.8rem, 1.3rem + 2.4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.cad-quote span { color: var(--cad); }
 
-        footer { border-top: 1px solid #E8E0D2; padding: 40px 0 56px; margin-top: 40px; }
-        footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
-        footer a { color: #675D53; text-decoration: none; font-weight: 600; font-size: .92rem; }
-        footer a:hover { color: #221E1A; }
-        footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
-        footer .copy { color: #8F857A; font-size: .88rem; }
+/* Screenshots — were 1320x2868 PNGs rendered huge; now a capped rail. */
+.cad-shots {
+    display: flex; flex-wrap: wrap; gap: clamp(1rem, 3vw, var(--space-10));
+    justify-content: center; align-items: flex-start;
+}
+.cad-shots picture {
+    display: block; flex: 0 1 240px; max-width: 240px;
+    border-radius: 26px; overflow: hidden;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-lg);
+}
+.cad-shots img { width: 100%; height: auto; }
 
-        @media (max-width: 820px) {
-            .split { grid-template-columns: 1fr; gap: 36px; text-align: center; }
-            .split img { margin: 0 auto; }
-            .hero { border-radius: 20px; padding: 64px 20px 58px; }
-        }
-    </style>
+/* FAQ */
+.cad-faq { max-width: 760px; margin: 0 auto; }
+.cad-faq details {
+    border-bottom: 1px solid var(--hairline);
+    padding: var(--space-5) 0;
+}
+.cad-faq summary {
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+    font-size: var(--step-1); font-weight: 600; letter-spacing: -0.015em; color: var(--signal);
+}
+.cad-faq summary::-webkit-details-marker { display: none; }
+.cad-faq summary::after {
+    content: '+';
+    flex: none;
+    font-family: var(--font-mono); font-size: 1.3rem; font-weight: 400; color: var(--cad);
+    transition: transform var(--transition-normal);
+}
+.cad-faq details[open] summary::after { transform: rotate(45deg); }
+.cad-faq details p { margin: var(--space-4) 0 0; max-width: 68ch; color: var(--text-300); line-height: 1.7; }
+
+/* Closing CTA */
+.cad-cta {
+    display: flex; flex-direction: column; align-items: center; gap: var(--space-5);
+    padding: clamp(2rem, 5vw, var(--space-16));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(ellipse 70% 130% at 50% 0%, color-mix(in oklab, var(--cad) 18%, transparent), transparent 70%),
+        var(--surface-1);
+    text-align: center;
+}
+.cad-cta h2 { margin: 0; font-size: var(--step-4); font-weight: 600; letter-spacing: -0.03em; color: var(--signal); text-wrap: balance; }
+.cad-cta p { margin: 0; max-width: 52ch; color: var(--text-300); }
+
+@media (max-width: 900px) {
+    .cad-split { grid-template-columns: 1fr; }
+    .cad-art { max-width: 280px; }
+}
+</style>
 </head>
-<body>
-    <div class="top">
-        <div class="wrap">
-            <span class="by">A product by <a href="../index.html">Trion Creation</a></span>
-            <a href="../products.html">← All products</a>
-        </div>
-    </div>
-
-    <div class="wrap">
-        <div class="hero">
-            <picture><source type="image/avif" srcset="../images/cadence-icon-440.avif 440w, ../images/cadence-icon-880.avif 880w" sizes="96px"><source type="image/webp" srcset="../images/cadence-icon-440.webp 440w, ../images/cadence-icon-880.webp 880w" sizes="96px"><img src="../images/cadence-icon.png" width="1024" height="1024" alt="Cadence app icon" class="icon"></picture>
-            <h1>Miss a day.<br>Your streak survives<span class="beat">.</span></h1>
-            <p>
-                Every other habit tracker resets you to zero the moment life gets in the way.
-                Cadence counts your week, not your chain — so one missed Tuesday is just a Tuesday.
-            </p>
-            <div class="stores">
-                <span class="store">Coming soon — App Store</span>
-                <a class="store" href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+<body class="cad-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="../index.html#about" class="nav-link">About</a></li>
+                        <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                        <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                        <li><a href="../index.html#partnerships" class="nav-link">Partnerships</a></li>
+                        <li><a href="../products.html" class="nav-link active">Products</a></li>
+                        <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                        <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="lang-dropdown" data-lang-dropdown><button type="button" class="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language"><svg class="lang-globe" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg><span class="lang-current">EN</span><svg class="lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><ul class="lang-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="https://trioncreation.com/projects/yippi.html" hreflang="en" lang="en" class="lang-option active" aria-current="true">English</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/zh/projects/yippi.html" hreflang="zh-Hans" lang="zh-Hans" class="lang-option">中文</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/ms/projects/yippi.html" hreflang="ms" lang="ms" class="lang-option">Bahasa Malaysia</a></li></ul></div>
+                    <a href="../index.html#contact" class="btn btn-primary" data-magnetic="0.2">Get Started</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-    </div>
+    </header>
 
-    <section>
-        <div class="wrap split">
-            <div>
-                <h2>The streak is the problem</h2>
-                <p class="muted">
-                    People don't quit habit apps because they stop caring. They quit because they
-                    miss one day, watch a number they were proud of drop to zero, and decide the
-                    whole thing was pointless.
-                </p>
-                <p class="muted">
-                    Cadence sets a <strong>weekly</strong> goal. Four runs a week, not seven. Miss a
-                    Tuesday and you simply go on Wednesday — the goal is still met, the run
-                    continues, and nothing is taken away from you.
-                </p>
-            </div>
-            <picture><source type="image/avif" srcset="../images/cadence-today-440.avif 440w" sizes="(max-width: 820px) min(90vw, 340px), 340px"><source type="image/webp" srcset="../images/cadence-today-440.webp 440w" sizes="(max-width: 820px) min(90vw, 340px), 340px"><img src="../images/cadence-today.png" width="723" height="975" alt="Cadence — today's habits, with a weekly goal instead of a daily streak"></picture>
-        </div>
-    </section>
+    <main class="main-content" id="main">
 
-    <section style="background:#fff; border-top:1px solid #E8E0D2; border-bottom:1px solid #E8E0D2;">
-        <div class="wrap">
-            <div style="text-align:center; max-width:640px; margin:0 auto;">
-                <h2>Built around one idea</h2>
-                <p class="muted">An empty square is not a failure. It's just a day you didn't go.</p>
+        <section class="cad-hero">
+            <div class="container">
+                <picture><source type="image/avif" srcset="../images/cadence-icon-440.avif 440w, ../images/cadence-icon-880.avif 880w" sizes="96px"><source type="image/webp" srcset="../images/cadence-icon-440.webp 440w, ../images/cadence-icon-880.webp 880w" sizes="96px"><img src="../images/cadence-icon.png" width="1024" height="1024" alt="Cadence app icon" class="cad-icon"></picture>
+                <h1 data-split>Miss a day.<br>Your streak survives<span class="beat">.</span></h1>
+                <p class="cad-lede">Every other habit tracker resets you to zero the moment life gets in the way. Cadence counts your week, not your chain — so one missed Tuesday is just a Tuesday.</p>
+                <div class="stores"><span class="store">Coming soon — App Store</span>
+                <a class="store" href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" target="_blank" rel="noopener noreferrer">Get it on Google Play</a></div>
             </div>
-            <div class="cards">
-                <div class="card">
-                    <h3>The mosaic</h3>
-                    <p>Every day you showed up, as one growing picture. The gaps stay in — and it
-                       still looks like something you'd want to keep.</p>
-                </div>
-                <div class="card">
-                    <h3>Forgiving streaks</h3>
-                    <p>A run survives a missed week, and the app says so out loud. You're allowed to
-                       miss.</p>
-                </div>
-                <div class="card">
-                    <h3>Rest, don't delete</h3>
-                    <p>Set a habit down for a while without losing its history or dragging your week
-                       down.</p>
-                </div>
-                <div class="card">
-                    <h3>Works offline</h3>
-                    <p>The app is complete on your phone. An account is optional, and only exists to
-                       sync between devices.</p>
-                </div>
-                <div class="card">
-                    <h3>No nagging</h3>
-                    <p>Reminders are spread across the days your goal actually needs — not the same
-                       alarm, every day, until you mute it.</p>
-                </div>
-                <div class="card">
-                    <h3>Pay once</h3>
-                    <p>Cadence Pro is a one-time purchase, not another subscription competing for
-                       your monthly attention.</p>
+        </section>
+
+        <section class="cad-section cad-section--panel">
+            <div class="container">
+                <div class="cad-split">
+                    <div>
+                        <h2 data-clip>The streak is the problem</h2>
+                        <p>People don't quit habit apps because they stop caring. They quit because they miss one day, watch a number they were proud of drop to zero, and decide the whole thing was pointless.</p>
+                        <p>Cadence sets a <strong>weekly</strong> goal. Four runs a week, not seven. Miss a Tuesday and you simply go on Wednesday — the goal is still met, the run continues, and nothing is taken away from you.</p>
+                        <p>An empty square is not a failure. It's just a day you didn't go.</p>
+                    </div>
+                    <div class="cad-art" data-parallax="0.04" style="--par-amt:18px"><picture><source type="image/avif" srcset="../images/cadence-today-440.avif 440w" sizes="(max-width: 820px) min(90vw, 340px), 340px"><source type="image/webp" srcset="../images/cadence-today-440.webp 440w" sizes="(max-width: 820px) min(90vw, 340px), 340px"><img src="../images/cadence-today.png" width="723" height="975" alt="Cadence — today's habits, with a weekly goal instead of a daily streak"></picture></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="wrap">
-            <p class="quote">&ldquo;Miss a day. The mosaic is still there.&rdquo;</p>
-        </div>
-    </section>
+        <section class="cad-section">
+            <div class="container">
+                <div class="cad-head">
+                    <h2 data-clip>Built around one idea</h2>
+                    <p>An empty square is not a failure. It's just a day you didn't go.</p>
+                </div>
+                <div class="cad-cards" data-reveal-group>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">01</span>
+                        <h3>The mosaic</h3>
+                        <p>Every day you showed up, as one growing picture. The gaps stay in — and it still looks like something you'd want to keep.</p>
+                    </div>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">02</span>
+                        <h3>Forgiving streaks</h3>
+                        <p>A run survives a missed week, and the app says so out loud. You're allowed to miss.</p>
+                    </div>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">03</span>
+                        <h3>Rest, don't delete</h3>
+                        <p>Set a habit down for a while without losing its history or dragging your week down.</p>
+                    </div>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">04</span>
+                        <h3>Works offline</h3>
+                        <p>The app is complete on your phone. An account is optional, and only exists to sync between devices.</p>
+                    </div>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">05</span>
+                        <h3>No nagging</h3>
+                        <p>Reminders are spread across the days your goal actually needs — not the same alarm, every day, until you mute it.</p>
+                    </div>
+                    <div class="cad-card" data-reveal="scale">
+                        <span class="cad-num">06</span>
+                        <h3>Pay once</h3>
+                        <p>Cadence Pro is a one-time purchase, not another subscription competing for your monthly attention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section style="background:#fff; border-top:1px solid #E8E0D2; border-bottom:1px solid #E8E0D2;">
-        <div class="wrap">
-            <div style="text-align:center; max-width:640px; margin:0 auto 12px;">
-                <h2>See it in action</h2>
+        <section class="cad-section cad-section--panel">
+            <div class="container">
+                <p class="cad-quote">&ldquo;Miss a day. The mosaic is <span>still there</span>.&rdquo;</p>
             </div>
-            <div class="shots">
-                <picture><source type="image/avif" srcset="../images/cadence-shot-forgiving-440.avif 440w, ../images/cadence-shot-forgiving-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-forgiving.png" width="1320" height="2868" alt="Cadence screenshot — a forgiving streak that survives a missed day" loading="lazy"></picture>
-                <picture><source type="image/avif" srcset="../images/cadence-shot-mosaic-440.avif 440w, ../images/cadence-shot-mosaic-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-mosaic.png" width="1320" height="2868" alt="Cadence screenshot — the mosaic of every day you showed up" loading="lazy"></picture>
-                <picture><source type="image/avif" srcset="../images/cadence-shot-rhythm-440.avif 440w, ../images/cadence-shot-rhythm-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-rhythm-440.webp 440w, ../images/cadence-shot-rhythm-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-rhythm.png" width="1320" height="2868" alt="Cadence screenshot — weekly rhythm instead of a daily streak" loading="lazy"></picture>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="wrap">
-            <div style="text-align:center; max-width:640px; margin:0 auto 36px;">
-                <h2>Questions people ask</h2>
+        <section class="cad-section">
+            <div class="container">
+                <div class="cad-head"><h2 data-clip>See it in action</h2></div>
+                <div class="cad-shots" data-reveal-group>
+                    <picture><source type="image/avif" srcset="../images/cadence-shot-forgiving-440.avif 440w, ../images/cadence-shot-forgiving-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-forgiving.png" width="1320" height="2868" alt="Cadence screenshot — a forgiving streak that survives a missed day" loading="lazy"></picture>
+                    <picture><source type="image/avif" srcset="../images/cadence-shot-mosaic-440.avif 440w, ../images/cadence-shot-mosaic-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-mosaic.png" width="1320" height="2868" alt="Cadence screenshot — the mosaic of every day you showed up" loading="lazy"></picture>
+                    <picture><source type="image/avif" srcset="../images/cadence-shot-rhythm-440.avif 440w, ../images/cadence-shot-rhythm-880.avif 880w" sizes="220px"><source type="image/webp" srcset="../images/cadence-shot-rhythm-440.webp 440w, ../images/cadence-shot-rhythm-880.webp 880w" sizes="220px"><img src="../images/cadence-shot-rhythm.png" width="1320" height="2868" alt="Cadence screenshot — weekly rhythm instead of a daily streak" loading="lazy"></picture>
+                </div>
             </div>
-            <div class="faq">
-                <details open>
-                    <summary>Does missing a day reset my streak in Cadence?</summary>
-                    <p>No. Cadence counts a weekly goal instead of a daily chain, so missing one day still leaves the rest of the week to hit your goal. Your run continues instead of resetting to zero.</p>
-                </details>
-                <details>
-                    <summary>Is Cadence free?</summary>
-                    <p>Yes. The free tier keeps up to 10 habits with the full app working — mosaic, weekly goals, reminders and offline sync all included. Cadence Pro unlocks unlimited habits, every colour and theme, and a full year of mosaic history.</p>
-                </details>
-                <details>
-                    <summary>Does Cadence require a subscription?</summary>
-                    <p>No. Cadence Pro leads with a one-time lifetime purchase — pay once, own it forever. Annual and monthly options exist for people who'd rather spread the cost, but nobody has to subscribe to unlock Pro.</p>
-                </details>
-                <details>
-                    <summary>Does Cadence work offline?</summary>
-                    <p>Yes. The app is fully functional on your phone with no account. An account is optional and only exists to sync your habits between devices.</p>
-                </details>
-                <details>
-                    <summary>What platforms does Cadence support?</summary>
-                    <p>Cadence is available on Android now, on Google Play. An iOS version for the App Store is in progress.</p>
-                </details>
-                <details>
-                    <summary>Does Cadence have a home screen widget?</summary>
-                    <p>Yes. Android home screen and lock screen widgets let you check off a habit without opening the app.</p>
-                </details>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="wrap">
-            <span class="copy">© Trion Creation Sdn. Bhd.</span>
-            <div class="links">
-                <a href="https://cadence-api.trioncreation.com/privacy">Privacy Policy</a>
-                <a href="https://cadence-api.trioncreation.com/terms">Terms of Service</a>
-                <a href="../index.html#contact">Contact</a>
+        <section class="cad-section cad-section--panel">
+            <div class="container">
+                <div class="cad-head"><h2 data-clip>Questions people ask</h2></div>
+                <div class="cad-faq">
+                    <details open>
+                        <summary>Does missing a day reset my streak in Cadence?</summary>
+                        <p>No. Cadence counts a weekly goal instead of a daily chain, so missing one day still leaves the rest of the week to hit your goal. Your run continues instead of resetting to zero.</p>
+                    </details>
+                    <details>
+                        <summary>Is Cadence free?</summary>
+                        <p>Yes. The free tier keeps up to 10 habits with the full app working — mosaic, weekly goals, reminders and offline sync all included. Cadence Pro unlocks unlimited habits, every colour and theme, and a full year of mosaic history.</p>
+                    </details>
+                    <details>
+                        <summary>Does Cadence require a subscription?</summary>
+                        <p>No. Cadence Pro leads with a one-time lifetime purchase — pay once, own it forever. Annual and monthly options exist for people who'd rather spread the cost, but nobody has to subscribe to unlock Pro.</p>
+                    </details>
+                    <details>
+                        <summary>Does Cadence work offline?</summary>
+                        <p>Yes. The app is fully functional on your phone with no account. An account is optional and only exists to sync your habits between devices.</p>
+                    </details>
+                    <details>
+                        <summary>What platforms does Cadence support?</summary>
+                        <p>Cadence is available on Android now, on Google Play. An iOS version for the App Store is in progress.</p>
+                    </details>
+                    <details>
+                        <summary>Does Cadence have a home screen widget?</summary>
+                        <p>Yes. Android home screen and lock screen widgets let you check off a habit without opening the app.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cad-section">
+            <div class="container">
+                <div class="cad-cta">
+                    <h2>Miss a day. Your streak survives.</h2>
+                    <p>Cadence is free to start, works offline, and Pro is a one-time purchase.</p>
+                    <div class="stores"><span class="store">Coming soon — App Store</span>
+                <a class="store" href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" target="_blank" rel="noopener noreferrer">Get it on Google Play</a></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
+                        <span>Trion Creation</span>
+                    </div>
+                    <p>Building the future with intelligent solutions</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Ready to start your project?</p>
+                    <a href="../index.html#contact" class="btn btn-primary" data-magnetic="0.2">Get In Touch</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="year-now">2024</span> Trion Creation. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="../script.js"></script>
+    <script src="../futuristic.js"></script>
+    <script src="../scroll.js"></script>
 </body>
 </html>
