@@ -152,7 +152,11 @@
                     <p>我们开发了一款综合性社交媒体超级应用，采用先进的 CDN 优化、实时视频转码以及支持数万并发用户的高度可扩展架构。</p>
                 </div>
                 <div class="overview-image">
-                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yippi 应用界面" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../../images/portfolio/portfolio-yippi-400.avif 400w" sizes="(max-width: 900px) 100vw, 42vw">
+                        <source type="image/webp" srcset="../../images/portfolio/portfolio-yippi-400.webp 400w" sizes="(max-width: 900px) 100vw, 42vw">
+                        <img src="../../images/portfolio/portfolio-yippi.jpg" alt="Yippi 应用界面" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -165,7 +169,7 @@
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <span class="icon">🌐</span>
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Global network"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17" opacity=".5"/><path class="ic-live" d="M12 3.5a13 13 0 0 1 0 17 13 13 0 0 1 0-17"/></svg>
                     </div>
                     <h3>跨境 CDN 方案</h3>
                     <p>部署跨境 CDN 方案，并针对中国境内的流媒体进行专项优化，确保不同国家的用户都能流畅观看直播内容。</p>
@@ -177,7 +181,7 @@
 
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <span class="icon">⚡</span>
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Scale"><path class="ic-live" d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></svg>
                     </div>
                     <h3>高度可扩展架构</h3>
                     <p>设计并实现高度可扩展的架构，借助微服务架构与负载均衡，支持数万名用户同时在线。</p>
@@ -189,7 +193,7 @@
 
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <span class="icon">🎥</span>
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Video"><rect x="2.5" y="6" width="12" height="12" rx="2"/><path class="ic-live" d="m15.5 10.5 6-3.5v10l-6-3.5z"/></svg>
                     </div>
                     <h3>实时视频转码</h3>
                     <p>构建实时视频转码管线，依据用户的网络带宽自动以不同分辨率分发视频内容。</p>
@@ -201,7 +205,7 @@
 
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <span class="icon">☁️</span>
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Cloud"><path d="M6.5 18.5a4 4 0 0 1-.4-8A5.5 5.5 0 0 1 17 10.2a3.9 3.9 0 0 1-.6 8.3z"/><path class="ic-live" d="M9.5 14.5h5"/></svg>
                     </div>
                     <h3>阿里云集成</h3>
                     <p>与阿里云合作，在中国境外测试并部署新技术，持续优化系统性能与全球覆盖。</p>

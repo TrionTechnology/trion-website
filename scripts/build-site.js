@@ -157,7 +157,7 @@ function renderService(s, locale) {
     const url = urlFor(locale);
 
     const features = s.features.map((f) =>
-        `                            <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--glass-border); color: var(--text-200);"><span style="color: var(--holo-cyan); margin-right: var(--space-2);">▸</span> ${esc(f)}</li>`
+        `                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>${esc(f)}</span></li>`
     ).join('\n');
 
     const overview = s.overview.map((p) =>
@@ -391,6 +391,21 @@ ${features}
 // ────────────────────────────────────────────────────────────
 //  PORTFOLIO PAGE RENDERER
 // ────────────────────────────────────────────────────────────
+
+/* Category wireframes — identical to the ones on the home-page portfolio
+   cards, so clicking a card leads to a page carrying the same mark. Gives
+   13 case-study pages a hero visual without a single stock photo. */
+const PF_WIRE = {
+  mobileweb: `<rect x="118" y="16" width="64" height="112" rx="8"/><path d="M136 24h28" class="w-live"/><rect x="126" y="40" width="48" height="26" rx="3" opacity=".5"/><path d="M126 76h48M126 88h34M126 100h42" opacity=".45"/><rect x="20" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M30 48h44M30 60h56M30 72h38" opacity=".3"/><rect x="204" y="34" width="76" height="76" rx="6" opacity=".35"/><path d="M214 48h44M214 60h56M214 72h38" opacity=".3"/>`,
+  fintech: `<rect x="20" y="20" width="104" height="60" rx="7"/><path d="M32 62h34" class="w-live"/><path d="M32 36h22" opacity=".5"/><path d="M150 116V78M176 116V58M202 116V88M228 116V46M254 116V66" opacity=".5"/><path d="M150 78l26-20 26 30 26-42 26 20" class="w-live" fill="none"/><path d="M20 116h260" opacity=".35"/><rect x="20" y="94" width="104" height="8" rx="4" opacity=".3"/>`,
+  enterprise: `<rect x="20" y="20" width="260" height="108" rx="8" opacity=".45"/><path d="M20 44h260" opacity=".45"/><path d="M74 44v84" opacity=".45"/><path d="M32 58h30M32 72h30M32 86h30" opacity=".4"/><path d="M32 100h30" class="w-live"/><rect x="88" y="58" width="86" height="26" rx="4" opacity=".4"/><rect x="184" y="58" width="82" height="26" rx="4" class="w-live"/><rect x="88" y="94" width="178" height="22" rx="4" opacity=".4"/><circle cx="266" cy="32" r="4" opacity=".5"/>`,
+  operations: `<rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/><rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>`,
+  retail: `<rect x="18" y="20" width="170" height="108" rx="7" opacity=".45"/><rect x="30" y="32" width="46" height="34" rx="4" opacity=".45"/><rect x="84" y="32" width="46" height="34" rx="4" class="w-live"/><rect x="138" y="32" width="38" height="34" rx="4" opacity=".45"/><rect x="30" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="84" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="138" y="76" width="38" height="34" rx="4" opacity=".35"/><path d="M204 20h62v108l-10-8-10 8-10-8-10 8-11-8-11 8z" opacity=".45"/><path d="M216 40h38M216 54h38M216 68h24" opacity=".4"/><path d="M216 88h38" class="w-live"/>`,
+};
+function pfWire(cat){
+  return `<div class="pf-hero-visual" aria-hidden="true"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${PF_WIRE[cat]||PF_WIRE.enterprise}</svg></div>`;
+}
+
 function renderPortfolio(p, locale) {
     const t = UI[locale];
     const A = assetPrefix(locale);
@@ -406,9 +421,9 @@ function renderPortfolio(p, locale) {
                             <div class="stat-cell-label">${esc(s.label)}</div>
                         </div>`).join('');
 
-    const features = p.features.map((f) => `
+    const features = p.features.map((f, i) => `
                         <div class="pf-feature-card">
-                            <div class="pf-feature-mark">▸</div>
+                            <div class="pf-feature-mark">${String(i + 1).padStart(2, '0')}</div>
                             <h3>${esc(f.title)}</h3>
                             <p>${esc(f.desc)}</p>
                         </div>`).join('');
@@ -417,7 +432,7 @@ function renderPortfolio(p, locale) {
         `<span class="pf-tech-chip">${esc(tch)}</span>`).join('');
 
     const useCases = p.useCases.map((u) =>
-        `<li><span class="pf-bullet">◇</span> ${esc(u)}</li>`).join('');
+        `<li><svg class="pf-bullet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>${esc(u)}</span></li>`).join('');
 
     const industries = p.industries.map((i) =>
         `<span class="pf-industry-chip">${esc(i)}</span>`).join('');
@@ -549,6 +564,8 @@ ${JSON.stringify(faqSchema, null, 4)}
             <div class="pf-grid-floor" aria-hidden="true"></div>
             <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
+                <div class="pf-hero-grid">
+                <div class="pf-hero-copy">
                 <div class="pf-breadcrumb">
                     <a href="${N}index.html">${t.pf.home}</a>
                     <span class="pf-breadcrumb-sep">›</span>
@@ -565,6 +582,9 @@ ${JSON.stringify(faqSchema, null, 4)}
                 <div class="pf-cta-row">
                     <a href="${N}index.html#contact" class="btn btn-primary">${t.pf.discuss}</a>
                     <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20a%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">${t.whatsapp}</a>
+                </div>
+                </div>
+                ${pfWire(p.category)}
                 </div>
             </div>
         </section>
@@ -708,13 +728,15 @@ function renderProductsHub(products, locale) {
         const statusTag = p.status === 'live' ? t.prod.live : t.prod.comingSoon;
         const tags = [statusTag, ...(p.tags || [])].map((tg) => `<span class="tag">${esc(tg)}</span>`).join('');
         return `
-                    <a class="portfolio-item" href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}">
-                        <div class="portfolio-image solution-card" style="background: ${p.gradient};">
-                            <div class="solution-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '64px', style: 'width:64px;height:64px;border-radius:16px;', loading: 'lazy', decoding: 'async' })}</div>
-                            <div class="portfolio-overlay">
+                    <a class="portfolio-item prod-card" href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}" style="--card-accent: ${p.accent || 'var(--holo-cyan)'};">
+                        <div class="pi-visual prod-visual">
+                            <div class="prod-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '72px', loading: 'lazy', decoding: 'async' })}</div>
+                        </div>
+                        <div class="pi-body">
                                 <h3>${esc(p.name)}</h3>
                                 <p>${esc(p.tagline)}</p>
                                 <div class="portfolio-tags">${tags}</div>
+                                <span class="pi-cta">${esc(t.prod.view)}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                             </div>
                         </div>
                     </a>`;
@@ -823,7 +845,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             </div>
         </div>
         <div class="container">
-            <div class="portfolio-grid" style="margin: var(--space-10) 0;">${cards}
+            <div class="portfolio-grid prod-grid">${cards}
             </div>
         </div>
     </main>

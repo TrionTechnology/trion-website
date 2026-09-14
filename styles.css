@@ -2477,14 +2477,20 @@ a.portfolio-item[hidden] { display: none; }
     margin: 0;
 }
 .pf-usecase-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
     color: var(--text-200);
     font-size: 1rem;
     padding: var(--space-3) 0;
     border-bottom: 1px dashed rgba(155, 130, 255, 0.08);
 }
 .pf-bullet {
-    color: var(--pf-accent, var(--holo-cyan));
-    margin-right: var(--space-3);
+    width: 17px;
+    height: 17px;
+    flex: none;
+    margin-top: 0.25em;
+    color: var(--pf-accent, var(--accent));
 }
 .pf-industry-chips {
     display: flex;
@@ -2569,4 +2575,449 @@ img { max-width: 100%; height: auto; display: block; }
 @keyframes trion-pulse-dim {
     0%, 100% { opacity: .45; }
     50%      { opacity: 1; }
+}
+
+/* ════════════════════════ PROJECT CASE STUDIES ════════════════════════
+   projects/{yippi,colorverse,dddrive}.html and their zh/ + ms/ mirrors —
+   nine live pages — used 34 class names that had NO rule anywhere in this
+   stylesheet. They rendered as unstyled running text: stats as a flat
+   list, sections with no rhythm, cards with no card.
+
+   Built on the same primitives as the rest of the site (surface/hairline
+   tokens, the wireframe-and-stroke icon language, the near-white accent)
+   so a case study reads as part of the site rather than a separate
+   microsite.
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.project-hero {
+    position: relative;
+    padding-block: clamp(6rem, 11vw, 9rem) clamp(3rem, 6vw, 5rem);
+    overflow: hidden;
+}
+.project-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, color-mix(in oklab, var(--structure) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in oklab, var(--structure) 7%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 70% 70% at 25% 30%, #000, transparent 72%);
+    pointer-events: none;
+}
+.project-hero-content { position: relative; z-index: 1; }
+
+.project-breadcrumb {
+    margin-bottom: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-400);
+}
+.project-breadcrumb a { color: var(--text-300); text-decoration: none; }
+.project-breadcrumb a:hover { color: var(--accent); }
+
+.project-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 5vw, var(--space-16));
+    align-items: start;
+}
+.project-info h1 {
+    margin: 0 0 var(--space-5);
+    font-size: clamp(2.2rem, 1.6rem + 2.9vw, 3.9rem);
+    font-weight: 700;
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.project-subtitle {
+    margin: 0 0 var(--space-6);
+    max-width: 52ch;
+    font-size: var(--step-1);
+    line-height: 1.55;
+    color: var(--text-200);
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.project-tags .tag {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    background: var(--surface-1);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-300);
+}
+.project-tags .tag.primary {
+    border-color: var(--hairline-hot);
+    background: var(--surface-3);
+    color: var(--signal);
+}
+
+/* Stats were rendering as a bare vertical list. */
+.project-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.project-stats .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background: var(--surface-1);
+}
+.project-stats .stat-number {
+    font-family: var(--font-display, var(--font-heading));
+    font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+    font-variant-numeric: tabular-nums;
+}
+.project-stats .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-400);
+}
+
+/* ── Shared section rhythm ── */
+.project-overview,
+.technical-achievements,
+.features-showcase,
+.technology-stack,
+.project-results,
+.client-testimonial,
+.project-cta {
+    padding-block: clamp(3rem, 6vw, var(--space-24));
+}
+.project-overview h2,
+.technical-achievements h2,
+.features-showcase h2,
+.technology-stack h2,
+.project-results h2 {
+    margin: 0 0 var(--space-6);
+    font-size: var(--step-4);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.project-overview h3 {
+    margin: var(--space-8) 0 var(--space-3);
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--signal);
+}
+.project-overview p { margin: 0 0 var(--space-4); max-width: var(--measure); color: var(--text-300); line-height: 1.7; }
+
+/* ── Overview ── */
+.overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, var(--space-16));
+    align-items: start;
+}
+.overview-image {
+    position: relative;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface-1);
+}
+.overview-image img { width: 100%; height: auto; display: block; }
+/* Tint the screenshot toward the palette so it sits in the page. */
+.overview-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg,
+        color-mix(in oklab, var(--structure) 22%, transparent),
+        transparent 55%);
+    pointer-events: none;
+}
+
+/* ── Achievement + feature cards ── */
+.achievements-grid,
+.features-grid,
+.results-grid,
+.tech-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    gap: clamp(0.9rem, 1.6vw, var(--space-6));
+}
+.achievement-card,
+.feature-item,
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* The home-page .achievement-card rule centres its text. Long
+       case-study copy needs a left edge to track back to. */
+    text-align: left;
+    gap: var(--space-3);
+    padding: clamp(1.35rem, 2.2vw, var(--space-8));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--surface-1);
+    transition: border-color var(--transition-normal), background var(--transition-normal);
+}
+.achievement-card:hover,
+.feature-item:hover { border-color: var(--hairline-hot); background: var(--surface-2); }
+
+.achievement-card h3,
+.feature-item h3 {
+    margin: 0;
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--signal);
+}
+.achievement-card p,
+.feature-item p { margin: 0; font-size: var(--step-0); line-height: 1.62; color: var(--text-300); }
+
+.achievement-icon,
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--surface-3);
+}
+
+.achievement-metrics { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: var(--space-2); }
+.metric {
+    padding: 0.24rem 0.6rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    background: var(--surface-3);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+}
+
+/* ── Results ── */
+.result-item { align-items: flex-start; gap: 0.4rem; }
+.result-number {
+    font-family: var(--font-display, var(--font-heading));
+    font-size: clamp(2rem, 1.6rem + 1.9vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+    font-variant-numeric: tabular-nums;
+}
+.result-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-400);
+}
+
+/* ── Testimonial ── */
+.client-testimonial blockquote {
+    margin: 0;
+    padding: clamp(1.5rem, 3vw, var(--space-12));
+    border: 1px solid var(--hairline);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    background: var(--surface-1);
+    font-size: var(--step-2);
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+    color: var(--text-100);
+    text-wrap: pretty;
+}
+.client-testimonial cite,
+.author-info { display: block; margin-top: var(--space-5); font-style: normal; }
+
+/* ── Closing CTA ── */
+.project-cta .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    padding: clamp(2rem, 5vw, var(--space-16));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(ellipse 70% 130% at 50% 0%,
+            color-mix(in oklab, var(--structure) 18%, transparent), transparent 70%),
+        var(--surface-1);
+    text-align: center;
+}
+.project-cta h2 {
+    margin: 0;
+    font-size: var(--step-4);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--signal);
+    text-wrap: balance;
+}
+.project-cta p { margin: 0; max-width: 54ch; color: var(--text-300); }
+.cta-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; }
+
+/* ── Tech stack ── */
+.tech-categories .tech-category,
+.technology-stack .tech-category {
+    padding: clamp(1.2rem, 2vw, var(--space-6));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--surface-1);
+}
+
+@media (max-width: 900px) {
+    .project-header,
+    .overview-grid { grid-template-columns: 1fr; }
+    .project-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+    .project-stats { grid-template-columns: 1fr; }
+}
+
+/* Endorsement badge on the Colorverse case study — .endorsement-*,
+   .badge-* had no rules, so this block rendered as loose running text. */
+.endorsement-badge-large {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: clamp(1.5rem, 3vw, var(--space-10));
+    border: 1px solid var(--hairline-hot);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(ellipse 60% 140% at 0% 0%,
+            color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+        var(--surface-1);
+}
+.badge-icon {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--surface-3);
+}
+.badge-content { display: flex; flex-direction: column; gap: var(--space-2); }
+.badge-content h3 {
+    margin: 0;
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--signal);
+}
+.badge-content p { margin: 0; max-width: 58ch; color: var(--text-300); line-height: 1.6; }
+@media (max-width: 600px) { .endorsement-badge-large { flex-direction: column; } }
+
+/* ── Portfolio case-study hero: two columns + category wireframe ──
+   These 39 pages (13 solutions x 3 locales) previously had no imagery at
+   all, just a text column with the other half of the page empty. The
+   wireframe is the same mark as the matching home-page card, so the
+   click-through has visual continuity — and it needs no photography. */
+.pf-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(2rem, 5vw, var(--space-16));
+    align-items: center;
+}
+.pf-hero-visual {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 2.5vw, 2rem);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    color: var(--pf-accent, var(--accent));
+    background:
+        linear-gradient(160deg, color-mix(in srgb, var(--pf-accent, var(--accent)) 14%, transparent), transparent 62%),
+        var(--surface-1);
+    overflow: hidden;
+}
+.pf-hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, color-mix(in srgb, var(--pf-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--pf-accent, var(--accent)) 11%, transparent) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: radial-gradient(ellipse at 50% 50%, #000, transparent 74%);
+    pointer-events: none;
+}
+.pf-hero-visual svg { position: relative; z-index: 1; width: 100%; height: 100%; opacity: .85; }
+.pf-hero-visual .w-live { stroke: var(--signal); opacity: 1; }
+
+/* Feature cards now carry a numeric index rather than a repeated glyph. */
+.pf-feature-mark {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--pf-accent, var(--accent));
+    opacity: .9;
+}
+
+@media (max-width: 900px) {
+    .pf-hero-grid { grid-template-columns: 1fr; }
+    .pf-hero-visual { max-width: 460px; }
+}
+
+/* ── Service page feature list ──
+   Was a <li> carrying four inline style declarations and a "▸" glyph,
+   repeated for every feature on all 36 service pages. */
+.sv-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--text-200);
+    line-height: 1.55;
+}
+.sv-feature:last-child { border-bottom: 0; }
+.sv-check {
+    width: 17px;
+    height: 17px;
+    flex: none;
+    margin-top: 0.25em;
+    color: var(--accent);
+}
+
+/* ── Products hub ──
+   One product today, so an auto-fit 3-column grid left a lone card
+   stranded against a wall of empty page. Cap the track and centre it. */
+.prod-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 380px));
+    justify-content: center;
+    margin-block: clamp(2rem, 4vw, var(--space-12));
+}
+@media (min-width: 1080px) {
+    .prod-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 380px)); }
+}
+.prod-visual { aspect-ratio: 3 / 2; }
+.prod-icon img {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
 }
