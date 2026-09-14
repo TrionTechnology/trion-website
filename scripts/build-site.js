@@ -300,7 +300,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                     <a href="${N}index.html#services" style="color: var(--text-200);">${t.svc.services}</a> <span style="opacity: 0.5;">/</span>
                     <span>${esc(s.title)}</span>
                 </div>
-                <h1>${esc(s.title)}</h1>
+                <h1 data-split>${esc(s.title)}</h1>
                 <p>${esc(s.tagline)}</p>
             </div>
         </section>
@@ -310,7 +310,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                 <div style="max-width: 1080px; margin: 0 auto;">
                     <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
                         <div>
-                            <h2 style="margin-bottom: var(--space-6);">${t.svc.overview}</h2>
+                            <h2 data-clip style="margin-bottom: var(--space-6);">${t.svc.overview}</h2>
 ${overview}
                         </div>
                         <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
@@ -322,7 +322,7 @@ ${features}
                     </div>
 
                     <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 style="margin-bottom: var(--space-8);">${t.svc.expertise}</h2>
+                        <h2 data-clip style="margin-bottom: var(--space-8);">${t.svc.expertise}</h2>
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">${expertise}
                         </div>
                     </div>
@@ -330,7 +330,7 @@ ${features}
                     <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
                         <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
                         <div style="position: relative; z-index: 1;">
-                            <h2 style="color: var(--void-0); margin-bottom: var(--space-4);">${esc(t.svc.ctaTitle(s.title))}</h2>
+                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">${esc(t.svc.ctaTitle(s.title))}</h2>
                             <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">${esc(t.svc.ctaBody)}</p>
                             <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
                                 <a href="${N}index.html#contact" class="btn btn-secondary">${t.bookCall}</a>
@@ -403,7 +403,7 @@ const PF_WIRE = {
   retail: `<rect x="18" y="20" width="170" height="108" rx="7" opacity=".45"/><rect x="30" y="32" width="46" height="34" rx="4" opacity=".45"/><rect x="84" y="32" width="46" height="34" rx="4" class="w-live"/><rect x="138" y="32" width="38" height="34" rx="4" opacity=".45"/><rect x="30" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="84" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="138" y="76" width="38" height="34" rx="4" opacity=".35"/><path d="M204 20h62v108l-10-8-10 8-10-8-10 8-11-8-11 8z" opacity=".45"/><path d="M216 40h38M216 54h38M216 68h24" opacity=".4"/><path d="M216 88h38" class="w-live"/>`,
 };
 function pfWire(cat){
-  return `<div class="pf-hero-visual" aria-hidden="true"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${PF_WIRE[cat]||PF_WIRE.enterprise}</svg></div>`;
+  return `<div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${PF_WIRE[cat]||PF_WIRE.enterprise}</svg></div>`;
 }
 
 function renderPortfolio(p, locale) {
@@ -573,14 +573,14 @@ ${JSON.stringify(faqSchema, null, 4)}
                     <span class="pf-breadcrumb-sep">›</span>
                     <span>${esc(p.title)}</span>
                 </div>
-                <div class="pf-eyebrow">${t.pf.solution} · ${esc(p.categoryLabel.toUpperCase())}</div>
-                <h1 class="pf-title">${esc(p.title)}</h1>
+                <div class="pf-eyebrow" data-scramble>${t.pf.solution} · ${esc(p.categoryLabel.toUpperCase())}</div>
+                <h1 class="pf-title" data-split>${esc(p.title)}</h1>
                 <p class="pf-tagline">${esc(p.tagline)}</p>
                 <div class="pf-tag-row">${tags}</div>
                 <div class="pf-stats">${stats}
                 </div>
                 <div class="pf-cta-row">
-                    <a href="${N}index.html#contact" class="btn btn-primary">${t.pf.discuss}</a>
+                    <a href="${N}index.html#contact" class="btn btn-primary" data-magnetic="0.2">${t.pf.discuss}</a>
                     <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20a%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">${t.whatsapp}</a>
                 </div>
                 </div>
@@ -594,7 +594,7 @@ ${JSON.stringify(faqSchema, null, 4)}
             <div class="container">
                 <div class="pf-section-head">
                     <span class="pf-section-num">01</span>
-                    <h2>${t.pf.overview}</h2>
+                    <h2 data-clip>${t.pf.overview}</h2>
                 </div>
                 <p class="pf-prose">${esc(p.longDescription)}</p>
             </div>
@@ -605,7 +605,7 @@ ${JSON.stringify(faqSchema, null, 4)}
             <div class="container">
                 <div class="pf-section-head">
                     <span class="pf-section-num">02</span>
-                    <h2>${t.pf.keyFeatures}</h2>
+                    <h2 data-clip>${t.pf.keyFeatures}</h2>
                 </div>
                 <div class="pf-features-grid">${features}
                 </div>
@@ -617,7 +617,7 @@ ${JSON.stringify(faqSchema, null, 4)}
             <div class="container">
                 <div class="pf-section-head">
                     <span class="pf-section-num">03</span>
-                    <h2>${t.pf.builtWith}</h2>
+                    <h2 data-clip>${t.pf.builtWith}</h2>
                 </div>
                 <p class="pf-prose-muted">${t.pf.builtWithProse}</p>
                 <div class="pf-tech-chips">${techChips}</div>
@@ -629,7 +629,7 @@ ${JSON.stringify(faqSchema, null, 4)}
             <div class="container">
                 <div class="pf-section-head">
                     <span class="pf-section-num">04</span>
-                    <h2>${t.pf.useCases}</h2>
+                    <h2 data-clip>${t.pf.useCases}</h2>
                 </div>
                 <div class="pf-usecase-cols">
                     <div>
@@ -651,7 +651,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                     <div class="pf-cta-grid" aria-hidden="true"></div>
                     <div class="pf-cta-content">
                         <div class="pf-eyebrow" style="color: var(--void-0);">${t.pf.readyToBuild}</div>
-                        <h2>${esc(t.pf.ctaTitle(p.title))}</h2>
+                        <h2 data-clip>${esc(t.pf.ctaTitle(p.title))}</h2>
                         <p>${esc(t.pf.ctaBody)}</p>
                         <div class="pf-cta-row" style="margin-top: 2rem;">
                             <a href="${N}index.html#contact" class="btn btn-secondary" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">${t.bookCall}</a>
@@ -840,7 +840,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
     <main class="main-content" id="main">
         <div class="page-header with-banner" style="background-image: url('${A}images/banners/banner-products.jpg');">
             <div class="container">
-                <h1>${esc(t.prod.title)}</h1>
+                <h1 data-split>${esc(t.prod.title)}</h1>
                 <p>${esc(t.prod.subtitle)}</p>
             </div>
         </div>

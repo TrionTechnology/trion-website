@@ -256,6 +256,9 @@
             setTimeout(function () {
                 scanReveals(document.querySelector('.tab-content.active') || document);
                 initCounters();
+                initSplitText();
+                initScramble();
+                initNavIndicator();
             }, 60);
         }, true);
     }
@@ -274,7 +277,188 @@
                                   : reduceMQ.addListener && reduceMQ.addListener(on);
     }
 
+
+    /* ═════════════════════ MOTION TOOLKIT ═════════════════════
+       Everything below is opt-in via a data- attribute so it can be
+       sprinkled across all 92 pages from the templates without any
+       per-page JS. All of it no-ops under prefers-reduced-motion, and
+       anything per-frame runs on the one shared ticker. */
+
+    /* ── Split a heading into words for staggered reveal ──
+       Wraps each word in a masked span. Text content is unchanged, so
+       selection, search and screen readers see the original string. */
+    function initSplitText() {
+        var nodes = document.querySelectorAll('[data-split]:not([data-split-done])');
+        for (var i = 0; i < nodes.length; i++) {
+            var el = nodes[i];
+            el.setAttribute('data-split-done', '');
+            if (reduced) continue;
+            splitNode(el, el);
+        }
+    }
+    function splitNode(root, host) {
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        var texts = [], t;
+        while ((t = walker.nextNode())) if (t.nodeValue.trim()) texts.push(t);
+        var idx = 0;
+        for (var i = 0; i < texts.length; i++) {
+            var node = texts[i];
+            var frag = document.createDocumentFragment();
+            var parts = node.nodeValue.split(/(\s+)/);
+            for (var j = 0; j < parts.length; j++) {
+                if (!parts[j]) continue;
+                if (/^\s+$/.test(parts[j])) { frag.appendChild(document.createTextNode(parts[j])); continue; }
+                var mask = document.createElement('span');
+                mask.className = 'sp-w';
+                var inner = document.createElement('span');
+                inner.className = 'sp-i';
+                inner.style.setProperty('--i', idx++);
+                inner.textContent = parts[j];
+                mask.appendChild(inner);
+                frag.appendChild(mask);
+            }
+            node.parentNode.replaceChild(frag, node);
+        }
+        host.style.setProperty('--sp-n', idx);
+    }
+
+    /* ── Magnetic hover ──
+       Pointer pulls the element slightly toward it. One delegated
+       listener per element, rAF-batched, no per-element loop. */
+    function initMagnetic() {
+        if (reduced || coarseMQ.matches) return;
+        var els = document.querySelectorAll('[data-magnetic]');
+        if (!els.length) return;
+        var queued = false, pending = [];
+        function flush() {
+            queued = false;
+            for (var i = 0; i < pending.length; i++) {
+                pending[i].el.style.setProperty('--mag-x', pending[i].x.toFixed(2) + 'px');
+                pending[i].el.style.setProperty('--mag-y', pending[i].y.toFixed(2) + 'px');
+            }
+            pending.length = 0;
+        }
+        function move(e) {
+            var el = e.currentTarget;
+            var r = el.getBoundingClientRect();
+            var strength = parseFloat(el.getAttribute('data-magnetic')) || 0.28;
+            pending.push({
+                el: el,
+                x: (e.clientX - (r.left + r.width / 2)) * strength,
+                y: (e.clientY - (r.top + r.height / 2)) * strength
+            });
+            if (!queued) { queued = true; requestAnimationFrame(flush); }
+        }
+        function leave(e) {
+            e.currentTarget.style.setProperty('--mag-x', '0px');
+            e.currentTarget.style.setProperty('--mag-y', '0px');
+        }
+        for (var i = 0; i < els.length; i++) {
+            els[i].addEventListener('pointermove', move, { passive: true });
+            els[i].addEventListener('pointerleave', leave, { passive: true });
+        }
+    }
+
+    /* ── Glyph scramble for mono labels ──
+       Runs once when the label scrolls into view. Short and cheap: a
+       label settles within ~600ms and then unsubscribes. */
+    function initScramble() {
+        if (reduced || !('IntersectionObserver' in window)) return;
+        var els = document.querySelectorAll('[data-scramble]');
+        if (!els.length) return;
+        var CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\<>[]{}=+*';
+        function run(el) {
+            if (el.dataset.scrambled) return;
+            el.dataset.scrambled = '1';
+            var target = el.textContent;
+            var start = 0, dur = 620;
+            function tick(dt, now) {
+                if (!start) start = now;
+                var p = Math.min((now - start) / dur, 1);
+                var settled = Math.floor(p * target.length);
+                var out = '';
+                for (var i = 0; i < target.length; i++) {
+                    if (i < settled || target[i] === ' ') out += target[i];
+                    else out += CH[(Math.random() * CH.length) | 0];
+                }
+                el.textContent = out;
+                if (p === 1) { el.textContent = target; ticker.remove(tick); }
+            }
+            ticker.add(tick);
+        }
+        var sio = new IntersectionObserver(function (es) {
+            for (var i = 0; i < es.length; i++) {
+                if (es[i].isIntersecting) { run(es[i].target); sio.unobserve(es[i].target); }
+            }
+        }, { threshold: 0.6 });
+        for (var i = 0; i < els.length; i++) sio.observe(els[i]);
+    }
+
+    /* ── Parallax ──
+       Prefers the native scroll timeline (compositor, zero INP cost);
+       falls back to a shared-ticker read of scrollY. */
+    function initParallax() {
+        if (reduced || NATIVE_TIMELINE) return;
+        var els = document.querySelectorAll('[data-parallax]');
+        if (!els.length) return;
+        var items = [];
+        for (var i = 0; i < els.length; i++) {
+            items.push({ el: els[i], k: parseFloat(els[i].getAttribute('data-parallax')) || 0.12 });
+        }
+        ticker.add(function () {
+            var vh = innerHeight;
+            for (var i = 0; i < items.length; i++) {
+                var r = items[i].el.getBoundingClientRect();
+                if (r.bottom < -200 || r.top > vh + 200) continue;
+                var mid = r.top + r.height / 2 - vh / 2;
+                items[i].el.style.setProperty('--par-y', (-mid * items[i].k).toFixed(1) + 'px');
+            }
+        });
+    }
+
+    /* ── Marquee ──
+       Duplicates its children once so the CSS translate loop is seamless
+       at any content width. */
+    function initMarquee() {
+        var els = document.querySelectorAll('[data-marquee]:not([data-marquee-done])');
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            el.setAttribute('data-marquee-done', '');
+            var track = el.firstElementChild;
+            if (!track) continue;
+            var clone = track.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            el.appendChild(clone);
+        }
+    }
+
+    /* ── Sliding nav indicator ──
+       Possible only now that the virtual scroller is gone and the header
+       is a normal positioned element. */
+    function initNavIndicator() {
+        var list = document.querySelector('.nav-list');
+        if (!list || reduced) return;
+        function place() {
+            var active = list.querySelector('.nav-link.active');
+            if (!active) { list.style.setProperty('--ind-o', '0'); return; }
+            var lr = list.getBoundingClientRect(), ar = active.getBoundingClientRect();
+            list.style.setProperty('--ind-x', (ar.left - lr.left) + 'px');
+            list.style.setProperty('--ind-w', ar.width + 'px');
+            list.style.setProperty('--ind-o', '1');
+        }
+        list.addEventListener('click', function () { setTimeout(place, 30); });
+        addEventListener('resize', place, { passive: true });
+        addEventListener('load', place);
+        place();
+    }
+
     function init() {
+        initSplitText();
+        initMarquee();
+        initMagnetic();
+        initScramble();
+        initParallax();
+        initNavIndicator();
         scanReveals(document);
         initCounters();
         initProgressFallback();
