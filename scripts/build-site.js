@@ -724,23 +724,28 @@ function renderProductsHub(products, locale) {
     const url = urlFor(locale);
 
     const cards = products.map((p) => {
-        const productUrl = `${ORIGIN}/${p.url}`;
+        // A product may have no detail page and no store listing yet. In that
+        // case the card is not a link — an anchor to nowhere is worse than
+        // plain content, for both pointer and keyboard users.
+        const hasLink = Boolean(p.url || p.storeUrl);
+        const productUrl = p.url ? `${ORIGIN}/${p.url}` : (p.storeUrl || '');
         const statusTag = p.status === 'live' ? t.prod.live : t.prod.comingSoon;
         const tags = [statusTag, ...(p.tags || [])].map((tg) => `<span class="tag">${esc(tg)}</span>`).join('');
         return `
-                    <a class="portfolio-item prod-card" href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}" style="--card-accent: ${p.accent || 'var(--holo-cyan)'};">
+                    <${hasLink ? 'a' : 'div'} class="portfolio-item prod-card${hasLink ? '' : ' is-static'}"${hasLink ? ` href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}"` : ''} style="--card-accent: ${p.accent || 'var(--holo-cyan)'};">
                         <div class="pi-visual prod-visual">
-                            <div class="prod-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '72px', loading: 'lazy', decoding: 'async' })}</div>
+${p.icon ? `                            <div class="prod-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '72px', loading: 'lazy', decoding: 'async' })}</div>` : ''}
 ${(p.shots && p.shots.length) ? `                            <div class="prod-shots" aria-hidden="true">${p.shots.slice(0,3).map((sh) => picture(sh, A, { alt: '', sizes: '120px', loading: 'lazy', decoding: 'async' })).join('')}</div>` : ''}
                         </div>
                         <div class="pi-body">
                                 <h3>${esc(p.name)}</h3>
                                 <p>${esc(p.tagline)}</p>
                                 <div class="portfolio-tags">${tags}</div>
-                                <span class="pi-cta">${esc(t.prod.view)}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+${hasLink
+                                    ? `                                <span class="pi-cta">${esc(t.prod.view)}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>`
+                                    : ''}
                             </div>
-                        </div>
-                    </a>`;
+                    </${hasLink ? 'a' : 'div'}>`;
     }).join('');
 
     const collectionSchema = {
@@ -753,9 +758,10 @@ ${(p.shots && p.shots.length) ? `                            <div class="prod-sh
         itemListElement: products.map((p, i) => ({
             '@type': 'ListItem', position: i + 1,
             item: {
-                '@type': 'SoftwareApplication', name: p.name, url: `${ORIGIN}/${p.url}`,
+                '@type': 'SoftwareApplication', name: p.name,
+                url: p.url ? `${ORIGIN}/${p.url}` : (p.storeUrl || `${ORIGIN}/products.html`),
                 description: p.description, applicationCategory: p.category,
-                operatingSystem: p.platforms.join(', '), image: `${ORIGIN}/${p.icon}`,
+                operatingSystem: p.platforms.join(', '), image: `${ORIGIN}/${p.icon || (p.shots && p.shots[0]) || 'images/icons/favicon-512.png'}`,
             },
         })),
     };

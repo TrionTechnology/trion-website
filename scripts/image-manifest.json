@@ -621,5 +621,50 @@
     "800": "images/trion-favicon-800.avif"
    }
   }
+ },
+ "images/soulsync-shot-report.png": {
+  "w": 884,
+  "h": 1920,
+  "origBytes": 493807,
+  "variants": {
+   "webp": {
+    "440": "images/soulsync-shot-report-440.webp",
+    "880": "images/soulsync-shot-report-880.webp"
+   },
+   "avif": {
+    "440": "images/soulsync-shot-report-440.avif",
+    "880": "images/soulsync-shot-report-880.avif"
+   }
+  }
+ },
+ "images/soulsync-shot-coach.png": {
+  "w": 884,
+  "h": 1920,
+  "origBytes": 401622,
+  "variants": {
+   "webp": {
+    "440": "images/soulsync-shot-coach-440.webp",
+    "880": "images/soulsync-shot-coach-880.webp"
+   },
+   "avif": {
+    "440": "images/soulsync-shot-coach-440.avif",
+    "880": "images/soulsync-shot-coach-880.avif"
+   }
+  }
+ },
+ "images/soulsync-shot-people.png": {
+  "w": 884,
+  "h": 1920,
+  "origBytes": 186318,
+  "variants": {
+   "webp": {
+    "440": "images/soulsync-shot-people-440.webp",
+    "880": "images/soulsync-shot-people-880.webp"
+   },
+   "avif": {
+    "440": "images/soulsync-shot-people-440.avif",
+    "880": "images/soulsync-shot-people-880.avif"
+   }
+  }
  }
 }

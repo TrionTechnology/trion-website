@@ -25,5 +25,32 @@
             "images/cadence-shot-rhythm.png"
         ],
         "accent": "#57C08F"
+    },
+    {
+        "slug": "soulsync-ai",
+        "name": "SoulSync AI",
+        "tagline": "Understand anyone you love.",
+        "description": "An AI relationship advisor that combines real Eastern metaphysics — Bazi (Four Pillars) and Zi Wei Dou Shu — with Western astrology, then uses AI coaching to explain the compatibility, dynamics and future potential of a relationship in plain language. Reads romantic partners, friendships, business partners and family.",
+        "category": "Lifestyle & Relationships",
+        "platforms": [
+            "Android",
+            "iOS"
+        ],
+        "status": "coming-soon",
+        "url": null,
+        "storeUrl": null,
+        "icon": null,
+        "accent": "#F89870",
+        "gradient": "linear-gradient(165deg, #6B3A2C 0%, #2A1712 100%)",
+        "tags": [
+            "Bazi + Zi Wei Dou Shu",
+            "AI relationship coach",
+            "8 languages"
+        ],
+        "shots": [
+            "images/soulsync-shot-report.png",
+            "images/soulsync-shot-coach.png",
+            "images/soulsync-shot-people.png"
+        ]
     }
 ]

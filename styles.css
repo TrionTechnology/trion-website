@@ -1284,7 +1284,7 @@ a:hover { color: var(--holo-mint); }
     .portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-a.portfolio-item {
+.portfolio-item {
     --card-accent: var(--holo-blue);
     --mx: 50%;
     --my: 50%;
@@ -1308,7 +1308,7 @@ a.portfolio-item {
         background var(--transition-normal),
         transform 420ms cubic-bezier(.2, .8, .2, 1);
 }
-a.portfolio-item::before {
+.portfolio-item::before {
     content: '';
     position: absolute;
     inset: -1px;
@@ -1319,13 +1319,13 @@ a.portfolio-item::before {
     opacity: 0;
     transition: opacity var(--transition-normal);
 }
-a.portfolio-item:hover,
-a.portfolio-item:focus-visible {
+.portfolio-item:hover,
+.portfolio-item:focus-visible {
     border-color: color-mix(in srgb, var(--card-accent) 55%, transparent);
     background: var(--surface-2);
 }
-a.portfolio-item:hover::before,
-a.portfolio-item:focus-visible::before { opacity: 1; }
+.portfolio-item:hover::before,
+.portfolio-item:focus-visible::before { opacity: 1; }
 
 /* ── Wireframe panel ── */
 .pi-visual {
@@ -1367,7 +1367,7 @@ a.portfolio-item:focus-visible::before { opacity: 1; }
     stroke: var(--signal);
     opacity: 1;
 }
-a.portfolio-item:hover .pi-visual svg {
+.portfolio-item:hover .pi-visual svg {
     opacity: 1;
     transform: scale(1.03);
 }
@@ -1422,14 +1422,14 @@ a.portfolio-item:hover .pi-visual svg {
     color: var(--card-accent);
 }
 .pi-cta svg { transition: transform var(--transition-fast); }
-a.portfolio-item:hover .pi-cta { color: var(--signal); }
-a.portfolio-item:hover .pi-cta svg { transform: translateX(4px); }
+.portfolio-item:hover .pi-cta { color: var(--signal); }
+.portfolio-item:hover .pi-cta svg { transform: translateX(4px); }
 
 /* Filtering hides cards outright; no layout animation to fight. */
-a.portfolio-item[hidden] { display: none; }
+.portfolio-item[hidden] { display: none; }
 
 @media (max-width: 768px) {
-    a.portfolio-item { transform: none; }
+    .portfolio-item { transform: none; }
 }
 
 
@@ -2548,7 +2548,7 @@ a.portfolio-item[hidden] { display: none; }
    display:block + aspect-ratio:4/5 from later in the cascade, overriding
    the card's flex layout, and styled .portfolio-image, which the new
    wireframe markup no longer has.) */
-a.portfolio-item { cursor: pointer; }
+.portfolio-item { cursor: pointer; }
 
 /* ════════════════════════ UTILITIES ════════════════════════ */
 /* <picture> generates an inline box by default, which would insert an
@@ -3242,3 +3242,7 @@ a.prod-card:hover .prod-shots picture:nth-child(3) { transform: translate(-36%, 
 .prod-visual:has(.prod-shots) { aspect-ratio: 4 / 3; }
 .prod-visual:has(.prod-shots) .prod-icon { display: none; }
 /* Fallback for engines without :has() — the icon simply stays. */
+
+/* A product with no page and no store listing yet renders as a plain
+   card rather than an anchor to nowhere. */
+.prod-card.is-static { cursor: default; }
