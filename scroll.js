@@ -258,8 +258,7 @@
                 initCounters();
                 initSplitText();
                 initScramble();
-                initNavIndicator();
-            }, 60);
+                    }, 60);
         }, true);
     }
 
@@ -432,33 +431,12 @@
         }
     }
 
-    /* ── Sliding nav indicator ──
-       Possible only now that the virtual scroller is gone and the header
-       is a normal positioned element. */
-    function initNavIndicator() {
-        var list = document.querySelector('.nav-list');
-        if (!list || reduced) return;
-        function place() {
-            var active = list.querySelector('.nav-link.active');
-            if (!active) { list.style.setProperty('--ind-o', '0'); return; }
-            var lr = list.getBoundingClientRect(), ar = active.getBoundingClientRect();
-            list.style.setProperty('--ind-x', (ar.left - lr.left) + 'px');
-            list.style.setProperty('--ind-w', ar.width + 'px');
-            list.style.setProperty('--ind-o', '1');
-        }
-        list.addEventListener('click', function () { setTimeout(place, 30); });
-        addEventListener('resize', place, { passive: true });
-        addEventListener('load', place);
-        place();
-    }
-
     function init() {
         initSplitText();
         initMarquee();
         initMagnetic();
         initScramble();
         initParallax();
-        initNavIndicator();
         scanReveals(document);
         initCounters();
         initProgressFallback();

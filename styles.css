@@ -2103,8 +2103,34 @@ a:hover { color: var(--holo-mint); }
 @keyframes trion-vt-in { from { opacity: 0; transform: translateY(10px); } }
 
 /* Elements that persist across navigation morph rather than cross-fade. */
-.header .logo img { view-transition-name: trion-logo; }
+/* (the logo no longer needs its own name — .header is named below) */
 .holo-progress { view-transition-name: trion-progress-bar; }
+
+/* ── Keep fixed chrome out of the view transition ──
+   Anything without a view-transition-name is captured into the "root"
+   snapshot, and root's old and new states cross-fade. The header was in
+   there, so every tab switch briefly painted two headers on top of each
+   other: the outgoing active link still dark, the incoming white pill
+   already under a different item. Mid-blend, nav labels were unreadable.
+
+   Naming these takes them out of root; suppressing their animation keeps
+   them live and untouched while only the panel transitions. */
+.header        { view-transition-name: site-header; }
+.whatsapp-button { view-transition-name: wa-float; }
+#trion-canvas  { view-transition-name: ambient-field; }
+
+::view-transition-group(site-header),
+::view-transition-group(wa-float),
+::view-transition-group(ambient-field) { animation: none; }
+
+::view-transition-old(site-header),
+::view-transition-old(wa-float),
+::view-transition-old(ambient-field) { display: none; }
+
+::view-transition-new(site-header),
+::view-transition-new(wa-float),
+::view-transition-new(ambient-field) { animation: none; }
+
 
 /* ── Deferred rendering below the fold ────────────────────────────
    Skips style/layout/paint for off-screen sections. Never applied
@@ -3112,28 +3138,17 @@ img { max-width: 100%; height: auto; display: block; }
     to   { transform: translateX(calc(-100% - var(--mq-gap, 3rem))); }
 }
 
-/* ── Sliding nav indicator ── */
-.nav-list { position: relative; }
-.nav-list::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: 34px;
-    width: var(--ind-w, 0);
-    translate: var(--ind-x, 0) -50%;
-    opacity: var(--ind-o, 0);
-    border-radius: var(--radius-full);
-    background: var(--signal);
-    transition: translate 420ms cubic-bezier(.2, .9, .2, 1),
-                width 420ms cubic-bezier(.2, .9, .2, 1),
-                opacity 220ms ease;
-    z-index: 0;
-}
-.nav-list li { position: relative; z-index: 1; }
-/* The pill is drawn by the indicator now, so the active link only
-   needs to flip its text colour. */
-.nav-link.active { background: transparent; }
+/* The sliding nav indicator was removed.
+
+   It drew the active pill as a separate element that slid over 420ms,
+   while the link's own text colour transitioned over 200ms. So on every
+   tab switch the incoming label turned near-black 220ms before the white
+   pill arrived underneath it — near-black text on a near-black bar,
+   unreadable, and the outgoing label lit up while the pill was still
+   over it.
+
+   The pill now belongs to the link again (.nav-link.active), so the
+   background and the text colour change together and cannot desync. */
 
 /* ── Link hover sweep ── */
 [data-sweep] {
