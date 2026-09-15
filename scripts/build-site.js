@@ -731,6 +731,7 @@ function renderProductsHub(products, locale) {
                     <a class="portfolio-item prod-card" href="${productUrl}" aria-label="${escAttr(t.prod.view)}: ${escAttr(p.name)}" style="--card-accent: ${p.accent || 'var(--holo-cyan)'};">
                         <div class="pi-visual prod-visual">
                             <div class="prod-icon">${picture(p.icon, A, { alt: `${p.name} icon`, sizes: '72px', loading: 'lazy', decoding: 'async' })}</div>
+${(p.shots && p.shots.length) ? `                            <div class="prod-shots" aria-hidden="true">${p.shots.slice(0,3).map((sh) => picture(sh, A, { alt: '', sizes: '120px', loading: 'lazy', decoding: 'async' })).join('')}</div>` : ''}
                         </div>
                         <div class="pi-body">
                                 <h3>${esc(p.name)}</h3>

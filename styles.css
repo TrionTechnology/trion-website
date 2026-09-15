@@ -3202,3 +3202,43 @@ img { max-width: 100%; height: auto; display: block; }
     font-weight: 500;
     letter-spacing: -0.02em;
 }
+
+/* ── Product card screenshots ──
+   The hub card showed only an app icon, so a product had nowhere to
+   actually show itself. Up to three screenshots fan out behind the
+   icon; they are decorative (aria-hidden) since the card already has
+   a name, tagline and tags. */
+.prod-visual { position: relative; overflow: hidden; }
+.prod-visual .prod-icon { position: relative; z-index: 2; }
+.prod-shots {
+    position: absolute;
+    inset: auto 0 -12% 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 1;
+}
+.prod-shots picture {
+    display: block;
+    width: 34%;
+    max-width: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent)) 30%, transparent);
+    box-shadow: 0 14px 34px -12px rgba(0,0,0,.7);
+    transition: transform 520ms cubic-bezier(.2,.8,.2,1);
+}
+.prod-shots picture:nth-child(1) { transform: translate(28%, 14%) rotate(-7deg); z-index: 1; }
+.prod-shots picture:nth-child(2) { transform: translateY(4%);                    z-index: 3; }
+.prod-shots picture:nth-child(3) { transform: translate(-28%, 14%) rotate(7deg); z-index: 2; }
+.prod-shots img { width: 100%; height: auto; display: block; }
+
+a.prod-card:hover .prod-shots picture:nth-child(1) { transform: translate(36%, 6%) rotate(-10deg); }
+a.prod-card:hover .prod-shots picture:nth-child(2) { transform: translateY(-4%); }
+a.prod-card:hover .prod-shots picture:nth-child(3) { transform: translate(-36%, 6%) rotate(10deg); }
+
+/* Give the visual more room when it carries screenshots. */
+.prod-visual:has(.prod-shots) { aspect-ratio: 4 / 3; }
+.prod-visual:has(.prod-shots) .prod-icon { display: none; }
+/* Fallback for engines without :has() — the icon simply stays. */
