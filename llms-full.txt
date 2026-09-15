@@ -240,7 +240,7 @@ Unlike the case studies above, these are apps Trion Creation builds, owns and pu
 
 ## Update info
 
-- This file last updated: 2026-09-14
+- This file last updated: 2026-09-15
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml

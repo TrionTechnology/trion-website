@@ -325,15 +325,12 @@ a:hover { color: var(--holo-mint); }
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
-@keyframes holoShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-/* Slow the holo gradient drift everywhere — was reading as flicker */
-.btn-primary, .nav-link.active, .highlight, .holo-text,
-.holo-progress-fill, .stat-number, .achievement-number {
-    animation-duration: 14s !important;
-}
+/* @keyframes holoShift removed — no rule applied it any more. */
+/* The "slow the holo drift" override was removed along with the
+   animation it was slowing. It also mattered for accessibility: a
+   class-selector !important beats the universal selector in the
+   prefers-reduced-motion catch-all, so it was the one rule on the page
+   that could have kept animating with Reduce Motion on. */
 
 /* ════════════════════════ BUTTONS ════════════════════════
    Rebuilt. The previous primary button ran `animation: holoShift 6s
