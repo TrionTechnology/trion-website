@@ -3027,7 +3027,20 @@ img { max-width: 100%; height: auto; display: block; }
 @media (prefers-reduced-motion: no-preference) {
 
 /* ── Word-by-word heading reveal ── */
-.sp-w { display: inline-block; overflow: hidden; vertical-align: bottom; }
+/* The mask hides each word before it rises in, but a tight box clips
+   anything that overhangs it — descenders (the y in "Malaysia") and the
+   horizontal overhang of italic type. Pad the mask out and pull it back
+   with equal negative margin, so glyphs are never cut but layout and
+   line-height are unchanged. */
+.sp-w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.24em;
+    margin-bottom: -0.24em;
+    padding-right: 0.12em;
+    margin-right: -0.12em;
+}
 .sp-i {
     display: inline-block;
     will-change: transform, opacity;
@@ -3035,7 +3048,7 @@ img { max-width: 100%; height: auto; display: block; }
     animation-delay: calc(var(--i) * 55ms + var(--sp-delay, 0ms));
 }
 @keyframes sp-rise {
-    from { transform: translateY(105%) rotate(2deg); opacity: 0; }
+    from { transform: translateY(140%) rotate(2deg); opacity: 0; }
     to   { transform: translateY(0) rotate(0); opacity: 1; }
 }
 /* Below the fold, hold until scrolled to. */
