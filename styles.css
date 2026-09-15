@@ -3041,6 +3041,19 @@ img { max-width: 100%; height: auto; display: block; }
     padding-right: 0.12em;
     margin-right: -0.12em;
 }
+/* A heading that paints its text with background-clip:text keeps the
+   gradient on its own box. Splitting it moves the glyphs into child
+   spans, which inherit the transparent text-fill but NOT the background
+   — leaving nothing to clip, so the words rendered invisible. Chain the
+   background down through the mask to the word. Headings without a
+   gradient inherit "none" and are unaffected. */
+[data-split] .sp-w,
+[data-split] .sp-i {
+    background-image: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 .sp-i {
     display: inline-block;
     will-change: transform, opacity;
