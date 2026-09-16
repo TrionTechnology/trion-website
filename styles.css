@@ -3497,3 +3497,14 @@ a.prod-card:hover .prod-shots picture:nth-child(3) { transform: translate(-36%, 
     .svc-expertise-card { padding: var(--space-6); }
     .svc-hero .pf-title { max-width: none; }
 }
+
+/* Products hub: one centred column rather than the copy/visual split the
+   service and case-study heroes use — the product cards below carry the
+   imagery, so a hero visual would compete with them. */
+.prod-hero-copy {
+    max-width: 780px;
+    margin-inline: auto;
+    text-align: center;
+}
+.prod-hero-copy .pf-breadcrumb { justify-content: center; }
+.prod-hero-copy .pf-tagline { margin-inline: auto; }

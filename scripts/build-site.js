@@ -1031,16 +1031,30 @@ ${JSON.stringify(faqSchemaProd, null, 4)}
     </header>
 
     <main class="main-content" id="main">
-        <div class="page-header with-banner" style="background-image: url('${A}images/banners/banner-products.jpg');">
+        <!-- ─── PRODUCTS HERO — same system as the service and case-study pages ─── -->
+        <section class="pf-hero prod-hero" style="--pf-gradient: linear-gradient(150deg, rgba(232,196,95,0.24) 0%, rgba(7,5,26,0.92) 58%, rgba(20,169,141,0.26) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <h1 data-split>${esc(t.prod.title)}</h1>
-                <p>${esc(t.prod.subtitle)}</p>
+                <div class="pf-hero-copy prod-hero-copy">
+                    <div class="pf-breadcrumb" data-scramble-group>
+                        <a href="${A}index.html">${t.prod.home}</a>
+                        <span class="pf-breadcrumb-sep">›</span>
+                        <span>${esc(t.prod.title)}</span>
+                    </div>
+                    <div class="pf-eyebrow" data-scramble>${escAttr(t.prod.eyebrow)}</div>
+                    <h1 class="pf-title" data-split>${esc(t.prod.title)}</h1>
+                    <p class="pf-tagline">${esc(t.prod.subtitle)}</p>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="portfolio-grid prod-grid">${cards}
+        </section>
+
+        <section class="pf-section">
+            <div class="container">
+                <div class="portfolio-grid prod-grid" data-reveal-group>${cards}
+                </div>
             </div>
-        </div>
+        </section>
 ${faqSection(t.faqProd(products), t, { eyebrow: 'ABOUT OUR PRODUCTS' })}
     </main>
 
