@@ -115,6 +115,75 @@ function picture(key, A, o = {}) {
     return `<picture>${sources.join('')}<img src="${A}${encPath(key)}" width="${m.w}" height="${m.h}" ${attrs}></picture>`;
 }
 
+/* ────────────────────────────────────────────────────────────
+   TECH ICONS
+   images/tech-icons/ holds 47 monochrome brand marks that nothing
+   referenced. They are Simple Icons: no fill attribute, so they paint
+   black and would be invisible on the dark theme. Rendering them as a
+   CSS mask over currentColor lets each mark take the colour of the chip
+   it sits in — including the gold hover — while staying a separate
+   cacheable file rather than inline markup on every page.
+   A stack entry with no matching mark simply renders as text.
+   ──────────────────────────────────────────────────────────── */
+const TECH_ICONS = (() => {
+    try {
+        return new Set(
+            fs.readdirSync(path.join(ROOT, 'images', 'tech-icons'))
+              .filter((f) => f.endsWith('.svg'))
+              .map((f) => f.replace(/\.svg$/, ''))
+        );
+    } catch (e) { return new Set(); }
+})();
+
+/* Spellings in the data files do not match icon filenames one to one:
+   "Node.js" -> nodejs, "PostgreSQL + PostGIS" -> postgresql, and a few
+   entries name two vendors ("Stripe / iPay88") or an extension
+   ("PostgreSQL + PostGIS"), so the label is also tried split on / and +,
+   with the first part that has a mark winning. */
+const TECH_ALIAS = {
+    nodejs: 'nodejs', node: 'nodejs', reactnative: 'react', react: 'react',
+    vuejs: 'vuejs', vue: 'vuejs', nextjs: 'nextjs', typescript: 'typescript',
+    tailwindcss: 'tailwindcss', html5: 'html5', php: 'php', laravel: 'laravel',
+    express: 'express', graphql: 'graphql', apollo: 'apollo', prisma: 'prisma',
+    postgresql: 'postgresql', postgres: 'postgresql', mysql: 'mysql',
+    mongodb: 'mongodb', redis: 'redis', firebase: 'firebase',
+    aws: 'aws', awss3: 'aws', amazonaws: 'aws',
+    alibabacloud: 'alibaba-cloud', alibabacloudcdn: 'alibaba-cloud',
+    docker: 'docker', kubernetes: 'kubernetes', nginx: 'nginx',
+    githubactions: 'github-actions', airflow: 'airflow',
+    flutter: 'flutter', swift: 'swift', kotlin: 'kotlin', xamarin: 'xamarin',
+    odoo: 'odoo', sap: 'sap', powerbi: 'powerbi',
+    openai: 'openai', tensorflow: 'tensorflow', pytorch: 'pytorch',
+    spacy: 'spacy', dialogflow: 'dialogflow',
+    solidity: 'solidity', ethereum: 'ethereum', web3js: 'web3js',
+    hardhat: 'hardhat', opensea: 'opensea',
+    stripe: 'stripe', paypal: 'paypal', square: 'square',
+    zapier: 'zapier', rapidapi: 'rapidapi',
+};
+
+const normTech = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
+
+function techIconSlug(label) {
+    /* try the whole label, then each "/"-separated vendor in order */
+    const candidates = [label].concat(String(label).split(/[/+]/));
+    for (const c of candidates) {
+        const key = normTech(c);
+        if (!key) continue;
+        const slug = TECH_ALIAS[key];
+        if (slug && TECH_ICONS.has(slug)) return slug;
+        if (TECH_ICONS.has(key)) return key;
+    }
+    return null;
+}
+
+function techChip(label, A, cls) {
+    const slug = techIconSlug(label);
+    const ico = slug
+        ? `<i class="tech-ico" aria-hidden="true" style="--ico:url('${A}images/tech-icons/${slug}.svg')"></i>`
+        : '';
+    return `<span class="${cls}${slug ? ' has-ico' : ''}">${ico}${esc(label)}</span>`;
+}
+
 const LOGO = 'logo master - Trion-07 3.png';
 // The logo renders at 51px tall in the header, 55px in the footer — a 400w
 // derivative covers every realistic DPR, so one candidate and a flat size.
@@ -462,8 +531,7 @@ function renderPortfolio(p, locale) {
                             <p>${esc(f.desc)}</p>
                         </div>`).join('');
 
-    const techChips = p.techStack.map((tch) =>
-        `<span class="pf-tech-chip">${esc(tch)}</span>`).join('');
+    const techChips = p.techStack.map((tch) => techChip(tch, A, 'pf-tech-chip')).join('');
 
     const useCases = p.useCases.map((u) =>
         `<li><svg class="pf-bullet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>${esc(u)}</span></li>`).join('');

@@ -2468,6 +2468,32 @@ a:hover { color: var(--holo-mint); }
     flex-wrap: wrap;
     gap: var(--space-3);
 }
+/* Brand marks are painted as a mask over currentColor, so each icon
+   takes the colour of its chip — including the gold hover — instead of
+   the flat black the source SVGs would otherwise render. */
+.tech-ico {
+    width: 1.05em;
+    height: 1.05em;
+    flex: 0 0 auto;
+    display: inline-block;
+    background-color: currentColor;
+    -webkit-mask: var(--ico) center / contain no-repeat;
+    mask: var(--ico) center / contain no-repeat;
+    opacity: 0.85;
+    transition: opacity var(--transition-fast);
+}
+.has-ico:hover .tech-ico { opacity: 1; }
+/* No mask support: fall back to no icon rather than a black square. */
+@supports not ((-webkit-mask: url('')) or (mask: url(''))) {
+    .tech-ico { display: none; }
+}
+
+.pf-tech-chip.has-ico,
+.tech-tag.has-ico {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+}
 .pf-tech-chip {
     padding: 0.6rem 1.2rem;
     background: rgba(20, 169, 141, 0.08);
