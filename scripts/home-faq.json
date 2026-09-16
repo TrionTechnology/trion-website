@@ -1,0 +1,104 @@
+{
+    "en": [
+        {
+            "q": "How long does it take to build a custom software system in Malaysia?",
+            "a": "Most MVPs take 6–12 weeks. Full enterprise systems (ERP, HRMS, loan management) typically range from 3 to 6 months depending on scope, integrations, and compliance requirements. Trion Creation gives you a clear timeline during the free consultation."
+        },
+        {
+            "q": "Does Trion Creation build both mobile apps and web systems?",
+            "a": "Yes. We deliver native iOS/Android apps, progressive web apps, admin dashboards, backend APIs and cloud infrastructure — typically as one fully integrated stack so your mobile, web and backend all speak the same language."
+        },
+        {
+            "q": "Can Trion Creation customise or migrate from an existing system?",
+            "a": "Absolutely. We regularly customise Odoo, WordPress, Laravel and legacy PHP systems, and handle full data migration, re-platforming and feature extension without downtime."
+        },
+        {
+            "q": "How much does a custom software project cost in Malaysia?",
+            "a": "Pricing depends on scope, but typical project bands are RM15k–40k for MVPs, RM40k–150k for mid-size business systems, and RM150k+ for enterprise platforms. We provide a fixed-scope quote after the first discovery call — no hidden costs."
+        },
+        {
+            "q": "Does Trion Creation provide support and maintenance after launch?",
+            "a": "Yes. All projects include a warranty period, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response."
+        },
+        {
+            "q": "Who owns the source code after the project is delivered?",
+            "a": "You do. Clients own 100% of the source code and data. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if preferred."
+        },
+        {
+            "q": "What industries has Trion Creation built software for?",
+            "a": "Trion Creation has delivered 150+ projects across social media (Yippi, 5M+ users), finance and lending (MyCashOut), Web3 (Colorverse), logistics and transport (DDDrive), legal (ThaiAdvocates), HR, retail and F&B POS, theme park imaging (Pictureworks) and online education (ReSkills)."
+        },
+        {
+            "q": "What technologies does Trion Creation use?",
+            "a": "Frontend: React, Next.js, Vue.js, TypeScript, TailwindCSS. Backend: Node.js, Laravel, PHP, Express, GraphQL. Mobile: Flutter, React Native, Swift, Kotlin. Database: PostgreSQL, MySQL, MongoDB, Redis, Firebase, Prisma. Cloud: AWS, Alibaba Cloud, Docker, Kubernetes. AI/ML: TensorFlow, PyTorch, OpenAI. Blockchain: Solidity, Ethereum, Web3.js. ERP: Odoo, custom ERP."
+        }
+    ],
+    "zh": [
+        {
+            "q": "在马来西亚开发一套定制软件系统需要多长时间？",
+            "a": "大多数最小可行产品（MVP）需要 6–12 周。完整的企业级系统（ERP、HRMS、贷款管理）通常需要 3 至 6 个月，具体取决于项目范围、系统集成与合规要求。Trion Creation 会在免费咨询时给出明确的时间表。"
+        },
+        {
+            "q": "Trion Creation 同时开发移动应用和网页系统吗？",
+            "a": "是的。我们交付原生 iOS/Android 应用、渐进式网页应用（PWA）、管理后台、后端 API 以及云基础设施 —— 通常作为一套完整集成的技术栈，让您的移动端、网页端与后端保持一致。"
+        },
+        {
+            "q": "Trion Creation 能定制或从现有系统迁移吗？",
+            "a": "完全可以。我们经常定制 Odoo、WordPress、Laravel 以及老旧的 PHP 系统，并负责完整的数据迁移、平台重构与功能扩展，且不影响正常运营。"
+        },
+        {
+            "q": "在马来西亚，定制软件项目的费用是多少？",
+            "a": "价格取决于项目范围，常见的项目区间为：MVP 约 RM15,000–40,000；中型业务系统约 RM40,000–150,000；企业级平台 RM150,000 以上。首次咨询通话后，我们会提供固定范围报价 —— 绝无隐藏费用。"
+        },
+        {
+            "q": "Trion Creation 在上线后提供支持与维护吗？",
+            "a": "提供。所有项目均包含保修期，我们还提供按月的支持服务，涵盖缺陷修复、安全补丁、服务器监控、功能更新以及 7×24 小时重大故障响应。"
+        },
+        {
+            "q": "项目交付后，源代码归谁所有？",
+            "a": "归您所有。客户拥有源代码与数据的 100% 所有权。我们签署保密协议（NDA），遵循安全开发流程（SDLC），并可按您的要求部署到您自己的 AWS、阿里云或本地服务器环境。"
+        },
+        {
+            "q": "Trion Creation 为哪些行业开发过软件？",
+            "a": "Trion Creation 已交付 150 多个项目，涵盖社交媒体（Yippi，500 万以上用户）、金融与借贷（MyCashOut）、Web3（Colorverse）、物流与运输（DDDrive）、法律（ThaiAdvocates）、人力资源、零售与餐饮 POS、主题公园影像（Pictureworks）以及在线教育（ReSkills）等领域。"
+        },
+        {
+            "q": "Trion Creation 使用哪些技术？",
+            "a": "前端：React、Next.js、Vue.js、TypeScript、TailwindCSS。后端：Node.js、Laravel、PHP、Express、GraphQL。移动端：Flutter、React Native、Swift、Kotlin。数据库：PostgreSQL、MySQL、MongoDB、Redis、Firebase、Prisma。云服务：AWS、阿里云、Docker、Kubernetes。AI/ML：TensorFlow、PyTorch、OpenAI。区块链：Solidity、Ethereum、Web3.js。ERP：Odoo 及定制 ERP。"
+        }
+    ],
+    "ms": [
+        {
+            "q": "Berapa lama masa diperlukan untuk membina sistem perisian tersuai di Malaysia?",
+            "a": "Kebanyakan MVP mengambil masa 6–12 minggu. Sistem perusahaan penuh (ERP, HRMS, pengurusan pinjaman) lazimnya mengambil masa 3 hingga 6 bulan bergantung pada skop, integrasi dan keperluan pematuhan. Trion Creation memberikan jadual masa yang jelas semasa sesi perundingan percuma."
+        },
+        {
+            "q": "Adakah Trion Creation membina kedua-dua aplikasi mudah alih dan sistem web?",
+            "a": "Ya. Kami menyampaikan aplikasi iOS/Android asli, aplikasi web progresif, papan pemuka pentadbir, API backend dan infrastruktur awan — lazimnya sebagai satu tindanan bersepadu supaya mudah alih, web dan backend anda berfungsi sebagai satu sistem."
+        },
+        {
+            "q": "Bolehkah Trion Creation menyesuaikan atau memindahkan daripada sistem sedia ada?",
+            "a": "Sudah tentu. Kami kerap menyesuaikan sistem Odoo, WordPress, Laravel dan PHP lama, serta mengendalikan pemindahan data penuh, pemindahan platform dan penambahan ciri tanpa gangguan operasi."
+        },
+        {
+            "q": "Berapakah kos projek perisian tersuai di Malaysia?",
+            "a": "Harga bergantung pada skop, tetapi julat projek lazim ialah RM15k–40k bagi MVP, RM40k–150k bagi sistem perniagaan bersaiz sederhana, dan RM150k+ bagi platform perusahaan. Kami memberikan sebut harga skop tetap selepas sesi perundingan pertama — tanpa kos tersembunyi."
+        },
+        {
+            "q": "Adakah Trion Creation menyediakan sokongan dan penyelenggaraan selepas pelancaran?",
+            "a": "Ya. Semua projek disertakan tempoh waranti, dan kami menawarkan pakej sokongan bulanan merangkumi pembaikan pepijat, tampung keselamatan, pemantauan pelayan, kemas kini ciri dan tindak balas insiden kritikal 24/7."
+        },
+        {
+            "q": "Siapakah pemilik kod sumber selepas projek diserahkan?",
+            "a": "Anda. Klien memiliki 100% kod sumber dan data. Kami menandatangani NDA, mengamalkan amalan SDLC yang selamat, dan boleh melaksanakan penempatan ke infrastruktur AWS, Alibaba Cloud atau on-premise milik anda sendiri."
+        },
+        {
+            "q": "Untuk industri apakah Trion Creation pernah membina perisian?",
+            "a": "Trion Creation telah menyampaikan lebih 150 projek merentasi media sosial (Yippi, 5 juta+ pengguna), kewangan dan pinjaman (MyCashOut), Web3 (Colorverse), logistik dan pengangkutan (DDDrive), guaman (ThaiAdvocates), sumber manusia, POS runcit dan F&B, pengimejan taman tema (Pictureworks) serta pendidikan dalam talian (ReSkills)."
+        },
+        {
+            "q": "Apakah teknologi yang digunakan oleh Trion Creation?",
+            "a": "Frontend: React, Next.js, Vue.js, TypeScript, TailwindCSS. Backend: Node.js, Laravel, PHP, Express, GraphQL. Mudah alih: Flutter, React Native, Swift, Kotlin. Pangkalan data: PostgreSQL, MySQL, MongoDB, Redis, Firebase, Prisma. Awan: AWS, Alibaba Cloud, Docker, Kubernetes. AI/ML: TensorFlow, PyTorch, OpenAI. Blockchain: Solidity, Ethereum, Web3.js. ERP: Odoo, ERP tersuai."
+        }
+    ]
+}

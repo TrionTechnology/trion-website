@@ -238,6 +238,561 @@ Unlike the case studies above, these are apps Trion Creation builds, owns and pu
 4. After the call, you receive a fixed-scope written proposal with timeline, deliverables, milestones and price
 5. Standard project kick-off within 1–2 weeks of proposal acceptance
 
+## Frequently asked questions
+
+### General
+
+**Q: How long does it take to build a custom software system in Malaysia?**
+A: Most MVPs take 6–12 weeks. Full enterprise systems (ERP, HRMS, loan management) typically range from 3 to 6 months depending on scope, integrations, and compliance requirements. Trion Creation gives you a clear timeline during the free consultation.
+
+**Q: Does Trion Creation build both mobile apps and web systems?**
+A: Yes. We deliver native iOS/Android apps, progressive web apps, admin dashboards, backend APIs and cloud infrastructure — typically as one fully integrated stack so your mobile, web and backend all speak the same language.
+
+**Q: Can Trion Creation customise or migrate from an existing system?**
+A: Absolutely. We regularly customise Odoo, WordPress, Laravel and legacy PHP systems, and handle full data migration, re-platforming and feature extension without downtime.
+
+**Q: How much does a custom software project cost in Malaysia?**
+A: Pricing depends on scope, but typical project bands are RM15k–40k for MVPs, RM40k–150k for mid-size business systems, and RM150k+ for enterprise platforms. We provide a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Does Trion Creation provide support and maintenance after launch?**
+A: Yes. All projects include a warranty period, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Who owns the source code after the project is delivered?**
+A: You do. Clients own 100% of the source code and data. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if preferred.
+
+**Q: What industries has Trion Creation built software for?**
+A: Trion Creation has delivered 150+ projects across social media (Yippi, 5M+ users), finance and lending (MyCashOut), Web3 (Colorverse), logistics and transport (DDDrive), legal (ThaiAdvocates), HR, retail and F&B POS, theme park imaging (Pictureworks) and online education (ReSkills).
+
+**Q: What technologies does Trion Creation use?**
+A: Frontend: React, Next.js, Vue.js, TypeScript, TailwindCSS. Backend: Node.js, Laravel, PHP, Express, GraphQL. Mobile: Flutter, React Native, Swift, Kotlin. Database: PostgreSQL, MySQL, MongoDB, Redis, Firebase, Prisma. Cloud: AWS, Alibaba Cloud, Docker, Kubernetes. AI/ML: TensorFlow, PyTorch, OpenAI. Blockchain: Solidity, Ethereum, Web3.js. ERP: Odoo, custom ERP.
+
+### About our products
+
+**Q: What products has Trion Creation built?**
+A: Trion Creation currently publishes Cadence and SoulSync AI. Cadence — The habit tracker that forgives you. A habit tracker built on weekly goals instead of daily streaks. Missing a day doesn't reset your progress. Free tier keeps 10 habits with the full app working; Cadence Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. SoulSync AI — Understand anyone you love. An AI relationship advisor that combines real Eastern metaphysics — Bazi (Four Pillars) and Zi Wei Dou Shu — with Western astrology, then uses AI coaching to explain the compatibility, dynamics and future potential of a relationship in plain language. Reads romantic partners, friendships, business partners and family.
+
+**Q: What is Cadence?**
+A: Cadence is a health & productivity app built and published by Trion Creation Sdn Bhd for Android and iOS. A habit tracker built on weekly goals instead of daily streaks. Missing a day doesn't reset your progress. Free tier keeps 10 habits with the full app working; Cadence Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable.
+
+**Q: What is SoulSync AI?**
+A: SoulSync AI is a lifestyle & relationships app built and published by Trion Creation Sdn Bhd for Android and iOS. An AI relationship advisor that combines real Eastern metaphysics — Bazi (Four Pillars) and Zi Wei Dou Shu — with Western astrology, then uses AI coaching to explain the compatibility, dynamics and future potential of a relationship in plain language. Reads romantic partners, friendships, business partners and family.
+
+**Q: Are these client projects or Trion Creation’s own apps?**
+A: These are our own products. Trion Creation designs, builds, publishes and maintains them end to end — they are not client work. We build them to prove the standard we ship at when we are the customer.
+
+**Q: Where can I download Cadence?**
+A: Cadence is available on Android and iOS. Links are on each product card above.
+
+**Q: When is SoulSync AI launching?**
+A: SoulSync AI is still in development and has not been released to the app stores yet. Store links will appear on this page as soon as it goes live.
+
+**Q: Can Trion Creation build an app like this for my business?**
+A: Yes. Building our own products is the same work we do for clients — custom mobile and web apps, AI features, backends and cloud infrastructure. Book a free discovery call and we will scope your idea and give a fixed-price quote.
+
+### By service
+
+#### Mobile & Web App Development
+
+**Q: How long does Mobile & Web App Development typically take with Trion Creation?**
+A: Most Mobile & Web App Development projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Mobile & Web App Development cost in Malaysia?**
+A: For Mobile & Web App Development, Trion Creation projects typically range from RM15,000 for smaller scoped builds to RM500,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Mobile & Web App Development project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Mobile & Web App Development with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Mobile & Web App Development projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### ERP & CRM Development
+
+**Q: How long does ERP & CRM Development typically take with Trion Creation?**
+A: Most ERP & CRM Development projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does ERP & CRM Development cost in Malaysia?**
+A: For ERP & CRM Development, Trion Creation projects typically range from RM40,000 for smaller scoped builds to RM300,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for an ERP & CRM Development project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate ERP & CRM Development with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take ERP & CRM Development projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### AI Automation & Chatbot
+
+**Q: How long does AI Automation & Chatbot typically take with Trion Creation?**
+A: Most AI Automation & Chatbot projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does AI Automation & Chatbot cost in Malaysia?**
+A: For AI Automation & Chatbot, Trion Creation projects typically range from RM20,000 for smaller scoped builds to RM200,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for an AI Automation & Chatbot project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate AI Automation & Chatbot with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take AI Automation & Chatbot projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Odoo Customisation
+
+**Q: How long does Odoo Customisation typically take with Trion Creation?**
+A: Most Odoo Customisation projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Odoo Customisation cost in Malaysia?**
+A: For Odoo Customisation, Trion Creation projects typically range from RM20,000 for smaller scoped builds to RM250,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for an Odoo Customisation project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Odoo Customisation with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Odoo Customisation projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### POS & Inventory Management
+
+**Q: How long does POS & Inventory Management typically take with Trion Creation?**
+A: Most POS & Inventory Management projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does POS & Inventory Management cost in Malaysia?**
+A: For POS & Inventory Management, Trion Creation projects typically range from RM25,000 for smaller scoped builds to RM200,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a POS & Inventory Management project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate POS & Inventory Management with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take POS & Inventory Management projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Booking System Development
+
+**Q: How long does Booking System Development typically take with Trion Creation?**
+A: Most Booking System Development projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Booking System Development cost in Malaysia?**
+A: For Booking System Development, Trion Creation projects typically range from RM18,000 for smaller scoped builds to RM150,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Booking System Development project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Booking System Development with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Booking System Development projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Loan Management System
+
+**Q: How long does Loan Management System typically take with Trion Creation?**
+A: Most Loan Management System projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Loan Management System cost in Malaysia?**
+A: For Loan Management System, Trion Creation projects typically range from RM60,000 for smaller scoped builds to RM400,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Loan Management System project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Loan Management System with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Loan Management System projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### API Integration & Development
+
+**Q: How long does API Integration & Development typically take with Trion Creation?**
+A: Most API Integration & Development projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does API Integration & Development cost in Malaysia?**
+A: For API Integration & Development, Trion Creation projects typically range from RM10,000 for smaller scoped builds to RM200,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for an API Integration & Development project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate API Integration & Development with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take API Integration & Development projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Blockchain & Web3 Solutions
+
+**Q: How long does Blockchain & Web3 Solutions typically take with Trion Creation?**
+A: Most Blockchain & Web3 Solutions projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Blockchain & Web3 Solutions cost in Malaysia?**
+A: For Blockchain & Web3 Solutions, Trion Creation projects typically range from RM50,000 for smaller scoped builds to RM500,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Blockchain & Web3 Solutions project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Blockchain & Web3 Solutions with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Blockchain & Web3 Solutions projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### AR/VR & Metaverse Development
+
+**Q: How long does AR/VR & Metaverse Development typically take with Trion Creation?**
+A: Most AR/VR & Metaverse Development projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does AR/VR & Metaverse Development cost in Malaysia?**
+A: For AR/VR & Metaverse Development, Trion Creation projects typically range from RM40,000 for smaller scoped builds to RM400,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for an AR/VR & Metaverse Development project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate AR/VR & Metaverse Development with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take AR/VR & Metaverse Development projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Cloud Infrastructure & DevOps
+
+**Q: How long does Cloud Infrastructure & DevOps typically take with Trion Creation?**
+A: Most Cloud Infrastructure & DevOps projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Cloud Infrastructure & DevOps cost in Malaysia?**
+A: For Cloud Infrastructure & DevOps, Trion Creation projects typically range from RM15,000 for smaller scoped builds to RM300,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Cloud Infrastructure & DevOps project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Cloud Infrastructure & DevOps with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Cloud Infrastructure & DevOps projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+#### Product Design & UX
+
+**Q: How long does Product Design & UX typically take with Trion Creation?**
+A: Most Product Design & UX projects fall into one of three bands. MVPs typically take 6–12 weeks. Mid-size systems take 3–4 months. Enterprise platforms can take 3–6 months depending on integrations and compliance requirements. We give a fixed timeline after the free discovery call.
+
+**Q: What does Product Design & UX cost in Malaysia?**
+A: For Product Design & UX, Trion Creation projects typically range from RM10,000 for smaller scoped builds to RM150,000+ for enterprise platforms. Fixed-scope quote provided after a discovery call — no hidden costs.
+
+**Q: Who owns the source code for a Product Design & UX project?**
+A: You do. Trion Creation clients own 100% of the source code and data we produce for them. We sign NDAs, follow secure SDLC practices, and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure if you prefer to keep everything in your own environment.
+
+**Q: Do you provide support and maintenance after launch?**
+A: Yes. Every Trion Creation project includes a warranty period after handover, and we offer monthly support retainers covering bug fixes, security patches, server monitoring, feature updates and 24/7 critical incident response.
+
+**Q: Can you integrate Product Design & UX with our existing systems?**
+A: Yes. We regularly integrate with existing ERP, accounting, payment and logistics platforms, and we customise or migrate from Odoo, WordPress, Laravel and legacy PHP systems — including full data migration and re-platforming without downtime.
+
+**Q: Does Trion Creation take Product Design & UX projects outside Malaysia?**
+A: Yes. Trion Creation is based in Kuala Lumpur, Malaysia and also delivers projects for clients in Singapore, Thailand and Indonesia. Discovery calls, delivery and support all run remotely.
+
+### By solution
+
+#### Social Media Super App
+
+**Q: What is a Social Media Super App?**
+A: A full-featured social super app: real-time messaging, content feed, short video, live streaming, creator monetization, in-app payments, rewards and discovery. Engineered to scale to millions of concurrent users with cross-border CDN and real-time backend.
+
+**Q: What technologies are used to build a Social Media Super App?**
+A: Trion Creation typically builds Social Media Super App using React Native, Node.js, WebSocket, PostgreSQL, Redis, Alibaba Cloud CDN, FFmpeg, Stripe.
+
+**Q: Who is a Social Media Super App suitable for?**
+A: A Social Media Super App is suitable for Niche social communities, Creator-led platforms, Live streaming apps, Regional super apps, Web3 social platforms. We have delivered similar systems across Social Media, Entertainment, Creator Economy, Live Streaming, Web3.
+
+**Q: How long does it take to build a Social Media Super App?**
+A: A Social Media Super App MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Social Media Super App cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Social Media Super App?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Loan Management System
+
+**Q: What is a Loan Management System?**
+A: Production-grade loan management built for lenders, fintechs and micro-finance operators. Borrower onboarding, eKYC, AI credit scoring, approval workflow, disbursement, repayment and collections — with a full admin portal and regulatory reporting.
+
+**Q: What technologies are used to build a Loan Management System?**
+A: Trion Creation typically builds Loan Management System using Laravel, PostgreSQL, Redis, AWS, iPay88, Twilio, OCR / OpenAI.
+
+**Q: Who is a Loan Management System suitable for?**
+A: A Loan Management System is suitable for Personal loan products, SME lending, BNPL platforms, Micro-finance, P2P lending. We have delivered similar systems across Fintech, Lending, Banking, Micro-finance.
+
+**Q: How long does it take to build a Loan Management System?**
+A: A Loan Management System MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Loan Management System cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Loan Management System?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Driver & Transport Platform
+
+**Q: What is a Driver & Transport Platform?**
+A: A complete ride-hailing / driver-for-hire / transport platform. Real-time GPS tracking, driver matching, route optimisation, dynamic pricing, in-app payments, ratings and a fleet admin console with city-level operations control.
+
+**Q: What technologies are used to build a Driver & Transport Platform?**
+A: Trion Creation typically builds Driver & Transport Platform using Flutter, React Native, Node.js, PostgreSQL + PostGIS, Redis, Google Maps, Stripe / iPay88.
+
+**Q: Who is a Driver & Transport Platform suitable for?**
+A: A Driver & Transport Platform is suitable for Ride-hailing, On-demand delivery, Driver-for-hire, Logistics dispatch, Fleet operations. We have delivered similar systems across Transport, Logistics, Delivery, Mobility.
+
+**Q: How long does it take to build a Driver & Transport Platform?**
+A: A Driver & Transport Platform MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Driver & Transport Platform cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Driver & Transport Platform?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### HRMS & Payroll System
+
+**Q: What is an HRMS & Payroll System?**
+A: Complete HR and payroll management designed for Malaysian SMEs and enterprises. Attendance with mobile clock-in, leave with approval workflow, payroll with EPF/SOCSO/EIS/PCB calculations, expense claims, employee self-service portal and management dashboards.
+
+**Q: What technologies are used to build an HRMS & Payroll System?**
+A: Trion Creation typically builds HRMS & Payroll System using Laravel, React, PostgreSQL, AWS, iPay88, PDF generation, OCR.
+
+**Q: Who is an HRMS & Payroll System suitable for?**
+A: An HRMS & Payroll System is suitable for SMEs with 20-500 employees, Multi-location operations, F&B chains, Logistics companies, Professional services. We have delivered similar systems across Human Resources, Professional Services, Manufacturing, Retail, F&B.
+
+**Q: How long does it take to build an HRMS & Payroll System?**
+A: A HRMS & Payroll System MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does an HRMS & Payroll System cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the HRMS & Payroll System?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### ERP & Business Suite
+
+**Q: What is an ERP & Business Suite?**
+A: One unified ERP covering inventory, finance, procurement, sales, manufacturing and HR. Built on Odoo with custom modules — multi-company, multi-currency, multi-warehouse — and integrated with your accounting, e-commerce, payment and government e-invoicing systems.
+
+**Q: What technologies are used to build an ERP & Business Suite?**
+A: Trion Creation typically builds ERP & Business Suite using Odoo, Python, PostgreSQL, Nginx, Docker, MyInvois (LHDN).
+
+**Q: Who is an ERP & Business Suite suitable for?**
+A: An ERP & Business Suite is suitable for Multi-entity SMEs, Wholesale distributors, Light manufacturing, Multi-outlet retail, Service businesses. We have delivered similar systems across Manufacturing, Wholesale, Retail, Distribution, Services.
+
+**Q: How long does it take to build an ERP & Business Suite?**
+A: A ERP & Business Suite MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does an ERP & Business Suite cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the ERP & Business Suite?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Legal Case Management
+
+**Q: What is a Legal Case Management?**
+A: Practice management for law firms — case files, document vault, time tracking, trust accounts, invoicing, calendar, role-based access and client portal. Built for hybrid and distributed teams with cloud-first architecture and granular permissions.
+
+**Q: What technologies are used to build a Legal Case Management?**
+A: Trion Creation typically builds Legal Case Management using Laravel, React, PostgreSQL, AWS S3, OCR, Stripe / iPay88.
+
+**Q: Who is a Legal Case Management suitable for?**
+A: A Legal Case Management is suitable for Boutique law firms, Mid-size practices, Legal consultants, Cross-border legal teams, Notarial / conveyancing. We have delivered similar systems across Legal, Professional Services, Consulting.
+
+**Q: How long does it take to build a Legal Case Management?**
+A: A Legal Case Management MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Legal Case Management cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Legal Case Management?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Project Management Suite
+
+**Q: What is a Project Management Suite?**
+A: End-to-end project management — Kanban boards, Gantt timelines, resource allocation, budget tracking, client portal and real-time collaboration. Built for agencies, contractors and project-driven teams that need more than off-the-shelf SaaS.
+
+**Q: What technologies are used to build a Project Management Suite?**
+A: Trion Creation typically builds Project Management Suite using React, Node.js, PostgreSQL, Redis, WebSocket, AWS.
+
+**Q: Who is a Project Management Suite suitable for?**
+A: A Project Management Suite is suitable for Digital agencies, Construction firms, Consulting, Architecture & design, Software teams. We have delivered similar systems across Agencies, Construction, Consulting, Architecture, Software.
+
+**Q: How long does it take to build a Project Management Suite?**
+A: A Project Management Suite MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Project Management Suite cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Project Management Suite?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Feedback & BI Dashboard
+
+**Q: What is a Feedback & BI Dashboard?**
+A: Omni-channel feedback collection (QR, kiosk, SMS, email) fed into a Power BI / custom analytics layer. Sentiment analysis, NPS tracking, location-level dashboards, alerts on negative feedback and trend analysis across products, branches and time.
+
+**Q: What technologies are used to build a Feedback & BI Dashboard?**
+A: Trion Creation typically builds Feedback & BI Dashboard using Power BI, Node.js, PostgreSQL, OpenAI / NLP, AWS, Twilio.
+
+**Q: Who is a Feedback & BI Dashboard suitable for?**
+A: A Feedback & BI Dashboard is suitable for Retail chains, F&B operators, Hospitals & clinics, Hotels, Service providers. We have delivered similar systems across Retail, F&B, Healthcare, Hospitality, Government Services.
+
+**Q: How long does it take to build a Feedback & BI Dashboard?**
+A: A Feedback & BI Dashboard MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Feedback & BI Dashboard cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Feedback & BI Dashboard?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Pet Services Platform
+
+**Q: What is a Pet Services Platform?**
+A: A complete platform for the pet care economy — pet profiles, grooming and boarding bookings, vet appointment scheduling, e-commerce marketplace for food and supplies, community forum and loyalty programme. iOS, Android and web with provider apps for groomers and clinics.
+
+**Q: What technologies are used to build a Pet Services Platform?**
+A: Trion Creation typically builds Pet Services Platform using Flutter, Node.js, PostgreSQL, Stripe, AWS S3, Twilio.
+
+**Q: Who is a Pet Services Platform suitable for?**
+A: A Pet Services Platform is suitable for Pet care chains, Vet clinic networks, Pet retail brands, Pet community platforms. We have delivered similar systems across Pet Care, Veterinary, Retail, Marketplace.
+
+**Q: How long does it take to build a Pet Services Platform?**
+A: A Pet Services Platform MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Pet Services Platform cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Pet Services Platform?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Wellness & Booking App
+
+**Q: What is a Wellness & Booking App?**
+A: On-demand and scheduled wellness bookings — massage, spa, beauty, fitness, yoga and more. Customer app, therapist/practitioner app, business admin console, in-app payments, ratings, location-based matching and recurring bookings.
+
+**Q: What technologies are used to build a Wellness & Booking App?**
+A: Trion Creation typically builds Wellness & Booking App using React Native, Node.js, PostgreSQL + PostGIS, Stripe, Twilio, Google Maps.
+
+**Q: Who is a Wellness & Booking App suitable for?**
+A: A Wellness & Booking App is suitable for On-demand massage, Spa chains, Beauty services, Fitness coaching, Yoga & wellness. We have delivered similar systems across Wellness, Beauty, Fitness, Hospitality.
+
+**Q: How long does it take to build a Wellness & Booking App?**
+A: A Wellness & Booking App MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Wellness & Booking App cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Wellness & Booking App?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Supplier & Inventory System
+
+**Q: What is a Supplier & Inventory System?**
+A: Inventory and supplier management for distributors, e-commerce and multi-outlet retailers. Real-time stock across warehouses, purchase order workflows, supplier portal, barcode and lot tracking, demand forecasting and integrations with accounting and e-commerce.
+
+**Q: What technologies are used to build a Supplier & Inventory System?**
+A: Trion Creation typically builds Supplier & Inventory System using Laravel, Vue.js, PostgreSQL, Redis, Docker, AWS.
+
+**Q: Who is a Supplier & Inventory System suitable for?**
+A: A Supplier & Inventory System is suitable for Wholesale distributors, E-commerce sellers, Multi-outlet retail, Pharmacy chains, F&B central kitchens. We have delivered similar systems across Wholesale, E-commerce, Retail, Pharmacy, F&B.
+
+**Q: How long does it take to build a Supplier & Inventory System?**
+A: A Supplier & Inventory System MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Supplier & Inventory System cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Supplier & Inventory System?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### Visitor Management System
+
+**Q: What is a Visitor Management System?**
+A: Modern visitor management for offices, factories, schools and condos. Pre-registration, digital check-in via kiosk or QR, automatic host notifications, badge printing, NDA signing, blocklist screening and security analytics with full audit trail.
+
+**Q: What technologies are used to build a Visitor Management System?**
+A: Trion Creation typically builds Visitor Management System using React, Node.js, PostgreSQL, Twilio, QR Code, Docker.
+
+**Q: Who is a Visitor Management System suitable for?**
+A: A Visitor Management System is suitable for Corporate offices, Co-working spaces, Factories & warehouses, Schools, Condominiums & gated communities. We have delivered similar systems across Corporate, Manufacturing, Education, Property, Government.
+
+**Q: How long does it take to build a Visitor Management System?**
+A: A Visitor Management System MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does a Visitor Management System cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the Visitor Management System?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
+#### F&B & Retail POS
+
+**Q: What is an F&B & Retail POS?**
+A: Complete POS for restaurants and retail — multi-outlet, real-time inventory sync, kitchen display systems, QR table ordering, e-menu, customer loyalty, online ordering and integrated payment (cards, e-wallets, FPX, GrabPay, Boost, ShopeePay).
+
+**Q: What technologies are used to build an F&B & Retail POS?**
+A: Trion Creation typically builds F&B & Retail POS using React, Electron / Tablet, Node.js, PostgreSQL, iPay88 / Razer / Stripe.
+
+**Q: Who is an F&B & Retail POS suitable for?**
+A: An F&B & Retail POS is suitable for Restaurant chains, Cafes & bubble tea, Quick service restaurants, Multi-outlet retail, Hawker centres. We have delivered similar systems across F&B, Retail, Hospitality, QSR.
+
+**Q: How long does it take to build an F&B & Retail POS?**
+A: A F&B & Retail POS MVP typically takes 6–12 weeks to build. A full production system with integrations usually takes 3–6 months, depending on scope and compliance requirements. Trion Creation confirms a fixed timeline after the free discovery call.
+
+**Q: How much does an F&B & Retail POS cost in Malaysia?**
+A: Typical project bands are RM15,000–40,000 for an MVP, RM40,000–150,000 for a mid-size business system, and RM150,000+ for an enterprise platform. Trion Creation provides a fixed-scope quote after the first discovery call — no hidden costs.
+
+**Q: Do we own the source code of the F&B & Retail POS?**
+A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs and can deploy to your own AWS, Alibaba Cloud or on-premise infrastructure.
+
 ## Update info
 
 - This file last updated: 2026-09-16

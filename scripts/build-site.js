@@ -1144,4 +1144,103 @@ bumpDate(LLMS_FULL);
     }
 }
 
+// ─── Sync the home-page FAQ (visible accordion + FAQPage schema) ───
+/* index.html is hand-authored, and its visible Q&A and its JSON-LD had
+   drifted apart — different wording, two questions present only in the
+   schema, and the zh/ms pages shipping the English schema against
+   translated copy. Both halves are now written from scripts/home-faq.json
+   on every build, so they cannot disagree again. */
+const HOME_FAQ = JSON.parse(fs.readFileSync(path.join(__dirname, 'home-faq.json'), 'utf8'));
+{
+    let synced = 0;
+    for (const locale of LOCALES) {
+        const file = path.join(ROOT, META[locale].dir, 'index.html');
+        if (!fs.existsSync(file)) continue;
+        const items = HOME_FAQ[locale];
+        if (!items || !items.length) continue;
+        let h = fs.readFileSync(file, 'utf8');
+        const before = h;
+
+        const chev = '<svg class="faq-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+        const rows = items.map((qa, i) => `
+                    <details class="faq-item"${i === 0 ? ' open' : ''}>
+                        <summary class="faq-q">
+                            <span>${esc(qa.q)}</span>
+                            ${chev}
+                        </summary>
+                        <div class="faq-a"><p>${esc(qa.a)}</p></div>
+                    </details>`).join('');
+
+        const gridRe = /(<div class="faq-grid">)[\s\S]*?(\n\s*<\/div>\n\s*<div style="text-align:center;)/;
+        if (!gridRe.test(h)) { console.log(`  ! ${locale}/index.html: FAQ grid not found, skipped`); continue; }
+        h = h.replace(gridRe, (m, open, tail) => open + rows + tail);
+
+        let wrote = false;
+        h = h.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (full, json) => {
+            let j; try { j = JSON.parse(json); } catch (e) { return full; }
+            if (j['@type'] !== 'FAQPage') return full;
+            j.inLanguage = META[locale].hreflang;
+            j.mainEntity = items.map((qa) => ({
+                '@type': 'Question', name: qa.q,
+                acceptedAnswer: { '@type': 'Answer', text: qa.a },
+            }));
+            wrote = true;
+            return '<script type="application/ld+json">\n' + JSON.stringify(j, null, 4) + '\n    </script>';
+        });
+        if (!wrote) { console.log(`  ! ${locale}/index.html: no FAQPage block, skipped`); continue; }
+
+        if (h !== before) fs.writeFileSync(file, h, 'utf8');
+        synced++;
+    }
+    console.log(`Synced home-page FAQ on ${synced} locale(s) (${HOME_FAQ.en.length} Q&A each).`);
+}
+
+// ─── Regenerate the FAQ section of llms-full.txt ───
+/* The 546 Q&As on the site are its strongest answer-engine asset, and
+   llms-full.txt is what an LLM crawler reads instead of 91 pages. Both
+   are generated from UI.faq* here, so the text file cannot drift away
+   from what the pages actually say. */
+{
+    if (fs.existsSync(LLMS_FULL)) {
+        const t = UI.en;
+        const services = loadData('services', 'en');
+        const portfolio = loadData('portfolio', 'en');
+        const products = loadData('products', 'en');
+
+        const qa = (pairs) => pairs.map((p) => `**Q: ${p.q}**\nA: ${p.a}`).join('\n\n');
+        const parts = [];
+
+        parts.push('## Frequently asked questions\n');
+        parts.push('### General\n');
+        parts.push(qa(HOME_FAQ.en) + '\n');
+
+        parts.push('### About our products\n');
+        parts.push(qa(t.faqProd(products)) + '\n');
+
+        parts.push('### By service\n');
+        for (const s of services) {
+            parts.push(`#### ${s.title}\n`);
+            parts.push(qa(t.faqSvc(s)) + '\n');
+        }
+
+        parts.push('### By solution\n');
+        for (const p of portfolio) {
+            parts.push(`#### ${p.title}\n`);
+            parts.push(qa(t.faqPf(p)) + '\n');
+        }
+
+        const block = parts.join('\n');
+        let txt = fs.readFileSync(LLMS_FULL, 'utf8');
+        if (/\n## Frequently asked questions[\s\S]*?(?=\n## )/.test(txt)) {
+            txt = txt.replace(/\n## Frequently asked questions[\s\S]*?(?=\n## )/, '\n' + block);
+        } else {
+            // insert before the trailing "## Update info" block
+            txt = txt.replace(/\n## Update info/, '\n' + block + '\n## Update info');
+        }
+        fs.writeFileSync(LLMS_FULL, txt, 'utf8');
+        const n = (block.match(/\*\*Q: /g) || []).length;
+        console.log('Refreshed llms-full.txt FAQ section (' + n + ' Q&A).');
+    }
+}
+
 console.log('\nDone.');
