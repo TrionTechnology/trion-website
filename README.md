@@ -50,7 +50,7 @@ A modern, professional website for Trion Creation featuring a tab-based navigati
 #### Services Tab
 - **Six Service Areas**: 
   - AI & Machine Learning
-  - Quantum Analytics
+  - ERP & CRM Systems
   - AR/VR Development
   - Blockchain & DeFi
   - Cloud Migration
@@ -60,7 +60,7 @@ A modern, professional website for Trion Creation featuring a tab-based navigati
 
 #### Portfolio Tab
 - **Filterable Projects**: JavaScript-powered filtering system
-- **Project Categories**: AI, Quantum, AR/VR, Blockchain, Cloud
+- **Project Categories**: AI, ERP/CRM, AR/VR, Blockchain, Cloud
 - **Real Project Images**: Professional project photography
 - **Interactive Overlays**: Hover effects with project details
 
