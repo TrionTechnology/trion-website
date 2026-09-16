@@ -135,7 +135,7 @@
        the existing text so markup stays the source of truth: "150+",
        "98%", "5+", "2.4x" all work. */
     function initCounters() {
-        var els = document.querySelectorAll('[data-count], .stat-number, .achievement-number');
+        var els = document.querySelectorAll('[data-count], .stat-number, .achievement-number, .stat-cell-number, .result-number, .metric');
         if (!els.length) return;
 
         function run(el) {
@@ -143,12 +143,19 @@
             el.dataset.counted = '1';
 
             var raw = el.textContent.trim();
-            var m = raw.match(/^([^\d\-]*)(-?[\d,]*\.?\d+)(.*)$/);
+            /* Only animate a figure that STARTS with its number (optionally
+               behind a currency mark). Many stat cells are words — "Real-time",
+               "Gasless", "Web2/Web3" — and a loose match would count the "2"
+               out of the middle of one and render "Web0/Web3" on the way up. */
+            var m = raw.match(/^(RM|[$\u20ac\u00a3\u00a5]?)\s*(-?[\d,]*\.?\d+)(.*)$/);
             if (!m) return;
             var prefix = m[1];
             var target = parseFloat(m[2].replace(/,/g, ''));
             var suffix = m[3];
             if (!isFinite(target)) return;
+            /* "24/7" and "3-Tier" are compound labels, not magnitudes —
+               counting them up from zero reads as a glitch, not a stat. */
+            if (/^[/-]/.test(suffix)) return;
 
             var decimals = (m[2].split('.')[1] || '').length;
             var grouped = m[2].indexOf(',') >= 0;
@@ -258,6 +265,7 @@
                 initCounters();
                 initSplitText();
                 initScramble();
+                initScrambleGroups();
                     }, 60);
         }, true);
     }
@@ -396,6 +404,58 @@
     /* ── Parallax ──
        Prefers the native scroll timeline (compositor, zero INP cost);
        falls back to a shared-ticker read of scrollY. */
+    /* ── Glyph scramble across a container's text, links intact ──
+       [data-scramble] rewrites textContent, which is fine on a bare
+       label but would collapse a breadcrumb's <a> children into plain
+       text and kill the links. This variant walks to the Text nodes and
+       rewrites those in place, so markup and anchors survive. */
+    function initScrambleGroups() {
+        if (reduced || !('IntersectionObserver' in window)) return;
+        var groups = document.querySelectorAll('[data-scramble-group]');
+        if (!groups.length) return;
+        var CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\<>[]{}=+*';
+
+        function run(root) {
+            if (root.dataset.scrambled) return;
+            root.dataset.scrambled = '1';
+
+            var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+            var nodes = [], n;
+            while ((n = walker.nextNode())) {
+                if (n.nodeValue && n.nodeValue.trim()) nodes.push({ node: n, target: n.nodeValue });
+            }
+            if (!nodes.length) return;
+
+            var start = 0, dur = 620;
+            function restore() {
+                for (var k = 0; k < nodes.length; k++) nodes[k].node.nodeValue = nodes[k].target;
+            }
+            function tick(dt, now) {
+                if (!start) start = now;
+                var p = Math.min((now - start) / dur, 1);
+                for (var k = 0; k < nodes.length; k++) {
+                    var tg = nodes[k].target;
+                    var settled = Math.floor(p * tg.length);
+                    var out = '';
+                    for (var i = 0; i < tg.length; i++) {
+                        if (i < settled || tg[i] === ' ') out += tg[i];
+                        else out += CH[(Math.random() * CH.length) | 0];
+                    }
+                    nodes[k].node.nodeValue = out;
+                }
+                if (p === 1) { restore(); ticker.remove(tick); }
+            }
+            ticker.add(tick);
+        }
+
+        var gio = new IntersectionObserver(function (es) {
+            for (var i = 0; i < es.length; i++) {
+                if (es[i].isIntersecting) { run(es[i].target); gio.unobserve(es[i].target); }
+            }
+        }, { threshold: 0.6 });
+        for (var g = 0; g < groups.length; g++) gio.observe(groups[g]);
+    }
+
     function initParallax() {
         if (reduced || NATIVE_TIMELINE) return;
         var els = document.querySelectorAll('[data-parallax]');
@@ -436,6 +496,7 @@
         initMarquee();
         initMagnetic();
         initScramble();
+        initScrambleGroups();
         initParallax();
         scanReveals(document);
         initCounters();

@@ -2158,6 +2158,10 @@ a:hover { color: var(--holo-mint); }
         scroll-behavior: auto !important;
     }
     [data-reveal] { opacity: 1 !important; transform: none !important; }
+    /* ::details-content is not matched by *::before/*::after, so the FAQ
+       accordion needs to be named explicitly or it keeps animating. */
+    .faq-item::details-content { transition-duration: .01ms !important; }
+    .faq-chev { transition: none !important; }
     @view-transition { navigation: none; }
     .holo-cursor, .holo-cursor-dot { display: none !important; }
 }

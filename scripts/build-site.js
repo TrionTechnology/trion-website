@@ -295,7 +295,7 @@ ${JSON.stringify(faqSchema, null, 4)}
     <main class="main-content" id="main">
         <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('${A}images/services/${escAttr(s.image)}'); background-size: cover; background-position: center;">
             <div class="container">
-                <div style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
+                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
                     <a href="${N}index.html" style="color: var(--text-200);">${t.svc.home}</a> <span style="opacity: 0.5;">/</span>
                     <a href="${N}index.html#services" style="color: var(--text-200);">${t.svc.services}</a> <span style="opacity: 0.5;">/</span>
                     <span>${esc(s.title)}</span>
@@ -333,8 +333,8 @@ ${features}
                             <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">${esc(t.svc.ctaTitle(s.title))}</h2>
                             <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">${esc(t.svc.ctaBody)}</p>
                             <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="${N}index.html#contact" class="btn btn-secondary">${t.bookCall}</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(s.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">${t.whatsapp}</a>
+                                <a href="${N}index.html#contact" class="btn btn-secondary" data-magnetic="0.2">${t.bookCall}</a>
+                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(s.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">${t.whatsapp}</a>
                             </div>
                         </div>
                     </div>
