@@ -293,7 +293,7 @@ ${JSON.stringify(faqSchema, null, 4)}
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(123,91,255,0.4), rgba(0,240,255,0.25)), url('${A}images/services/${escAttr(s.image)}'); background-size: cover; background-position: center;">
+        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('${A}images/services/${escAttr(s.image)}'); background-size: cover; background-position: center;">
             <div class="container">
                 <div style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
                     <a href="${N}index.html" style="color: var(--text-200);">${t.svc.home}</a> <span style="opacity: 0.5;">/</span>
@@ -341,6 +341,7 @@ ${features}
                 </div>
             </div>
         </section>
+${faqSection(t.faqSvc(s), t, { eyebrow: 'COMMON QUESTIONS' })}
     </main>
 
     <footer class="footer">
@@ -388,6 +389,39 @@ ${features}
 `;
 }
 
+/* ────────────────────────────────────────────────────────────
+   VISIBLE FAQ SECTION
+   Every page that emits FAQPage JSON-LD must also show the same
+   Q&A to a human — Google requires the content to be visible, and
+   an answer engine can only quote what is actually in the DOM.
+   Native <details> keeps it keyboard-accessible with no JS.
+   ──────────────────────────────────────────────────────────── */
+function faqSection(items, t, opts = {}) {
+    if (!items || !items.length) return '';
+    const rows = items.map((qa, i) => `
+                    <details class="faq-item" data-reveal${i === 0 ? ' open' : ''}>
+                        <summary class="faq-q">
+                            <span>${esc(qa.q)}</span>
+                            <svg class="faq-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <div class="faq-a"><p>${esc(qa.a)}</p></div>
+                    </details>`).join('');
+    return `
+        <!-- ─── FAQ (visible twin of the FAQPage schema) ─── -->
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <div class="container">
+                <div class="faq-head" data-reveal>
+                    <span class="faq-eyebrow">${escAttr(opts.eyebrow || 'FAQ')}</span>
+                    <h2 id="faq-heading" data-clip>${esc(t.faqH)}</h2>
+                    <p>${esc(t.faqIntro)}</p>
+                </div>
+                <div class="faq-list" data-reveal-group>${rows}
+                </div>
+            </div>
+        </section>
+`;
+}
+
 // ────────────────────────────────────────────────────────────
 //  PORTFOLIO PAGE RENDERER
 // ────────────────────────────────────────────────────────────
@@ -412,7 +446,7 @@ function renderPortfolio(p, locale) {
     const N = '../';
     const urlFor = (loc) => `${ORIGIN}${seg(loc)}/portfolio/${p.slug}.html`;
     const url = urlFor(locale);
-    const accent = p.accent || '#00F0FF';
+    const accent = p.accent || '#14A98D';
     const ogShort = p.tagline.length > 160 ? p.tagline.slice(0, 157) + '...' : p.tagline;
 
     const stats = p.stats.map((s) => `
@@ -661,6 +695,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                 </div>
             </div>
         </section>
+${faqSection(t.faqPf(p), t, { eyebrow: 'COMMON QUESTIONS' })}
     </main>
 
     <footer class="footer">
@@ -773,6 +808,15 @@ ${hasLink
         ],
     };
 
+    const faqSchemaProd = {
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        inLanguage: META[locale].hreflang,
+        mainEntity: t.faqProd(products).map((qa) => ({
+            '@type': 'Question', name: qa.q,
+            acceptedAnswer: { '@type': 'Answer', text: qa.a },
+        })),
+    };
+
     const metaTitle = `${t.prod.title} | Trion Creation`;
 
     return `<!DOCTYPE html>
@@ -800,6 +844,9 @@ ${JSON.stringify(itemListSchema, null, 4)}
     </script>
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumbSchema, null, 4)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(faqSchemaProd, null, 4)}
     </script>
     <link rel="stylesheet" href="${A}styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -855,6 +902,7 @@ ${JSON.stringify(breadcrumbSchema, null, 4)}
             <div class="portfolio-grid prod-grid">${cards}
             </div>
         </div>
+${faqSection(t.faqProd(products), t, { eyebrow: 'ABOUT OUR PRODUCTS' })}
     </main>
 
     <footer class="footer">

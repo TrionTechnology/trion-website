@@ -973,7 +973,9 @@ a:hover { color: var(--holo-mint); }
     z-index: 1;
 }
 .page-header > .container { position: relative; z-index: 2; }
-.page-header h1 {
+.page-header h1,
+.page-header .ph-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
     margin-bottom: var(--space-4);
     background: linear-gradient(180deg, var(--text-100) 0%, var(--text-200) 100%);
     -webkit-background-clip: text;
@@ -3287,3 +3289,144 @@ a.prod-card:hover .prod-shots picture:nth-child(3) { transform: translate(-36%, 
 /* A product with no page and no store listing yet renders as a plain
    card rather than an anchor to nowhere. */
 .prod-card.is-static { cursor: default; }
+
+/* ════════════════════════════════════════════════════════════
+   FAQ SECTION — visible twin of the FAQPage structured data
+   Native <details>, so it is keyboard-accessible and crawlable
+   with no JavaScript. The chevron and the answer reveal are the
+   only motion; both respect prefers-reduced-motion via the
+   global catch-all at the end of this file.
+   ════════════════════════════════════════════════════════════ */
+.faq-section {
+    padding: var(--space-24) 0;
+    position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+}
+.faq-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(60% 50% at 15% 0%, rgba(20, 169, 141, 0.10), transparent 70%),
+        radial-gradient(50% 45% at 90% 100%, rgba(232, 196, 95, 0.08), transparent 70%);
+    pointer-events: none;
+}
+.faq-section > .container { position: relative; z-index: 1; }
+
+.faq-head {
+    max-width: 680px;
+    margin: 0 auto var(--space-12);
+    text-align: center;
+}
+.faq-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--holo-cyan);
+    padding: 0.4em 1em;
+    border: 1px solid var(--glass-border-strong);
+    border-radius: 999px;
+    margin-bottom: var(--space-5);
+}
+.faq-head h2 { margin-bottom: var(--space-4); }
+.faq-head p {
+    color: var(--text-200);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-4);
+}
+
+/* The legacy accordion drew a "+" circle via summary::after. Pages using
+   the chevron markup must not show both indicators. */
+.faq-item:has(.faq-q) summary::after { content: none; display: none; }
+
+.faq-item:has(.faq-q) {
+    background: var(--grad-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+.faq-item:has(.faq-q):hover { border-color: var(--glass-border-strong); }
+.faq-item:has(.faq-q)[open] {
+    border-color: var(--glass-border-strong);
+    box-shadow: 0 18px 50px -28px rgba(20, 169, 141, 0.6);
+}
+
+.faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    padding: var(--space-6) var(--space-7);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.02rem;
+    line-height: 1.45;
+    color: var(--text-100);
+    list-style: none;
+    transition: color 200ms ease;
+}
+/* Remove the native disclosure triangle in every engine */
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::marker { content: ''; }
+
+.faq-q:hover { color: var(--holo-cyan); }
+.faq-item:has(.faq-q):focus-within .faq-q { color: var(--holo-cyan); }
+.faq-q:focus-visible {
+    outline: 2px solid var(--holo-cyan);
+    outline-offset: -4px;
+    border-radius: var(--radius-xl);
+}
+
+.faq-chev {
+    flex: 0 0 auto;
+    color: var(--holo-violet);
+    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.3, 1), color 200ms ease;
+}
+.faq-item:has(.faq-q)[open] .faq-chev {
+    transform: rotate(180deg);
+    color: var(--holo-cyan);
+}
+
+.faq-a {
+    padding: 0 var(--space-7) var(--space-6);
+    color: var(--text-200);
+    line-height: 1.75;
+    font-size: 0.97rem;
+}
+.faq-a p { margin: 0; max-width: 68ch; }
+
+/* Smooth open/close where the browser supports interpolating to
+   auto height; browsers that do not simply snap, which is fine. */
+@supports (interpolate-size: allow-keywords) {
+    .faq-item:has(.faq-q) { interpolate-size: allow-keywords; }
+    .faq-item:has(.faq-q)::details-content {
+        block-size: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: block-size 380ms cubic-bezier(0.2, 0.7, 0.3, 1),
+                    content-visibility 380ms allow-discrete,
+                    opacity 300ms ease;
+    }
+    .faq-item:has(.faq-q)[open]::details-content {
+        block-size: auto;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .faq-section { padding: var(--space-16) 0; }
+    .faq-q { padding: var(--space-5); font-size: 0.96rem; gap: var(--space-4); }
+    .faq-a { padding: 0 var(--space-5) var(--space-5); font-size: 0.93rem; }
+}
