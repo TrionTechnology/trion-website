@@ -225,19 +225,23 @@ function renderService(s, locale) {
     const urlFor = (loc) => `${ORIGIN}${seg(loc)}/services/${s.slug}.html`;
     const url = urlFor(locale);
 
-    const features = s.features.map((f) =>
-        `                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>${esc(f)}</span></li>`
-    ).join('\n');
+    /* Service features are bare strings, so the card carries the numeric
+       mark and the feature name — the same component the case studies
+       use, just without a description line. */
+    const features = s.features.map((f, i) => `
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">${String(i + 1).padStart(2, '0')}</div>
+                        <h3>${esc(f)}</h3>
+                    </div>`).join('');
 
     const overview = s.overview.map((p) =>
-        `                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">${esc(p)}</p>`
-    ).join('\n');
+        `                    <p>${esc(p)}</p>`).join('\n');
 
     const expertise = s.expertise.map((e) => `
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">${esc(e.title)}</h4>
-                            <p style="color: var(--text-300);">${esc(e.desc)}</p>
-                        </div>`).join('');
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>${esc(e.title)}</h3>
+                        <p>${esc(e.desc)}</p>
+                    </div>`).join('');
 
     const serviceSchema = {
         '@context': 'https://schema.org',
@@ -362,49 +366,93 @@ ${JSON.stringify(faqSchema, null, 4)}
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('${A}images/services/${escAttr(s.image)}'); background-size: cover; background-position: center;">
+        <!-- ─── SERVICE HERO — same grid floor + scanline as the case studies ─── -->
+        <section class="pf-hero svc-hero" style="--pf-gradient: linear-gradient(150deg, rgba(20,169,141,0.30) 0%, rgba(7,5,26,0.92) 58%, rgba(232,196,95,0.18) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
-                    <a href="${N}index.html" style="color: var(--text-200);">${t.svc.home}</a> <span style="opacity: 0.5;">/</span>
-                    <a href="${N}index.html#services" style="color: var(--text-200);">${t.svc.services}</a> <span style="opacity: 0.5;">/</span>
-                    <span>${esc(s.title)}</span>
+                <div class="pf-hero-grid">
+                    <div class="pf-hero-copy">
+                        <div class="pf-breadcrumb" data-scramble-group>
+                            <a href="${N}index.html">${t.svc.home}</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <a href="${N}index.html#services">${t.svc.services}</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <span>${esc(s.title)}</span>
+                        </div>
+                        <div class="pf-eyebrow" data-scramble>${t.svc.service} · ${escAttr(s.schemaServiceType.toUpperCase())}</div>
+                        <h1 class="pf-title" data-split>${esc(s.title)}</h1>
+                        <p class="pf-tagline">${esc(s.tagline)}</p>
+                        <div class="pf-stats">
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">${fmtRM(s.priceMin)}</span>
+                                <span class="stat-cell-label">${t.svc.fromPrice}</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">${esc(t.svc.weeks)}</span>
+                                <span class="stat-cell-label">${t.svc.typicalTimeline}</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">${t.svc.deliveredVal}</span>
+                                <span class="stat-cell-label">${t.svc.delivered}</span>
+                            </div>
+                        </div>
+                    </div>
+                    ${svcWire(s.slug)}
                 </div>
-                <h1 data-split>${esc(s.title)}</h1>
-                <p>${esc(s.tagline)}</p>
             </div>
         </section>
 
-        <section style="padding: var(--space-20) 0;">
+        <!-- ─── 01 · OVERVIEW ─── -->
+        <section class="pf-section">
             <div class="container">
-                <div style="max-width: 1080px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
-                        <div>
-                            <h2 data-clip style="margin-bottom: var(--space-6);">${t.svc.overview}</h2>
+                <div class="pf-section-head">
+                    <span class="pf-section-num">01</span>
+                    <h2 data-clip>${t.svc.overview}</h2>
+                </div>
+                <div class="pf-prose">
 ${overview}
-                        </div>
-                        <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
-                            <h3 style="margin-bottom: var(--space-5); color: var(--holo-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95rem;">${t.svc.keyFeatures}</h3>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 02 · KEY FEATURES ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">02</span>
+                    <h2 data-clip>${t.svc.keyFeatures}</h2>
+                </div>
+                <div class="pf-features-grid" data-reveal-group>
 ${features}
-                            </ul>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 data-clip style="margin-bottom: var(--space-8);">${t.svc.expertise}</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">${expertise}
-                        </div>
-                    </div>
+        <!-- ─── 03 · EXPERTISE ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">03</span>
+                    <h2 data-clip>${t.svc.expertise}</h2>
+                </div>
+                <div class="svc-expertise-grid" data-reveal-group>${expertise}
+                </div>
+            </div>
+        </section>
 
-                    <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">${esc(t.svc.ctaTitle(s.title))}</h2>
-                            <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">${esc(t.svc.ctaBody)}</p>
-                            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="${N}index.html#contact" class="btn btn-secondary" data-magnetic="0.2">${t.bookCall}</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(s.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">${t.whatsapp}</a>
-                            </div>
+        <!-- ─── CTA — the same card the case studies close on ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-grid" aria-hidden="true"></div>
+                    <div class="pf-cta-content">
+                        <div class="pf-eyebrow" style="color: var(--void-0);">${t.pf.readyToBuild}</div>
+                        <h2 data-clip>${esc(t.svc.ctaTitle(s.title))}</h2>
+                        <p>${esc(t.svc.ctaBody)}</p>
+                        <div class="pf-cta-row" style="margin-top: 2rem;">
+                            <a href="${N}index.html#contact" class="btn btn-secondary" data-magnetic="0.2" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">${t.bookCall}</a>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(s.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2" style="background: transparent; color: var(--void-0); border-color: var(--void-0);">${t.whatsapp}</a>
                         </div>
                     </div>
                 </div>
@@ -457,6 +505,29 @@ ${faqSection(t.faqSvc(s), t, { eyebrow: 'COMMON QUESTIONS' })}
 </html>
 `;
 }
+
+/* Per-service wireframes — the same stroke language as PF_WIRE, so a
+   service page and a case-study page read as one family. Each is drawn
+   on a 300x148 canvas; `.w-live` marks the one stroke that takes the
+   bright signal colour, which keeps a focal point in every illustration.
+   Authored here rather than photographed: a stock photo of "an API"
+   says nothing, and these stay sharp at any size for ~1KB of markup. */
+const SVC_WIRE = {
+  'mobile-web-app-development': `<rect x="16" y="22" width="150" height="104" rx="7"/><path d="M16 40h150" opacity=".45"/><circle cx="28" cy="31" r="2.5" opacity=".6"/><circle cx="38" cy="31" r="2.5" opacity=".6"/><path d="M32 56h64M32 70h96M32 84h78" opacity=".45"/><rect x="32" y="98" width="52" height="14" rx="4" class="w-live"/><rect x="196" y="14" width="76" height="120" rx="11"/><path d="M224 22h20" opacity=".6"/><rect x="206" y="36" width="56" height="34" rx="4" opacity=".5"/><path d="M206 80h56M206 92h36M206 104h48" opacity=".4"/><path d="M166 74h30" opacity=".5"/>`,
+  'erp-crm-development': `<rect x="112" y="12" width="76" height="34" rx="5" class="w-live"/><path d="M150 46v18M150 64H44v14M150 64h106v14M150 64v14" opacity=".5"/><rect x="14" y="78" width="60" height="30" rx="5"/><rect x="120" y="78" width="60" height="30" rx="5"/><rect x="226" y="78" width="60" height="30" rx="5"/><path d="M26 90h36M132 90h36M238 90h36" opacity=".4"/><path d="M26 100h22M132 100h26M238 100h18" opacity=".3"/><path d="M124 24h52" opacity=".55"/><path d="M44 108v12h212v-12" opacity=".25"/>`,
+  'ai-automation-chatbot': `<rect x="16" y="26" width="120" height="40" rx="12"/><path d="M28 40h74M28 52h50" opacity=".45"/><rect x="60" y="84" width="120" height="40" rx="12" class="w-live"/><path d="M74 98h86M74 110h58" opacity=".5"/><circle cx="238" cy="46" r="9"/><circle cx="212" cy="86" r="7" opacity=".7"/><circle cx="262" cy="90" r="7" opacity=".7"/><circle cx="238" cy="120" r="6" opacity=".55"/><path d="M238 55v56M232 52l-14 28M244 52l14 30M219 92h36" opacity=".45"/>`,
+  'odoo-customisation': `<rect x="18" y="18" width="80" height="52" rx="6"/><rect x="110" y="18" width="80" height="52" rx="6"/><rect x="202" y="18" width="80" height="52" rx="6" class="w-live"/><rect x="18" y="82" width="80" height="48" rx="6" opacity=".55"/><rect x="110" y="82" width="80" height="48" rx="6" opacity=".55"/><rect x="202" y="82" width="80" height="48" rx="6" opacity=".55"/><path d="M30 34h44M30 46h30M122 34h44M122 46h36M214 34h44M214 46h26" opacity=".4"/><path d="M98 44h12M190 44h12M98 106h12M190 106h12" opacity=".5"/>`,
+  'pos-inventory-management': `<rect x="20" y="30" width="104" height="72" rx="6"/><rect x="32" y="42" width="80" height="30" rx="3" class="w-live"/><path d="M32 82h34M74 82h38" opacity=".45"/><path d="M20 108h104" opacity=".35"/><rect x="156" y="24" width="52" height="42" rx="4"/><rect x="216" y="24" width="52" height="42" rx="4" opacity=".6"/><rect x="156" y="78" width="52" height="42" rx="4" opacity=".6"/><rect x="216" y="78" width="52" height="42" rx="4" opacity=".4"/><path d="M166 40h32M226 40h32M166 94h32M226 94h32" opacity=".35"/>`,
+  'booking-system-development': `<rect x="40" y="20" width="220" height="112" rx="7"/><path d="M40 44h220" opacity=".5"/><path d="M78 14v14M222 14v14" opacity=".7"/><rect x="58" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="108" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="158" y="56" width="38" height="24" rx="3" class="w-live"/><rect x="208" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="58" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="108" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="158" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="208" y="90" width="38" height="24" rx="3" opacity=".3"/>`,
+  'loan-management-system': `<rect x="24" y="16" width="86" height="116" rx="6"/><path d="M38 40h58M38 54h58M38 68h40" opacity=".45"/><rect x="38" y="88" width="58" height="26" rx="4" opacity=".4"/><path d="M110 74h34" opacity=".5"/><circle cx="168" cy="74" r="24"/><path d="M158 74l7 8 14-16" class="w-live"/><path d="M192 74h30" opacity=".5"/><rect x="222" y="44" width="60" height="60" rx="8" opacity=".6"/><path d="M234 66h36M234 78h24" opacity=".4"/>`,
+  'api-integration-development': `<circle cx="150" cy="74" r="26" class="w-live"/><path d="M140 68h20M140 80h20" opacity=".7"/><circle cx="40" cy="30" r="14" opacity=".7"/><circle cx="40" cy="118" r="14" opacity=".7"/><circle cx="260" cy="30" r="14" opacity=".7"/><circle cx="260" cy="118" r="14" opacity=".7"/><path d="M54 36l72 26M54 112l72-26M246 36l-72 26M246 112l-72-26" opacity=".45"/><path d="M150 12v36M150 100v36" opacity=".3"/>`,
+  'blockchain-web3-solutions': `<rect x="18" y="52" width="56" height="44" rx="5"/><rect x="94" y="52" width="56" height="44" rx="5"/><rect x="170" y="52" width="56" height="44" rx="5" class="w-live"/><rect x="246" y="52" width="40" height="44" rx="5" opacity=".5"/><path d="M74 74h20M150 74h20M226 74h20" opacity=".7"/><path d="M30 66h32M30 78h20M106 66h32M106 78h24M182 66h32M182 78h18" opacity=".4"/><path d="M46 52V28h194v24" opacity=".3"/><circle cx="143" cy="24" r="6" opacity=".6"/>`,
+  'ar-vr-metaverse-development': `<path d="M52 56h196a14 14 0 0 1 14 14v22a14 14 0 0 1-14 14h-52l-22 16-22-16H52a14 14 0 0 1-14-14V70a14 14 0 0 1 14-14z" opacity=".55"/><circle cx="104" cy="82" r="17" class="w-live"/><circle cx="196" cy="82" r="17"/><path d="M121 82h58" opacity=".5"/><path d="M150 24l40 22-40 22-40-22z" opacity=".45"/><path d="M110 46v20M190 46v20" opacity=".3"/>`,
+  'cloud-infrastructure-devops': `<path d="M96 56a30 30 0 0 1 58-10 22 22 0 0 1 32 18 20 20 0 0 1-4 40H100a26 26 0 0 1-4-48z" class="w-live"/><rect x="34" y="104" width="64" height="26" rx="4"/><rect x="118" y="104" width="64" height="26" rx="4"/><rect x="202" y="104" width="64" height="26" rx="4"/><path d="M46 117h26M130 117h26M214 117h26" opacity=".4"/><circle cx="88" cy="117" r="3" opacity=".7"/><circle cx="172" cy="117" r="3" opacity=".7"/><circle cx="256" cy="117" r="3" opacity=".7"/><path d="M66 104V92h168v12" opacity=".3"/>`,
+  'product-design-ux': `<rect x="20" y="20" width="110" height="108" rx="6"/><rect x="34" y="34" width="82" height="30" rx="3" class="w-live"/><path d="M34 76h82M34 88h58M34 100h70" opacity=".4"/><rect x="156" y="20" width="124" height="60" rx="6" opacity=".6"/><path d="M170 34h40M170 46h72M170 58h52" opacity=".35"/><rect x="156" y="92" width="58" height="36" rx="5" opacity=".5"/><rect x="222" y="92" width="58" height="36" rx="5" opacity=".5"/><path d="M130 74h26" opacity=".5"/><circle cx="264" cy="36" r="7" opacity=".65"/>`,
+};
+const svcWire = (slug) =>
+  `<div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${SVC_WIRE[slug] || SVC_WIRE['mobile-web-app-development']}</svg></div>`;
 
 /* ────────────────────────────────────────────────────────────
    VISIBLE FAQ SECTION

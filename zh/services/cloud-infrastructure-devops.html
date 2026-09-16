@@ -192,69 +192,126 @@
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('../../images/services/service-cloud.jpg'); background-size: cover; background-position: center;">
+        <!-- ─── SERVICE HERO — same grid floor + scanline as the case studies ─── -->
+        <section class="pf-hero svc-hero" style="--pf-gradient: linear-gradient(150deg, rgba(20,169,141,0.30) 0%, rgba(7,5,26,0.92) 58%, rgba(232,196,95,0.18) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
-                    <a href="../index.html" style="color: var(--text-200);">首页</a> <span style="opacity: 0.5;">/</span>
-                    <a href="../index.html#services" style="color: var(--text-200);">服务</a> <span style="opacity: 0.5;">/</span>
-                    <span>云基础设施与 DevOps</span>
+                <div class="pf-hero-grid">
+                    <div class="pf-hero-copy">
+                        <div class="pf-breadcrumb" data-scramble-group>
+                            <a href="../index.html">首页</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <a href="../index.html#services">服务</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <span>云基础设施与 DevOps</span>
+                        </div>
+                        <div class="pf-eyebrow" data-scramble>服务 · 云基础设施与 DEVOPS 服务</div>
+                        <h1 class="pf-title" data-split>云基础设施与 DevOps</h1>
+                        <p class="pf-tagline">可扩展的云解决方案，具备跨境 CDN、实时视频处理与 99% 以上正常运行时间保障。</p>
+                        <div class="pf-stats">
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">RM15,000</span>
+                                <span class="stat-cell-label">起价</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">6–12 周</span>
+                                <span class="stat-cell-label">MVP 典型周期</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">150+</span>
+                                <span class="stat-cell-label">已交付项目</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet"><path d="M96 56a30 30 0 0 1 58-10 22 22 0 0 1 32 18 20 20 0 0 1-4 40H100a26 26 0 0 1-4-48z" class="w-live"/><rect x="34" y="104" width="64" height="26" rx="4"/><rect x="118" y="104" width="64" height="26" rx="4"/><rect x="202" y="104" width="64" height="26" rx="4"/><path d="M46 117h26M130 117h26M214 117h26" opacity=".4"/><circle cx="88" cy="117" r="3" opacity=".7"/><circle cx="172" cy="117" r="3" opacity=".7"/><circle cx="256" cy="117" r="3" opacity=".7"/><path d="M66 104V92h168v12" opacity=".3"/></svg></div>
                 </div>
-                <h1 data-split>云基础设施与 DevOps</h1>
-                <p>可扩展的云解决方案，具备跨境 CDN、实时视频处理与 99% 以上正常运行时间保障。</p>
             </div>
         </section>
 
-        <section style="padding: var(--space-20) 0;">
+        <!-- ─── 01 · OVERVIEW ─── -->
+        <section class="pf-section">
             <div class="container">
-                <div style="max-width: 1080px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
-                        <div>
-                            <h2 data-clip style="margin-bottom: var(--space-6);">服务概览</h2>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">作为阿里云官方合作伙伴，我们设计并运维可全球扩展的云基础设施——包括支撑 Yippi 500 万以上用户与 5 万以上并发直播的跨境 CDN 架构。</p>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">我们覆盖 AWS、阿里云、Google Cloud 与本地部署，处理系统迁移，搭建 CI/CD 流水线、基于 Kubernetes 的容器编排、监控以及 7×24 全天候故障响应。</p>
-                        </div>
-                        <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
-                            <h3 style="margin-bottom: var(--space-5); color: var(--holo-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95rem;">核心功能</h3>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>跨境 CDN 解决方案</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>实时视频转码</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>阿里云集成</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>99% 以上正常运行时间 SLA</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="pf-section-head">
+                    <span class="pf-section-num">01</span>
+                    <h2 data-clip>服务概览</h2>
+                </div>
+                <div class="pf-prose">
+                    <p>作为阿里云官方合作伙伴，我们设计并运维可全球扩展的云基础设施——包括支撑 Yippi 500 万以上用户与 5 万以上并发直播的跨境 CDN 架构。</p>
+                    <p>我们覆盖 AWS、阿里云、Google Cloud 与本地部署，处理系统迁移，搭建 CI/CD 流水线、基于 Kubernetes 的容器编排、监控以及 7×24 全天候故障响应。</p>
+                </div>
+            </div>
+        </section>
 
-                    <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 data-clip style="margin-bottom: var(--space-8);">我们的专长</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">多云架构</h4>
-                            <p style="color: var(--text-300);">AWS、阿里云、GCP 与本地部署——涵盖跨区域复制与灾难恢复。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">容器化</h4>
-                            <p style="color: var(--text-300);">Docker、Kubernetes（EKS、ACK）、Helm Chart、服务网格、自动扩缩容与零停机部署。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">CI/CD</h4>
-                            <p style="color: var(--text-300);">GitHub Actions、GitLab CI、自动化测试流水线、部署门禁与回滚策略。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">可观测性与 SRE</h4>
-                            <p style="color: var(--text-300);">集中式日志、指标、分布式追踪、告警，以及面向关键业务的 7×24 全天候值守。</p>
-                        </div>
-                        </div>
-                    </div>
+        <!-- ─── 02 · KEY FEATURES ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">02</span>
+                    <h2 data-clip>核心功能</h2>
+                </div>
+                <div class="pf-features-grid" data-reveal-group>
 
-                    <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">准备好启动您的云基础设施与 DevOps项目了吗？</h2>
-                            <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
-                            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2">预约免费咨询</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20%E4%BA%91%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E4%B8%8E%20DevOps" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">WhatsApp 联系</a>
-                            </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">01</div>
+                        <h3>跨境 CDN 解决方案</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">02</div>
+                        <h3>实时视频转码</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">03</div>
+                        <h3>阿里云集成</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">04</div>
+                        <h3>99% 以上正常运行时间 SLA</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 03 · EXPERTISE ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">03</span>
+                    <h2 data-clip>我们的专长</h2>
+                </div>
+                <div class="svc-expertise-grid" data-reveal-group>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>多云架构</h3>
+                        <p>AWS、阿里云、GCP 与本地部署——涵盖跨区域复制与灾难恢复。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>容器化</h3>
+                        <p>Docker、Kubernetes（EKS、ACK）、Helm Chart、服务网格、自动扩缩容与零停机部署。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>CI/CD</h3>
+                        <p>GitHub Actions、GitLab CI、自动化测试流水线、部署门禁与回滚策略。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>可观测性与 SRE</h3>
+                        <p>集中式日志、指标、分布式追踪、告警，以及面向关键业务的 7×24 全天候值守。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA — the same card the case studies close on ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-grid" aria-hidden="true"></div>
+                    <div class="pf-cta-content">
+                        <div class="pf-eyebrow" style="color: var(--void-0);">准备好开始了吗？</div>
+                        <h2 data-clip>准备好启动您的云基础设施与 DevOps项目了吗？</h2>
+                        <p>预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
+                        <div class="pf-cta-row" style="margin-top: 2rem;">
+                            <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">预约免费咨询</a>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20%E4%BA%91%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E4%B8%8E%20DevOps" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2" style="background: transparent; color: var(--void-0); border-color: var(--void-0);">WhatsApp 联系</a>
                         </div>
                     </div>
                 </div>

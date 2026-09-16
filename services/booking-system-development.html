@@ -192,69 +192,126 @@
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('../images/services/service-booking.jpg'); background-size: cover; background-position: center;">
+        <!-- ─── SERVICE HERO — same grid floor + scanline as the case studies ─── -->
+        <section class="pf-hero svc-hero" style="--pf-gradient: linear-gradient(150deg, rgba(20,169,141,0.30) 0%, rgba(7,5,26,0.92) 58%, rgba(232,196,95,0.18) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
-                    <a href="../index.html" style="color: var(--text-200);">Home</a> <span style="opacity: 0.5;">/</span>
-                    <a href="../index.html#services" style="color: var(--text-200);">Services</a> <span style="opacity: 0.5;">/</span>
-                    <span>Booking System Development</span>
+                <div class="pf-hero-grid">
+                    <div class="pf-hero-copy">
+                        <div class="pf-breadcrumb" data-scramble-group>
+                            <a href="../index.html">Home</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <a href="../index.html#services">Services</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <span>Booking System Development</span>
+                        </div>
+                        <div class="pf-eyebrow" data-scramble>SERVICE · BOOKING AND RESERVATION SYSTEM DEVELOPMENT</div>
+                        <h1 class="pf-title" data-split>Booking System Development</h1>
+                        <p class="pf-tagline">Custom booking and reservation systems for appointments, services, events and resource management.</p>
+                        <div class="pf-stats">
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">RM18,000</span>
+                                <span class="stat-cell-label">From</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">6–12 wks</span>
+                                <span class="stat-cell-label">Typical MVP build</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">150+</span>
+                                <span class="stat-cell-label">Projects delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet"><rect x="40" y="20" width="220" height="112" rx="7"/><path d="M40 44h220" opacity=".5"/><path d="M78 14v14M222 14v14" opacity=".7"/><rect x="58" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="108" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="158" y="56" width="38" height="24" rx="3" class="w-live"/><rect x="208" y="56" width="38" height="24" rx="3" opacity=".45"/><rect x="58" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="108" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="158" y="90" width="38" height="24" rx="3" opacity=".3"/><rect x="208" y="90" width="38" height="24" rx="3" opacity=".3"/></svg></div>
                 </div>
-                <h1 data-split>Booking System Development</h1>
-                <p>Custom booking and reservation systems for appointments, services, events and resource management.</p>
             </div>
         </section>
 
-        <section style="padding: var(--space-20) 0;">
+        <!-- ─── 01 · OVERVIEW ─── -->
+        <section class="pf-section">
             <div class="container">
-                <div style="max-width: 1080px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
-                        <div>
-                            <h2 data-clip style="margin-bottom: var(--space-6);">Service Overview</h2>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">We build custom booking platforms for clinics, salons, wellness centres, pet services, event spaces, professional services and on-demand industries. Every business books differently — your system should reflect that.</p>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">Our booking systems handle complex availability rules, recurring bookings, staff matching, resource constraints, group bookings, deposits, refunds and multi-channel notifications (email, SMS, WhatsApp, push).</p>
-                        </div>
-                        <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
-                            <h3 style="margin-bottom: var(--space-5); color: var(--holo-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95rem;">Key Features</h3>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Multi-service Booking</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Calendar Integration</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Payment Gateway Integration</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Automated Reminders</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="pf-section-head">
+                    <span class="pf-section-num">01</span>
+                    <h2 data-clip>Service Overview</h2>
+                </div>
+                <div class="pf-prose">
+                    <p>We build custom booking platforms for clinics, salons, wellness centres, pet services, event spaces, professional services and on-demand industries. Every business books differently — your system should reflect that.</p>
+                    <p>Our booking systems handle complex availability rules, recurring bookings, staff matching, resource constraints, group bookings, deposits, refunds and multi-channel notifications (email, SMS, WhatsApp, push).</p>
+                </div>
+            </div>
+        </section>
 
-                    <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 data-clip style="margin-bottom: var(--space-8);">Our Expertise</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">Multi-service Booking</h4>
-                            <p style="color: var(--text-300);">Configurable services, durations, staff assignment, resource allocation and pricing rules.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">Calendar Sync</h4>
-                            <p style="color: var(--text-300);">Two-way sync with Google Calendar, Outlook, Apple Calendar; staff blockout times; real-time availability.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">Payments</h4>
-                            <p style="color: var(--text-300);">Online deposits, full payments, package vouchers and refund handling via Stripe, iPay88 and PayPal.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">Notifications</h4>
-                            <p style="color: var(--text-300);">Automated confirmations, reminders, no-show follow-ups via email, SMS and WhatsApp.</p>
-                        </div>
-                        </div>
-                    </div>
+        <!-- ─── 02 · KEY FEATURES ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">02</span>
+                    <h2 data-clip>Key Features</h2>
+                </div>
+                <div class="pf-features-grid" data-reveal-group>
 
-                    <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">Ready to start your Booking System Development project?</h2>
-                            <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Book a free discovery call. We'll scope your needs and give a fixed-price quote — no hidden costs.</p>
-                            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2">Book Discovery Call</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20Booking%20System%20Development" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">WhatsApp Us</a>
-                            </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">01</div>
+                        <h3>Multi-service Booking</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">02</div>
+                        <h3>Calendar Integration</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">03</div>
+                        <h3>Payment Gateway Integration</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">04</div>
+                        <h3>Automated Reminders</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 03 · EXPERTISE ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">03</span>
+                    <h2 data-clip>Our Expertise</h2>
+                </div>
+                <div class="svc-expertise-grid" data-reveal-group>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>Multi-service Booking</h3>
+                        <p>Configurable services, durations, staff assignment, resource allocation and pricing rules.</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>Calendar Sync</h3>
+                        <p>Two-way sync with Google Calendar, Outlook, Apple Calendar; staff blockout times; real-time availability.</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>Payments</h3>
+                        <p>Online deposits, full payments, package vouchers and refund handling via Stripe, iPay88 and PayPal.</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>Notifications</h3>
+                        <p>Automated confirmations, reminders, no-show follow-ups via email, SMS and WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA — the same card the case studies close on ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-grid" aria-hidden="true"></div>
+                    <div class="pf-cta-content">
+                        <div class="pf-eyebrow" style="color: var(--void-0);">READY TO BUILD?</div>
+                        <h2 data-clip>Ready to start your Booking System Development project?</h2>
+                        <p>Book a free discovery call. We'll scope your needs and give a fixed-price quote — no hidden costs.</p>
+                        <div class="pf-cta-row" style="margin-top: 2rem;">
+                            <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">Book Discovery Call</a>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20Booking%20System%20Development" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2" style="background: transparent; color: var(--void-0); border-color: var(--void-0);">WhatsApp Us</a>
                         </div>
                     </div>
                 </div>

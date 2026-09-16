@@ -55,6 +55,7 @@ const UI = {
         svc: {
             home: 'Home', services: 'Services',
             overview: 'Service Overview', keyFeatures: 'Key Features', expertise: 'Our Expertise',
+            service: 'SERVICE', fromPrice: 'From', typicalTimeline: 'Typical MVP build', weeks: '6\u201312 wks', delivered: 'Projects delivered', deliveredVal: '150+',
             ctaTitle: (t) => `Ready to start your ${t} project?`,
             ctaBody: "Book a free discovery call. We'll scope your needs and give a fixed-price quote — no hidden costs.",
         },
@@ -140,6 +141,7 @@ const UI = {
         svc: {
             home: '首页', services: '服务',
             overview: '服务概览', keyFeatures: '核心功能', expertise: '我们的专长',
+            service: '服务', fromPrice: '起价', typicalTimeline: 'MVP 典型周期', weeks: '6–12 周', delivered: '已交付项目', deliveredVal: '150+',
             ctaTitle: (t) => `准备好启动您的${t}项目了吗？`,
             ctaBody: '预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。',
         },
@@ -225,6 +227,7 @@ const UI = {
         svc: {
             home: 'Utama', services: 'Perkhidmatan',
             overview: 'Gambaran Perkhidmatan', keyFeatures: 'Ciri Utama', expertise: 'Kepakaran Kami',
+            service: 'PERKHIDMATAN', fromPrice: 'Dari', typicalTimeline: 'Tempoh MVP lazim', weeks: '6–12 mgg', delivered: 'Projek disiapkan', deliveredVal: '150+',
             ctaTitle: (t) => `Sedia untuk memulakan projek ${t} anda?`,
             ctaBody: 'Tempah sesi perundingan percuma. Kami akan menilai keperluan anda dan memberikan sebut harga tetap — tanpa kos tersembunyi.',
         },

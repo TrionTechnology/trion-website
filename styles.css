@@ -3037,26 +3037,6 @@ img { max-width: 100%; height: auto; display: block; }
     .pf-hero-visual { max-width: 460px; }
 }
 
-/* ── Service page feature list ──
-   Was a <li> carrying four inline style declarations and a "▸" glyph,
-   repeated for every feature on all 36 service pages. */
-.sv-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-    padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--hairline);
-    color: var(--text-200);
-    line-height: 1.55;
-}
-.sv-feature:last-child { border-bottom: 0; }
-.sv-check {
-    width: 17px;
-    height: 17px;
-    flex: none;
-    margin-top: 0.25em;
-    color: var(--accent);
-}
 
 /* ── Products hub ──
    One product today, so an auto-fit 3-column grid left a lone card
@@ -3459,4 +3439,61 @@ a.prod-card:hover .prod-shots picture:nth-child(3) { transform: translate(-36%, 
     .faq-section { padding: var(--space-16) 0; }
     .faq-q { padding: var(--space-5); font-size: 0.96rem; gap: var(--space-4); }
     .faq-a { padding: 0 var(--space-5) var(--space-5); font-size: 0.93rem; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   SERVICE PAGES
+   These were built from inline styles and looked plainer than the
+   case-study pages they sit beside. They now reuse the same detail-page
+   components (pf-hero, pf-section, pf-feature-card, pf-cta-card); only
+   the two pieces with no case-study equivalent are defined here.
+   ════════════════════════════════════════════════════════════ */
+.svc-hero .pf-title { max-width: 14ch; }
+
+/* The service hero's middle stat is a duration, not a magnitude, so it
+   is set at label scale instead of the large figure size the case-study
+   stats use — otherwise "6–12 wks" overflows its cell. */
+.svc-hero .pf-stats .stat-cell:nth-child(2) .stat-cell-number {
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+}
+
+.svc-expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+}
+.svc-expertise-card {
+    padding: var(--space-8);
+    background: var(--grad-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(10px) saturate(130%);
+    transition: border-color 280ms ease, transform 280ms ease, box-shadow 280ms ease;
+}
+.svc-expertise-card:hover {
+    border-color: var(--glass-border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 22px 60px -32px rgba(20, 169, 141, 0.65);
+}
+.svc-expertise-card h3 {
+    color: var(--holo-cyan);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+    margin-bottom: var(--space-3);
+}
+.svc-expertise-card p {
+    color: var(--text-200);
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* A service feature card carries only a mark and a name — no
+   description — so it needs its own vertical rhythm. */
+.pf-feature-card:not(:has(p)) h3 { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+    .svc-expertise-card { padding: var(--space-6); }
+    .svc-hero .pf-title { max-width: none; }
 }

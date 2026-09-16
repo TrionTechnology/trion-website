@@ -155,7 +155,7 @@
             if (!isFinite(target)) return;
             /* "24/7" and "3-Tier" are compound labels, not magnitudes —
                counting them up from zero reads as a glitch, not a stat. */
-            if (/^[/-]/.test(suffix)) return;
+            if (/^[/\u2013\u2014-]/.test(suffix)) return;
 
             var decimals = (m[2].split('.')[1] || '').length;
             var grouped = m[2].indexOf(',') >= 0;
@@ -181,6 +181,11 @@
                 el.textContent = fmt(target * e);
                 if (p === 1) ticker.remove(tick);
             }
+            /* Writing 0 before the first frame means a figure reads "RM0"
+               for as long as the ticker is stalled — and it stalls whenever
+               the document is hidden. If we cannot animate right now, show
+               the real number instead of a zero that may never move. */
+            if (document.hidden) { el.textContent = raw; return; }
             el.textContent = fmt(0);
             ticker.add(tick);
         }

@@ -192,69 +192,126 @@
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('../../images/services/service-blockchain.jpg'); background-size: cover; background-position: center;">
+        <!-- ─── SERVICE HERO — same grid floor + scanline as the case studies ─── -->
+        <section class="pf-hero svc-hero" style="--pf-gradient: linear-gradient(150deg, rgba(20,169,141,0.30) 0%, rgba(7,5,26,0.92) 58%, rgba(232,196,95,0.18) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
-                    <a href="../index.html" style="color: var(--text-200);">首页</a> <span style="opacity: 0.5;">/</span>
-                    <a href="../index.html#services" style="color: var(--text-200);">服务</a> <span style="opacity: 0.5;">/</span>
-                    <span>区块链与 Web3 解决方案</span>
+                <div class="pf-hero-grid">
+                    <div class="pf-hero-copy">
+                        <div class="pf-breadcrumb" data-scramble-group>
+                            <a href="../index.html">首页</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <a href="../index.html#services">服务</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <span>区块链与 Web3 解决方案</span>
+                        </div>
+                        <div class="pf-eyebrow" data-scramble>服务 · 区块链与 WEB3 开发</div>
+                        <h1 class="pf-title" data-split>区块链与 Web3 解决方案</h1>
+                        <p class="pf-tagline">端到端 Web3 平台开发，支持多链、NFT 集成与智能合约自动化。</p>
+                        <div class="pf-stats">
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">RM50,000</span>
+                                <span class="stat-cell-label">起价</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">6–12 周</span>
+                                <span class="stat-cell-label">MVP 典型周期</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">150+</span>
+                                <span class="stat-cell-label">已交付项目</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet"><rect x="18" y="52" width="56" height="44" rx="5"/><rect x="94" y="52" width="56" height="44" rx="5"/><rect x="170" y="52" width="56" height="44" rx="5" class="w-live"/><rect x="246" y="52" width="40" height="44" rx="5" opacity=".5"/><path d="M74 74h20M150 74h20M226 74h20" opacity=".7"/><path d="M30 66h32M30 78h20M106 66h32M106 78h24M182 66h32M182 78h18" opacity=".4"/><path d="M46 52V28h194v24" opacity=".3"/><circle cx="143" cy="24" r="6" opacity=".6"/></svg></div>
                 </div>
-                <h1 data-split>区块链与 Web3 解决方案</h1>
-                <p>端到端 Web3 平台开发，支持多链、NFT 集成与智能合约自动化。</p>
             </div>
         </section>
 
-        <section style="padding: var(--space-20) 0;">
+        <!-- ─── 01 · OVERVIEW ─── -->
+        <section class="pf-section">
             <div class="container">
-                <div style="max-width: 1080px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
-                        <div>
-                            <h2 data-clip style="margin-bottom: var(--space-6);">服务概览</h2>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">我们已打造面向真实消费者的生产级 Web3 平台——其中最具代表性的是 Colorverse，一个获马来西亚旅游局背书的多链 Social-Fi 平台。智能合约已上线运行，NFT 已铸造，真实用户活跃在链上。</p>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">无论您需要 NFT 发行平台、DeFi 协议、代币经济，还是兼具传统体验的 Web3 dApp（所谓「Web2 的体验，Web3 的后端」），我们都能将链上与链下部分统一构建。</p>
-                        </div>
-                        <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
-                            <h3 style="margin-bottom: var(--space-5); color: var(--holo-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95rem;">核心功能</h3>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>多链 NFT 发行平台</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>智能合约自动化</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>DeFi 协议开发</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>无 Gas 交易解决方案</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="pf-section-head">
+                    <span class="pf-section-num">01</span>
+                    <h2 data-clip>服务概览</h2>
+                </div>
+                <div class="pf-prose">
+                    <p>我们已打造面向真实消费者的生产级 Web3 平台——其中最具代表性的是 Colorverse，一个获马来西亚旅游局背书的多链 Social-Fi 平台。智能合约已上线运行，NFT 已铸造，真实用户活跃在链上。</p>
+                    <p>无论您需要 NFT 发行平台、DeFi 协议、代币经济，还是兼具传统体验的 Web3 dApp（所谓「Web2 的体验，Web3 的后端」），我们都能将链上与链下部分统一构建。</p>
+                </div>
+            </div>
+        </section>
 
-                    <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 data-clip style="margin-bottom: var(--space-8);">我们的专长</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">智能合约</h4>
-                            <p style="color: var(--text-300);">Solidity 合约，具备完整测试覆盖、可审计代码、可升级模式（代理）与 Gas 优化。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">NFT 平台</h4>
-                            <p style="color: var(--text-300);">发行平台、交易市场、多链铸造、IPFS / Arweave 存储与版税强制执行。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">DeFi 与代币</h4>
-                            <p style="color: var(--text-300);">代币合约（ERC-20、ERC-721、ERC-1155）、质押、流动性、归属与治理。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">无 Gas 体验</h4>
-                            <p style="color: var(--text-300);">元交易、账户抽象（ERC-4337）、会话密钥——体验如 Web2 般顺畅的 Web3。</p>
-                        </div>
-                        </div>
-                    </div>
+        <!-- ─── 02 · KEY FEATURES ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">02</span>
+                    <h2 data-clip>核心功能</h2>
+                </div>
+                <div class="pf-features-grid" data-reveal-group>
 
-                    <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">准备好启动您的区块链与 Web3 解决方案项目了吗？</h2>
-                            <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
-                            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2">预约免费咨询</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%8E%20Web3%20%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">WhatsApp 联系</a>
-                            </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">01</div>
+                        <h3>多链 NFT 发行平台</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">02</div>
+                        <h3>智能合约自动化</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">03</div>
+                        <h3>DeFi 协议开发</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">04</div>
+                        <h3>无 Gas 交易解决方案</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 03 · EXPERTISE ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">03</span>
+                    <h2 data-clip>我们的专长</h2>
+                </div>
+                <div class="svc-expertise-grid" data-reveal-group>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>智能合约</h3>
+                        <p>Solidity 合约，具备完整测试覆盖、可审计代码、可升级模式（代理）与 Gas 优化。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>NFT 平台</h3>
+                        <p>发行平台、交易市场、多链铸造、IPFS / Arweave 存储与版税强制执行。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>DeFi 与代币</h3>
+                        <p>代币合约（ERC-20、ERC-721、ERC-1155）、质押、流动性、归属与治理。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>无 Gas 体验</h3>
+                        <p>元交易、账户抽象（ERC-4337）、会话密钥——体验如 Web2 般顺畅的 Web3。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA — the same card the case studies close on ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-grid" aria-hidden="true"></div>
+                    <div class="pf-cta-content">
+                        <div class="pf-eyebrow" style="color: var(--void-0);">准备好开始了吗？</div>
+                        <h2 data-clip>准备好启动您的区块链与 Web3 解决方案项目了吗？</h2>
+                        <p>预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
+                        <div class="pf-cta-row" style="margin-top: 2rem;">
+                            <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">预约免费咨询</a>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%8E%20Web3%20%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2" style="background: transparent; color: var(--void-0); border-color: var(--void-0);">WhatsApp 联系</a>
                         </div>
                     </div>
                 </div>

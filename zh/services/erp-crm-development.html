@@ -192,69 +192,126 @@
     </header>
 
     <main class="main-content" id="main">
-        <section class="page-header with-banner" style="background-image: linear-gradient(135deg, rgba(20,169,141,0.46), rgba(232,196,95,0.20)), linear-gradient(0deg, rgba(7,5,26,0.55), rgba(7,5,26,0.25)), url('../../images/services/service-erp-crm.jpg'); background-size: cover; background-position: center;">
+        <!-- ─── SERVICE HERO — same grid floor + scanline as the case studies ─── -->
+        <section class="pf-hero svc-hero" style="--pf-gradient: linear-gradient(150deg, rgba(20,169,141,0.30) 0%, rgba(7,5,26,0.92) 58%, rgba(232,196,95,0.18) 100%);">
+            <div class="pf-grid-floor" aria-hidden="true"></div>
+            <div class="pf-scanline" aria-hidden="true"></div>
             <div class="container">
-                <div data-scramble-group style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--holo-cyan); margin-bottom: var(--space-4); text-transform: uppercase;">
-                    <a href="../index.html" style="color: var(--text-200);">首页</a> <span style="opacity: 0.5;">/</span>
-                    <a href="../index.html#services" style="color: var(--text-200);">服务</a> <span style="opacity: 0.5;">/</span>
-                    <span>ERP 与 CRM 开发</span>
+                <div class="pf-hero-grid">
+                    <div class="pf-hero-copy">
+                        <div class="pf-breadcrumb" data-scramble-group>
+                            <a href="../index.html">首页</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <a href="../index.html#services">服务</a>
+                            <span class="pf-breadcrumb-sep">›</span>
+                            <span>ERP 与 CRM 开发</span>
+                        </div>
+                        <div class="pf-eyebrow" data-scramble>服务 · 企业资源规划系统开发</div>
+                        <h1 class="pf-title" data-split>ERP 与 CRM 开发</h1>
+                        <p class="pf-tagline">贴合企业实际工作流程量身定制的企业资源规划（ERP）与客户关系管理（CRM）系统。</p>
+                        <div class="pf-stats">
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">RM40,000</span>
+                                <span class="stat-cell-label">起价</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">6–12 周</span>
+                                <span class="stat-cell-label">MVP 典型周期</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-cell-number">150+</span>
+                                <span class="stat-cell-label">已交付项目</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet"><rect x="112" y="12" width="76" height="34" rx="5" class="w-live"/><path d="M150 46v18M150 64H44v14M150 64h106v14M150 64v14" opacity=".5"/><rect x="14" y="78" width="60" height="30" rx="5"/><rect x="120" y="78" width="60" height="30" rx="5"/><rect x="226" y="78" width="60" height="30" rx="5"/><path d="M26 90h36M132 90h36M238 90h36" opacity=".4"/><path d="M26 100h22M132 100h26M238 100h18" opacity=".3"/><path d="M124 24h52" opacity=".55"/><path d="M44 108v12h212v-12" opacity=".25"/></svg></div>
                 </div>
-                <h1 data-split>ERP 与 CRM 开发</h1>
-                <p>贴合企业实际工作流程量身定制的企业资源规划（ERP）与客户关系管理（CRM）系统。</p>
             </div>
         </section>
 
-        <section style="padding: var(--space-20) 0;">
+        <!-- ─── 01 · OVERVIEW ─── -->
+        <section class="pf-section">
             <div class="container">
-                <div style="max-width: 1080px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-12); margin-bottom: var(--space-16); align-items: start;">
-                        <div>
-                            <h2 data-clip style="margin-bottom: var(--space-6);">服务概览</h2>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">现成的 ERP 往往迫使企业去迁就软件。我们反其道而行——围绕您真实的工作流程构建 ERP 与 CRM 系统，让财务、销售、运营与库存说同一种语言。</p>
-                        <p style="margin-bottom: var(--space-4); line-height: 1.8; color: var(--text-200);">我们已为零售、物流、专业服务与金融等行业交付定制 ERP 与 CRM 平台——从 MVP 上线到企业级规模，支持多实体、多币种与基于角色的权限管理。</p>
-                        </div>
-                        <div style="padding: var(--space-8); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%);">
-                            <h3 style="margin-bottom: var(--space-5); color: var(--holo-cyan); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.95rem;">核心功能</h3>
-                            <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>定制 ERP 模块</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>CRM 销售管道管理</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>业务流程自动化</span></li>
-                            <li class="sv-feature"><svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>集成报表仪表盘</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="pf-section-head">
+                    <span class="pf-section-num">01</span>
+                    <h2 data-clip>服务概览</h2>
+                </div>
+                <div class="pf-prose">
+                    <p>现成的 ERP 往往迫使企业去迁就软件。我们反其道而行——围绕您真实的工作流程构建 ERP 与 CRM 系统，让财务、销售、运营与库存说同一种语言。</p>
+                    <p>我们已为零售、物流、专业服务与金融等行业交付定制 ERP 与 CRM 平台——从 MVP 上线到企业级规模，支持多实体、多币种与基于角色的权限管理。</p>
+                </div>
+            </div>
+        </section>
 
-                    <div style="padding: var(--space-12); background: var(--grad-card); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: blur(10px) saturate(130%); margin-bottom: var(--space-16);">
-                        <h2 data-clip style="margin-bottom: var(--space-8);">我们的专长</h2>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8);">
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">ERP 模块</h4>
-                            <p style="color: var(--text-300);">库存、财务、采购、人力资源、生产制造——采用模块化设计，您只需为所用功能付费。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">CRM 销售管道</h4>
-                            <p style="color: var(--text-300);">销售管道、联系人管理、商机跟踪、自动跟进与邮件集成。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">流程自动化</h4>
-                            <p style="color: var(--text-300);">审批流程、定时任务、文档生成，以及跨部门的多步骤自动化。</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--holo-cyan); margin-bottom: var(--space-2); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem;">报表与 BI</h4>
-                            <p style="color: var(--text-300);">Power BI 仪表盘、定制报表、可导出数据与实时 KPI 跟踪。</p>
-                        </div>
-                        </div>
-                    </div>
+        <!-- ─── 02 · KEY FEATURES ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">02</span>
+                    <h2 data-clip>核心功能</h2>
+                </div>
+                <div class="pf-features-grid" data-reveal-group>
 
-                    <div style="text-align: center; padding: var(--space-16) var(--space-8); background: var(--grad-holo); border-radius: var(--radius-2xl); color: var(--void-0); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2), transparent 60%); pointer-events: none;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <h2 data-clip style="color: var(--void-0); margin-bottom: var(--space-4);">准备好启动您的ERP 与 CRM 开发项目了吗？</h2>
-                            <p style="color: rgba(7,5,26,0.85); margin-bottom: var(--space-8); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
-                            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                                <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2">预约免费咨询</a>
-                                <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20ERP%20%E4%B8%8E%20CRM%20%E5%BC%80%E5%8F%91" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2">WhatsApp 联系</a>
-                            </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">01</div>
+                        <h3>定制 ERP 模块</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">02</div>
+                        <h3>CRM 销售管道管理</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">03</div>
+                        <h3>业务流程自动化</h3>
+                    </div>
+                    <div class="pf-feature-card" data-reveal>
+                        <div class="pf-feature-mark">04</div>
+                        <h3>集成报表仪表盘</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── 03 · EXPERTISE ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-section-head">
+                    <span class="pf-section-num">03</span>
+                    <h2 data-clip>我们的专长</h2>
+                </div>
+                <div class="svc-expertise-grid" data-reveal-group>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>ERP 模块</h3>
+                        <p>库存、财务、采购、人力资源、生产制造——采用模块化设计，您只需为所用功能付费。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>CRM 销售管道</h3>
+                        <p>销售管道、联系人管理、商机跟踪、自动跟进与邮件集成。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>流程自动化</h3>
+                        <p>审批流程、定时任务、文档生成，以及跨部门的多步骤自动化。</p>
+                    </div>
+                    <div class="svc-expertise-card" data-reveal>
+                        <h3>报表与 BI</h3>
+                        <p>Power BI 仪表盘、定制报表、可导出数据与实时 KPI 跟踪。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA — the same card the case studies close on ─── -->
+        <section class="pf-section">
+            <div class="container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-grid" aria-hidden="true"></div>
+                    <div class="pf-cta-content">
+                        <div class="pf-eyebrow" style="color: var(--void-0);">准备好开始了吗？</div>
+                        <h2 data-clip>准备好启动您的ERP 与 CRM 开发项目了吗？</h2>
+                        <p>预约一次免费的咨询通话。我们会梳理您的需求，并提供固定报价 —— 绝无隐藏费用。</p>
+                        <div class="pf-cta-row" style="margin-top: 2rem;">
+                            <a href="../index.html#contact" class="btn btn-secondary" data-magnetic="0.2" style="background: var(--void-0); color: var(--text-100); border-color: rgba(255,255,255,0.3);">预约免费咨询</a>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20ERP%20%E4%B8%8E%20CRM%20%E5%BC%80%E5%8F%91" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.2" style="background: transparent; color: var(--void-0); border-color: var(--void-0);">WhatsApp 联系</a>
                         </div>
                     </div>
                 </div>
