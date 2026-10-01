@@ -795,7 +795,7 @@ A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs 
 
 ## Update info
 
-- This file last updated: 2026-09-16
+- This file last updated: 2026-10-01
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml
