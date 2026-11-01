@@ -1,5 +1,32 @@
 [
     {
+        "slug": "titan-legends",
+        "name": "Titan Legends",
+        "tagline": "Smash tiny cities. Turn GIANT.",
+        "description": "A bright 3D kaiju action game for ages 6 and up. Play a cute-but-mighty Titan, stomp through tiny towns and toy armies, pick skill cards to evolve your powers, turn GIANT and topple huge bosses across 12 wild lands. Pay once (USD 9.99): no ads and no in-app purchases.",
+        "category": "Games",
+        "platforms": [
+            "iOS",
+            "Android"
+        ],
+        "status": "coming-soon",
+        "url": "projects/titan-legends.html",
+        "storeUrl": null,
+        "icon": "images/titan-legends-icon.png",
+        "accent": "#E254F5",
+        "gradient": "linear-gradient(165deg, #3B1458 0%, #140720 100%)",
+        "tags": [
+            "Pay once · USD 9.99",
+            "No ads, no in-app purchases",
+            "Ages 6+"
+        ],
+        "shots": [
+            "images/titan-legends-card-kongar.png",
+            "images/titan-legends-card-rex.png",
+            "images/titan-legends-card-shimo.png"
+        ]
+    },
+    {
         "slug": "cadence",
         "name": "Cadence",
         "tagline": "The habit tracker that forgives you.",

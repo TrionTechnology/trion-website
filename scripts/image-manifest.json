@@ -666,5 +666,141 @@
     "880": "images/soulsync-shot-people-880.avif"
    }
   }
+ },
+ "images/titan-legends-icon.png": {
+  "w": 1024,
+  "h": 1024,
+  "origBytes": 1855821,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-icon-440.webp",
+    "880": "images/titan-legends-icon-880.webp"
+   }
+  }
+ },
+ "images/titan-legends-feature.png": {
+  "w": 1600,
+  "h": 900,
+  "origBytes": 2622037,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-feature-440.webp",
+    "880": "images/titan-legends-feature-880.webp",
+    "1600": "images/titan-legends-feature-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-poster.png": {
+  "w": 1000,
+  "h": 1500,
+  "origBytes": 2516427,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-poster-440.webp",
+    "880": "images/titan-legends-poster-880.webp"
+   }
+  }
+ },
+ "images/titan-legends-card-kongar.png": {
+  "w": 529,
+  "h": 941,
+  "origBytes": 902434,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-card-kongar-440.webp"
+   }
+  }
+ },
+ "images/titan-legends-card-rex.png": {
+  "w": 529,
+  "h": 941,
+  "origBytes": 774480,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-card-rex-440.webp"
+   }
+  }
+ },
+ "images/titan-legends-card-shimo.png": {
+  "w": 529,
+  "h": 941,
+  "origBytes": 860499,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-card-shimo-440.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-1.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 2769129,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-1-440.webp",
+    "880": "images/titan-legends-shot-1-880.webp",
+    "1600": "images/titan-legends-shot-1-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-2.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 2698875,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-2-440.webp",
+    "880": "images/titan-legends-shot-2-880.webp",
+    "1600": "images/titan-legends-shot-2-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-3.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 2813765,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-3-440.webp",
+    "880": "images/titan-legends-shot-3-880.webp",
+    "1600": "images/titan-legends-shot-3-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-4.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 2122126,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-4-440.webp",
+    "880": "images/titan-legends-shot-4-880.webp",
+    "1600": "images/titan-legends-shot-4-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-5.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 1497903,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-5-440.webp",
+    "880": "images/titan-legends-shot-5-880.webp",
+    "1600": "images/titan-legends-shot-5-1600.webp"
+   }
+  }
+ },
+ "images/titan-legends-shot-6.png": {
+  "w": 1920,
+  "h": 1080,
+  "origBytes": 2707795,
+  "variants": {
+   "webp": {
+    "440": "images/titan-legends-shot-6-440.webp",
+    "880": "images/titan-legends-shot-6-880.webp",
+    "1600": "images/titan-legends-shot-6-1600.webp"
+   }
+  }
  }
 }
