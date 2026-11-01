@@ -734,7 +734,7 @@
  "images/titan-legends-shot-1.png": {
   "w": 1920,
   "h": 1080,
-  "origBytes": 2769129,
+  "origBytes": 2304474,
   "variants": {
    "webp": {
     "440": "images/titan-legends-shot-1-440.webp",
@@ -746,7 +746,7 @@
  "images/titan-legends-shot-2.png": {
   "w": 1920,
   "h": 1080,
-  "origBytes": 2698875,
+  "origBytes": 2243214,
   "variants": {
    "webp": {
     "440": "images/titan-legends-shot-2-440.webp",
