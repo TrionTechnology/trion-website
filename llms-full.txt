@@ -269,7 +269,10 @@ A: Frontend: React, Next.js, Vue.js, TypeScript, TailwindCSS. Backend: Node.js, 
 ### About our products
 
 **Q: What products has Trion Creation built?**
-A: Trion Creation currently publishes Titan Legends and Cadence and SoulSync AI. Titan Legends — Smash tiny cities. Turn GIANT. A bright 3D kaiju action game for ages 6 and up. Play a cute-but-mighty Titan, stomp through tiny towns and toy armies, pick skill cards to evolve your powers, turn GIANT and topple huge bosses across 12 wild lands. Pay once (USD 9.99): no ads and no in-app purchases. Cadence — The habit tracker that forgives you. A habit tracker built on weekly goals instead of daily streaks. Missing a day doesn't reset your progress. Free tier keeps 10 habits with the full app working; Cadence Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. SoulSync AI — Understand anyone you love. An AI relationship advisor that combines real Eastern metaphysics — Bazi (Four Pillars) and Zi Wei Dou Shu — with Western astrology, then uses AI coaching to explain the compatibility, dynamics and future potential of a relationship in plain language. Reads romantic partners, friendships, business partners and family.
+A: Trion Creation currently publishes Himmapan Bloodlines and Titan Legends and Cadence and SoulSync AI. Himmapan Bloodlines — Thai myth heroes. Hold the lane. Go giant. A Thai-mythology card lane-defense game. Thirty young Bangkok heroes who carry Himmapan bloodlines fight across three lanes, then transform into giant mythic creatures: Naga, Singha, Krut and more. Six elements, Duo Strikes and three-phase giant bosses. Free to play with no ads and nothing random for sale. Coming 2027 to the App Store. Titan Legends — Smash tiny cities. Turn GIANT. A bright 3D kaiju action game for ages 6 and up. Play a cute-but-mighty Titan, stomp through tiny towns and toy armies, pick skill cards to evolve your powers, turn GIANT and topple huge bosses across 12 wild lands. Pay once (USD 9.99): no ads and no in-app purchases. Cadence — The habit tracker that forgives you. A habit tracker built on weekly goals instead of daily streaks. Missing a day doesn't reset your progress. Free tier keeps 10 habits with the full app working; Cadence Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. SoulSync AI — Understand anyone you love. An AI relationship advisor that combines real Eastern metaphysics — Bazi (Four Pillars) and Zi Wei Dou Shu — with Western astrology, then uses AI coaching to explain the compatibility, dynamics and future potential of a relationship in plain language. Reads romantic partners, friendships, business partners and family.
+
+**Q: What is Himmapan Bloodlines?**
+A: Himmapan Bloodlines is a games app built and published by Trion Creation Sdn Bhd for iOS. A Thai-mythology card lane-defense game. Thirty young Bangkok heroes who carry Himmapan bloodlines fight across three lanes, then transform into giant mythic creatures: Naga, Singha, Krut and more. Six elements, Duo Strikes and three-phase giant bosses. Free to play with no ads and nothing random for sale. Coming 2027 to the App Store.
 
 **Q: What is Titan Legends?**
 A: Titan Legends is a games app built and published by Trion Creation Sdn Bhd for iOS and Android. A bright 3D kaiju action game for ages 6 and up. Play a cute-but-mighty Titan, stomp through tiny towns and toy armies, pick skill cards to evolve your powers, turn GIANT and topple huge bosses across 12 wild lands. Pay once (USD 9.99): no ads and no in-app purchases.
@@ -286,8 +289,8 @@ A: These are our own products. Trion Creation designs, builds, publishes and mai
 **Q: Where can I download Cadence?**
 A: Cadence is available on Android and iOS. Links are on each product card above.
 
-**Q: When is Titan Legends and SoulSync AI launching?**
-A: Titan Legends and SoulSync AI is still in development and has not been released to the app stores yet. Store links will appear on this page as soon as it goes live.
+**Q: When is Himmapan Bloodlines and Titan Legends and SoulSync AI launching?**
+A: Himmapan Bloodlines and Titan Legends and SoulSync AI is still in development and has not been released to the app stores yet. Store links will appear on this page as soon as it goes live.
 
 **Q: Can Trion Creation build an app like this for my business?**
 A: Yes. Building our own products is the same work we do for clients — custom mobile and web apps, AI features, backends and cloud infrastructure. Book a free discovery call and we will scope your idea and give a fixed-price quote.
@@ -798,7 +801,7 @@ A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs 
 
 ## Update info
 
-- This file last updated: 2026-11-01
+- This file last updated: 2026-11-15
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml

@@ -76,6 +76,7 @@ Service and portfolio pages exist in all three languages under the same path pre
 
 Trion Creation also designs, builds and publishes its own consumer apps — not client work. The current and complete list always lives at [https://trioncreation.com/products.html](https://trioncreation.com/products.html).
 
+- [Himmapan Bloodlines (สายเลือดหิมพานต์)](https://trioncreation.com/projects/himmapan-bloodlines.html): A Thai-mythology card lane-defense game built and published by Trion Creation, not client work. Thirty young Bangkok heroes with Himmapan bloodlines fight across three lanes and transform into giant mythic creatures (Naga, Singha, Krut and more). Six elements, Duo Strikes, giant bosses. Free to play, no ads, nothing random for sale; Thai and English. Coming 2027 to the App Store (iPhone first). Privacy: https://trioncreation.com/projects/himmapan-bloodlines/privacy.html · Terms: https://trioncreation.com/projects/himmapan-bloodlines/terms.html · Support: https://trioncreation.com/projects/himmapan-bloodlines/support.html
 - [Cadence](https://trioncreation.com/projects/cadence.html): A habit tracker built and published by Trion Creation, not client work. Uses weekly goals instead of daily streaks, so missing a day doesn't reset your progress. Free tier keeps 10 habits; Pro is a one-time lifetime purchase, no subscription required. Fully offline-capable. Available on Google Play (Android); iOS in progress.
 
 ## Industries served
