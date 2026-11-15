@@ -100,6 +100,14 @@
         },
         {
             "@type": "Question",
+            "name": "How is my data handled, and can I delete my account?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Titan Legends has no ads and no tracking or advertising SDKs, and we never sell your data. Sign-in with Google is optional and guests can play without it. Our server keeps only what the online features need (player ID, save, leaderboard, friends and guild data), and you can delete it any time in the game (Settings, Delete account) or on our account deletion page. Full details are in the Privacy Policy."
+            }
+        },
+        {
+            "@type": "Question",
             "name": "Who makes Titan Legends?",
             "acceptedAnswer": {
                 "@type": "Answer",
@@ -318,6 +326,11 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
 .tl-gallery picture { display: block; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--hairline); box-shadow: var(--shadow-lg); }
 .tl-gallery img { width: 100%; height: auto; display: block; }
 
+.tl-legal { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; justify-content: center; margin: 0; padding: 0; list-style: none; font-size: var(--step--1); }
+.tl-legal a { color: var(--text-200); text-decoration: underline; text-underline-offset: 3px; }
+.tl-legal a:hover { color: var(--cad); }
+.cad-faq details p a { color: var(--cad); }
+
 /* FAQ */
 .cad-faq { max-width: 760px; margin: 0 auto; }
 .cad-faq details {
@@ -520,6 +533,10 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
                         <p>The main campaign is single-player. Social features such as guilds and raid bosses use an online connection.</p>
                     </details>
                     <details>
+                        <summary>How is my data handled, and can I delete my account?</summary>
+                        <p>Titan Legends has no ads and no tracking or advertising SDKs, and we never sell your data. Sign-in with Google is optional and guests can play without it. Our server keeps only what the online features need (player ID, save, leaderboard, friends and guild data), and you can delete it any time in the game (Settings → Delete account) or on our <a href="titan-legends/delete-account.html">account deletion page</a>. Full details are in the <a href="titan-legends/privacy.html">Privacy Policy</a>.</p>
+                    </details>
+                    <details>
                         <summary>Who makes Titan Legends?</summary>
                         <p>Titan Legends is designed, built and published by Trion Creation Sdn Bhd in Malaysia.</p>
                     </details>
@@ -534,6 +551,12 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
                     <p>Titan Legends is coming to the App Store and Google Play. Pay once — USD 9.99 — and the whole game is yours.</p>
                     <div class="stores"><span class="store">Coming soon — App Store</span>
                 <span class="store">Coming soon — Google Play</span></div>
+                    <ul class="tl-legal">
+                        <li><a href="titan-legends/privacy.html">Privacy Policy</a></li>
+                        <li><a href="titan-legends/terms.html">Terms of Use</a></li>
+                        <li><a href="titan-legends/support.html">Support</a></li>
+                        <li><a href="titan-legends/delete-account.html">Delete your account</a></li>
+                    </ul>
                 </div>
             </div>
         </section>
