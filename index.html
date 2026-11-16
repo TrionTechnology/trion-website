@@ -393,7 +393,7 @@
         "about": { "@id": "https://trioncreation.com/#organization" },
         "speakable": {
             "@type": "SpeakableSpecification",
-            "cssSelector": [".hero-title", "a.hero-seo-text", ".feature-card h3", ".faq-item summary"]
+            "cssSelector": [".hero-title", ".hero-lede", ".how-item h3", ".faq-item summary"]
         }
     }
     </script>
@@ -413,8 +413,6 @@
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <!-- Holographic WebGL particle field -->
-    <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -422,7 +420,7 @@
                 <a href="#home" class="logo" onclick="event.preventDefault(); document.querySelector('.nav-link[href=\'#home\']')?.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
                     <img src="logo master - Trion-07 3.png" alt="Trion Creation">
                 </a>
-                <nav class="main-nav">
+                <nav class="main-nav" id="site-nav">
                     <ul class="nav-list" role="tablist" aria-label="Sections">
                         <li role="none"><a href="#home" class="nav-link active" role="tab" id="tab-home" aria-controls="home" aria-selected="true">Home</a></li>
                         <li role="none"><a href="#about" class="nav-link" role="tab" id="tab-about" aria-controls="about" aria-selected="false">About</a></li>
@@ -436,9 +434,9 @@
                 </nav>
                 <div class="header-actions">
                     <div class="lang-dropdown" data-lang-dropdown><button type="button" class="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language"><svg class="lang-globe" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg><span class="lang-current">EN</span><svg class="lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><ul class="lang-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="https://trioncreation.com/" hreflang="en" lang="en" class="lang-option active" aria-current="true">English</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/zh/" hreflang="zh-Hans" lang="zh-Hans" class="lang-option">中文</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/ms/" hreflang="ms" lang="ms" class="lang-option">Bahasa Malaysia</a></li></ul></div>
-                    <a href="#contact" class="btn btn-primary" data-magnetic="0.22">Get Started</a>
+                    <a href="#contact" class="btn btn-primary header-cta">Start a project</a>
                 </div>
-                <button class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -451,111 +449,125 @@
     <main class="main-content" id="main">
         <!-- Home Tab -->
         <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
-            <div class="hero-section">
+            <div class="hero-section" data-hero-intro>
+                <div class="container hero-grid">
+                    <div class="hero-copy">
+                        <p class="hero-kicker" data-intro>Trion Creation Sdn Bhd &middot; Software studio, Kuala Lumpur &middot; Since 2022</p>
+                        <h1 class="hero-title" data-intro>Custom software development in Malaysia, <em>and apps and games of our own.</em></h1>
+                        <p class="hero-lede" data-intro>We are a software studio in Kuala Lumpur. Since 2022 we have built the systems companies run on (ERP and CRM, HR and payroll, loan management, POS, booking) along with mobile apps and web platforms such as Yippi, used by more than 5 million people. Between client projects, we ship our own products.</p>
+                        <div class="hero-actions" data-intro>
+                            <a href="#contact" class="btn btn-primary">Start a project</a>
+                            <a href="#work" class="btn btn-text">See the work <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        </div>
+                        <dl class="hero-facts" data-intro aria-label="Studio facts">
+                            <div><dt>projects delivered</dt><dd>150+</dd></div>
+                            <div><dt>industries</dt><dd>10+</dd></div>
+                            <div><dt>founded in Kuala Lumpur</dt><dd>2022</dd></div>
+                        </dl>
+                    </div>
+                    <figure class="hero-collage">
+                        <div class="hc-main" data-intro-pic><picture><source type="image/webp" srcset="images/titan-legends-feature-440.webp 440w, images/titan-legends-feature-880.webp 880w, images/titan-legends-feature-1600.webp 1600w" sizes="(min-width: 1024px) 46vw, 92vw"><img src="images/titan-legends-feature-1600.webp" width="1600" height="900" alt="Titan Legends key art: three cartoon kaiju Titans stomping through a tiny city" fetchpriority="high" decoding="async"></picture></div>
+                        <div class="hc-tall" data-intro-pic><picture><source type="image/webp" srcset="images/himmapan-bloodlines-keyart-440.webp 440w" sizes="(min-width: 1024px) 15vw, 34vw"><img src="images/himmapan-bloodlines-keyart-440.webp" width="440" height="953" alt="Himmapan Bloodlines key art: two young Bangkok heroes in front of the city at night" loading="lazy" decoding="async"></picture></div>
+                        <div class="hc-phone" data-intro-pic><picture><source type="image/webp" srcset="images/cadence-today-440.webp 440w" sizes="(min-width: 1024px) 14vw, 34vw"><img src="images/cadence-today-440.webp" width="440" height="593" alt="Cadence app screen showing this week&#x27;s habit goals" loading="lazy" decoding="async"></picture></div>
+                        <figcaption data-intro>Our own products: Titan Legends, Himmapan Bloodlines and Cadence.</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="home-block work-section" id="work">
                 <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <p class="hero-eyebrow">
-                                <span class="pulse-dot" aria-hidden="true"></span>
-                                <span data-scramble>Kuala Lumpur, Malaysia &middot; Shipping since 2022</span></p>
-                            <h1 class="hero-title" data-split>Custom Software Development <span class="ht-accent">in Malaysia</span><span class="highlight">We Build Any System You Need &mdash; Fast, Modern &amp; Fully Custom</span></h1>
-                            <p class="hero-seo-text">Leading provider of custom software customisation and development services in Malaysia</p>
-                            <ul class="hero-capabilities" aria-label="What we build">
-                                <li>Web</li>
-                                <li>Mobile</li>
-                                <li>ERP</li>
-                                <li>CRM</li>
-                                <li>AI</li>
-                                <li>Booking</li>
-                                <li>POS</li>
-                                <li>Loan System</li>
-                                <li>Inventory</li>
-                            </ul>
-                            <div class="hero-actions">
-                                <a href="#services" class="btn btn-primary" data-magnetic="0.22">Explore Services</a>
-                                <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
-                            </div>
-                            <dl class="hero-stats">
-                                <div class="stat">
-                                    <dt class="stat-label">Projects Completed</dt>
-                                    <dd class="stat-number">150+</dd>
-                                </div>
-                                <div class="stat">
-                                    <dt class="stat-label">Client Satisfaction</dt>
-                                    <dd class="stat-number">98%</dd>
-                                </div>
-                                <div class="stat">
-                                    <dt class="stat-label">Years Experience</dt>
-                                    <dd class="stat-number">5+</dd>
-                                </div>
-                            </dl>
+                    <header class="block-head">
+                        <p class="block-kicker">Work</p>
+                        <h2 data-split>Selected work</h2>
+                        <p class="block-intro" data-reveal>Our own products first. They show how we build when nobody else is writing the brief. Client platforms follow.</p>
+                    </header>
+                    <article class="work-row">
+                        <a class="work-media" href="projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/titan-legends-shot-1-440.webp 440w, images/titan-legends-shot-1-880.webp 880w, images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD" loading="lazy" decoding="async"></picture></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">Game &middot; iOS &amp; Android &middot; Coming soon</p>
+                            <h3><a href="projects/titan-legends.html">Titan Legends</a></h3>
+                            <p>A bright 3D kaiju action game for ages 6 and up. Stomp tiny cities, evolve your Titan with skill cards, turn giant and topple huge bosses across 12 lands. Pay once, USD 9.99: no ads and no in-app purchases.</p>
+                            <p class="work-links"><a href="projects/titan-legends.html" class="link-arrow">Read about Titan Legends <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                         </div>
-                        <div class="hero-image hero-3d" data-parallax="0.06" style="--par-amt:26px" role="img" aria-label="Animated visualisation of a distributed software system: nodes connected by links with data pulses travelling between them">
-                            <canvas aria-hidden="true"></canvas>
-                            <div class="hero-3d-readout" aria-hidden="true">
-                                <span class="pulse-dot"></span> SYS &middot; TRION CORE &middot; ACTIVE
-                            </div>
+                    </article>
+                    <article class="work-row is-flipped">
+                        <a class="work-media" href="projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/himmapan-bloodlines-feature-440.webp 440w, images/himmapan-bloodlines-feature-880.webp 880w, images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="Himmapan Bloodlines title art with the game&#x27;s heroes" loading="lazy" decoding="async"></picture></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">Game &middot; iOS &middot; Coming 2027</p>
+                            <h3><a href="projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
+                            <p>A Thai-mythology card lane-defence game. Thirty young Bangkok heroes carry the blood of Himmapan creatures and turn into giants: Naga, Singha, Krut and more. Free to play, no ads, nothing random for sale.</p>
+                            <p class="work-links"><a href="projects/himmapan-bloodlines.html" class="link-arrow">Read about Himmapan Bloodlines <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                         </div>
+                    </article>
+                    <article class="work-row">
+                        <a class="work-media is-cadence" href="projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/avif" srcset="images/cadence-shot-mosaic-440.avif 440w, images/cadence-shot-mosaic-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="images/cadence-shot-mosaic-440.webp 440w, images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence weekly progress screen" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="images/cadence-shot-forgiving-440.avif 440w, images/cadence-shot-forgiving-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="images/cadence-shot-forgiving-440.webp 440w, images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence screen: a missed day that keeps the streak" loading="lazy" decoding="async"></picture></span></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">Habit tracker &middot; Android &amp; iOS &middot; Live on Google Play</p>
+                            <h3><a href="projects/cadence.html">Cadence</a></h3>
+                            <p>A habit tracker built on weekly goals instead of daily streaks, so missing a day does not wipe your progress. Works fully offline. Pro is a one-time purchase, not a subscription.</p>
+                            <p class="work-links"><a href="projects/cadence.html" class="link-arrow">Read about Cadence <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">Get it on Google Play <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                        </div>
+                    </article>
+                    <div class="client-list">
+                        <h3 class="client-head" data-reveal>Client platforms</h3>
+                        <ul>
+                            <li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">Social super app used by 5M+ people: live streaming, content feed, rewards and a cross-border CDN.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                            <li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">Driver-for-hire platform with live GPS tracking, payments and multi-city fleet operations.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                            <li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 Social-Fi platform: NFT launchpad, multi-chain smart contracts and gasless transactions. Endorsed by the Malaysia Tourism Board.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        </ul>
+                        <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">All solution types we have delivered <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="products.html" class="link-arrow">Our products <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                     </div>
                 </div>
             </div>
-
-
-            <div class="tech-marquee" aria-label="Tech we build with">
-                <p class="mq-label" data-scramble>Tech we build with</p>
-                <hr class="beam">
-                <div class="mq-rail" data-marquee><div class="mq-track"><span class="mq-item">React</span><span class="mq-item">Next.js</span><span class="mq-item">React Native</span><span class="mq-item">Flutter</span><span class="mq-item">Node.js</span><span class="mq-item">Laravel</span><span class="mq-item">Python</span><span class="mq-item">Odoo</span><span class="mq-item">PostgreSQL</span><span class="mq-item">MongoDB</span><span class="mq-item">Redis</span><span class="mq-item">AWS</span><span class="mq-item">Alibaba Cloud</span><span class="mq-item">Docker</span><span class="mq-item">Kubernetes</span><span class="mq-item">Stripe</span><span class="mq-item">WebSocket</span><span class="mq-item">OpenAI</span><span class="mq-item">Solidity</span><span class="mq-item">Figma</span></div></div>
-            </div>
-            <div class="features-section">
+            <div class="home-block paper-band">
                 <div class="container">
-                    <h2 data-clip>Why Choose Trion Creation?</h2>
-                    <div class="features-grid" data-reveal-group>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fast delivery"><path d="M3 17.5 10 10l3.5 3.5L21 6"/><path class="ic-live" d="M15 6h6v6"/><path d="M3 21h18" opacity=".35"/></svg>
-                            </div>
-                            <h3>Fast Development Timeline</h3>
-                            <p>Rapid delivery without compromising quality. We streamline development processes to get your system to market faster.</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fully customised"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect class="ic-live" x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
-                            </div>
-                            <h3>Full Customization</h3>
-                            <p>Every system is built from scratch to match your exact business needs. No cookie-cutter solutions - 100% tailored to you.</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Transparent pricing"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h15A1.5 1.5 0 0 1 21 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5z"/><path d="M3 10.5h18" opacity=".4"/><path class="ic-live" d="M6.5 14.5h4"/></svg>
-                            </div>
-                            <h3>Affordable Pricing</h3>
-                            <p>Competitive pricing with transparent costs. Get enterprise-grade solutions without enterprise-level expenses.</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="AI-ready architecture"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v5.3M12 15.2V21M3 12h5.8M15.2 12H21" opacity=".45"/><circle class="ic-live" cx="12" cy="3" r="1.5"/><circle cx="21" cy="12" r="1.5" opacity=".5"/><circle cx="3" cy="12" r="1.5" opacity=".5"/><circle cx="12" cy="21" r="1.5" opacity=".5"/></svg>
-                            </div>
-                            <h3>AI-Ready Architecture</h3>
-                            <p>Future-proof systems built with AI capabilities in mind. Easy to integrate AI features when you're ready to scale.</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Professional team"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle class="ic-live" cx="17" cy="9.5" r="2.4"/><path d="M15 20a5 5 0 0 1 6-4.6" opacity=".45"/></svg>
-                            </div>
-                            <h3>Professional Team</h3>
-                            <p>Experienced developers and designers dedicated to your success. 40+ completed projects across 10+ industries.</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Client references"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9A1.5 1.5 0 0 1 18.5 16H9l-5 4z"/><path class="ic-live" d="M8.5 10h7"/><path d="M8.5 7h4" opacity=".45"/></svg>
-                            </div>
-                            <h3>Strong Client References</h3>
-                            <p>98% client satisfaction rate with proven track record. Check our portfolio - 150+ successful projects delivered.</p>
-                        </div>
-                    </div>
+                    <header class="block-head">
+                        <p class="block-kicker">Services</p>
+                        <h2 data-split>What we build</h2>
+                        <p class="block-intro" data-reveal>Twelve kinds of work we do often. Each has its own page with scope, typical timelines and starting prices.</p>
+                    </header>
+                    <ol class="svc-index" data-reveal-group>
+                        <li data-reveal><a href="services/mobile-web-app-development.html"><span class="si-num">01</span><span class="si-name">Mobile & Web Apps</span><span class="si-desc">Apps for iOS, Android and the web, with the backend behind them.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/erp-crm-development.html"><span class="si-num">02</span><span class="si-name">ERP & CRM</span><span class="si-desc">Systems shaped around how your company already works.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/ai-automation-chatbot.html"><span class="si-num">03</span><span class="si-name">AI Automation & Chatbots</span><span class="si-desc">Chatbots and automation that take repetitive work off your team.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/odoo-customisation.html"><span class="si-num">04</span><span class="si-name">Odoo Customisation</span><span class="si-desc">Custom modules, workflows and integrations on Odoo.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/pos-inventory-management.html"><span class="si-num">05</span><span class="si-name">POS & Inventory</span><span class="si-desc">Point of sale and stock for one shop or many.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/booking-system-development.html"><span class="si-num">06</span><span class="si-name">Booking Systems</span><span class="si-desc">Appointments, classes, rooms and resources, with payments.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/loan-management-system.html"><span class="si-num">07</span><span class="si-name">Loan Management</span><span class="si-desc">Applications, credit checks, approvals and repayments.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/api-integration-development.html"><span class="si-num">08</span><span class="si-name">APIs & Integrations</span><span class="si-desc">Payment gateways, SMS, ERPs and anything else with an API.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/blockchain-web3-solutions.html"><span class="si-num">09</span><span class="si-name">Blockchain & Web3</span><span class="si-desc">Smart contracts, NFT launchpads and Web3 apps.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/ar-vr-metaverse-development.html"><span class="si-num">10</span><span class="si-name">Games, AR & VR</span><span class="si-desc">Unity games, AR and virtual spaces.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/cloud-infrastructure-devops.html"><span class="si-num">11</span><span class="si-name">Cloud & DevOps</span><span class="si-desc">Hosting, CDN, monitoring and deployments that stay up.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/product-design-ux.html"><span class="si-num">12</span><span class="si-name">Product Design & UX</span><span class="si-desc">Research, interface design and design systems.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                    </ol>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="home-block how-section">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker">Process</p>
+                        <h2 data-split>How a project runs</h2>
+                    </header>
+                    <ol class="how-list" data-reveal-group>
+                        <li class="how-item" data-reveal><span class="how-num">01</span><h3>A call, then a fixed quote.</h3><p>We start with a discovery call, then send a fixed-scope quote. Typical bands: RM15k&ndash;40k for an MVP, RM40k&ndash;150k for a business system, RM150k+ for an enterprise platform.</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">02</span><h3>Working software early.</h3><p>Most MVPs take 6&ndash;12 weeks. Full ERP, HRMS or loan systems usually take 3&ndash;6 months, depending on integrations and compliance.</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">03</span><h3>You own the code.</h3><p>You own 100% of the source code and data. We sign NDAs and can deploy to your AWS, Alibaba Cloud or on-premise servers.</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">04</span><h3>We stay after launch.</h3><p>Every project has a warranty period, then optional monthly support: fixes, security patches, server monitoring and new features.</p></li>
+                    </ol>
+                    <div class="stack-line" data-reveal><h3>Tools we reach for most</h3><p>React &middot; Next.js &middot; Flutter &middot; React Native &middot; Node.js &middot; Laravel &middot; Python &middot; Odoo &middot; PostgreSQL &middot; Redis &middot; AWS &middot; Alibaba Cloud &middot; Docker &middot; Unity</p></div>
+                </div>
+            </div>
+            <div class="home-block cta-band">
+                <div class="container">
+                    <h2 data-split>Have something that needs building?</h2>
+                    <p data-reveal>Tell us what it should do. We will come back with questions, then a plan and a fixed quote.</p>
+                    <div class="cta-actions" data-reveal>
+                        <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
+                        <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary">freddy.chia@trioncreation.com</a>
+                        <a href="#contact" class="btn btn-text">Use the contact form <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- About Tab -->
         <section id="about" class="tab-content" role="tabpanel" aria-labelledby="tab-about" hidden>
@@ -569,44 +581,24 @@
 
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>Our Story</h2>
-                        <p>Founded in 2022, Trion Creation has been at the forefront of technological innovation, helping businesses transform and thrive in the digital age. We've delivered 150+ projects across 10+ industries — including 45+ enterprise and mid-market platforms — providing custom software customisation and development solutions that drive real business growth and digital transformation. As a leading software customise company in Malaysia, we specialize in tailoring software to meet your unique business needs.</p>
-                        
-                        <h3>Our Mission</h3>
-                        <p>To democratize access to cutting-edge technology by creating intelligent solutions that solve real-world problems and drive meaningful business growth.</p>
-
-                        <h3>Our Vision</h3>
-                        <p>To be Malaysia's leading force in custom software and applied AI, shaping a future where technology seamlessly integrates with human potential to create extraordinary outcomes.</p>
-
+                        <h2 data-split>Our story</h2>
+                        <p>Trion Creation started in Kuala Lumpur in 2022. Since then we have delivered 150+ projects across 10+ industries, including 45+ enterprise and mid-market platforms: lending, legal, logistics, HR, retail and F&amp;B, social apps and Web3. Most of our work is custom software customisation and development for Malaysian companies whose operations do not fit an off-the-shelf package.</p>
+                        <h3>Why we make our own products</h3>
+                        <p>Building Titan Legends, Himmapan Bloodlines and Cadence keeps us honest. We carry the whole thing ourselves: design, engineering, store submission, privacy and support. That is the same end-to-end ownership we bring to client work.</p>
                         <div class="company-values">
-                            <h3>Our Values</h3>
+                            <h3>How we like to work</h3>
                             <div class="values-grid">
-                                <div class="value-item">
-                                    <h4>Innovation</h4>
-                                    <p>Constantly pushing boundaries and exploring new possibilities</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>Excellence</h4>
-                                    <p>Delivering the highest quality solutions with attention to detail</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>Collaboration</h4>
-                                    <p>Working closely with clients to achieve shared success</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>Integrity</h4>
-                                    <p>Maintaining transparency and ethical practices in all our work</p>
-                                </div>
+                                <div class="value-item"><h4>Plain answers</h4><p>A fixed-scope quote, a realistic timeline, and a straight answer when something will cost more.</p></div>
+                                <div class="value-item"><h4>Working software early</h4><p>You see a running build early on, not only designs.</p></div>
+                                <div class="value-item"><h4>Your code, your data</h4><p>You own 100% of the source code and data.</p></div>
+                                <div class="value-item"><h4>We stay</h4><p>A warranty period after launch, then monthly support if you want it.</p></div>
                             </div>
                         </div>
-            </div>
-                    <div class="about-image">
-                        <picture>
-                                <source type="image/avif" srcset="images/about/about-team-400.avif 400w, images/about/about-team-800.avif 800w, images/about/about-team-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <source type="image/webp" srcset="images/about/about-team-400.webp 400w, images/about/about-team-800.webp 800w, images/about/about-team-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/about/about-team.jpg" alt="Our Team Collaboration" width="2070" height="1381" loading="lazy" decoding="async">
-                            </picture>
                     </div>
+                    <figure class="about-image">
+                        <picture><source type="image/webp" srcset="images/titan-legends-poster-440.webp 440w, images/titan-legends-poster-880.webp 880w" sizes="(max-width: 1024px) min(90vw, 520px), 38vw"><img src="images/titan-legends-poster-880.webp" width="880" height="1320" alt="Titan Legends poster with the three Titans" loading="lazy" decoding="async"></picture>
+                        <figcaption>Titan Legends poster. Designed and built in-house.</figcaption>
+                    </figure>
                 </div>
 
                 <div class="achievements-section">
@@ -1403,7 +1395,7 @@
             <div class="page-header with-banner" style="background-image: url('images/banners/banner-contact.jpg'); background-image: image-set(url('images/banners/banner-contact-1600.avif') type('image/avif'), url('images/banners/banner-contact-1600.webp') type('image/webp'), url('images/banners/banner-contact.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h2 class="ph-title">Get In Touch</h2>
-                    <p>Ready to transform your business with cutting-edge technology?</p>
+                    <p>Tell us what you need built. We will come back with questions, then a plan and a fixed quote.</p>
                 </div>
             </div>
             <div class="container">
@@ -1411,8 +1403,8 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-details">
-                            <h2>Let's Start a Conversation</h2>
-                            <p>We're here to help you explore how our custom software and AI solutions can drive your business forward. Get in touch with our team today.</p>
+                            <h2>Talk to us directly</h2>
+                            <p>WhatsApp and email come straight to us. The form below opens WhatsApp with your message filled in, ready to send.</p>
                             
                             <div class="contact-methods">
                                 <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" class="contact-method" aria-label="Chat on WhatsApp">
@@ -1507,7 +1499,7 @@
                                 <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                            <button type="submit" class="btn btn-primary btn-large">Send via WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -1523,7 +1515,7 @@
                     <div class="logo">
                         <img src="logo master - Trion-07 3.png" alt="Trion Creation">
                     </div>
-                    <p>We Build Any System You Need — Fast, Modern & Fully Custom.</p>
+                    <p>A software studio in Kuala Lumpur. Custom systems for clients, and apps and games of our own.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/trioncreation-sdn-bhd" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -1541,10 +1533,10 @@
                     <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                            <li><a href="#services">AI Solutions</a></li>
-                            <li><a href="#services">ERP &amp; CRM Systems</a></li>
-                            <li><a href="#services">AR/VR Development</a></li>
-                            <li><a href="#services">Blockchain</a></li>
+                            <li><a href="services/mobile-web-app-development.html">Mobile &amp; Web Apps</a></li>
+                            <li><a href="services/erp-crm-development.html">ERP &amp; CRM</a></li>
+                            <li><a href="services/ai-automation-chatbot.html">AI Automation</a></li>
+                            <li><a href="services/odoo-customisation.html">Odoo Customisation</a></li>
                     </ul>
                 </div>
                     <div class="footer-column">
@@ -1557,22 +1549,19 @@
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>Resources</h4>
+                        <h4>Work</h4>
                         <ul>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Case Studies</a></li>
-                            <li><a href="#">Whitepapers</a></li>
-                            <li><a href="#">Support</a></li>
+                            <li><a href="projects/titan-legends.html">Titan Legends</a></li>
+                            <li><a href="projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></li>
+                            <li><a href="projects/cadence.html">Cadence</a></li>
+                            <li><a href="projects/yippi.html">Yippi</a></li>
                     </ul>
                 </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span class="year-now">2024</span> Trion Creation. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+                <p class="footer-legal">Trion Creation Sdn Bhd &middot; Kuala Lumpur, Malaysia</p>
             </div>
         </div>
     </footer>
@@ -1589,7 +1578,7 @@
     </a>
 
     <script src="script.js"></script>
-    <script src="futuristic.js"></script>
-    <script src="scroll.js"></script>
+    <script src="vendor/motion.min.js" defer></script>
+    <script src="scroll.js" defer></script>
 </body>
 </html> 

@@ -393,7 +393,7 @@
         "about": { "@id": "https://trioncreation.com/#organization" },
         "speakable": {
             "@type": "SpeakableSpecification",
-            "cssSelector": [".hero-title", "a.hero-seo-text", ".feature-card h3", ".faq-item summary"]
+            "cssSelector": [".hero-title", ".hero-lede", ".how-item h3", ".faq-item summary"]
         }
     }
     </script>
@@ -410,8 +410,6 @@
 </head>
 <body>
     <a class="skip-link" href="#main">跳至内容</a>
-    <!-- Holographic WebGL particle field -->
-    <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -419,7 +417,7 @@
                 <a href="#home" class="logo" onclick="event.preventDefault(); document.querySelector('.nav-link[href=\'#home\']')?.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
                     <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
                 </a>
-                <nav class="main-nav">
+                <nav class="main-nav" id="site-nav">
                     <ul class="nav-list" role="tablist" aria-label="栏目">
                         <li role="none"><a href="#home" class="nav-link active" role="tab" id="tab-home" aria-controls="home" aria-selected="true">首页</a></li>
                         <li role="none"><a href="#about" class="nav-link" role="tab" id="tab-about" aria-controls="about" aria-selected="false">关于我们</a></li>
@@ -433,9 +431,9 @@
                 </nav>
                 <div class="header-actions">
                     <div class="lang-dropdown" data-lang-dropdown><button type="button" class="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Select language"><svg class="lang-globe" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg><span class="lang-current">中文</span><svg class="lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><ul class="lang-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="https://trioncreation.com/" hreflang="en" lang="en" class="lang-option">English</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/zh/" hreflang="zh-Hans" lang="zh-Hans" class="lang-option active" aria-current="true">中文</a></li><li role="none"><a role="menuitem" href="https://trioncreation.com/ms/" hreflang="ms" lang="ms" class="lang-option">Bahasa Malaysia</a></li></ul></div>
-                    <a href="#contact" class="btn btn-primary" data-magnetic="0.22">立即开始</a>
+                    <a href="#contact" class="btn btn-primary header-cta">开始项目</a>
                 </div>
-                <button class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -448,109 +446,125 @@
     <main class="main-content" id="main">
         <!-- Home Tab -->
         <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
-            <div class="hero-section">
+            <div class="hero-section" data-hero-intro>
+                <div class="container hero-grid">
+                    <div class="hero-copy">
+                        <p class="hero-kicker" data-intro>Trion Creation Sdn Bhd &middot; 吉隆坡软件工作室 &middot; 始于 2022 年</p>
+                        <h1 class="hero-title" data-intro>马来西亚定制软件开发，<em>也做我们自己的应用和游戏。</em></h1>
+                        <p class="hero-lede" data-intro>我们是一家位于吉隆坡的软件工作室。自 2022 年起，我们为企业打造日常运营所依赖的系统：ERP 与 CRM、人事薪资、贷款管理、POS、预约系统；也开发移动应用和网页平台，例如用户超过 500 万的 Yippi。客户项目之外，我们也发布自己的产品。</p>
+                        <div class="hero-actions" data-intro>
+                            <a href="#contact" class="btn btn-primary">开始项目</a>
+                            <a href="#work" class="btn btn-text">看看作品 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        </div>
+                        <dl class="hero-facts" data-intro aria-label="工作室概况">
+                            <div><dt>个已交付项目</dt><dd>150+</dd></div>
+                            <div><dt>个行业</dt><dd>10+</dd></div>
+                            <div><dt>年于吉隆坡创立</dt><dd>2022</dd></div>
+                        </dl>
+                    </div>
+                    <figure class="hero-collage">
+                        <div class="hc-main" data-intro-pic><picture><source type="image/webp" srcset="../images/titan-legends-feature-440.webp 440w, ../images/titan-legends-feature-880.webp 880w, ../images/titan-legends-feature-1600.webp 1600w" sizes="(min-width: 1024px) 46vw, 92vw"><img src="../images/titan-legends-feature-1600.webp" width="1600" height="900" alt="Titan Legends 主视觉：三只卡通怪兽泰坦踏过迷你城市" fetchpriority="high" decoding="async"></picture></div>
+                        <div class="hc-tall" data-intro-pic><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-keyart-440.webp 440w" sizes="(min-width: 1024px) 15vw, 34vw"><img src="../images/himmapan-bloodlines-keyart-440.webp" width="440" height="953" alt="Himmapan Bloodlines 主视觉：两位曼谷少年英雄站在夜晚的城市前" loading="lazy" decoding="async"></picture></div>
+                        <div class="hc-phone" data-intro-pic><picture><source type="image/webp" srcset="../images/cadence-today-440.webp 440w" sizes="(min-width: 1024px) 14vw, 34vw"><img src="../images/cadence-today-440.webp" width="440" height="593" alt="Cadence 应用画面：本周习惯目标" loading="lazy" decoding="async"></picture></div>
+                        <figcaption data-intro>我们自己的产品：Titan Legends、Himmapan Bloodlines 与 Cadence。</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="home-block work-section" id="work">
                 <div class="container">
-            <div class="hero-content">
-                        <div class="hero-text">
-                            <p class="hero-eyebrow">
-                                <span class="pulse-dot" aria-hidden="true"></span>
-                                <span data-scramble>马来西亚吉隆坡 · 自 2022 年起交付</span></p>
-                            <h1 class="hero-title" data-split><span class="ht-accent">马来西亚</span>定制软件开发<span class="highlight">您需要的任何系统，我们都能打造——快速、现代、完全定制</span></h1>
-                            <p class="hero-seo-text">马来西亚领先的软件定制与开发服务供应商</p>
-                            <ul class="hero-capabilities" aria-label="我们的服务范围">
-                                <li>网页</li>
-                                <li>移动</li>
-                                <li>ERP</li>
-                                <li>CRM</li>
-                                <li>AI</li>
-                                <li>预约</li>
-                                <li>POS</li>
-                                <li>贷款系统</li>
-                                <li>库存</li>
-                            </ul>
-                            <div class="hero-actions">
-                                <a href="#services" class="btn btn-primary" data-magnetic="0.22">探索服务</a>
-                                <a href="#portfolio" class="btn btn-secondary">查看作品</a>
-                            </div>
-                            <dl class="hero-stats">
-                                <div class="stat">
-                                    <dt class="stat-label">已完成项目</dt>
-                                    <dd class="stat-number">150+</dd>
-                                </div>
-                                <div class="stat">
-                                    <dt class="stat-label">客户满意度</dt>
-                                    <dd class="stat-number">98%</dd>
-                                </div>
-                                <div class="stat">
-                                    <dt class="stat-label">年行业经验</dt>
-                                    <dd class="stat-number">5+</dd>
-                                </div>
-                            </dl>
+                    <header class="block-head">
+                        <p class="block-kicker">作品</p>
+                        <h2 data-split>精选作品</h2>
+                        <p class="block-intro" data-reveal>先看我们自己的产品，它们最能说明在没有人写需求时我们怎么做事。客户平台在下面。</p>
+                    </header>
+                    <article class="work-row">
+                        <a class="work-media" href="../projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends 游戏画面：紫色怪兽正在摧毁玩具城市" loading="lazy" decoding="async"></picture></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">游戏 &middot; iOS 与 Android &middot; 即将推出</p>
+                            <h3><a href="../projects/titan-legends.html">Titan Legends</a></h3>
+                            <p>一款适合 6 岁以上玩家的明亮 3D 怪兽动作游戏。踩平迷你城镇，用技能卡进化你的泰坦，变身巨大化，击倒横跨 12 个地区的巨型首领。一次买断 9.99 美元：没有广告，没有内购。</p>
+                            <p class="work-links"><a href="../projects/titan-legends.html" class="link-arrow">了解 Titan Legends <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                         </div>
-                        <div class="hero-image hero-3d" data-parallax="0.06" style="--par-amt:26px" role="img" aria-label="分布式软件系统的动态可视化：节点通过链路相连，数据脉冲在其间传输">
-                            <canvas aria-hidden="true"></canvas>
-                            <div class="hero-3d-readout" aria-hidden="true"><span class="pulse-dot"></span> SYS · TRION CORE · ACTIVE</div>
+                    </article>
+                    <article class="work-row is-flipped">
+                        <a class="work-media" href="../projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-feature-440.webp 440w, ../images/himmapan-bloodlines-feature-880.webp 880w, ../images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="Himmapan Bloodlines 标题画面与游戏英雄" loading="lazy" decoding="async"></picture></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">游戏 &middot; iOS &middot; 2027 年推出</p>
+                            <h3><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
+                            <p>一款泰国神话卡牌塔防游戏。三十位曼谷少年英雄身上流着喜马潘神兽的血脉，能化身纳迦、辛哈、迦楼罗等巨兽。免费游玩，没有广告，不卖随机抽奖。</p>
+                            <p class="work-links"><a href="../projects/himmapan-bloodlines.html" class="link-arrow">了解 Himmapan Bloodlines <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                         </div>
+                    </article>
+                    <article class="work-row">
+                        <a class="work-media is-cadence" href="../projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/avif" srcset="../images/cadence-shot-mosaic-440.avif 440w, ../images/cadence-shot-mosaic-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence 每周进度画面" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="../images/cadence-shot-forgiving-440.avif 440w, ../images/cadence-shot-forgiving-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence 画面：漏掉一天，连续记录仍保留" loading="lazy" decoding="async"></picture></span></a>
+                        <div class="work-text" data-reveal>
+                            <p class="work-meta">习惯追踪 &middot; Android 与 iOS &middot; 已上架 Google Play</p>
+                            <h3><a href="../projects/cadence.html">Cadence</a></h3>
+                            <p>以每周目标代替每日连续打卡的习惯追踪应用，漏掉一天也不会清零。可完全离线使用。Pro 版一次买断，不是订阅。</p>
+                            <p class="work-links"><a href="../projects/cadence.html" class="link-arrow">了解 Cadence <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">在 Google Play 下载 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                        </div>
+                    </article>
+                    <div class="client-list">
+                        <h3 class="client-head" data-reveal>客户平台</h3>
+                        <ul>
+                            <li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">社交超级应用，用户超过 500 万：直播、内容动态、奖励机制与跨境 CDN。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                            <li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">代驾平台：实时 GPS 追踪、在线支付与多城市车队运营。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                            <li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 社交金融平台：NFT 发行、多链智能合约与免 Gas 交易，获马来西亚旅游局认可。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        </ul>
+                        <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">查看全部解决方案 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="products.html" class="link-arrow">我们的产品 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                     </div>
                 </div>
             </div>
-
-
-            <div class="tech-marquee" aria-label="我们使用的技术">
-                <p class="mq-label" data-scramble>我们使用的技术</p>
-                <hr class="beam">
-                <div class="mq-rail" data-marquee><div class="mq-track"><span class="mq-item">React</span><span class="mq-item">Next.js</span><span class="mq-item">React Native</span><span class="mq-item">Flutter</span><span class="mq-item">Node.js</span><span class="mq-item">Laravel</span><span class="mq-item">Python</span><span class="mq-item">Odoo</span><span class="mq-item">PostgreSQL</span><span class="mq-item">MongoDB</span><span class="mq-item">Redis</span><span class="mq-item">AWS</span><span class="mq-item">Alibaba Cloud</span><span class="mq-item">Docker</span><span class="mq-item">Kubernetes</span><span class="mq-item">Stripe</span><span class="mq-item">WebSocket</span><span class="mq-item">OpenAI</span><span class="mq-item">Solidity</span><span class="mq-item">Figma</span></div></div>
-            </div>
-            <div class="features-section">
+            <div class="home-block paper-band">
                 <div class="container">
-                    <h2 data-clip>为什么选择 Trion Creation？</h2>
-                    <div class="features-grid" data-reveal-group>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fast delivery"><path d="M3 17.5 10 10l3.5 3.5L21 6"/><path class="ic-live" d="M15 6h6v6"/><path d="M3 21h18" opacity=".35"/></svg>
-                            </div>
-                            <h3>快速开发周期</h3>
-                            <p>在不牺牲品质的前提下快速交付。我们精简开发流程，让您的系统更快推向市场。</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Fully customised"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5" opacity=".4"/><rect class="ic-live" x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
-                            </div>
-                            <h3>完全定制</h3>
-                            <p>每套系统都从零打造，精准契合您的业务需求。拒绝千篇一律的方案——100% 为您量身定制。</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Transparent pricing"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h15A1.5 1.5 0 0 1 21 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 16.5z"/><path d="M3 10.5h18" opacity=".4"/><path class="ic-live" d="M6.5 14.5h4"/></svg>
-                            </div>
-                            <h3>实惠的价格</h3>
-                            <p>价格具竞争力，成本透明。无需企业级预算，即可获得企业级解决方案。</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="AI-ready architecture"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v5.3M12 15.2V21M3 12h5.8M15.2 12H21" opacity=".45"/><circle class="ic-live" cx="12" cy="3" r="1.5"/><circle cx="21" cy="12" r="1.5" opacity=".5"/><circle cx="3" cy="12" r="1.5" opacity=".5"/><circle cx="12" cy="21" r="1.5" opacity=".5"/></svg>
-                            </div>
-                            <h3>AI 就绪架构</h3>
-                            <p>面向未来的系统，从设计之初就考虑 AI 能力。当您准备扩展时，可轻松集成 AI 功能。</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Professional team"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle class="ic-live" cx="17" cy="9.5" r="2.4"/><path d="M15 20a5 5 0 0 1 6-4.6" opacity=".45"/></svg>
-                            </div>
-                            <h3>专业团队</h3>
-                            <p>经验丰富的开发与设计团队，全心助您成功。已在 10+ 个行业完成 40+ 个项目。</p>
-                        </div>
-                        <div class="feature-card" data-reveal="scale">
-                            <div class="feature-icon">
-                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Client references"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9A1.5 1.5 0 0 1 18.5 16H9l-5 4z"/><path class="ic-live" d="M8.5 10h7"/><path d="M8.5 7h4" opacity=".45"/></svg>
-                            </div>
-                            <h3>优质客户口碑</h3>
-                            <p>98% 的客户满意度，业绩有目共睹。查看我们的作品案例——已成功交付 150+ 个项目。</p>
-                        </div>
-                    </div>
+                    <header class="block-head">
+                        <p class="block-kicker">服务</p>
+                        <h2 data-split>我们打造什么</h2>
+                        <p class="block-intro" data-reveal>我们经常做的十二类项目。每一项都有独立页面，说明范围、常见工期与起步价格。</p>
+                    </header>
+                    <ol class="svc-index" data-reveal-group>
+                        <li data-reveal><a href="services/mobile-web-app-development.html"><span class="si-num">01</span><span class="si-name">移动与网页应用</span><span class="si-desc">iOS、Android 与网页应用，以及背后的后端。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/erp-crm-development.html"><span class="si-num">02</span><span class="si-name">ERP 与 CRM</span><span class="si-desc">按照贵公司现有流程打造的系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/ai-automation-chatbot.html"><span class="si-num">03</span><span class="si-name">AI 自动化与聊天机器人</span><span class="si-desc">聊天机器人与自动化，替团队处理重复工作。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/odoo-customisation.html"><span class="si-num">04</span><span class="si-name">Odoo 定制开发</span><span class="si-desc">Odoo 定制模块、流程与集成。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/pos-inventory-management.html"><span class="si-num">05</span><span class="si-name">POS 与库存管理</span><span class="si-desc">单店或多门店的收银与库存。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/booking-system-development.html"><span class="si-num">06</span><span class="si-name">预订系统</span><span class="si-desc">预约、课程、场地与资源管理，含在线付款。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/loan-management-system.html"><span class="si-num">07</span><span class="si-name">贷款管理系统</span><span class="si-desc">贷款申请、信用审核、审批与还款。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/api-integration-development.html"><span class="si-num">08</span><span class="si-name">API 集成与开发</span><span class="si-desc">对接支付网关、短信、ERP 及任何提供 API 的系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/blockchain-web3-solutions.html"><span class="si-num">09</span><span class="si-name">区块链与 Web3</span><span class="si-desc">智能合约、NFT 发行平台与 Web3 应用。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/ar-vr-metaverse-development.html"><span class="si-num">10</span><span class="si-name">游戏、AR 与 VR</span><span class="si-desc">Unity 游戏、AR 与虚拟空间。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/cloud-infrastructure-devops.html"><span class="si-num">11</span><span class="si-name">云基础设施与 DevOps</span><span class="si-desc">稳定运行的托管、CDN、监控与部署。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                        <li data-reveal><a href="services/product-design-ux.html"><span class="si-num">12</span><span class="si-name">产品设计与 UX</span><span class="si-desc">用户研究、界面设计与设计系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                    </ol>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="home-block how-section">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker">流程</p>
+                        <h2 data-split>项目怎么进行</h2>
+                    </header>
+                    <ol class="how-list" data-reveal-group>
+                        <li class="how-item" data-reveal><span class="how-num">01</span><h3>先沟通，再给固定报价。</h3><p>我们先进行一次需求沟通，然后提供固定范围的报价。常见区间：MVP 约 RM15k&ndash;40k，业务系统 RM40k&ndash;150k，企业平台 RM150k 以上。</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">02</span><h3>尽早看到可用的软件。</h3><p>大多数 MVP 需要 6&ndash;12 周。完整的 ERP、HRMS 或贷款系统通常需要 3&ndash;6 个月，视集成与合规要求而定。</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">03</span><h3>代码归你所有。</h3><p>源代码和数据 100% 属于你。我们签署保密协议，也可以部署到你的 AWS、阿里云或本地服务器。</p></li>
+                        <li class="how-item" data-reveal><span class="how-num">04</span><h3>上线后我们还在。</h3><p>每个项目都有保修期，之后可选每月维护：修复问题、安全补丁、服务器监控与功能更新。</p></li>
+                    </ol>
+                    <div class="stack-line" data-reveal><h3>我们最常用的工具</h3><p>React &middot; Next.js &middot; Flutter &middot; React Native &middot; Node.js &middot; Laravel &middot; Python &middot; Odoo &middot; PostgreSQL &middot; Redis &middot; AWS &middot; Alibaba Cloud &middot; Docker &middot; Unity</p></div>
+                </div>
+            </div>
+            <div class="home-block cta-band">
+                <div class="container">
+                    <h2 data-split>有需要打造的系统吗？</h2>
+                    <p data-reveal>告诉我们它需要做什么。我们会先提问，再给出方案和固定报价。</p>
+                    <div class="cta-actions" data-reveal>
+                        <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
+                        <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary">freddy.chia@trioncreation.com</a>
+                        <a href="#contact" class="btn btn-text">使用联系表单 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- About Tab -->
         <section id="about" class="tab-content" role="tabpanel" aria-labelledby="tab-about" hidden>
@@ -564,40 +578,24 @@
 
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>我们的故事</h2>
-                        <p>Trion Creation 成立于 2022 年，始终站在科技创新的前沿，助力企业在数字时代实现转型与腾飞。我们已在 10+ 个行业交付 150+ 个项目，其中包含 45+ 个企业级与中型企业平台，交付的软件定制与开发方案切实推动了业务增长与数字化转型。作为马来西亚领先的软件定制公司，我们专注于量身打造软件，满足您独特的业务需求。</p>
-
-                        <h3>我们的使命</h3>
-                        <p>打造解决现实问题、驱动有意义业务增长的智能解决方案，让前沿科技触手可及。</p>
-
-                        <h3>我们的愿景</h3>
-                        <p>成为马来西亚定制软件与应用型 AI 领域的领军力量，塑造科技与人类潜能无缝融合、共创非凡成果的未来。</p>
-
+                        <h2 data-split>我们的故事</h2>
+                        <p>Trion Creation 于 2022 年在吉隆坡成立。至今我们已在 10+ 个行业交付 150+ 个项目，其中包括 45+ 个企业级与中型企业平台，涵盖借贷、法律、物流、人事、零售与餐饮、社交应用和 Web3。我们的大部分工作，是为业务流程无法套用现成软件的马来西亚企业做软件定制与开发。</p>
+                        <h3>为什么我们做自己的产品</h3>
+                        <p>开发 Titan Legends、Himmapan Bloodlines 和 Cadence 让我们保持踏实：设计、开发、上架审核、隐私政策和用户支持，全部由我们自己负责。我们也用同样完整的责任感对待客户项目。</p>
                         <div class="company-values">
-                            <h3>我们的价值观</h3>
+                            <h3>我们的工作方式</h3>
                             <div class="values-grid">
-                                <div class="value-item">
-                                    <h4>创新</h4>
-                                    <p>不断突破边界，探索全新可能</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>卓越</h4>
-                                    <p>以精益求精的态度，交付最高品质的解决方案</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>协作</h4>
-                                    <p>与客户紧密合作，共创成功</p>
-                                </div>
-                                <div class="value-item">
-                                    <h4>诚信</h4>
-                                    <p>在所有工作中坚守透明与道德准则</p>
-                                </div>
+                                <div class="value-item"><h4>直接的回答</h4><p>固定范围报价、实际可行的工期；如果某件事会更贵，我们会直说。</p></div>
+                                <div class="value-item"><h4>尽早看到成果</h4><p>你会尽早看到能运行的软件，而不只是设计稿。</p></div>
+                                <div class="value-item"><h4>代码和数据归你</h4><p>源代码和数据 100% 属于你。</p></div>
+                                <div class="value-item"><h4>上线后不离开</h4><p>上线后有保修期，之后可按月提供维护支持。</p></div>
                             </div>
                         </div>
-            </div>
-                    <div class="about-image">
-                        <picture><source type="image/avif" srcset="../images/about/about-team-400.avif 400w, ../images/about/about-team-800.avif 800w, ../images/about/about-team-1200.avif 1200w" sizes="(max-width: 900px) min(90vw, 520px), 40vw"><source type="image/webp" srcset="../images/about/about-team-400.webp 400w, ../images/about/about-team-800.webp 800w, ../images/about/about-team-1200.webp 1200w" sizes="(max-width: 900px) min(90vw, 520px), 40vw"><img src="../images/about/about-team.jpg" width="2070" height="1381" alt="我们的团队协作" loading="lazy"></picture>
                     </div>
+                    <figure class="about-image">
+                        <picture><source type="image/webp" srcset="../images/titan-legends-poster-440.webp 440w, ../images/titan-legends-poster-880.webp 880w" sizes="(max-width: 1024px) min(90vw, 520px), 38vw"><img src="../images/titan-legends-poster-880.webp" width="880" height="1320" alt="Titan Legends 海报与三只泰坦" loading="lazy" decoding="async"></picture>
+                        <figcaption>Titan Legends 海报，由我们自行设计与开发。</figcaption>
+                    </figure>
                 </div>
 
                 <div class="achievements-section">
@@ -1342,7 +1340,7 @@
             <div class="page-header with-banner" style="background-image: url('../images/banners/banner-contact.jpg'); background-image: image-set(url('../images/banners/banner-contact-1600.avif') type('image/avif'), url('../images/banners/banner-contact-1600.webp') type('image/webp'), url('../images/banners/banner-contact.jpg') type('image/jpeg'));">
                 <div class="container">
                     <h2 class="ph-title">联系我们</h2>
-                    <p>准备好用前沿科技为您的业务带来变革了吗？</p>
+                    <p>告诉我们你需要打造什么。我们会先提问，再给出方案和固定报价。</p>
                 </div>
             </div>
             <div class="container">
@@ -1350,8 +1348,8 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-details">
-                            <h2>让我们开启对话</h2>
-                            <p>我们将助您探索定制软件与 AI 解决方案如何推动您的业务前行。立即联系我们的团队。</p>
+                            <h2>直接和我们聊</h2>
+                            <p>WhatsApp 和邮件会直接发到我们这里。下面的表单会打开 WhatsApp，并自动填好你的消息，按发送即可。</p>
                             
                             <div class="contact-methods">
                                 <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" class="contact-method" aria-label="通过 WhatsApp 联系">
@@ -1446,7 +1444,7 @@
                                 <textarea id="message" name="message" rows="5" placeholder="请告诉我们您的项目、目标与时间安排……" required></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary btn-large">发送消息</button>
+                            <button type="submit" class="btn btn-primary btn-large">通过 WhatsApp 发送</button>
                     </form>
                 </div>
             </div>
@@ -1462,7 +1460,7 @@
                     <div class="logo">
                         <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
                     </div>
-                    <p>您需要的任何系统，我们都能打造——快速、现代、完全定制。</p>
+                    <p>吉隆坡的软件工作室。为客户打造定制系统，也做我们自己的应用和游戏。</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/trioncreation-sdn-bhd" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -1480,10 +1478,10 @@
                     <div class="footer-column">
                     <h4>服务</h4>
                     <ul>
-                            <li><a href="#services">AI 解决方案</a></li>
-                            <li><a href="#services">ERP 与 CRM 系统</a></li>
-                            <li><a href="#services">AR/VR 开发</a></li>
-                            <li><a href="#services">区块链</a></li>
+                            <li><a href="services/mobile-web-app-development.html">移动与网页应用</a></li>
+                            <li><a href="services/erp-crm-development.html">ERP 与 CRM</a></li>
+                            <li><a href="services/ai-automation-chatbot.html">AI 自动化</a></li>
+                            <li><a href="services/odoo-customisation.html">Odoo 定制开发</a></li>
                     </ul>
                 </div>
                     <div class="footer-column">
@@ -1496,22 +1494,19 @@
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>资源</h4>
+                        <h4>作品</h4>
                         <ul>
-                            <li><a href="#">博客</a></li>
-                            <li><a href="#">案例研究</a></li>
-                            <li><a href="#">白皮书</a></li>
-                            <li><a href="#">支持</a></li>
+                            <li><a href="../projects/titan-legends.html">Titan Legends</a></li>
+                            <li><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></li>
+                            <li><a href="../projects/cadence.html">Cadence</a></li>
+                            <li><a href="projects/yippi.html">Yippi</a></li>
                     </ul>
                 </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span class="year-now">2024</span> Trion Creation. 版权所有。</p>
-                <div class="footer-legal">
-                    <a href="#">隐私政策</a>
-                    <a href="#">服务条款</a>
-                </div>
+                <p class="footer-legal">Trion Creation Sdn Bhd &middot; 马来西亚吉隆坡</p>
             </div>
         </div>
     </footer>
@@ -1528,7 +1523,7 @@
     </a>
 
     <script src="../script.js"></script>
-    <script src="../futuristic.js"></script>
-    <script src="../scroll.js"></script>
+    <script src="../vendor/motion.min.js" defer></script>
+    <script src="../scroll.js" defer></script>
 </body>
 </html> 
