@@ -333,7 +333,6 @@ ${JSON.stringify(faqSchema, null, 4)}
 </head>
 <body>
     ${SKIP_LINK}
-    <canvas id="trion-canvas" aria-hidden="true"></canvas>
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -499,8 +498,8 @@ ${faqSection(t.faqSvc(s), t, { eyebrow: 'COMMON QUESTIONS' })}
     </a>
 
     <script src="${A}script.js"></script>
-    <script src="${A}futuristic.js"></script>
-    <script src="${A}scroll.js"></script>
+    <script src="${A}vendor/motion.min.js" defer></script>
+    <script src="${A}scroll.js" defer></script>
 </body>
 </html>
 `;
@@ -698,7 +697,6 @@ ${JSON.stringify(faqSchema, null, 4)}
 </head>
 <body>
     ${SKIP_LINK}
-    <canvas id="trion-canvas" aria-hidden="true"></canvas>
 
     <header class="header">
         <div class="container">
@@ -876,8 +874,8 @@ ${faqSection(t.faqPf(p), t, { eyebrow: 'COMMON QUESTIONS' })}
     </a>
 
     <script src="${A}script.js"></script>
-    <script src="${A}futuristic.js"></script>
-    <script src="${A}scroll.js"></script>
+    <script src="${A}vendor/motion.min.js" defer></script>
+    <script src="${A}scroll.js" defer></script>
 </body>
 </html>
 `;
@@ -997,7 +995,6 @@ ${JSON.stringify(faqSchemaProd, null, 4)}
 </head>
 <body>
     ${SKIP_LINK}
-    <canvas id="trion-canvas" aria-hidden="true"></canvas>
 
     <header class="header">
         <div class="container">
@@ -1092,8 +1089,8 @@ ${faqSection(t.faqProd(products), t, { eyebrow: 'ABOUT OUR PRODUCTS' })}
     </footer>
 
     <script src="${A}script.js"></script>
-    <script src="${A}futuristic.js"></script>
-    <script src="${A}scroll.js"></script>
+    <script src="${A}vendor/motion.min.js" defer></script>
+    <script src="${A}scroll.js" defer></script>
 </body>
 </html>
 `;

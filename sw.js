@@ -6,15 +6,15 @@
    Old caches (v1, v2, v3) are purged on activate.
    ════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'trion-creation-v5';
+const CACHE_NAME = 'trion-creation-v6';
 
 const SHELL = [
     '/',
     '/index.html',
     '/styles.css',
     '/script.js',
-    '/futuristic.js',
     '/scroll.js',
+    '/vendor/motion.min.js',
     '/manifest.json',
     '/images/icons/favicon-192.png',
     '/logo%20master%20-%20Trion-07%203.png',

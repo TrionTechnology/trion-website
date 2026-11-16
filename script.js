@@ -3,7 +3,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initTabNavigation();
-    initHeader();
     initPortfolioFilter();
     initContactForm();
     initMobileMenu();
@@ -29,9 +28,26 @@ function initTabNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const tabContents = document.querySelectorAll('.tab-content');
 
+    function isPanel(el) { return !!(el && el.classList.contains('tab-content')); }
+
+    function scrollToEl(el) {
+        var top = el.getBoundingClientRect().top + window.scrollY - 72;
+        if (window.TrionLenis) window.TrionLenis.scrollTo(top, { duration: 1.1 });
+        else window.scrollTo({ top: top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+
     function switchTab(tabId) {
-        const targetContent = document.getElementById(tabId);
-        if (!targetContent) return false;
+        var target = document.getElementById(tabId);
+        if (!target) return false;
+        // A hash that names something inside a panel (e.g. #work on the
+        // home tab) shows that panel, then scrolls to the element.
+        if (!isPanel(target)) {
+            var panel = target.closest('.tab-content');
+            if (panel && !panel.classList.contains('active')) applyTab(panel.id, panel);
+            requestAnimationFrame(function () { scrollToEl(target); });
+            return true;
+        }
+        var targetContent = target;
         // Let the browser crossfade the panel swap where it can. It snapshots
         // before and after, so the whole mutation must happen in the callback.
         if (document.startViewTransition &&
@@ -53,8 +69,9 @@ function initTabNavigation() {
         // Jump, don't animate: switching tab replaces the whole view, so
         // easing it just delays the content. Lenis (when active) needs to
         // be told directly or it keeps its own target position.
-        if (window.TrionLenis) window.TrionLenis.scrollTo(0, { immediate: true });
+        if (window.TrionLenis) window.TrionLenis.scrollTo(0, { immediate: true, force: true });
         else window.scrollTo(0, 0);
+        if (window.TrionMotion) window.TrionMotion.activate(targetContent);
         return true;
     }
 
@@ -73,6 +90,18 @@ function initTabNavigation() {
         });
     });
 
+    // Other same-page links (hero buttons, footer, "see our work").
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a || a.classList.contains('nav-link') || a.classList.contains('skip-link')) return;
+        var id = a.getAttribute('href').slice(1);
+        if (!id || !document.getElementById(id)) return;
+        if (switchTab(id)) {
+            e.preventDefault();
+            history.replaceState(null, '', '#' + id);
+        }
+    });
+
     // On load, honour the URL hash so visitors landing on
     // /index.html#services actually see the services tab.
     if (location.hash) {
@@ -83,27 +112,6 @@ function initTabNavigation() {
     window.addEventListener('hashchange', () => {
         if (location.hash) switchTab(location.hash.slice(1));
     });
-}
-
-// Header functionality
-function initHeader() {
-    const header = document.querySelector('.header');
-    
-    if (!header) return;
-    // rAF-throttled: the raw listener fired on every scroll event and
-    // wrote a class each time. switchTab already owns the .nav-link
-    // active state, so the duplicate click handler here is gone.
-    let ticking = false;
-    function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-            ticking = false;
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 }
 
 // Portfolio filtering
@@ -122,8 +130,7 @@ function initPortfolioFilter() {
             
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeInUp 0.6s ease-out';
+                    item.style.display = '';
                 } else {
                     item.style.display = 'none';
                 }
@@ -132,36 +139,40 @@ function initPortfolioFilter() {
     });
 }
 
-// Contact form handling
+// Contact form. There is no mail backend on this static site, so the
+// form used to pretend: it showed "Message sent successfully" and sent
+// nothing. It now hands the enquiry to WhatsApp (the studio's real
+// channel) with every field filled in, so nothing is lost.
+const TRION_WHATSAPP = '60166380495';
+
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Validate form
-            if (validateForm(data)) {
-                // Show loading state
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-                    this.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            }
-        });
-    }
+    if (!contactForm) return;
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(this));
+        if (!validateForm(data)) return;
+        const sel = this.querySelector('#service');
+        const service = sel && sel.selectedIndex > 0 ? sel.options[sel.selectedIndex].text : data.service;
+        const lines = [
+            'Hi Trion Creation,',
+            '',
+            'Name: ' + data.firstName.trim() + ' ' + data.lastName.trim(),
+            'Email: ' + data.email.trim(),
+            data.company ? 'Company: ' + data.company.trim() : '',
+            'Interested in: ' + service,
+            '',
+            data.message.trim()
+        ].filter((l, i) => l !== '' || i === 1 || i === 6);
+        const url = 'https://wa.me/' + TRION_WHATSAPP + '?text=' + encodeURIComponent(lines.join('\n'));
+        const win = window.open(url, '_blank', 'noopener');
+        if (!win) window.location.href = url;
+        const lang = (document.documentElement.lang || 'en').slice(0, 2);
+        showNotification({
+            zh: '正在打开 WhatsApp，消息已填好，按发送即可。',
+            ms: 'WhatsApp sedang dibuka dengan mesej anda. Tekan hantar di sana.'
+        }[lang] || 'Opening WhatsApp with your message. Press send there and we will reply.', 'success');
+    });
 }
 
 // Form validation
@@ -225,15 +236,15 @@ function showNotification(message, type = 'info') {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#30D158' : type === 'error' ? '#FF3B30' : '#007AFF'};
-        color: white;
+        background: ${type === 'error' ? '#B3261E' : '#EDEAE3'};
+        color: ${type === 'error' ? '#fff' : '#141412'};
         padding: 16px 20px;
-        border-radius: 12px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-radius: 6px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
         z-index: 1000;
         animation: slideInRight 0.3s ease-out;
         max-width: 400px;
-        font-family: 'Inter', sans-serif;
+        font-family: inherit;
     `;
     
     // Add to page
@@ -255,70 +266,29 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Mobile menu functionality
+// Mobile menu: a full-screen sheet. body.menu-open drives the styles.
 function initMobileMenu() {
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const toggle = document.querySelector('.mobile-menu-toggle');
     const navList = document.querySelector('.nav-list');
-    
-    if (mobileToggle && navList) {
-        mobileToggle.addEventListener('click', function() {
-            navList.classList.toggle('active');
-            
-            // Animate hamburger menu
-            const bars = this.querySelectorAll('span');
-            bars.forEach((bar, index) => {
-                if (navList.classList.contains('active')) {
-                    if (index === 0) bar.style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-                    if (index === 1) bar.style.opacity = '0';
-                    if (index === 2) bar.style.transform = 'rotate(45deg) translate(-5px, -6px)';
-                } else {
-                    bar.style.transform = 'none';
-                    bar.style.opacity = '1';
-                }
-            });
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                const bars = mobileToggle.querySelectorAll('span');
-                bars.forEach(bar => {
-                    bar.style.transform = 'none';
-                    bar.style.opacity = '1';
-                });
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileToggle.contains(e.target) && !navList.contains(e.target)) {
-                navList.classList.remove('active');
-                const bars = mobileToggle.querySelectorAll('span');
-                bars.forEach(bar => {
-                    bar.style.transform = 'none';
-                    bar.style.opacity = '1';
-                });
-            }
-        });
+    if (!toggle || !navList) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    if (!toggle.hasAttribute('aria-label')) toggle.setAttribute('aria-label', 'Menu');
+
+    function setOpen(open) {
+        navList.classList.toggle('active', open);
+        document.body.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (window.TrionLenis) open ? window.TrionLenis.stop() : window.TrionLenis.start();
     }
+
+    toggle.addEventListener('click', () => setOpen(!navList.classList.contains('active')));
+    navList.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', (e) => {
+        if (navList.classList.contains('active') && !toggle.contains(e.target) && !navList.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    matchMedia('(min-width: 1025px)').addEventListener('change', (m) => { if (m.matches) setOpen(false); });
 }
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-
 
 /* The runtime-injected stylesheet was removed. It duplicated and
    overrode rules in styles.css, and its img[loading="lazy"]{opacity:0}
