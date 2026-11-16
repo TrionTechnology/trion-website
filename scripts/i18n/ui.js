@@ -39,7 +39,7 @@ const aAn = (title) => {
 const UI = {
     en: {
         nav: { home: 'Home', about: 'About', services: 'Services', portfolio: 'Portfolio', partnerships: 'Partnerships', products: 'Products', faq: 'FAQ', contact: 'Contact' },
-        getStarted: 'Get Started',
+        getStarted: 'Start a project',
         whatsapp: 'WhatsApp Us',
         bookCall: 'Book Discovery Call',
         langLabel: 'EN',
@@ -125,7 +125,7 @@ const UI = {
 
     zh: {
         nav: { home: '首页', about: '关于我们', services: '服务', portfolio: '案例', partnerships: '合作伙伴', products: '产品', faq: '常见问题', contact: '联系我们' },
-        getStarted: '立即开始',
+        getStarted: '开始项目',
         whatsapp: 'WhatsApp 联系',
         bookCall: '预约免费咨询',
         langLabel: '中文',
@@ -211,7 +211,7 @@ const UI = {
 
     ms: {
         nav: { home: 'Utama', about: 'Tentang', services: 'Perkhidmatan', portfolio: 'Portfolio', partnerships: 'Perkongsian', products: 'Produk', faq: 'Soalan Lazim', contact: 'Hubungi' },
-        getStarted: 'Mula Sekarang',
+        getStarted: 'Mulakan projek',
         whatsapp: 'WhatsApp Kami',
         bookCall: 'Tempah Sesi Perundingan',
         langLabel: 'BM',
