@@ -3296,3 +3296,6 @@ figure.about-image picture img { aspect-ratio: 4 / 5; border-radius: var(--radiu
 .contact-form-section::before { content: none; }
 .contact-form-section > .contact-form { background: none; border: 0; }
 .contact-method:hover .contact-icon { transform: none; }
+
+/* CJK has no true italic; a synthetic slant looks broken. */
+:lang(zh) h1 em, :lang(zh) h2 em, :lang(zh) .hero-title em { font-style: normal; }
