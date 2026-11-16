@@ -3299,3 +3299,11 @@ figure.about-image picture img { aspect-ratio: 4 / 5; border-radius: var(--radiu
 
 /* CJK has no true italic; a synthetic slant looks broken. */
 :lang(zh) h1 em, :lang(zh) h2 em, :lang(zh) .hero-title em { font-style: normal; }
+
+/* Small screens: the header CTA lives in the menu sheet's place; keep
+   the logo at its natural width on every page template. */
+.logo { flex: none; }
+.logo img { width: auto; max-width: none; }
+@media (max-width: 1024px) {
+    .header-actions > .btn { display: none; }
+}
