@@ -595,9 +595,8 @@ const PF_WIRE = {
 /* Real client screenshots (figures blurred), framed. */
 const PF_SHOT = { 'feedback-bi-dashboard': 'pism', 'legal-case-management': 'thai', 'project-management-suite': 'archimat' };
 function pfShot(slug, A){
-  const n = PF_SHOT[slug];
-  if (!n) return '';
-  return `<div class="pf-hero-visual has-art" aria-hidden="true" data-parallax="0.05"><picture><source type="image/webp" srcset="${A}images/work/work-${n}-800.webp 800w, ${A}images/work/work-${n}-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="${A}images/work/work-${n}-1600.webp" width="1600" height="1100" alt="" fetchpriority="high" decoding="async"></picture></div>`;
+  const f = PF_SHOT[slug] ? `work-${PF_SHOT[slug]}` : `mock-${slug}`;
+  return `<div class="pf-hero-visual has-art" aria-hidden="true" data-parallax="0.05"><picture><source type="image/webp" srcset="${A}images/work/${f}-800.webp 800w, ${A}images/work/${f}-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="${A}images/work/${f}-1600.webp" width="1600" height="1100" alt="" fetchpriority="high" decoding="async"></picture></div>`;
 }
 function pfWire(cat){
   return `<div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${PF_WIRE[cat]||PF_WIRE.enterprise}</svg></div>`;
