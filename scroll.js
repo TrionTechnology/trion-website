@@ -614,8 +614,10 @@
             var next = cards[i + 1];
             if (!next) return;
             gsap.to(card, {
-                scale: 0.9, filter: 'brightness(0.6)', ease: 'none',
-                scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 20%', scrub: true }
+                /* only once the next card is actually sliding over this one,
+                   and only a little: the card stays readable until covered */
+                scale: 0.95, filter: 'brightness(0.85)', ease: 'power1.in',
+                scrollTrigger: { trigger: next, start: 'top 45%', end: 'top 15%', scrub: true }
             });
         });
         cards.forEach(function (card) {
