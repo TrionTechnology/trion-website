@@ -609,21 +609,40 @@
        the next slides over it. */
     function initStackCards(root) {
         var cards = pick(root, '.stack-cards .sc');
+        if (!cards.length) return;
         cards.forEach(function (card, i) {
             card.setAttribute('data-motion-done', '');
+            var text = card.querySelectorAll('.sc-text > *');
+            var stage = card.querySelector('.sc-stage');
+            var thumbs = card.querySelector('.sc-thumbs');
+            /* the incoming card's contents travel with it: text rises,
+               the image grows into place, thumbnails follow, all scrubbed
+               to the same scroll so the motion reads as one movement */
+            if (i > 0) {
+                var tl = gsap.timeline({ scrollTrigger: { trigger: card, start: 'top 95%', end: 'top 35%', scrub: 0.6 } });
+                tl.fromTo(text, { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, ease: 'power2.out' }, 0)
+                  .fromTo(stage, { scale: 0.86, y: 40, rotate: 1.5 }, { scale: 1, y: 0, rotate: 0, ease: 'power2.out' }, 0)
+                  .fromTo(thumbs, { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.04, ease: 'power2.out', clearProps: 'opacity,transform' }, 0.2);
+            }
+            /* the card underneath steps back as the next one slides over it:
+               a slight scale and lift, no dimming, so it stays readable */
             var next = cards[i + 1];
-            if (!next) return;
-            gsap.to(card, {
-                /* only once the next card is actually sliding over this one,
-                   and only a little: the card stays readable until covered */
-                scale: 0.95, filter: 'brightness(0.85)', ease: 'power1.in',
-                scrollTrigger: { trigger: next, start: 'top 45%', end: 'top 15%', scrub: true }
+            if (next) gsap.to(card, { scale: 0.94, y: -12, ease: 'none', scrollTrigger: { trigger: next, start: 'top 70%', end: 'top 20%', scrub: true } });
+        });
+        /* progress meter */
+        var meter = root.querySelector('.sc-meter') || document.querySelector('.sc-meter');
+        if (meter) {
+            var nEl = meter.querySelector('[data-scm-i]'), nameEl = meter.querySelector('[data-scm-name]'), bar = meter.querySelector('[data-scm-bar]');
+            var wrap = cards[0].parentNode;
+            ScrollTrigger.create({ trigger: wrap, start: 'top 60%', end: 'bottom 70%',
+                onToggle: function (st) { meter.classList.toggle('is-on', st.isActive); },
+                onUpdate: function (st) { bar.style.transform = 'scaleX(' + st.progress.toFixed(3) + ')'; } });
+            cards.forEach(function (card, i) {
+                var h = card.querySelector('h3');
+                ScrollTrigger.create({ trigger: card, start: 'top 55%', end: 'bottom 55%',
+                    onToggle: function (st) { if (st.isActive) { nEl.textContent = String(i + 1).padStart(2, '0'); nameEl.textContent = h ? h.textContent : ''; } } });
             });
-        });
-        cards.forEach(function (card) {
-            var media = card.querySelector('.sc-media');
-            if (media && !alreadyPassed(card)) gsap.from(media, { clipPath: 'inset(20% 20% 20% 20% round 22px)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: card, start: 'top 80%', once: true } });
-        });
+        }
     }
 
     /* Big type that moves sideways with the scroll, rows in opposite directions. */

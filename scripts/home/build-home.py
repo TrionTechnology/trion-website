@@ -164,19 +164,45 @@ def build(lang):
     # ── work: stacked sticky cards ──
     w = c["work"]
     t = w["titan"]; hb = w["himmapan"]; cd = w["cadence"]
+    GL = {"en": {"view": "View full size", "of": "of", "pick": "Show image"},
+          "zh": {"view": "查看大图", "of": "/", "pick": "显示图片"},
+          "ms": {"view": "Lihat saiz penuh", "of": "daripada", "pick": "Papar imej"}}[lang]
+    # (full src, thumb src, w, h, caption)  captions are short, same in every language
+    # except the words around them; figures and client names in the shots are blurred.
+    W = f"{A}images/work/"
+    def shot(n, h): return (f"{W}shots/{n}-1600.webp", f"{W}shots/{n}-400.webp", 1600, h)
+    GALLERY = {
+        "pism": [(f"{W}work-pism-1600.webp", f"{W}work-pism-800.webp", 1600, 1100, "comp"), shot("pism-bi-1", 876), shot("pism-bi-2", 872), shot("pism-bi-3", 872)],
+        "archimat": [(f"{W}work-archimat-1600.webp", f"{W}work-archimat-800.webp", 1600, 1100, "comp"), shot("am-discover", 876), shot("am-product", 876), shot("archimat-web-top", 1000)],
+        "thai": [(f"{W}work-thai-1600.webp", f"{W}work-thai-800.webp", 1600, 1100, "comp"), shot("thai-sys-1", 826), shot("thai-sys-2", 822), shot("thai-web-top", 1000)],
+        "titan": [(f"{A}images/titan-legends-shot-{k}-1600.webp", f"{A}images/titan-legends-shot-{k}-440.webp", 1600, 900) for k in range(1, 7)],
+        "cadence": [(f"{A}images/cadence-feature-880.webp", f"{A}images/cadence-feature-440.webp", 1024, 500)] +
+                   [(f"{A}images/cadence-{n}-880.webp", f"{A}images/cadence-{n}-440.webp", 880, 1912) for n in ("shot-mosaic", "shot-forgiving", "shot-rhythm")],
+        "himmapan": [(f"{A}images/himmapan-bloodlines-feature-1600.webp", f"{A}images/himmapan-bloodlines-feature-440.webp", 1600, 900)] +
+                    [(f"{A}images/himmapan-bloodlines-shot-{k}-880.webp", f"{A}images/himmapan-bloodlines-shot-{k}-440.webp", 880, 1912) for k in range(1, 5)],
+    }
+    def gallery(key, title, alt):
+        g = GALLERY[key]
+        f0 = g[0]
+        comp = " is-comp" if len(f0) > 4 else ""
+        thumbs = "".join(
+            f'<button type="button" class="sc-th{" is-on" if i == 0 else ""}" data-i="{i}" data-full="{x[0]}" data-w="{x[2]}" data-h="{x[3]}"{" data-comp" if len(x) > 4 else ""} aria-label="{a(GL["pick"])} {i + 1}"><img src="{x[1]}" alt="" loading="lazy" decoding="async"></button>'
+            for i, x in enumerate(g))
+        return (f'<div class="sc-gal" data-gal data-title="{a(title)}">'
+                f'<button type="button" class="sc-stage" data-gal-open data-cursor="{a(c["cursor"]["view"])}" aria-label="{a(GL["view"])}: {a(title)}">'
+                f'<img class="sc-main{comp}" src="{f0[0]}" width="{f0[2]}" height="{f0[3]}" alt="{a(alt)}" loading="lazy" decoding="async">'
+                f'<span class="sc-zoom"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>{e(GL["view"])} · <b data-gal-n>1</b> / {len(g)}</span></button>'
+                f'<div class="sc-thumbs">{thumbs}</div></div>')
     def card(i, color, fg, href, title, meta, desc, link, media, extra="", dark=False, sys=False):
         return f'''<article class="sc{' sc-dark' if dark else ''}{' sc-sys' if sys else ''}" style="--i:{i};--c:{color};--fg:{fg}">
                             <div class="sc-text">
-                                <p class="sc-meta">{e(meta)}</p>
+                                <p class="sc-meta"><span class="sc-num">{i + 1:02d}</span>{e(meta)}</p>
                                 <h3><a href="{href}">{e(title)}</a></h3>
                                 <p class="sc-desc">{e(desc)}</p>
                                 <p class="sc-links"><a href="{href}" class="btn btn-ink">{e(link)} {ARR}</a>{extra}</p>
                             </div>
-                            <a class="sc-media" href="{href}" tabindex="-1" aria-hidden="true" data-cursor="{a(c["cursor"]["view"])}">{media}</a>
+                            <div class="sc-media">{media}</div>
                         </article>'''
-    titan_media = f'<picture><source type="image/webp" srcset="{A}images/titan-legends-shot-1-880.webp 880w, {A}images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="{a(t["alt"])}" loading="lazy" decoding="async"></picture>'
-    himm_media = f'<picture><source type="image/webp" srcset="{A}images/himmapan-bloodlines-feature-880.webp 880w, {A}images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="{a(hb["alt"])}" loading="lazy" decoding="async"></picture>'
-    cad_media = f'<span class="phones"><picture><source type="image/webp" srcset="{A}images/cadence-shot-mosaic-440.webp 440w, {A}images/cadence-shot-mosaic-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="{a(cd["alt1"])}" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="{A}images/cadence-shot-forgiving-440.webp 440w, {A}images/cadence-shot-forgiving-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="{a(cd["alt2"])}" loading="lazy" decoding="async"></picture></span>'
     play = f'<a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">{e(cd["play"])} {ARR}</a>'
     SYS_LINK = {"pism": ("feedback-bi-dashboard", "https://www.pism.edu.my", "#71EECE"),
                 "archimat": ("project-management-suite", "https://www.archimat.io", "#C6F45B"),
@@ -184,14 +210,16 @@ def build(lang):
     cards = []
     for k, (slug, n, meta, d, alt) in enumerate(w["systems"]):
         pf, site, col = SYS_LINK[slug]
-        media = f'<picture><source type="image/webp" srcset="{A}images/work/work-{slug}-800.webp 800w, {A}images/work/work-{slug}-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/work/work-{slug}-1600.webp" width="1600" height="1100" alt="{a(alt)}" loading="lazy" decoding="async"></picture>'
         visit = f'<a href="{site}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">{e(w["visit"])} {ARR_UR}</a>'
-        cards.append(card(k, col, "#0E100F", f"portfolio/{pf}.html", n, meta, d, w["clientLink"], media, visit, sys=True))
+        cards.append(card(k, col, "#0E100F", f"portfolio/{pf}.html", n, meta, d, w["clientLink"], gallery(slug, n, alt), visit, sys=True))
     cards += [
-        card(3, "#FF7A59", "#0E100F", f"{P}projects/titan-legends.html", "Titan Legends", t["meta"], t["desc"], t["link"], titan_media),
-        card(4, "#12B886", "#FFFFFF", f"{P}projects/cadence.html", "Cadence", cd["meta"], cd["desc"], cd["link"], cad_media, play),
-        card(5, "#FF8FAB", "#0E100F", f"{P}projects/himmapan-bloodlines.html", "Himmapan Bloodlines", hb["meta"], hb["desc"], hb["link"], himm_media),
+        card(3, "#FF7A59", "#0E100F", f"{P}projects/titan-legends.html", "Titan Legends", t["meta"], t["desc"], t["link"], gallery("titan", "Titan Legends", t["alt"])),
+        card(4, "#12B886", "#FFFFFF", f"{P}projects/cadence.html", "Cadence", cd["meta"], cd["desc"], cd["link"], gallery("cadence", "Cadence", cd["alt1"]), play),
+        card(5, "#FF8FAB", "#0E100F", f"{P}projects/himmapan-bloodlines.html", "Himmapan Bloodlines", hb["meta"], hb["desc"], hb["link"], gallery("himmapan", "Himmapan Bloodlines", hb["alt"])),
     ]
+    names = [x[1] for x in w["systems"]] + ["Titan Legends", "Cadence", "Himmapan Bloodlines"]
+    meter = (f'<div class="sc-meter" aria-hidden="true"><span class="scm-n"><b data-scm-i>01</b> / {len(names):02d}</span>'
+             f'<span class="scm-bar"><i data-scm-bar></i></span><span class="scm-name" data-scm-name>{e(names[0])}</span></div>')
     cards_html = "\n                        ".join(cards)
 
     # ── process ──
@@ -289,6 +317,7 @@ def build(lang):
                     <div class="stack-cards">
                         {cards_html}
                     </div>
+                    {meter}
                     <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">{e(w["all"])} {ARR}</a><a href="products.html" class="link-arrow">{e(w["products"])} {ARR}</a></p>
                 </div>
             </div>

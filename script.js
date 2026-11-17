@@ -430,3 +430,83 @@ if (!SW_DISABLED && 'serviceWorker' in navigator) {
     form.addEventListener('change', calc);
     calc();
 })();
+
+/* ── Work galleries: thumbnails swap the stage image; the stage opens a
+      full-screen viewer with every image at its real proportions. ── */
+(function () {
+    var gals = document.querySelectorAll('[data-gal]');
+    if (!gals.length) return;
+    var lb, lbImg, lbTitle, lbCount, lbStrip, items = [], idx = 0, lastFocus = null;
+
+    function setStage(gal, i) {
+        var th = gal.querySelectorAll('.sc-th'), b = th[i];
+        if (!b) return;
+        var img = gal.querySelector('.sc-main');
+        th.forEach(function (t) { t.classList.toggle('is-on', t === b); });
+        var n = gal.querySelector('[data-gal-n]'); if (n) n.textContent = i + 1;
+        gal._i = i;
+        img.classList.add('is-swap');
+        var pre = new Image();
+        pre.onload = pre.onerror = function () {
+            img.src = b.dataset.full; img.width = +b.dataset.w; img.height = +b.dataset.h;
+            img.classList.toggle('is-comp', b.hasAttribute('data-comp'));
+            requestAnimationFrame(function () { img.classList.remove('is-swap'); });
+        };
+        pre.src = b.dataset.full;
+    }
+
+    function build() {
+        lb = document.createElement('dialog');
+        lb.className = 'lb';
+        lb.innerHTML = '<div class="lb-top"><span><b class="lb-title"></b><small class="lb-count"></small></span>' +
+            '<button type="button" class="lb-x" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
+            '<div class="lb-fig"><button type="button" class="lb-nav lb-prev" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>' +
+            '<img class="lb-img" alt="">' +
+            '<button type="button" class="lb-nav lb-next" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>' +
+            '<div class="lb-strip"></div>';
+        document.body.appendChild(lb);
+        lbImg = lb.querySelector('.lb-img'); lbTitle = lb.querySelector('.lb-title'); lbCount = lb.querySelector('.lb-count'); lbStrip = lb.querySelector('.lb-strip');
+        lb.querySelector('.lb-x').addEventListener('click', close);
+        lb.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+        lb.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+        lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-fig')) close(); });
+        lb.addEventListener('close', function () { if (window.TrionLenis) window.TrionLenis.start(); document.documentElement.style.overflow = ''; if (lastFocus) lastFocus.focus({ preventScroll: true }); });
+        lb.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') show(idx + 1); if (e.key === 'ArrowLeft') show(idx - 1); });
+        var x0 = null;
+        lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+        lb.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1)); x0 = null; });
+    }
+    function show(i) {
+        idx = (i + items.length) % items.length;
+        var it = items[idx];
+        lbImg.classList.add('is-swap');
+        var pre = new Image();
+        pre.onload = pre.onerror = function () { lbImg.src = it.src; lbImg.alt = it.alt; lbImg.classList.remove('is-swap'); };
+        pre.src = it.src;
+        lbCount.textContent = (idx + 1) + ' / ' + items.length;
+        lbStrip.querySelectorAll('button').forEach(function (b, k) { b.classList.toggle('is-on', k === idx); if (k === idx) b.scrollIntoView({ block: 'nearest', inline: 'center' }); });
+    }
+    function open(gal) {
+        if (!lb) build();
+        lastFocus = document.activeElement;
+        var mainAlt = gal.querySelector('.sc-main').alt;
+        items = Array.prototype.map.call(gal.querySelectorAll('.sc-th'), function (b) {
+            return { src: b.dataset.full, thumb: b.querySelector('img').getAttribute('src'), alt: mainAlt };
+        });
+        lbTitle.textContent = gal.dataset.title || '';
+        lbStrip.innerHTML = items.map(function (it, k) { return '<button type="button" aria-label="' + (k + 1) + '"><img src="' + it.thumb + '" alt=""></button>'; }).join('');
+        lbStrip.querySelectorAll('button').forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+        if (window.TrionLenis) window.TrionLenis.stop();
+        document.documentElement.style.overflow = 'hidden';
+        if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+        show(gal._i || 0);
+    }
+    function close() { if (lb.close) lb.close(); else { lb.removeAttribute('open'); lb.dispatchEvent(new Event('close')); } }
+
+    gals.forEach(function (gal) {
+        gal._i = 0;
+        gal.querySelectorAll('.sc-th').forEach(function (b, i) { b.addEventListener('click', function () { setStage(gal, i); }); });
+        var st = gal.querySelector('[data-gal-open]');
+        if (st) st.addEventListener('click', function () { open(gal); });
+    });
+})();
