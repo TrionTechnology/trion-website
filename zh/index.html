@@ -400,13 +400,13 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/icons/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="../images/icons/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="../images/icons/favicon-180.png">
     <link rel="manifest" href="../manifest.json">
     
-    <meta name="theme-color" content="#07051A">
+    <meta name="theme-color" content="#FAFAF9">
 </head>
 <body>
     <a class="skip-link" href="#main">跳至内容</a>
@@ -415,7 +415,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#home" class="logo" onclick="event.preventDefault(); document.querySelector('.nav-link[href=\'#home\']')?.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-                    <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
+                    <img src="../images/logo-ink.webp" width="440" height="147" alt="Trion Creation" decoding="async">
                 </a>
                 <nav class="main-nav" id="site-nav">
                     <ul class="nav-list" role="tablist" aria-label="栏目">
@@ -447,120 +447,278 @@
         <!-- Home Tab -->
         <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section" data-hero-intro>
+                <div class="hero-bg" aria-hidden="true"><span class="hb-grid"></span><span class="hb-orb"></span></div>
                 <div class="container hero-grid">
                     <div class="hero-copy">
-                        <p class="hero-kicker" data-intro>Trion Creation Sdn Bhd &middot; 吉隆坡软件工作室 &middot; 始于 2022 年</p>
-                        <h1 class="hero-title" data-intro>马来西亚定制软件开发，<em>也做我们自己的应用和游戏。</em></h1>
-                        <p class="hero-lede" data-intro>我们是一家位于吉隆坡的软件工作室。自 2022 年起，我们为企业打造日常运营所依赖的系统：ERP 与 CRM、人事薪资、贷款管理、POS、预约系统；也开发移动应用和网页平台，例如用户超过 500 万的 Yippi。客户项目之外，我们也发布自己的产品。</p>
+                        <p class="hero-pill" data-intro><span class="pill-dot"></span>我们设计并开发 <span class="rotator" data-rotate="ERP 系统|移动应用|AI 聊天机器人|POS 与库存|贷款平台|预订系统|Web3 应用|3D 游戏">ERP 系统</span></p>
+                        <h1 class="hero-title" data-intro>马来西亚定制软件开发。<span class="hero-title-2">从 ERP 到应用与游戏。</span></h1>
+                        <p class="hero-lede" data-intro>Trion Creation 是一家位于吉隆坡的设计与工程工作室。自 2022 年起，我们已交付 150 多个项目：企业日常运营所依赖的系统、数百万人使用的应用，以及我们自己的游戏。</p>
                         <div class="hero-actions" data-intro>
-                            <a href="#contact" class="btn btn-primary">开始项目</a>
-                            <a href="#work" class="btn btn-text">看看作品 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#contact" class="btn btn-primary btn-lg">开始项目 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#capabilities" class="btn btn-secondary btn-lg">看看我们能做什么</a>
                         </div>
-                        <dl class="hero-facts" data-intro aria-label="工作室概况">
-                            <div><dt>个已交付项目</dt><dd>150+</dd></div>
-                            <div><dt>个行业</dt><dd>10+</dd></div>
-                            <div><dt>年于吉隆坡创立</dt><dd>2022</dd></div>
-                        </dl>
+                        <p class="hero-trust" data-intro><span class="ht-stars" aria-hidden="true"></span>固定报价。代码 100% 归你所有。</p>
                     </div>
-                    <figure class="hero-collage">
-                        <div class="hc-main" data-intro-pic><picture><source type="image/webp" srcset="../images/titan-legends-feature-440.webp 440w, ../images/titan-legends-feature-880.webp 880w, ../images/titan-legends-feature-1600.webp 1600w" sizes="(min-width: 1024px) 46vw, 92vw"><img src="../images/titan-legends-feature-1600.webp" width="1600" height="900" alt="Titan Legends 主视觉：三只卡通怪兽泰坦踏过迷你城市" fetchpriority="high" decoding="async"></picture></div>
-                        <div class="hc-tall" data-intro-pic><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-keyart-440.webp 440w" sizes="(min-width: 1024px) 15vw, 34vw"><img src="../images/himmapan-bloodlines-keyart-440.webp" width="440" height="953" alt="Himmapan Bloodlines 主视觉：两位曼谷少年英雄站在夜晚的城市前" loading="lazy" decoding="async"></picture></div>
-                        <div class="hc-phone" data-intro-pic><picture><source type="image/webp" srcset="../images/cadence-today-440.webp 440w" sizes="(min-width: 1024px) 14vw, 34vw"><img src="../images/cadence-today-440.webp" width="440" height="593" alt="Cadence 应用画面：本周习惯目标" loading="lazy" decoding="async"></picture></div>
-                        <figcaption data-intro>我们自己的产品：Titan Legends、Himmapan Bloodlines 与 Cadence。</figcaption>
-                    </figure>
+                    <div class="hero-stage" aria-hidden="true" data-intro-stage>
+                        <div class="hs-window" data-depth="0.4">
+                            <div class="hs-bar"><span></span><span></span><span></span><em>app.yourcompany.com/dashboard</em></div>
+                            <div class="hs-body">
+                                <nav class="hs-side"><b></b><i class="on"></i><i></i><i></i><i></i><i></i></nav>
+                                <div class="hs-main">
+                                    <div class="hs-head"><strong>运营总览</strong><span class="hs-live"><span class="dot"></span>实时</span></div>
+                                    <div class="hs-kpis">
+                                        <div><span>本月营收</span><b>RM 482,190</b><em class="up">+12.4%</em></div>
+                                        <div><span>订单</span><b>1,284</b><em class="up">+8.1%</em></div>
+                                        <div><span>准时交付</span><b>98.2%</b><em>达成 SLA</em></div>
+                                    </div>
+                                    <div class="hs-charts">
+                                        <svg class="hs-line" viewBox="0 0 320 120" preserveAspectRatio="none"><defs><linearGradient id="hsFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#71EECE" stop-opacity=".45"/><stop offset="1" stop-color="#71EECE" stop-opacity="0"/></linearGradient></defs><path class="hs-area" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10 L320 120 L0 120Z" fill="url(#hsFill)"/><path class="hs-stroke" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10" fill="none" stroke="#0E8F6E" stroke-width="2.2" pathLength="1"/></svg>
+                                        <div class="hs-bars"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:71%"></i><i style="--h:66%"></i><i style="--h:84%"></i><i style="--h:77%"></i><i style="--h:92%"></i><i style="--h:88%"></i><i style="--h:97%"></i></div>
+                                    </div>
+                                    <div class="hs-table"><div class="hs-row"><span class="hs-av" style="--hue:160"></span><span>Kedai Runcit Ali</span><span class="hs-tag is-paid">已付款</span><span class="hs-num">RM 2,480</span></div><div class="hs-row"><span class="hs-av" style="--hue:30"></span><span>Mutiara Logistics</span><span class="hs-tag is-ship">已发货</span><span class="hs-num">RM 12,900</span></div><div class="hs-row"><span class="hs-av" style="--hue:200"></span><span>Bloom Clinic</span><span class="hs-tag is-new">新订单</span><span class="hs-num">RM 860</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hs-phone" data-depth="1.1"><picture><source type="image/webp" srcset="../images/cadence-today-440.webp 440w"><img src="../images/cadence-today-440.webp" width="440" height="593" alt="" decoding="async"></picture></div>
+                        <div class="hs-game" data-depth="0.8"><picture><source type="image/webp" srcset="../images/titan-legends-feature-440.webp 440w, ../images/titan-legends-feature-880.webp 880w" sizes="260px"><img src="../images/titan-legends-feature-880.webp" width="1600" height="900" alt="" decoding="async"></picture><span>Titan Legends · Unity</span></div>
+                        <div class="hs-chip hs-chip-api" data-depth="1.4"><span class="m">POST</span>/api/orders <span class="ok">201</span><span class="ms">38ms</span></div>
+                        <div class="hs-chip hs-chip-deploy" data-depth="1.6"><span class="tick"></span>已部署到生产环境</div>
+                        <div class="hs-chip hs-chip-ai" data-depth="1.2"><span class="spark"></span>聊天机器人 1.2 秒内回复</div>
+                    </div>
+                </div>
+                <div class="marquee" aria-label="我们日常使用的技术">
+                    <p class="marquee-label">我们日常使用的技术</p>
+                    <div class="marquee-track"><ul><li><img src="../images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="../images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="../images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="../images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="../images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="../images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="../images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="../images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="../images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="../images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="../images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="../images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="../images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="../images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="../images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="../images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="../images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="../images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="../images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="../images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="../images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="../images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="../images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="../images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="../images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="../images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="../images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul><ul aria-hidden="true"><li><img src="../images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="../images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="../images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="../images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="../images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="../images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="../images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="../images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="../images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="../images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="../images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="../images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="../images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="../images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="../images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="../images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="../images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="../images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="../images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="../images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="../images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="../images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="../images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="../images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="../images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="../images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="../images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul></div>
                 </div>
             </div>
-            <div class="home-block work-section" id="work">
+
+            <div class="home-block stats-band">
+                <div class="container">
+                    <dl class="stats" data-reveal-group><div class="stat" data-reveal><dt>个已交付项目</dt><dd><span data-count="150">150</span>+</dd></div><div class="stat" data-reveal><dt>人使用我们打造的 Yippi</dt><dd><span data-count="5">5</span>M+</dd></div><div class="stat" data-reveal><dt>个服务行业</dt><dd><span data-count="10">10</span>+</dd></div><div class="stat" data-reveal><dt>类我们打造的软件</dt><dd><span data-count="12">12</span></dd></div></dl>
+                </div>
+            </div>
+
+            <div class="home-block caps-section" id="capabilities">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">作品</p>
-                        <h2 data-split>精选作品</h2>
+                        <p class="block-kicker"><span class="kd"></span>能力</p>
+                        <h2 data-split>一个团队，完成整个项目。</h2>
+                        <p class="block-intro" data-reveal>设计师、工程师与 DevOps 都在同一个团队。每项服务都有独立页面，说明范围、工期与起步价格。</p>
+                    </header>
+                    <ul class="caps" data-reveal-group>
+                        <li class="cap cap-xl" data-reveal><a href="services/mobile-web-app-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/services/service-web-mobile-800.webp" width="1536" height="1024" alt="Phone and tablet shapes with app cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">01</span><span class="cap-price">RM15k 起</span></span>
+                                <span class="cap-name">移动与网页应用</span>
+                                <span class="cap-desc">iOS、Android 与网页应用，以及背后的后端、支付与实时功能。</span>
+                                <ul class="cap-chips"><li>Flutter</li><li>React Native</li><li>Next.js</li><li>Swift</li><li>Kotlin</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/erp-crm-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="../images/services/service-erp-crm-800.webp" width="1536" height="1024" alt="Modular cabinet of drawers" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">02</span><span class="cap-price">RM40k 起</span></span>
+                                <span class="cap-name">ERP 与 CRM</span>
+                                <span class="cap-desc">按照贵公司现有流程打造的系统，内置报表。</span>
+                                <ul class="cap-chips"><li>Laravel</li><li>Node.js</li><li>PostgreSQL</li><li>Power BI</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/ai-automation-chatbot.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w, ../images/services/service-ai-chatbot-800.avif 800w, ../images/services/service-ai-chatbot-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w, ../images/services/service-ai-chatbot-800.webp 800w, ../images/services/service-ai-chatbot-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="../images/services/service-ai-chatbot-800.webp" width="1536" height="1024" alt="Robotic arm sorting cards into stacks" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">03</span><span class="cap-price">RM20k 起</span></span>
+                                <span class="cap-name">AI 自动化与聊天机器人</span>
+                                <span class="cap-desc">聊天机器人与自动化，替团队处理重复工作。</span>
+                                <ul class="cap-chips"><li>OpenAI</li><li>Dialogflow</li><li>Python</li><li>WhatsApp API</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-xl" data-reveal><a href="services/ar-vr-metaverse-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w, ../images/services/service-ar-vr-800.avif 800w, ../images/services/service-ar-vr-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w, ../images/services/service-ar-vr-800.webp 800w, ../images/services/service-ar-vr-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/services/service-ar-vr-800.webp" width="1536" height="1024" alt="VR headset, game controller and toy figure" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">04</span><span class="cap-price">RM40k 起</span></span>
+                                <span class="cap-name">游戏、AR 与 VR</span>
+                                <span class="cap-desc">Unity 游戏、AR 与虚拟空间。我们也发布自己的游戏。</span>
+                                <ul class="cap-chips"><li>Unity</li><li>C#</li><li>AR</li><li>VR</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/cloud-infrastructure-devops.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-cloud-800.webp" width="1536" height="1024" alt="Stacked modular server units" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">05</span><span class="cap-price">RM15k 起</span></span>
+                                <span class="cap-name">云基础设施与 DevOps</span>
+                                <span class="cap-desc">稳定运行的托管、CDN、监控与部署。</span>
+                                <ul class="cap-chips"><li>AWS</li><li>Alibaba Cloud</li><li>Docker</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/api-integration-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-api-800.webp" width="1536" height="1024" alt="Connectors snapping together" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">06</span><span class="cap-price">RM10k 起</span></span>
+                                <span class="cap-name">API 集成与开发</span>
+                                <span class="cap-desc">对接支付网关、短信、ERP 及任何提供 API 的系统。</span>
+                                <ul class="cap-chips"><li>REST</li><li>GraphQL</li><li>Webhooks</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/blockchain-web3-solutions.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-blockchain-800.webp" width="1536" height="1024" alt="Chain of glass cubes" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">07</span><span class="cap-price">RM50k 起</span></span>
+                                <span class="cap-name">区块链与 Web3</span>
+                                <span class="cap-desc">智能合约、NFT 发行平台与 Web3 应用。</span>
+                                <ul class="cap-chips"><li>Solidity</li><li>Hardhat</li><li>Web3.js</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/product-design-ux.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-ux-800.webp" width="1536" height="1024" alt="Colour swatches, ruler and wireframe cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">08</span><span class="cap-price">RM10k 起</span></span>
+                                <span class="cap-name">产品设计与 UX</span>
+                                <span class="cap-desc">用户研究、界面设计与设计系统。</span>
+                                <ul class="cap-chips"><li>Figma</li><li>Prototypes</li><li>Design systems</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/odoo-customisation.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-odoo-800.webp" width="1536" height="1024" alt="Board of app tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">09</span><span class="cap-price">RM20k 起</span></span>
+                                <span class="cap-name">Odoo 定制开发</span>
+                                <span class="cap-desc">Odoo 定制模块、流程与集成。</span>
+                                <ul class="cap-chips"><li>Odoo</li><li>Python</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/pos-inventory-management.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-pos-800.webp" width="1536" height="1024" alt="Card payment terminal and receipt" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">10</span><span class="cap-price">RM25k 起</span></span>
+                                <span class="cap-name">POS 与库存管理</span>
+                                <span class="cap-desc">单店或多门店的收银与库存。</span>
+                                <ul class="cap-chips"><li>Multi-outlet</li><li>Barcode</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/booking-system-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-booking-800.webp" width="1536" height="1024" alt="Calendar made of tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">11</span><span class="cap-price">RM18k 起</span></span>
+                                <span class="cap-name">预订系统</span>
+                                <span class="cap-desc">预约、课程与场地管理，含在线付款。</span>
+                                <ul class="cap-chips"><li>Calendars</li><li>Payments</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/loan-management-system.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-loan-800.webp" width="1536" height="1024" alt="Coins, folder and balance scale" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">12</span><span class="cap-price">RM60k 起</span></span>
+                                <span class="cap-name">贷款管理系统</span>
+                                <span class="cap-desc">贷款申请、信用审核、审批与还款。</span>
+                                <ul class="cap-chips"><li>Credit scoring</li><li>Workflows</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-block work-section is-dark" id="work">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>精选作品</p>
+                        <h2 data-split>已上线，已在用户手中。</h2>
                         <p class="block-intro" data-reveal>先看我们自己的产品，它们最能说明在没有人写需求时我们怎么做事。客户平台在下面。</p>
                     </header>
-                    <article class="work-row">
-                        <a class="work-media" href="../projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends 游戏画面：紫色怪兽正在摧毁玩具城市" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">游戏 &middot; iOS 与 Android &middot; 即将推出</p>
-                            <h3><a href="../projects/titan-legends.html">Titan Legends</a></h3>
-                            <p>一款适合 6 岁以上玩家的明亮 3D 怪兽动作游戏。踩平迷你城镇，用技能卡进化你的泰坦，变身巨大化，击倒横跨 12 个地区的巨型首领。一次买断 9.99 美元：没有广告，没有内购。</p>
-                            <p class="work-links"><a href="../projects/titan-legends.html" class="link-arrow">了解 Titan Legends <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row is-flipped">
-                        <a class="work-media" href="../projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-feature-440.webp 440w, ../images/himmapan-bloodlines-feature-880.webp 880w, ../images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="Himmapan Bloodlines 标题画面与游戏英雄" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">游戏 &middot; iOS &middot; 2027 年推出</p>
-                            <h3><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
-                            <p>一款泰国神话卡牌塔防游戏。三十位曼谷少年英雄身上流着喜马潘神兽的血脉，能化身纳迦、辛哈、迦楼罗等巨兽。免费游玩，没有广告，不卖随机抽奖。</p>
-                            <p class="work-links"><a href="../projects/himmapan-bloodlines.html" class="link-arrow">了解 Himmapan Bloodlines <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row">
-                        <a class="work-media is-cadence" href="../projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/avif" srcset="../images/cadence-shot-mosaic-440.avif 440w, ../images/cadence-shot-mosaic-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence 每周进度画面" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="../images/cadence-shot-forgiving-440.avif 440w, ../images/cadence-shot-forgiving-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence 画面：漏掉一天，连续记录仍保留" loading="lazy" decoding="async"></picture></span></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">习惯追踪 &middot; Android 与 iOS &middot; 已上架 Google Play</p>
-                            <h3><a href="../projects/cadence.html">Cadence</a></h3>
-                            <p>以每周目标代替每日连续打卡的习惯追踪应用，漏掉一天也不会清零。可完全离线使用。Pro 版一次买断，不是订阅。</p>
-                            <p class="work-links"><a href="../projects/cadence.html" class="link-arrow">了解 Cadence <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">在 Google Play 下载 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
+                    <div class="work-grid">
+                        <article class="work-card wc-wide" data-reveal>
+                            <a class="work-media" href="../projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 80vw, 92vw"><img src="../images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">游戏 · iOS 与 Android · 即将推出</p>
+                                <h3><a href="../projects/titan-legends.html">Titan Legends</a></h3>
+                                <p>一款适合 6 岁以上玩家的明亮 3D 怪兽动作游戏。踩平迷你城镇，用技能卡进化你的泰坦，击倒横跨 12 个地区的巨型首领。一次买断，没有广告，没有内购。</p>
+                                <p class="work-links"><a href="../projects/titan-legends.html" class="link-arrow">查看案例 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media" href="../projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-feature-440.webp 440w, ../images/himmapan-bloodlines-feature-880.webp 880w, ../images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="../images/himmapan-bloodlines-feature-880.webp" width="1600" height="900" alt="Himmapan Bloodlines title art with the game&#x27;s heroes" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">游戏 · iOS · 2027 年推出</p>
+                                <h3><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
+                                <p>一款泰国神话卡牌塔防游戏。三十位曼谷少年英雄身上流着喜马潘神兽的血脉，能化身巨兽。</p>
+                                <p class="work-links"><a href="../projects/himmapan-bloodlines.html" class="link-arrow">查看案例 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media is-cadence" href="../projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="../images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence weekly progress screen" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="../images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence screen: a missed day that keeps the streak" loading="lazy" decoding="async"></picture></span></a>
+                            <div class="work-text">
+                                <p class="work-meta">习惯追踪 · 已上架 Google Play</p>
+                                <h3><a href="../projects/cadence.html">Cadence</a></h3>
+                                <p>以每周目标代替每日连续打卡，漏掉一天也不会清零。可完全离线使用。</p>
+                                <p class="work-links"><a href="../projects/cadence.html" class="link-arrow">查看案例 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">在 Google Play 下载 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                    </div>
                     <div class="client-list">
                         <h3 class="client-head" data-reveal>客户平台</h3>
-                        <ul>
-                            <li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">社交超级应用，用户超过 500 万：直播、内容动态、奖励机制与跨境 CDN。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">代驾平台：实时 GPS 追踪、在线支付与多城市车队运营。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 社交金融平台：NFT 发行、多链智能合约与免 Gas 交易，获马来西亚旅游局认可。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        </ul>
+                        <ul data-reveal-group><li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">社交超级应用，用户超过 500 万：直播、内容动态、奖励机制与跨境 CDN。</span><span class="cl-tags">移动 · 云 · 实时</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">代驾平台：实时 GPS 追踪、在线支付与多城市车队运营。</span><span class="cl-tags">移动 · 地图 · 支付</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 社交金融平台：NFT 发行、多链智能合约与免 Gas 交易。</span><span class="cl-tags">Web3 · 智能合约</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul>
                         <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">查看全部解决方案 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="products.html" class="link-arrow">我们的产品 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                     </div>
                 </div>
             </div>
-            <div class="home-block paper-band">
-                <div class="container">
-                    <header class="block-head">
-                        <p class="block-kicker">服务</p>
-                        <h2 data-split>我们打造什么</h2>
-                        <p class="block-intro" data-reveal>我们经常做的十二类项目。每一项都有独立页面，说明范围、常见工期与起步价格。</p>
-                    </header>
-                    <ol class="svc-index" data-reveal-group>
-                        <li data-reveal><a href="services/mobile-web-app-development.html"><span class="si-num">01</span><span class="si-name">移动与网页应用</span><span class="si-desc">iOS、Android 与网页应用，以及背后的后端。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/erp-crm-development.html"><span class="si-num">02</span><span class="si-name">ERP 与 CRM</span><span class="si-desc">按照贵公司现有流程打造的系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ai-automation-chatbot.html"><span class="si-num">03</span><span class="si-name">AI 自动化与聊天机器人</span><span class="si-desc">聊天机器人与自动化，替团队处理重复工作。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/odoo-customisation.html"><span class="si-num">04</span><span class="si-name">Odoo 定制开发</span><span class="si-desc">Odoo 定制模块、流程与集成。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/pos-inventory-management.html"><span class="si-num">05</span><span class="si-name">POS 与库存管理</span><span class="si-desc">单店或多门店的收银与库存。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/booking-system-development.html"><span class="si-num">06</span><span class="si-name">预订系统</span><span class="si-desc">预约、课程、场地与资源管理，含在线付款。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/loan-management-system.html"><span class="si-num">07</span><span class="si-name">贷款管理系统</span><span class="si-desc">贷款申请、信用审核、审批与还款。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/api-integration-development.html"><span class="si-num">08</span><span class="si-name">API 集成与开发</span><span class="si-desc">对接支付网关、短信、ERP 及任何提供 API 的系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/blockchain-web3-solutions.html"><span class="si-num">09</span><span class="si-name">区块链与 Web3</span><span class="si-desc">智能合约、NFT 发行平台与 Web3 应用。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ar-vr-metaverse-development.html"><span class="si-num">10</span><span class="si-name">游戏、AR 与 VR</span><span class="si-desc">Unity 游戏、AR 与虚拟空间。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/cloud-infrastructure-devops.html"><span class="si-num">11</span><span class="si-name">云基础设施与 DevOps</span><span class="si-desc">稳定运行的托管、CDN、监控与部署。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/product-design-ux.html"><span class="si-num">12</span><span class="si-name">产品设计与 UX</span><span class="si-desc">用户研究、界面设计与设计系统。</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                    </ol>
-                </div>
-            </div>
+
             <div class="home-block how-section">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">流程</p>
-                        <h2 data-split>项目怎么进行</h2>
+                        <p class="block-kicker"><span class="kd"></span>流程</p>
+                        <h2 data-split>项目怎么进行。</h2>
+                        <p class="block-intro" data-reveal>步骤清楚，价格固定，尽早看到可用的软件。最后不会有意外。</p>
                     </header>
-                    <ol class="how-list" data-reveal-group>
-                        <li class="how-item" data-reveal><span class="how-num">01</span><h3>先沟通，再给固定报价。</h3><p>我们先进行一次需求沟通，然后提供固定范围的报价。常见区间：MVP 约 RM15k&ndash;40k，业务系统 RM40k&ndash;150k，企业平台 RM150k 以上。</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">02</span><h3>尽早看到可用的软件。</h3><p>大多数 MVP 需要 6&ndash;12 周。完整的 ERP、HRMS 或贷款系统通常需要 3&ndash;6 个月，视集成与合规要求而定。</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">03</span><h3>代码归你所有。</h3><p>源代码和数据 100% 属于你。我们签署保密协议，也可以部署到你的 AWS、阿里云或本地服务器。</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">04</span><h3>上线后我们还在。</h3><p>每个项目都有保修期，之后可选每月维护：修复问题、安全补丁、服务器监控与功能更新。</p></li>
-                    </ol>
-                    <div class="stack-line" data-reveal><h3>我们最常用的工具</h3><p>React &middot; Next.js &middot; Flutter &middot; React Native &middot; Node.js &middot; Laravel &middot; Python &middot; Odoo &middot; PostgreSQL &middot; Redis &middot; AWS &middot; Alibaba Cloud &middot; Docker &middot; Unity</p></div>
+                    <div class="how-track"><span class="how-line" data-progress-line></span></div>
+                    <ol class="how-list" data-reveal-group><li class="how-item" data-reveal><span class="how-num">01</span><h3>先沟通，再给固定报价。</h3><p>先进行需求沟通，再提供固定范围的报价。常见区间：MVP 约 RM15k&ndash;40k，业务系统 RM40k&ndash;150k，企业平台 RM150k 以上。</p></li><li class="how-item" data-reveal><span class="how-num">02</span><h3>分阶段设计与开发。</h3><p>设计师与工程师一起工作。大多数 MVP 需要 6&ndash;12 周；完整的 ERP、HRMS 或贷款系统通常需要 3&ndash;6 个月。</p></li><li class="how-item" data-reveal><span class="how-num">03</span><h3>代码归你所有。</h3><p>源代码和数据 100% 属于你。我们签署保密协议，可部署到你的 AWS、阿里云或本地服务器。</p></li><li class="how-item" data-reveal><span class="how-num">04</span><h3>上线后我们还在。</h3><p>保修期之后可选每月维护：修复问题、安全补丁、监控与功能更新。</p></li></ol>
                 </div>
             </div>
+
+            <div class="home-block stack-section">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>技术</p>
+                        <h2 data-split>每项工作，用对的工具。</h2>
+                        <p class="block-intro" data-reveal>我们不绑定单一框架。以下是团队每周都在使用的工具。</p>
+                    </header>
+                    <div class="stack-grid" data-reveal-group>
+                        <div class="stack-row" data-reveal><h3>网页</h3><ul><li><img src="../images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React</li><li><img src="../images/tech-icons/nextjs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Next.js</li><li><img src="../images/tech-icons/vuejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Vue</li><li><img src="../images/tech-icons/typescript.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TypeScript</li><li><img src="../images/tech-icons/tailwindcss.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Tailwind</li><li><img src="../images/tech-icons/html5.svg" width="22" height="22" alt="" loading="lazy" decoding="async">HTML5</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>移动端</h3><ul><li><img src="../images/tech-icons/flutter.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Flutter</li><li><img src="../images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React Native</li><li><img src="../images/tech-icons/swift.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Swift</li><li><img src="../images/tech-icons/kotlin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kotlin</li><li><img src="../images/tech-icons/xamarin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Xamarin</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>后端与 API</h3><ul><li><img src="../images/tech-icons/nodejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Node.js</li><li><img src="../images/tech-icons/express.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Express</li><li><img src="../images/tech-icons/laravel.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Laravel</li><li><img src="../images/tech-icons/php.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PHP</li><li><img src="../images/tech-icons/graphql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GraphQL</li><li><img src="../images/tech-icons/prisma.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Prisma</li><li><img src="../images/tech-icons/apollo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Apollo</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>数据与分析</h3><ul><li><img src="../images/tech-icons/postgresql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PostgreSQL</li><li><img src="../images/tech-icons/mysql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MySQL</li><li><img src="../images/tech-icons/mongodb.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MongoDB</li><li><img src="../images/tech-icons/redis.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Redis</li><li><img src="../images/tech-icons/firebase.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Firebase</li><li><img src="../images/tech-icons/powerbi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Power BI</li><li><img src="../images/tech-icons/airflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Airflow</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>云与 DevOps</h3><ul><li><img src="../images/tech-icons/aws.svg" width="22" height="22" alt="" loading="lazy" decoding="async">AWS</li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Alibaba Cloud</li><li><img src="../images/tech-icons/docker.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Docker</li><li><img src="../images/tech-icons/kubernetes.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kubernetes</li><li><img src="../images/tech-icons/nginx.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Nginx</li><li><img src="../images/tech-icons/github-actions.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GitHub Actions</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>AI 与自动化</h3><ul><li><img src="../images/tech-icons/openai.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenAI</li><li><img src="../images/tech-icons/tensorflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TensorFlow</li><li><img src="../images/tech-icons/pytorch.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PyTorch</li><li><img src="../images/tech-icons/spacy.svg" width="22" height="22" alt="" loading="lazy" decoding="async">spaCy</li><li><img src="../images/tech-icons/dialogflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Dialogflow</li><li><img src="../images/tech-icons/zapier.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Zapier</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>区块链</h3><ul><li><img src="../images/tech-icons/ethereum.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Ethereum</li><li><img src="../images/tech-icons/solidity.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Solidity</li><li><img src="../images/tech-icons/hardhat.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Hardhat</li><li><img src="../images/tech-icons/web3js.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Web3.js</li><li><img src="../images/tech-icons/opensea.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenSea</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>企业与支付</h3><ul><li><img src="../images/tech-icons/odoo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Odoo</li><li><img src="../images/tech-icons/sap.svg" width="22" height="22" alt="" loading="lazy" decoding="async">SAP</li><li><img src="../images/tech-icons/stripe.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Stripe</li><li><img src="../images/tech-icons/paypal.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PayPal</li><li><img src="../images/tech-icons/square.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Square</li><li><img src="../images/tech-icons/rapidapi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">RapidAPI</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>游戏与 3D</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="home-block cta-band">
                 <div class="container">
-                    <h2 data-split>有需要打造的系统吗？</h2>
-                    <p data-reveal>告诉我们它需要做什么。我们会先提问，再给出方案和固定报价。</p>
-                    <div class="cta-actions" data-reveal>
-                        <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
-                        <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary">freddy.chia@trioncreation.com</a>
-                        <a href="#contact" class="btn btn-text">使用联系表单 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <div class="cta-card">
+                        <div class="cta-copy">
+                            <h2 data-split>有需要打造的系统吗？</h2>
+                            <p data-reveal>告诉我们它需要做什么。我们会先提问，再给出方案和固定报价。</p>
+                        </div>
+                        <div class="cta-actions" data-reveal>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
+                            <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary btn-lg">freddy.chia@trioncreation.com</a>
+                            <a href="#contact" class="btn btn-text">使用联系表单 <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -640,7 +798,7 @@
                 <div class="services-grid" data-reveal-group>
                 <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-web-mobile.jpg" width="2070" height="1164" alt="AI 解决方案" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-web-mobile.jpg" width="1536" height="1024" alt="AI 解决方案" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>移动与网页应用开发</h3>
@@ -660,7 +818,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-blockchain.jpg" width="2070" height="1380" alt="区块链与 Web3 开发" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-blockchain.jpg" width="1536" height="1024" alt="区块链与 Web3 开发" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>区块链与 Web3 解决方案</h3>
@@ -680,7 +838,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ar-vr.jpg" width="800" height="600" alt="AR/VR 开发" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ar-vr.jpg" width="1536" height="1024" alt="AR/VR 开发" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>AR/VR 与元宇宙开发</h3>
@@ -700,7 +858,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-enterprise-400.avif 400w, ../images/services/service-enterprise-800.avif 800w, ../images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-enterprise-400.webp 400w, ../images/services/service-enterprise-800.webp 800w, ../images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-enterprise.jpg" width="2126" height="1196" alt="区块链开发" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-enterprise-400.avif 400w, ../images/services/service-enterprise-800.avif 800w, ../images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-enterprise-400.webp 400w, ../images/services/service-enterprise-800.webp 800w, ../images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-enterprise.jpg" width="1536" height="1024" alt="区块链开发" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>企业解决方案与工作流</h3>
@@ -720,7 +878,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-cloud.jpg" width="2072" height="1379" alt="云迁移" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-cloud.jpg" width="1536" height="1024" alt="云迁移" loading="lazy"></picture>
         </div>
                         <div class="service-content">
                             <h3>云基础设施与 DevOps</h3>
@@ -740,7 +898,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ux.jpg" width="2070" height="1380" alt="CRM 解决方案" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ux.jpg" width="1536" height="1024" alt="CRM 解决方案" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>产品设计与用户体验</h3>
@@ -761,7 +919,7 @@
                     <!-- Additional Services from Prompt -->
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-erp-crm.jpg" width="2070" height="1380" alt="ERP CRM 开发" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-erp-crm.jpg" width="1536" height="1024" alt="ERP CRM 开发" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>ERP/CRM 开发</h3>
@@ -781,7 +939,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ai-chatbot.jpg" width="800" height="600" alt="AI 自动化聊天机器人" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ai-chatbot.jpg" width="1536" height="1024" alt="AI 自动化聊天机器人" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>AI 自动化 + 聊天机器人</h3>
@@ -801,7 +959,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-pos.jpg" width="2070" height="1380" alt="POS 库存系统" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-pos.jpg" width="1536" height="1024" alt="POS 库存系统" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>POS 与库存管理</h3>
@@ -821,7 +979,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-booking.jpg" width="2070" height="1382" alt="预约系统" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-booking.jpg" width="1536" height="1024" alt="预约系统" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>预约系统开发</h3>
@@ -841,7 +999,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-loan.jpg" width="2070" height="1380" alt="贷款系统" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-loan.jpg" width="1536" height="1024" alt="贷款系统" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>贷款管理系统</h3>
@@ -861,7 +1019,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-api.jpg" width="2070" height="1162" alt="API 集成" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-api.jpg" width="1536" height="1024" alt="API 集成" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>API 集成与开发</h3>
@@ -881,7 +1039,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-odoo.jpg" width="2070" height="1164" alt="Odoo 定制" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-odoo.jpg" width="1536" height="1024" alt="Odoo 定制" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Odoo 定制</h3>

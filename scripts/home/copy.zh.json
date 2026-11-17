@@ -1,0 +1,251 @@
+{
+  "rotate": [
+    "ERP 系统",
+    "移动应用",
+    "AI 聊天机器人",
+    "POS 与库存",
+    "贷款平台",
+    "预订系统",
+    "Web3 应用",
+    "3D 游戏"
+  ],
+  "hero": {
+    "pill": "我们设计并开发",
+    "title": "马来西亚定制软件开发。",
+    "title2": "从 ERP 到应用与游戏。",
+    "lede": "Trion Creation 是一家位于吉隆坡的设计与工程工作室。自 2022 年起，我们已交付 150 多个项目：企业日常运营所依赖的系统、数百万人使用的应用，以及我们自己的游戏。",
+    "cta1": "开始项目",
+    "cta2": "看看我们能做什么",
+    "trust": "固定报价。代码 100% 归你所有。"
+  },
+  "stage": {
+    "url": "app.yourcompany.com/dashboard",
+    "title": "运营总览",
+    "live": "实时",
+    "k1": "本月营收",
+    "k2": "订单",
+    "k3": "准时交付",
+    "k3n": "达成 SLA",
+    "status": {
+      "paid": "已付款",
+      "ship": "已发货",
+      "new": "新订单"
+    },
+    "rows": [
+      [
+        "Kedai Runcit Ali",
+        "paid",
+        "RM 2,480",
+        160
+      ],
+      [
+        "Mutiara Logistics",
+        "ship",
+        "RM 12,900",
+        30
+      ],
+      [
+        "Bloom Clinic",
+        "new",
+        "RM 860",
+        200
+      ]
+    ],
+    "deploy": "已部署到生产环境",
+    "ai": "聊天机器人 1.2 秒内回复"
+  },
+  "marquee": "我们日常使用的技术",
+  "stats": [
+    [
+      150,
+      "+",
+      "个已交付项目"
+    ],
+    [
+      5,
+      "M+",
+      "人使用我们打造的 Yippi"
+    ],
+    [
+      10,
+      "+",
+      "个服务行业"
+    ],
+    [
+      12,
+      "",
+      "类我们打造的软件"
+    ]
+  ],
+  "caps": {
+    "kicker": "能力",
+    "title": "一个团队，完成整个项目。",
+    "intro": "设计师、工程师与 DevOps 都在同一个团队。每项服务都有独立页面，说明范围、工期与起步价格。"
+  },
+  "services": {
+    "mobile": {
+      "name": "移动与网页应用",
+      "desc": "iOS、Android 与网页应用，以及背后的后端、支付与实时功能。",
+      "price": "RM15k 起",
+      "alt": "Phone and tablet shapes with app cards"
+    },
+    "erp": {
+      "name": "ERP 与 CRM",
+      "desc": "按照贵公司现有流程打造的系统，内置报表。",
+      "price": "RM40k 起",
+      "alt": "Modular cabinet of drawers"
+    },
+    "ai": {
+      "name": "AI 自动化与聊天机器人",
+      "desc": "聊天机器人与自动化，替团队处理重复工作。",
+      "price": "RM20k 起",
+      "alt": "Robotic arm sorting cards into stacks"
+    },
+    "games": {
+      "name": "游戏、AR 与 VR",
+      "desc": "Unity 游戏、AR 与虚拟空间。我们也发布自己的游戏。",
+      "price": "RM40k 起",
+      "alt": "VR headset, game controller and toy figure"
+    },
+    "cloud": {
+      "name": "云基础设施与 DevOps",
+      "desc": "稳定运行的托管、CDN、监控与部署。",
+      "price": "RM15k 起",
+      "alt": "Stacked modular server units"
+    },
+    "api": {
+      "name": "API 集成与开发",
+      "desc": "对接支付网关、短信、ERP 及任何提供 API 的系统。",
+      "price": "RM10k 起",
+      "alt": "Connectors snapping together"
+    },
+    "web3": {
+      "name": "区块链与 Web3",
+      "desc": "智能合约、NFT 发行平台与 Web3 应用。",
+      "price": "RM50k 起",
+      "alt": "Chain of glass cubes"
+    },
+    "ux": {
+      "name": "产品设计与 UX",
+      "desc": "用户研究、界面设计与设计系统。",
+      "price": "RM10k 起",
+      "alt": "Colour swatches, ruler and wireframe cards"
+    },
+    "odoo": {
+      "name": "Odoo 定制开发",
+      "desc": "Odoo 定制模块、流程与集成。",
+      "price": "RM20k 起",
+      "alt": "Board of app tiles"
+    },
+    "pos": {
+      "name": "POS 与库存管理",
+      "desc": "单店或多门店的收银与库存。",
+      "price": "RM25k 起",
+      "alt": "Card payment terminal and receipt"
+    },
+    "booking": {
+      "name": "预订系统",
+      "desc": "预约、课程与场地管理，含在线付款。",
+      "price": "RM18k 起",
+      "alt": "Calendar made of tiles"
+    },
+    "loan": {
+      "name": "贷款管理系统",
+      "desc": "贷款申请、信用审核、审批与还款。",
+      "price": "RM60k 起",
+      "alt": "Coins, folder and balance scale"
+    }
+  },
+  "work": {
+    "kicker": "精选作品",
+    "title": "已上线，已在用户手中。",
+    "intro": "先看我们自己的产品，它们最能说明在没有人写需求时我们怎么做事。客户平台在下面。",
+    "titan": {
+      "meta": "游戏 · iOS 与 Android · 即将推出",
+      "desc": "一款适合 6 岁以上玩家的明亮 3D 怪兽动作游戏。踩平迷你城镇，用技能卡进化你的泰坦，击倒横跨 12 个地区的巨型首领。一次买断，没有广告，没有内购。",
+      "link": "查看案例",
+      "alt": "Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD"
+    },
+    "himmapan": {
+      "meta": "游戏 · iOS · 2027 年推出",
+      "desc": "一款泰国神话卡牌塔防游戏。三十位曼谷少年英雄身上流着喜马潘神兽的血脉，能化身巨兽。",
+      "link": "查看案例",
+      "alt": "Himmapan Bloodlines title art with the game's heroes"
+    },
+    "cadence": {
+      "meta": "习惯追踪 · 已上架 Google Play",
+      "desc": "以每周目标代替每日连续打卡，漏掉一天也不会清零。可完全离线使用。",
+      "link": "查看案例",
+      "play": "在 Google Play 下载",
+      "alt1": "Cadence weekly progress screen",
+      "alt2": "Cadence screen: a missed day that keeps the streak"
+    },
+    "clientsHead": "客户平台",
+    "clients": [
+      [
+        "yippi",
+        "Yippi",
+        "社交超级应用，用户超过 500 万：直播、内容动态、奖励机制与跨境 CDN。",
+        "移动 · 云 · 实时"
+      ],
+      [
+        "dddrive",
+        "DDDrive",
+        "代驾平台：实时 GPS 追踪、在线支付与多城市车队运营。",
+        "移动 · 地图 · 支付"
+      ],
+      [
+        "colorverse",
+        "Colorverse",
+        "Web3 社交金融平台：NFT 发行、多链智能合约与免 Gas 交易。",
+        "Web3 · 智能合约"
+      ]
+    ],
+    "all": "查看全部解决方案",
+    "products": "我们的产品"
+  },
+  "process": {
+    "kicker": "流程",
+    "title": "项目怎么进行。",
+    "intro": "步骤清楚，价格固定，尽早看到可用的软件。最后不会有意外。",
+    "steps": [
+      [
+        "先沟通，再给固定报价。",
+        "先进行需求沟通，再提供固定范围的报价。常见区间：MVP 约 RM15k&ndash;40k，业务系统 RM40k&ndash;150k，企业平台 RM150k 以上。"
+      ],
+      [
+        "分阶段设计与开发。",
+        "设计师与工程师一起工作。大多数 MVP 需要 6&ndash;12 周；完整的 ERP、HRMS 或贷款系统通常需要 3&ndash;6 个月。"
+      ],
+      [
+        "代码归你所有。",
+        "源代码和数据 100% 属于你。我们签署保密协议，可部署到你的 AWS、阿里云或本地服务器。"
+      ],
+      [
+        "上线后我们还在。",
+        "保修期之后可选每月维护：修复问题、安全补丁、监控与功能更新。"
+      ]
+    ]
+  },
+  "stack": {
+    "kicker": "技术",
+    "title": "每项工作，用对的工具。",
+    "intro": "我们不绑定单一框架。以下是团队每周都在使用的工具。",
+    "cats": {
+      "web": "网页",
+      "mobile": "移动端",
+      "backend": "后端与 API",
+      "data": "数据与分析",
+      "cloud": "云与 DevOps",
+      "ai": "AI 与自动化",
+      "web3": "区块链",
+      "business": "企业与支付",
+      "games": "游戏与 3D"
+    }
+  },
+  "cta": {
+    "title": "有需要打造的系统吗？",
+    "text": "告诉我们它需要做什么。我们会先提问，再给出方案和固定报价。",
+    "form": "使用联系表单"
+  }
+}

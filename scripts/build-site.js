@@ -49,7 +49,7 @@ const assetPrefix = (loc) => (META[loc].dir ? '../../' : '../');           // pa
 
 // ─── shared <head> fragments (kept in one place so every template agrees) ───
 const FONT_LINK =
-    `<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">`;
+    `<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">`;
 
 // A = relative path from the page back to the site root ('', '../', '../../')
 const faviconLinks = (A) =>
@@ -188,6 +188,8 @@ const LOGO = 'logo master - Trion-07 3.png';
 // The logo renders at 51px tall in the header, 55px in the footer — a 400w
 // derivative covers every realistic DPR, so one candidate and a flat size.
 const logoPicture = (A, o = {}) => picture(LOGO, A, { alt: 'Trion Creation', sizes: '160px', ...o });
+// Header sits on the light ground: ink wordmark. Footer stays dark: original logo.
+const headerLogo = (A) => `<img src="${A}images/logo-ink.webp" width="440" height="147" alt="Trion Creation" decoding="async">`;
 
 // Cross-language switcher: 🌐 globe dropdown (root-absolute links so depth never matters).
 const LANG_FULL = { en: 'English', zh: '中文', ms: 'Bahasa Malaysia' };
@@ -329,7 +331,7 @@ ${JSON.stringify(faqSchema, null, 4)}
     ${FONT_LINK}
     ${faviconLinks(A)}
     <link rel="manifest" href="${A}manifest.json">
-        <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#FAFAF9">
 </head>
 <body>
     ${SKIP_LINK}
@@ -337,7 +339,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         <div class="container">
             <div class="header-content">
                 <a href="${N}index.html#home" class="logo">
-                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
+                    ${headerLogo(A)}
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">
@@ -397,7 +399,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                             </div>
                         </div>
                     </div>
-                    ${svcWire(s.slug)}
+                    ${svcArt(s, A)}
                 </div>
             </div>
         </section>
@@ -525,6 +527,12 @@ const SVC_WIRE = {
   'cloud-infrastructure-devops': `<path d="M96 56a30 30 0 0 1 58-10 22 22 0 0 1 32 18 20 20 0 0 1-4 40H100a26 26 0 0 1-4-48z" class="w-live"/><rect x="34" y="104" width="64" height="26" rx="4"/><rect x="118" y="104" width="64" height="26" rx="4"/><rect x="202" y="104" width="64" height="26" rx="4"/><path d="M46 117h26M130 117h26M214 117h26" opacity=".4"/><circle cx="88" cy="117" r="3" opacity=".7"/><circle cx="172" cy="117" r="3" opacity=".7"/><circle cx="256" cy="117" r="3" opacity=".7"/><path d="M66 104V92h168v12" opacity=".3"/>`,
   'product-design-ux': `<rect x="20" y="20" width="110" height="108" rx="6"/><rect x="34" y="34" width="82" height="30" rx="3" class="w-live"/><path d="M34 76h82M34 88h58M34 100h70" opacity=".4"/><rect x="156" y="20" width="124" height="60" rx="6" opacity=".6"/><path d="M170 34h40M170 46h72M170 58h52" opacity=".35"/><rect x="156" y="92" width="58" height="36" rx="5" opacity=".5"/><rect x="222" y="92" width="58" height="36" rx="5" opacity=".5"/><path d="M130 74h26" opacity=".5"/><circle cx="264" cy="36" r="7" opacity=".65"/>`,
 };
+/* Service hero artwork (2026-11): one studio-lit 3D still life per service,
+   generated as a set so the pages read as one family. Falls back to the
+   wireframe if a service has no image. */
+const svcArt = (s, A) => s.image && IMG_MANIFEST[`images/services/${s.image}`]
+  ? `<div class="pf-hero-visual has-art" aria-hidden="true" data-parallax="0.05">${picture(`images/services/${s.image}`, A, { alt: '', sizes: '(min-width: 1024px) 44vw, 92vw', fetchpriority: 'high', decoding: 'async' })}</div>`
+  : svcWire(s.slug);
 const svcWire = (slug) =>
   `<div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${SVC_WIRE[slug] || SVC_WIRE['mobile-web-app-development']}</svg></div>`;
 
@@ -688,7 +696,7 @@ ${JSON.stringify(faqSchema, null, 4)}
     ${FONT_LINK}
     ${faviconLinks(A)}
     <link rel="manifest" href="${A}manifest.json">
-        <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#FAFAF9">
     <style>
         /* Page-specific accent color override */
         .pf-hero { --pf-accent: ${accent}; }
@@ -702,7 +710,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         <div class="container">
             <div class="header-content">
                 <a href="${N}index.html#home" class="logo">
-                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
+                    ${headerLogo(A)}
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">
@@ -991,7 +999,7 @@ ${JSON.stringify(faqSchemaProd, null, 4)}
     ${FONT_LINK}
     ${faviconLinks(A)}
     <link rel="manifest" href="${A}manifest.json">
-        <meta name="theme-color" content="#07051A">
+        <meta name="theme-color" content="#FAFAF9">
 </head>
 <body>
     ${SKIP_LINK}
@@ -1000,7 +1008,7 @@ ${JSON.stringify(faqSchemaProd, null, 4)}
         <div class="container">
             <div class="header-content">
                 <a href="index.html#home" class="logo">
-                    ${logoPicture(A, { fetchpriority: 'high', decoding: 'async' })}
+                    ${headerLogo(A)}
                 </a>
                 <nav class="main-nav">
                     <ul class="nav-list">

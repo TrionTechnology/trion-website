@@ -43,3 +43,6 @@ __pycache__/
 # macOS / iCloud filename-collision artifacts ("foo 2.js", "bar 2/")
 * 2
 * 2.*
+
+# AI image sources (1536px PNG masters); the encoded variants are what ship
+images/gen-src/

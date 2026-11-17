@@ -400,13 +400,13 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/icons/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="../images/icons/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="../images/icons/favicon-180.png">
     <link rel="manifest" href="../manifest.json">
     
-    <meta name="theme-color" content="#07051A">
+    <meta name="theme-color" content="#FAFAF9">
 </head>
 <body>
     <a class="skip-link" href="#main">Langkau ke kandungan</a>
@@ -415,7 +415,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#home" class="logo" onclick="event.preventDefault(); document.querySelector('.nav-link[href=\'#home\']')?.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-                    <picture><source type="image/avif" srcset="../images/logo%20master%20-%20Trion-07%203-400.avif 400w" sizes="160px"><source type="image/webp" srcset="../images/logo%20master%20-%20Trion-07%203-400.webp 400w" sizes="160px"><img src="../logo master - Trion-07 3.png" width="440" height="147" alt="Trion Creation"></picture>
+                    <img src="../images/logo-ink.webp" width="440" height="147" alt="Trion Creation" decoding="async">
                 </a>
                 <nav class="main-nav" id="site-nav">
                     <ul class="nav-list" role="tablist" aria-label="Bahagian">
@@ -447,120 +447,278 @@
         <!-- Home Tab -->
         <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section" data-hero-intro>
+                <div class="hero-bg" aria-hidden="true"><span class="hb-grid"></span><span class="hb-orb"></span></div>
                 <div class="container hero-grid">
                     <div class="hero-copy">
-                        <p class="hero-kicker" data-intro>Trion Creation Sdn Bhd &middot; Studio perisian, Kuala Lumpur &middot; Sejak 2022</p>
-                        <h1 class="hero-title" data-intro>Pembangunan perisian tersuai di Malaysia, <em>serta aplikasi dan permainan kami sendiri.</em></h1>
-                        <p class="hero-lede" data-intro>Kami studio perisian di Kuala Lumpur. Sejak 2022 kami membina sistem yang menggerakkan syarikat (ERP dan CRM, HR dan gaji, pengurusan pinjaman, POS, tempahan) serta aplikasi mudah alih dan platform web seperti Yippi, yang digunakan oleh lebih 5 juta orang. Di antara projek pelanggan, kami melancarkan produk kami sendiri.</p>
+                        <p class="hero-pill" data-intro><span class="pill-dot"></span>Kami reka dan bina <span class="rotator" data-rotate="sistem ERP|aplikasi mudah alih|chatbot AI|POS &amp; inventori|platform pinjaman|sistem tempahan|aplikasi Web3|permainan 3D">sistem ERP</span></p>
+                        <h1 class="hero-title" data-intro>Pembangunan perisian tersuai di Malaysia.<span class="hero-title-2"> Dari ERP hingga aplikasi dan permainan.</span></h1>
+                        <p class="hero-lede" data-intro>Trion Creation ialah studio reka bentuk dan kejuruteraan di Kuala Lumpur. Sejak 2022 kami telah menyiapkan 150+ projek: sistem yang menggerakkan syarikat, aplikasi yang digunakan berjuta orang, dan permainan kami sendiri.</p>
                         <div class="hero-actions" data-intro>
-                            <a href="#contact" class="btn btn-primary">Mulakan projek</a>
-                            <a href="#work" class="btn btn-text">Lihat hasil kerja <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#contact" class="btn btn-primary btn-lg">Mulakan projek <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#capabilities" class="btn btn-secondary btn-lg">Lihat apa yang kami bina</a>
                         </div>
-                        <dl class="hero-facts" data-intro aria-label="Fakta studio">
-                            <div><dt>projek disiapkan</dt><dd>150+</dd></div>
-                            <div><dt>industri</dt><dd>10+</dd></div>
-                            <div><dt>diasaskan di Kuala Lumpur</dt><dd>2022</dd></div>
-                        </dl>
+                        <p class="hero-trust" data-intro><span class="ht-stars" aria-hidden="true"></span>Sebut harga tetap. Anda memiliki 100% kod.</p>
                     </div>
-                    <figure class="hero-collage">
-                        <div class="hc-main" data-intro-pic><picture><source type="image/webp" srcset="../images/titan-legends-feature-440.webp 440w, ../images/titan-legends-feature-880.webp 880w, ../images/titan-legends-feature-1600.webp 1600w" sizes="(min-width: 1024px) 46vw, 92vw"><img src="../images/titan-legends-feature-1600.webp" width="1600" height="900" alt="Seni utama Titan Legends: tiga Titan kaiju kartun memijak bandar kecil" fetchpriority="high" decoding="async"></picture></div>
-                        <div class="hc-tall" data-intro-pic><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-keyart-440.webp 440w" sizes="(min-width: 1024px) 15vw, 34vw"><img src="../images/himmapan-bloodlines-keyart-440.webp" width="440" height="953" alt="Seni utama Himmapan Bloodlines: dua wira muda Bangkok di hadapan bandar pada waktu malam" loading="lazy" decoding="async"></picture></div>
-                        <div class="hc-phone" data-intro-pic><picture><source type="image/webp" srcset="../images/cadence-today-440.webp 440w" sizes="(min-width: 1024px) 14vw, 34vw"><img src="../images/cadence-today-440.webp" width="440" height="593" alt="Skrin aplikasi Cadence menunjukkan matlamat tabiat minggu ini" loading="lazy" decoding="async"></picture></div>
-                        <figcaption data-intro>Produk kami sendiri: Titan Legends, Himmapan Bloodlines dan Cadence.</figcaption>
-                    </figure>
+                    <div class="hero-stage" aria-hidden="true" data-intro-stage>
+                        <div class="hs-window" data-depth="0.4">
+                            <div class="hs-bar"><span></span><span></span><span></span><em>app.yourcompany.com/dashboard</em></div>
+                            <div class="hs-body">
+                                <nav class="hs-side"><b></b><i class="on"></i><i></i><i></i><i></i><i></i></nav>
+                                <div class="hs-main">
+                                    <div class="hs-head"><strong>Ringkasan operasi</strong><span class="hs-live"><span class="dot"></span>Langsung</span></div>
+                                    <div class="hs-kpis">
+                                        <div><span>Hasil bulan ini</span><b>RM 482,190</b><em class="up">+12.4%</em></div>
+                                        <div><span>Pesanan</span><b>1,284</b><em class="up">+8.1%</em></div>
+                                        <div><span>Penghantaran tepat masa</span><b>98.2%</b><em>SLA dicapai</em></div>
+                                    </div>
+                                    <div class="hs-charts">
+                                        <svg class="hs-line" viewBox="0 0 320 120" preserveAspectRatio="none"><defs><linearGradient id="hsFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#71EECE" stop-opacity=".45"/><stop offset="1" stop-color="#71EECE" stop-opacity="0"/></linearGradient></defs><path class="hs-area" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10 L320 120 L0 120Z" fill="url(#hsFill)"/><path class="hs-stroke" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10" fill="none" stroke="#0E8F6E" stroke-width="2.2" pathLength="1"/></svg>
+                                        <div class="hs-bars"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:71%"></i><i style="--h:66%"></i><i style="--h:84%"></i><i style="--h:77%"></i><i style="--h:92%"></i><i style="--h:88%"></i><i style="--h:97%"></i></div>
+                                    </div>
+                                    <div class="hs-table"><div class="hs-row"><span class="hs-av" style="--hue:160"></span><span>Kedai Runcit Ali</span><span class="hs-tag is-paid">Dibayar</span><span class="hs-num">RM 2,480</span></div><div class="hs-row"><span class="hs-av" style="--hue:30"></span><span>Mutiara Logistics</span><span class="hs-tag is-ship">Dihantar</span><span class="hs-num">RM 12,900</span></div><div class="hs-row"><span class="hs-av" style="--hue:200"></span><span>Bloom Clinic</span><span class="hs-tag is-new">Baharu</span><span class="hs-num">RM 860</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hs-phone" data-depth="1.1"><picture><source type="image/webp" srcset="../images/cadence-today-440.webp 440w"><img src="../images/cadence-today-440.webp" width="440" height="593" alt="" decoding="async"></picture></div>
+                        <div class="hs-game" data-depth="0.8"><picture><source type="image/webp" srcset="../images/titan-legends-feature-440.webp 440w, ../images/titan-legends-feature-880.webp 880w" sizes="260px"><img src="../images/titan-legends-feature-880.webp" width="1600" height="900" alt="" decoding="async"></picture><span>Titan Legends · Unity</span></div>
+                        <div class="hs-chip hs-chip-api" data-depth="1.4"><span class="m">POST</span>/api/orders <span class="ok">201</span><span class="ms">38ms</span></div>
+                        <div class="hs-chip hs-chip-deploy" data-depth="1.6"><span class="tick"></span>Deploy ke produksi</div>
+                        <div class="hs-chip hs-chip-ai" data-depth="1.2"><span class="spark"></span>Chatbot membalas dalam 1.2s</div>
+                    </div>
+                </div>
+                <div class="marquee" aria-label="Teknologi harian kami">
+                    <p class="marquee-label">Teknologi harian kami</p>
+                    <div class="marquee-track"><ul><li><img src="../images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="../images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="../images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="../images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="../images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="../images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="../images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="../images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="../images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="../images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="../images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="../images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="../images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="../images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="../images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="../images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="../images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="../images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="../images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="../images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="../images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="../images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="../images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="../images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="../images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="../images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="../images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul><ul aria-hidden="true"><li><img src="../images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="../images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="../images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="../images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="../images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="../images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="../images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="../images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="../images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="../images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="../images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="../images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="../images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="../images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="../images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="../images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="../images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="../images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="../images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="../images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="../images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="../images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="../images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="../images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="../images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="../images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="../images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul></div>
                 </div>
             </div>
-            <div class="home-block work-section" id="work">
+
+            <div class="home-block stats-band">
+                <div class="container">
+                    <dl class="stats" data-reveal-group><div class="stat" data-reveal><dt>projek disiapkan</dt><dd><span data-count="150">150</span>+</dd></div><div class="stat" data-reveal><dt>orang guna Yippi, yang kami bina</dt><dd><span data-count="5">5</span>M+</dd></div><div class="stat" data-reveal><dt>industri</dt><dd><span data-count="10">10</span>+</dd></div><div class="stat" data-reveal><dt>jenis perisian yang kami bina</dt><dd><span data-count="12">12</span></dd></div></dl>
+                </div>
+            </div>
+
+            <div class="home-block caps-section" id="capabilities">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">Kerja</p>
-                        <h2 data-split>Hasil kerja pilihan</h2>
-                        <p class="block-intro" data-reveal>Produk kami sendiri dahulu. Ia menunjukkan cara kami membina apabila tiada orang lain menulis taklimat. Platform pelanggan menyusul.</p>
+                        <p class="block-kicker"><span class="kd"></span>Keupayaan</p>
+                        <h2 data-split>Satu pasukan untuk keseluruhan projek.</h2>
+                        <p class="block-intro" data-reveal>Pereka, jurutera dan DevOps di bawah satu bumbung. Setiap perkhidmatan ada halaman sendiri dengan skop, tempoh dan harga permulaan.</p>
                     </header>
-                    <article class="work-row">
-                        <a class="work-media" href="../projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Permainan Titan Legends: kaiju ungu menghancurkan bandar mainan" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Permainan &middot; iOS &amp; Android &middot; Akan datang</p>
-                            <h3><a href="../projects/titan-legends.html">Titan Legends</a></h3>
-                            <p>Permainan aksi kaiju 3D yang ceria untuk umur 6 tahun ke atas. Hancurkan bandar kecil, kembangkan Titan anda dengan kad kemahiran, jadi gergasi dan tumbangkan bos besar merentasi 12 wilayah. Bayar sekali, USD 9.99: tiada iklan dan tiada pembelian dalam aplikasi.</p>
-                            <p class="work-links"><a href="../projects/titan-legends.html" class="link-arrow">Baca tentang Titan Legends <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row is-flipped">
-                        <a class="work-media" href="../projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-feature-440.webp 440w, ../images/himmapan-bloodlines-feature-880.webp 880w, ../images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="Seni tajuk Himmapan Bloodlines bersama wira permainan" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Permainan &middot; iOS &middot; 2027</p>
-                            <h3><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
-                            <p>Permainan kad pertahanan lorong berasaskan mitos Thai. Tiga puluh wira muda Bangkok mewarisi darah makhluk Himmapan dan berubah menjadi gergasi: Naga, Singha, Krut dan lain-lain. Percuma dimainkan, tiada iklan, tiada jualan rawak.</p>
-                            <p class="work-links"><a href="../projects/himmapan-bloodlines.html" class="link-arrow">Baca tentang Himmapan Bloodlines <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row">
-                        <a class="work-media is-cadence" href="../projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/avif" srcset="../images/cadence-shot-mosaic-440.avif 440w, ../images/cadence-shot-mosaic-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Skrin kemajuan mingguan Cadence" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="../images/cadence-shot-forgiving-440.avif 440w, ../images/cadence-shot-forgiving-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="../images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Skrin Cadence: hari terlepas yang tidak memutuskan rentetan" loading="lazy" decoding="async"></picture></span></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Penjejak tabiat &middot; Android &amp; iOS &middot; Di Google Play</p>
-                            <h3><a href="../projects/cadence.html">Cadence</a></h3>
-                            <p>Penjejak tabiat berasaskan matlamat mingguan, bukan rentetan harian, jadi terlepas sehari tidak memadam kemajuan anda. Berfungsi sepenuhnya luar talian. Pro dibeli sekali, bukan langganan.</p>
-                            <p class="work-links"><a href="../projects/cadence.html" class="link-arrow">Baca tentang Cadence <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">Dapatkan di Google Play <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
+                    <ul class="caps" data-reveal-group>
+                        <li class="cap cap-xl" data-reveal><a href="services/mobile-web-app-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/services/service-web-mobile-800.webp" width="1536" height="1024" alt="Phone and tablet shapes with app cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">01</span><span class="cap-price">dari RM15k</span></span>
+                                <span class="cap-name">Aplikasi Mudah Alih &amp; Web</span>
+                                <span class="cap-desc">Aplikasi iOS, Android dan web, berserta backend, pembayaran dan ciri masa nyata.</span>
+                                <ul class="cap-chips"><li>Flutter</li><li>React Native</li><li>Next.js</li><li>Swift</li><li>Kotlin</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/erp-crm-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="../images/services/service-erp-crm-800.webp" width="1536" height="1024" alt="Modular cabinet of drawers" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">02</span><span class="cap-price">dari RM40k</span></span>
+                                <span class="cap-name">ERP &amp; CRM</span>
+                                <span class="cap-desc">Sistem yang dibentuk mengikut cara syarikat anda bekerja, dengan laporan terbina.</span>
+                                <ul class="cap-chips"><li>Laravel</li><li>Node.js</li><li>PostgreSQL</li><li>Power BI</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/ai-automation-chatbot.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w, ../images/services/service-ai-chatbot-800.avif 800w, ../images/services/service-ai-chatbot-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w, ../images/services/service-ai-chatbot-800.webp 800w, ../images/services/service-ai-chatbot-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="../images/services/service-ai-chatbot-800.webp" width="1536" height="1024" alt="Robotic arm sorting cards into stacks" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">03</span><span class="cap-price">dari RM20k</span></span>
+                                <span class="cap-name">Automasi AI &amp; Chatbot</span>
+                                <span class="cap-desc">Chatbot dan automasi yang mengambil alih kerja berulang.</span>
+                                <ul class="cap-chips"><li>OpenAI</li><li>Dialogflow</li><li>Python</li><li>WhatsApp API</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-xl" data-reveal><a href="services/ar-vr-metaverse-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w, ../images/services/service-ar-vr-800.avif 800w, ../images/services/service-ar-vr-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w, ../images/services/service-ar-vr-800.webp 800w, ../images/services/service-ar-vr-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="../images/services/service-ar-vr-800.webp" width="1536" height="1024" alt="VR headset, game controller and toy figure" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">04</span><span class="cap-price">dari RM40k</span></span>
+                                <span class="cap-name">Permainan, AR &amp; VR</span>
+                                <span class="cap-desc">Permainan Unity, AR dan ruang maya. Kami juga melancarkan permainan sendiri.</span>
+                                <ul class="cap-chips"><li>Unity</li><li>C#</li><li>AR</li><li>VR</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/cloud-infrastructure-devops.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-cloud-800.webp" width="1536" height="1024" alt="Stacked modular server units" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">05</span><span class="cap-price">dari RM15k</span></span>
+                                <span class="cap-name">Cloud &amp; DevOps</span>
+                                <span class="cap-desc">Hosting, CDN, pemantauan dan deployment yang stabil.</span>
+                                <ul class="cap-chips"><li>AWS</li><li>Alibaba Cloud</li><li>Docker</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/api-integration-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-api-800.webp" width="1536" height="1024" alt="Connectors snapping together" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">06</span><span class="cap-price">dari RM10k</span></span>
+                                <span class="cap-name">API &amp; Integrasi</span>
+                                <span class="cap-desc">Gerbang pembayaran, SMS, ERP dan apa sahaja yang ada API.</span>
+                                <ul class="cap-chips"><li>REST</li><li>GraphQL</li><li>Webhooks</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/blockchain-web3-solutions.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-blockchain-800.webp" width="1536" height="1024" alt="Chain of glass cubes" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">07</span><span class="cap-price">dari RM50k</span></span>
+                                <span class="cap-name">Blockchain &amp; Web3</span>
+                                <span class="cap-desc">Kontrak pintar, platform NFT dan aplikasi Web3.</span>
+                                <ul class="cap-chips"><li>Solidity</li><li>Hardhat</li><li>Web3.js</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/product-design-ux.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-ux-800.webp" width="1536" height="1024" alt="Colour swatches, ruler and wireframe cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">08</span><span class="cap-price">dari RM10k</span></span>
+                                <span class="cap-name">Reka Bentuk Produk &amp; UX</span>
+                                <span class="cap-desc">Kajian pengguna, reka bentuk antara muka dan sistem reka bentuk.</span>
+                                <ul class="cap-chips"><li>Figma</li><li>Prototypes</li><li>Design systems</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/odoo-customisation.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-odoo-800.webp" width="1536" height="1024" alt="Board of app tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">09</span><span class="cap-price">dari RM20k</span></span>
+                                <span class="cap-name">Penyesuaian Odoo</span>
+                                <span class="cap-desc">Modul, aliran kerja dan integrasi tersuai.</span>
+                                <ul class="cap-chips"><li>Odoo</li><li>Python</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/pos-inventory-management.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-pos-800.webp" width="1536" height="1024" alt="Card payment terminal and receipt" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">10</span><span class="cap-price">dari RM25k</span></span>
+                                <span class="cap-name">POS &amp; Inventori</span>
+                                <span class="cap-desc">Jualan dan stok untuk satu kedai atau banyak cawangan.</span>
+                                <ul class="cap-chips"><li>Multi-outlet</li><li>Barcode</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/booking-system-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-booking-800.webp" width="1536" height="1024" alt="Calendar made of tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">11</span><span class="cap-price">dari RM18k</span></span>
+                                <span class="cap-name">Sistem Tempahan</span>
+                                <span class="cap-desc">Temujanji, kelas dan bilik, dengan pembayaran.</span>
+                                <ul class="cap-chips"><li>Calendars</li><li>Payments</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/loan-management-system.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="../images/services/service-loan-800.webp" width="1536" height="1024" alt="Coins, folder and balance scale" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">12</span><span class="cap-price">dari RM60k</span></span>
+                                <span class="cap-name">Pengurusan Pinjaman</span>
+                                <span class="cap-desc">Permohonan, semakan kredit, kelulusan dan bayaran balik.</span>
+                                <ul class="cap-chips"><li>Credit scoring</li><li>Workflows</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-block work-section is-dark" id="work">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>Hasil kerja pilihan</p>
+                        <h2 data-split>Sudah dilancar, sudah digunakan.</h2>
+                        <p class="block-intro" data-reveal>Produk kami sendiri menunjukkan cara kami membina apabila tiada orang lain menulis taklimat. Platform pelanggan menyusul.</p>
+                    </header>
+                    <div class="work-grid">
+                        <article class="work-card wc-wide" data-reveal>
+                            <a class="work-media" href="../projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 80vw, 92vw"><img src="../images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">Permainan · iOS &amp; Android · Akan datang</p>
+                                <h3><a href="../projects/titan-legends.html">Titan Legends</a></h3>
+                                <p>Permainan aksi kaiju 3D yang ceria untuk umur 6 tahun ke atas. Hancurkan bandar kecil, kembangkan Titan anda dengan kad kemahiran dan tumbangkan bos besar merentasi 12 wilayah. Bayar sekali, tiada iklan, tiada pembelian dalam aplikasi.</p>
+                                <p class="work-links"><a href="../projects/titan-legends.html" class="link-arrow">Baca kajian kes <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media" href="../projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/himmapan-bloodlines-feature-440.webp 440w, ../images/himmapan-bloodlines-feature-880.webp 880w, ../images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="../images/himmapan-bloodlines-feature-880.webp" width="1600" height="900" alt="Himmapan Bloodlines title art with the game&#x27;s heroes" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">Permainan · iOS · 2027</p>
+                                <h3><a href="../projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
+                                <p>Permainan kad pertahanan lorong berasaskan mitos Thai. Tiga puluh wira muda Bangkok mewarisi darah makhluk Himmapan dan berubah menjadi gergasi.</p>
+                                <p class="work-links"><a href="../projects/himmapan-bloodlines.html" class="link-arrow">Baca kajian kes <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media is-cadence" href="../projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/webp" srcset="../images/cadence-shot-mosaic-440.webp 440w, ../images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="../images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence weekly progress screen" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="../images/cadence-shot-forgiving-440.webp 440w, ../images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="../images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence screen: a missed day that keeps the streak" loading="lazy" decoding="async"></picture></span></a>
+                            <div class="work-text">
+                                <p class="work-meta">Penjejak tabiat · Di Google Play</p>
+                                <h3><a href="../projects/cadence.html">Cadence</a></h3>
+                                <p>Matlamat mingguan, bukan rentetan harian, jadi terlepas sehari tidak memadam kemajuan anda. Berfungsi sepenuhnya luar talian.</p>
+                                <p class="work-links"><a href="../projects/cadence.html" class="link-arrow">Baca kajian kes <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">Dapatkan di Google Play <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                    </div>
                     <div class="client-list">
                         <h3 class="client-head" data-reveal>Platform pelanggan</h3>
-                        <ul>
-                            <li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">Aplikasi super sosial dengan lebih 5 juta pengguna: siaran langsung, suapan kandungan, ganjaran dan CDN merentas sempadan.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">Platform pemandu sewaan dengan penjejakan GPS langsung, pembayaran dan operasi armada pelbagai bandar.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Platform Social-Fi Web3: pelancar NFT, kontrak pintar pelbagai rantaian dan transaksi tanpa gas. Disokong oleh Lembaga Pelancongan Malaysia.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        </ul>
+                        <ul data-reveal-group><li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">Aplikasi super sosial dengan lebih 5 juta pengguna: siaran langsung, suapan kandungan, ganjaran dan CDN merentas sempadan.</span><span class="cl-tags">Mudah alih · Cloud · Masa nyata</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">Platform pemandu sewaan dengan penjejakan GPS langsung, pembayaran dan operasi armada pelbagai bandar.</span><span class="cl-tags">Mudah alih · Peta · Pembayaran</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Platform Social-Fi Web3: pelancar NFT, kontrak pintar pelbagai rantaian dan transaksi tanpa gas.</span><span class="cl-tags">Web3 · Kontrak pintar</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul>
                         <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">Semua jenis penyelesaian kami <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="products.html" class="link-arrow">Produk kami <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                     </div>
                 </div>
             </div>
-            <div class="home-block paper-band">
-                <div class="container">
-                    <header class="block-head">
-                        <p class="block-kicker">Perkhidmatan</p>
-                        <h2 data-split>Apa yang kami bina</h2>
-                        <p class="block-intro" data-reveal>Dua belas jenis kerja yang kerap kami lakukan. Setiap satu ada halaman sendiri dengan skop, tempoh biasa dan harga permulaan.</p>
-                    </header>
-                    <ol class="svc-index" data-reveal-group>
-                        <li data-reveal><a href="services/mobile-web-app-development.html"><span class="si-num">01</span><span class="si-name">Aplikasi Mudah Alih & Web</span><span class="si-desc">Aplikasi iOS, Android dan web, berserta backend di belakangnya.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/erp-crm-development.html"><span class="si-num">02</span><span class="si-name">ERP & CRM</span><span class="si-desc">Sistem yang dibentuk mengikut cara syarikat anda bekerja.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ai-automation-chatbot.html"><span class="si-num">03</span><span class="si-name">Automasi AI & Chatbot</span><span class="si-desc">Chatbot dan automasi yang mengambil alih kerja berulang.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/odoo-customisation.html"><span class="si-num">04</span><span class="si-name">Penyesuaian Odoo</span><span class="si-desc">Modul, aliran kerja dan integrasi tersuai untuk Odoo.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/pos-inventory-management.html"><span class="si-num">05</span><span class="si-name">POS & Inventori</span><span class="si-desc">Jualan dan stok untuk satu kedai atau banyak cawangan.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/booking-system-development.html"><span class="si-num">06</span><span class="si-name">Sistem Tempahan</span><span class="si-desc">Temujanji, kelas, bilik dan sumber, dengan pembayaran.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/loan-management-system.html"><span class="si-num">07</span><span class="si-name">Pengurusan Pinjaman</span><span class="si-desc">Permohonan, semakan kredit, kelulusan dan bayaran balik.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/api-integration-development.html"><span class="si-num">08</span><span class="si-name">API & Integrasi</span><span class="si-desc">Gerbang pembayaran, SMS, ERP dan apa sahaja yang ada API.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/blockchain-web3-solutions.html"><span class="si-num">09</span><span class="si-name">Blockchain & Web3</span><span class="si-desc">Kontrak pintar, platform NFT dan aplikasi Web3.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ar-vr-metaverse-development.html"><span class="si-num">10</span><span class="si-name">Permainan, AR & VR</span><span class="si-desc">Permainan Unity, AR dan ruang maya.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/cloud-infrastructure-devops.html"><span class="si-num">11</span><span class="si-name">Cloud & DevOps</span><span class="si-desc">Hosting, CDN, pemantauan dan deployment yang stabil.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/product-design-ux.html"><span class="si-num">12</span><span class="si-name">Reka Bentuk Produk & UX</span><span class="si-desc">Kajian pengguna, reka bentuk antara muka dan sistem reka bentuk.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                    </ol>
-                </div>
-            </div>
+
             <div class="home-block how-section">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">Proses</p>
-                        <h2 data-split>Bagaimana projek berjalan</h2>
+                        <p class="block-kicker"><span class="kd"></span>Proses</p>
+                        <h2 data-split>Bagaimana projek berjalan.</h2>
+                        <p class="block-intro" data-reveal>Langkah yang jelas, harga tetap dan perisian berfungsi awal. Tiada kejutan di hujung.</p>
                     </header>
-                    <ol class="how-list" data-reveal-group>
-                        <li class="how-item" data-reveal><span class="how-num">01</span><h3>Panggilan dahulu, kemudian sebut harga tetap.</h3><p>Kami mulakan dengan sesi perbincangan, kemudian hantar sebut harga skop tetap. Julat biasa: RM15k&ndash;40k untuk MVP, RM40k&ndash;150k untuk sistem perniagaan, RM150k+ untuk platform perusahaan.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">02</span><h3>Perisian yang berfungsi, awal.</h3><p>Kebanyakan MVP mengambil masa 6&ndash;12 minggu. Sistem ERP, HRMS atau pinjaman penuh biasanya 3&ndash;6 bulan, bergantung pada integrasi dan pematuhan.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">03</span><h3>Kod itu milik anda.</h3><p>Anda memiliki 100% kod sumber dan data. Kami menandatangani NDA dan boleh deploy ke AWS, Alibaba Cloud atau pelayan premis anda.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">04</span><h3>Kami kekal selepas pelancaran.</h3><p>Setiap projek ada tempoh waranti, kemudian sokongan bulanan pilihan: pembaikan, tampalan keselamatan, pemantauan pelayan dan ciri baharu.</p></li>
-                    </ol>
-                    <div class="stack-line" data-reveal><h3>Alat yang paling kerap kami guna</h3><p>React &middot; Next.js &middot; Flutter &middot; React Native &middot; Node.js &middot; Laravel &middot; Python &middot; Odoo &middot; PostgreSQL &middot; Redis &middot; AWS &middot; Alibaba Cloud &middot; Docker &middot; Unity</p></div>
+                    <div class="how-track"><span class="how-line" data-progress-line></span></div>
+                    <ol class="how-list" data-reveal-group><li class="how-item" data-reveal><span class="how-num">01</span><h3>Panggilan dahulu, kemudian sebut harga tetap.</h3><p>Sesi perbincangan, kemudian sebut harga skop tetap. Julat biasa: RM15k&ndash;40k untuk MVP, RM40k&ndash;150k untuk sistem perniagaan, RM150k+ untuk platform perusahaan.</p></li><li class="how-item" data-reveal><span class="how-num">02</span><h3>Reka dan bina secara berperingkat.</h3><p>Pereka dan jurutera bekerja bersama. Kebanyakan MVP mengambil masa 6&ndash;12 minggu; sistem ERP, HRMS atau pinjaman penuh biasanya 3&ndash;6 bulan.</p></li><li class="how-item" data-reveal><span class="how-num">03</span><h3>Kod itu milik anda.</h3><p>Anda memiliki 100% kod sumber dan data. Kami menandatangani NDA dan deploy ke AWS, Alibaba Cloud atau pelayan premis anda.</p></li><li class="how-item" data-reveal><span class="how-num">04</span><h3>Kami kekal selepas pelancaran.</h3><p>Tempoh waranti, kemudian sokongan bulanan pilihan: pembaikan, tampalan keselamatan, pemantauan dan ciri baharu.</p></li></ol>
                 </div>
             </div>
+
+            <div class="home-block stack-section">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>Teknologi</p>
+                        <h2 data-split>Alat yang tepat untuk setiap kerja.</h2>
+                        <p class="block-intro" data-reveal>Kami tidak terikat pada satu rangka kerja. Inilah alat yang pasukan kami guna setiap minggu.</p>
+                    </header>
+                    <div class="stack-grid" data-reveal-group>
+                        <div class="stack-row" data-reveal><h3>Web</h3><ul><li><img src="../images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React</li><li><img src="../images/tech-icons/nextjs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Next.js</li><li><img src="../images/tech-icons/vuejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Vue</li><li><img src="../images/tech-icons/typescript.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TypeScript</li><li><img src="../images/tech-icons/tailwindcss.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Tailwind</li><li><img src="../images/tech-icons/html5.svg" width="22" height="22" alt="" loading="lazy" decoding="async">HTML5</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Mudah alih</h3><ul><li><img src="../images/tech-icons/flutter.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Flutter</li><li><img src="../images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React Native</li><li><img src="../images/tech-icons/swift.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Swift</li><li><img src="../images/tech-icons/kotlin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kotlin</li><li><img src="../images/tech-icons/xamarin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Xamarin</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Backend &amp; API</h3><ul><li><img src="../images/tech-icons/nodejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Node.js</li><li><img src="../images/tech-icons/express.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Express</li><li><img src="../images/tech-icons/laravel.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Laravel</li><li><img src="../images/tech-icons/php.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PHP</li><li><img src="../images/tech-icons/graphql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GraphQL</li><li><img src="../images/tech-icons/prisma.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Prisma</li><li><img src="../images/tech-icons/apollo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Apollo</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Data &amp; analitik</h3><ul><li><img src="../images/tech-icons/postgresql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PostgreSQL</li><li><img src="../images/tech-icons/mysql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MySQL</li><li><img src="../images/tech-icons/mongodb.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MongoDB</li><li><img src="../images/tech-icons/redis.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Redis</li><li><img src="../images/tech-icons/firebase.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Firebase</li><li><img src="../images/tech-icons/powerbi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Power BI</li><li><img src="../images/tech-icons/airflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Airflow</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Cloud &amp; DevOps</h3><ul><li><img src="../images/tech-icons/aws.svg" width="22" height="22" alt="" loading="lazy" decoding="async">AWS</li><li><img src="../images/tech-icons/alibaba-cloud.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Alibaba Cloud</li><li><img src="../images/tech-icons/docker.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Docker</li><li><img src="../images/tech-icons/kubernetes.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kubernetes</li><li><img src="../images/tech-icons/nginx.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Nginx</li><li><img src="../images/tech-icons/github-actions.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GitHub Actions</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>AI &amp; automasi</h3><ul><li><img src="../images/tech-icons/openai.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenAI</li><li><img src="../images/tech-icons/tensorflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TensorFlow</li><li><img src="../images/tech-icons/pytorch.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PyTorch</li><li><img src="../images/tech-icons/spacy.svg" width="22" height="22" alt="" loading="lazy" decoding="async">spaCy</li><li><img src="../images/tech-icons/dialogflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Dialogflow</li><li><img src="../images/tech-icons/zapier.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Zapier</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Blockchain</h3><ul><li><img src="../images/tech-icons/ethereum.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Ethereum</li><li><img src="../images/tech-icons/solidity.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Solidity</li><li><img src="../images/tech-icons/hardhat.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Hardhat</li><li><img src="../images/tech-icons/web3js.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Web3.js</li><li><img src="../images/tech-icons/opensea.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenSea</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Perniagaan &amp; pembayaran</h3><ul><li><img src="../images/tech-icons/odoo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Odoo</li><li><img src="../images/tech-icons/sap.svg" width="22" height="22" alt="" loading="lazy" decoding="async">SAP</li><li><img src="../images/tech-icons/stripe.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Stripe</li><li><img src="../images/tech-icons/paypal.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PayPal</li><li><img src="../images/tech-icons/square.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Square</li><li><img src="../images/tech-icons/rapidapi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">RapidAPI</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Permainan &amp; 3D</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="home-block cta-band">
                 <div class="container">
-                    <h2 data-split>Ada sesuatu yang perlu dibina?</h2>
-                    <p data-reveal>Beritahu kami apa yang perlu ia lakukan. Kami akan bertanya dahulu, kemudian beri pelan dan sebut harga tetap.</p>
-                    <div class="cta-actions" data-reveal>
-                        <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
-                        <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary">freddy.chia@trioncreation.com</a>
-                        <a href="#contact" class="btn btn-text">Guna borang hubungan <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <div class="cta-card">
+                        <div class="cta-copy">
+                            <h2 data-split>Ada sesuatu yang perlu dibina?</h2>
+                            <p data-reveal>Beritahu kami apa yang perlu ia lakukan. Kami akan bertanya dahulu, kemudian beri pelan dan sebut harga tetap.</p>
+                        </div>
+                        <div class="cta-actions" data-reveal>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
+                            <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary btn-lg">freddy.chia@trioncreation.com</a>
+                            <a href="#contact" class="btn btn-text">Guna borang hubungan <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -640,7 +798,7 @@
                 <div class="services-grid" data-reveal-group>
                 <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-web-mobile.jpg" width="2070" height="1164" alt="Pembangunan Aplikasi Mudah Alih & Web" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-web-mobile-400.avif 400w, ../images/services/service-web-mobile-800.avif 800w, ../images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-web-mobile-400.webp 400w, ../images/services/service-web-mobile-800.webp 800w, ../images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-web-mobile.jpg" width="1536" height="1024" alt="Pembangunan Aplikasi Mudah Alih & Web" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Pembangunan Aplikasi Mudah Alih & Web</h3>
@@ -660,7 +818,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-blockchain.jpg" width="2070" height="1380" alt="Penyelesaian Blockchain & Web3" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-blockchain-400.avif 400w, ../images/services/service-blockchain-800.avif 800w, ../images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-blockchain-400.webp 400w, ../images/services/service-blockchain-800.webp 800w, ../images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-blockchain.jpg" width="1536" height="1024" alt="Penyelesaian Blockchain & Web3" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Penyelesaian Blockchain & Web3</h3>
@@ -680,7 +838,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ar-vr.jpg" width="800" height="600" alt="Pembangunan AR/VR" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ar-vr.jpg" width="1536" height="1024" alt="Pembangunan AR/VR" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Pembangunan AR/VR & Metaverse</h3>
@@ -700,7 +858,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-enterprise-400.avif 400w, ../images/services/service-enterprise-800.avif 800w, ../images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-enterprise-400.webp 400w, ../images/services/service-enterprise-800.webp 800w, ../images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-enterprise.jpg" width="2126" height="1196" alt="Penyelesaian Enterprise" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-enterprise-400.avif 400w, ../images/services/service-enterprise-800.avif 800w, ../images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-enterprise-400.webp 400w, ../images/services/service-enterprise-800.webp 800w, ../images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-enterprise.jpg" width="1536" height="1024" alt="Penyelesaian Enterprise" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Penyelesaian Enterprise & Aliran Kerja</h3>
@@ -720,7 +878,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-cloud.jpg" width="2072" height="1379" alt="Pemindahan Cloud" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-cloud-400.avif 400w, ../images/services/service-cloud-800.avif 800w, ../images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-cloud-400.webp 400w, ../images/services/service-cloud-800.webp 800w, ../images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-cloud.jpg" width="1536" height="1024" alt="Pemindahan Cloud" loading="lazy"></picture>
         </div>
                         <div class="service-content">
                             <h3>Infrastruktur Cloud & DevOps</h3>
@@ -740,7 +898,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ux.jpg" width="2070" height="1380" alt="Reka Bentuk Produk & UX" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ux-400.avif 400w, ../images/services/service-ux-800.avif 800w, ../images/services/service-ux-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ux-400.webp 400w, ../images/services/service-ux-800.webp 800w, ../images/services/service-ux-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ux.jpg" width="1536" height="1024" alt="Reka Bentuk Produk & UX" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Reka Bentuk Produk & UX</h3>
@@ -761,7 +919,7 @@
                     <!-- Additional Services from Prompt -->
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-erp-crm.jpg" width="2070" height="1380" alt="Pembangunan ERP CRM" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-erp-crm-400.avif 400w, ../images/services/service-erp-crm-800.avif 800w, ../images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-erp-crm-400.webp 400w, ../images/services/service-erp-crm-800.webp 800w, ../images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-erp-crm.jpg" width="1536" height="1024" alt="Pembangunan ERP CRM" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Pembangunan ERP/CRM</h3>
@@ -781,7 +939,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ai-chatbot.jpg" width="800" height="600" alt="Chatbot Automasi AI" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-ai-chatbot.jpg" width="1536" height="1024" alt="Chatbot Automasi AI" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Automasi AI + Chatbot</h3>
@@ -801,7 +959,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-pos.jpg" width="2070" height="1380" alt="Sistem POS Inventori" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-pos-400.avif 400w, ../images/services/service-pos-800.avif 800w, ../images/services/service-pos-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-pos-400.webp 400w, ../images/services/service-pos-800.webp 800w, ../images/services/service-pos-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-pos.jpg" width="1536" height="1024" alt="Sistem POS Inventori" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>POS & Pengurusan Inventori</h3>
@@ -821,7 +979,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-booking.jpg" width="2070" height="1382" alt="Sistem Tempahan" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-booking-400.avif 400w, ../images/services/service-booking-800.avif 800w, ../images/services/service-booking-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-booking-400.webp 400w, ../images/services/service-booking-800.webp 800w, ../images/services/service-booking-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-booking.jpg" width="1536" height="1024" alt="Sistem Tempahan" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Pembangunan Sistem Tempahan</h3>
@@ -841,7 +999,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-loan.jpg" width="2070" height="1380" alt="Sistem Pinjaman" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-loan-400.avif 400w, ../images/services/service-loan-800.avif 800w, ../images/services/service-loan-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-loan-400.webp 400w, ../images/services/service-loan-800.webp 800w, ../images/services/service-loan-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-loan.jpg" width="1536" height="1024" alt="Sistem Pinjaman" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Sistem Pengurusan Pinjaman</h3>
@@ -861,7 +1019,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-api.jpg" width="2070" height="1162" alt="Integrasi API" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-api-400.avif 400w, ../images/services/service-api-800.avif 800w, ../images/services/service-api-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-api-400.webp 400w, ../images/services/service-api-800.webp 800w, ../images/services/service-api-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-api.jpg" width="1536" height="1024" alt="Integrasi API" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Integrasi & Pembangunan API</h3>
@@ -881,7 +1039,7 @@
 
                     <div class="service-card" data-reveal="scale">
                         <div class="service-image">
-                            <picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-odoo.jpg" width="2070" height="1164" alt="Penyesuaian Odoo" loading="lazy"></picture>
+                            <picture><source type="image/avif" srcset="../images/services/service-odoo-400.avif 400w, ../images/services/service-odoo-800.avif 800w, ../images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><source type="image/webp" srcset="../images/services/service-odoo-400.webp 400w, ../images/services/service-odoo-800.webp 800w, ../images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 400px"><img src="../images/services/service-odoo.jpg" width="1536" height="1024" alt="Penyesuaian Odoo" loading="lazy"></picture>
                         </div>
                         <div class="service-content">
                             <h3>Penyesuaian Odoo</h3>

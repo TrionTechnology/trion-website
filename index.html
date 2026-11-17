@@ -404,12 +404,12 @@
          the same job: the old request pulled 114 font files for ~43 KB of
          CSS. Manrope now carries display + body (weight does the
          contrast), JetBrains Mono carries anything technical. -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="images/icons/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="images/icons/favicon-180.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#07051A">
+    <meta name="theme-color" content="#FAFAF9">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -418,7 +418,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#home" class="logo" onclick="event.preventDefault(); document.querySelector('.nav-link[href=\'#home\']')?.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-                    <img src="logo master - Trion-07 3.png" alt="Trion Creation">
+                    <img src="images/logo-ink.webp" width="440" height="147" alt="Trion Creation" decoding="async">
                 </a>
                 <nav class="main-nav" id="site-nav">
                     <ul class="nav-list" role="tablist" aria-label="Sections">
@@ -450,120 +450,278 @@
         <!-- Home Tab -->
         <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section" data-hero-intro>
+                <div class="hero-bg" aria-hidden="true"><span class="hb-grid"></span><span class="hb-orb"></span></div>
                 <div class="container hero-grid">
                     <div class="hero-copy">
-                        <p class="hero-kicker" data-intro>Trion Creation Sdn Bhd &middot; Software studio, Kuala Lumpur &middot; Since 2022</p>
-                        <h1 class="hero-title" data-intro>Custom software development in Malaysia, <em>and apps and games of our own.</em></h1>
-                        <p class="hero-lede" data-intro>We are a software studio in Kuala Lumpur. Since 2022 we have built the systems companies run on (ERP and CRM, HR and payroll, loan management, POS, booking) along with mobile apps and web platforms such as Yippi, used by more than 5 million people. Between client projects, we ship our own products.</p>
+                        <p class="hero-pill" data-intro><span class="pill-dot"></span>We design and build <span class="rotator" data-rotate="ERP systems|mobile apps|AI chatbots|POS &amp; inventory|loan platforms|booking systems|Web3 apps|3D games">ERP systems</span></p>
+                        <h1 class="hero-title" data-intro>Custom software development in Malaysia.<span class="hero-title-2"> From ERP to apps and games.</span></h1>
+                        <p class="hero-lede" data-intro>Trion Creation is a design and engineering studio in Kuala Lumpur. Since 2022 we have shipped 150+ projects: the systems companies run on, apps used by millions, and games of our own.</p>
                         <div class="hero-actions" data-intro>
-                            <a href="#contact" class="btn btn-primary">Start a project</a>
-                            <a href="#work" class="btn btn-text">See the work <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#contact" class="btn btn-primary btn-lg">Start a project <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="#capabilities" class="btn btn-secondary btn-lg">Explore what we build</a>
                         </div>
-                        <dl class="hero-facts" data-intro aria-label="Studio facts">
-                            <div><dt>projects delivered</dt><dd>150+</dd></div>
-                            <div><dt>industries</dt><dd>10+</dd></div>
-                            <div><dt>founded in Kuala Lumpur</dt><dd>2022</dd></div>
-                        </dl>
+                        <p class="hero-trust" data-intro><span class="ht-stars" aria-hidden="true"></span>Fixed quotes. You own 100% of the code.</p>
                     </div>
-                    <figure class="hero-collage">
-                        <div class="hc-main" data-intro-pic><picture><source type="image/webp" srcset="images/titan-legends-feature-440.webp 440w, images/titan-legends-feature-880.webp 880w, images/titan-legends-feature-1600.webp 1600w" sizes="(min-width: 1024px) 46vw, 92vw"><img src="images/titan-legends-feature-1600.webp" width="1600" height="900" alt="Titan Legends key art: three cartoon kaiju Titans stomping through a tiny city" fetchpriority="high" decoding="async"></picture></div>
-                        <div class="hc-tall" data-intro-pic><picture><source type="image/webp" srcset="images/himmapan-bloodlines-keyart-440.webp 440w" sizes="(min-width: 1024px) 15vw, 34vw"><img src="images/himmapan-bloodlines-keyart-440.webp" width="440" height="953" alt="Himmapan Bloodlines key art: two young Bangkok heroes in front of the city at night" loading="lazy" decoding="async"></picture></div>
-                        <div class="hc-phone" data-intro-pic><picture><source type="image/webp" srcset="images/cadence-today-440.webp 440w" sizes="(min-width: 1024px) 14vw, 34vw"><img src="images/cadence-today-440.webp" width="440" height="593" alt="Cadence app screen showing this week&#x27;s habit goals" loading="lazy" decoding="async"></picture></div>
-                        <figcaption data-intro>Our own products: Titan Legends, Himmapan Bloodlines and Cadence.</figcaption>
-                    </figure>
+                    <div class="hero-stage" aria-hidden="true" data-intro-stage>
+                        <div class="hs-window" data-depth="0.4">
+                            <div class="hs-bar"><span></span><span></span><span></span><em>app.yourcompany.com/dashboard</em></div>
+                            <div class="hs-body">
+                                <nav class="hs-side"><b></b><i class="on"></i><i></i><i></i><i></i><i></i></nav>
+                                <div class="hs-main">
+                                    <div class="hs-head"><strong>Operations overview</strong><span class="hs-live"><span class="dot"></span>Live</span></div>
+                                    <div class="hs-kpis">
+                                        <div><span>Revenue this month</span><b>RM 482,190</b><em class="up">+12.4%</em></div>
+                                        <div><span>Orders</span><b>1,284</b><em class="up">+8.1%</em></div>
+                                        <div><span>On-time delivery</span><b>98.2%</b><em>SLA met</em></div>
+                                    </div>
+                                    <div class="hs-charts">
+                                        <svg class="hs-line" viewBox="0 0 320 120" preserveAspectRatio="none"><defs><linearGradient id="hsFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#71EECE" stop-opacity=".45"/><stop offset="1" stop-color="#71EECE" stop-opacity="0"/></linearGradient></defs><path class="hs-area" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10 L320 120 L0 120Z" fill="url(#hsFill)"/><path class="hs-stroke" d="M0 96 C30 90 46 70 74 74 S120 92 148 66 S196 30 226 42 S282 18 320 10" fill="none" stroke="#0E8F6E" stroke-width="2.2" pathLength="1"/></svg>
+                                        <div class="hs-bars"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:71%"></i><i style="--h:66%"></i><i style="--h:84%"></i><i style="--h:77%"></i><i style="--h:92%"></i><i style="--h:88%"></i><i style="--h:97%"></i></div>
+                                    </div>
+                                    <div class="hs-table"><div class="hs-row"><span class="hs-av" style="--hue:160"></span><span>Kedai Runcit Ali</span><span class="hs-tag is-paid">Paid</span><span class="hs-num">RM 2,480</span></div><div class="hs-row"><span class="hs-av" style="--hue:30"></span><span>Mutiara Logistics</span><span class="hs-tag is-ship">Shipped</span><span class="hs-num">RM 12,900</span></div><div class="hs-row"><span class="hs-av" style="--hue:200"></span><span>Bloom Clinic</span><span class="hs-tag is-new">New</span><span class="hs-num">RM 860</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hs-phone" data-depth="1.1"><picture><source type="image/webp" srcset="images/cadence-today-440.webp 440w"><img src="images/cadence-today-440.webp" width="440" height="593" alt="" decoding="async"></picture></div>
+                        <div class="hs-game" data-depth="0.8"><picture><source type="image/webp" srcset="images/titan-legends-feature-440.webp 440w, images/titan-legends-feature-880.webp 880w" sizes="260px"><img src="images/titan-legends-feature-880.webp" width="1600" height="900" alt="" decoding="async"></picture><span>Titan Legends · Unity</span></div>
+                        <div class="hs-chip hs-chip-api" data-depth="1.4"><span class="m">POST</span>/api/orders <span class="ok">201</span><span class="ms">38ms</span></div>
+                        <div class="hs-chip hs-chip-deploy" data-depth="1.6"><span class="tick"></span>Deployed to production</div>
+                        <div class="hs-chip hs-chip-ai" data-depth="1.2"><span class="spark"></span>Chatbot replied in 1.2s</div>
+                    </div>
+                </div>
+                <div class="marquee" aria-label="Our everyday stack">
+                    <p class="marquee-label">Our everyday stack</p>
+                    <div class="marquee-track"><ul><li><img src="images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul><ul aria-hidden="true"><li><img src="images/tech-icons/react.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>React Native</span></li><li><img src="images/tech-icons/nextjs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Next.js</span></li><li><img src="images/tech-icons/flutter.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Flutter</span></li><li><img src="images/tech-icons/swift.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Swift</span></li><li><img src="images/tech-icons/kotlin.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kotlin</span></li><li><img src="images/tech-icons/nodejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Node.js</span></li><li><img src="images/tech-icons/laravel.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Laravel</span></li><li><img src="images/tech-icons/typescript.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TypeScript</span></li><li><img src="images/tech-icons/postgresql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PostgreSQL</span></li><li><img src="images/tech-icons/mongodb.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>MongoDB</span></li><li><img src="images/tech-icons/redis.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Redis</span></li><li><img src="images/tech-icons/aws.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>AWS</span></li><li><img src="images/tech-icons/alibaba-cloud.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Alibaba Cloud</span></li><li><img src="images/tech-icons/docker.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Docker</span></li><li><img src="images/tech-icons/kubernetes.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Kubernetes</span></li><li><img src="images/tech-icons/openai.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img src="images/tech-icons/tensorflow.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>TensorFlow</span></li><li><img src="images/tech-icons/pytorch.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>PyTorch</span></li><li><img src="images/tech-icons/odoo.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Odoo</span></li><li><img src="images/tech-icons/stripe.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Stripe</span></li><li><img src="images/tech-icons/ethereum.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Ethereum</span></li><li><img src="images/tech-icons/solidity.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Solidity</span></li><li><img src="images/tech-icons/graphql.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GraphQL</span></li><li><img src="images/tech-icons/firebase.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Firebase</span></li><li><img src="images/tech-icons/tailwindcss.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Tailwind</span></li><li><img src="images/tech-icons/github-actions.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>GitHub Actions</span></li><li><img src="images/tech-icons/vuejs.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>Vue</span></li><li><img src="images/tech-icons/sap.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>SAP</span></li></ul></div>
                 </div>
             </div>
-            <div class="home-block work-section" id="work">
+
+            <div class="home-block stats-band">
+                <div class="container">
+                    <dl class="stats" data-reveal-group><div class="stat" data-reveal><dt>projects delivered</dt><dd><span data-count="150">150</span>+</dd></div><div class="stat" data-reveal><dt>people use Yippi, which we built</dt><dd><span data-count="5">5</span>M+</dd></div><div class="stat" data-reveal><dt>industries served</dt><dd><span data-count="10">10</span>+</dd></div><div class="stat" data-reveal><dt>kinds of software we build</dt><dd><span data-count="12">12</span></dd></div></dl>
+                </div>
+            </div>
+
+            <div class="home-block caps-section" id="capabilities">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">Work</p>
-                        <h2 data-split>Selected work</h2>
-                        <p class="block-intro" data-reveal>Our own products first. They show how we build when nobody else is writing the brief. Client platforms follow.</p>
+                        <p class="block-kicker"><span class="kd"></span>Capabilities</p>
+                        <h2 data-split>One team for the whole build.</h2>
+                        <p class="block-intro" data-reveal>Designers, engineers and DevOps under one roof. Each service has its own page with scope, timelines and starting prices.</p>
                     </header>
-                    <article class="work-row">
-                        <a class="work-media" href="projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/titan-legends-shot-1-440.webp 440w, images/titan-legends-shot-1-880.webp 880w, images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Game &middot; iOS &amp; Android &middot; Coming soon</p>
-                            <h3><a href="projects/titan-legends.html">Titan Legends</a></h3>
-                            <p>A bright 3D kaiju action game for ages 6 and up. Stomp tiny cities, evolve your Titan with skill cards, turn giant and topple huge bosses across 12 lands. Pay once, USD 9.99: no ads and no in-app purchases.</p>
-                            <p class="work-links"><a href="projects/titan-legends.html" class="link-arrow">Read about Titan Legends <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row is-flipped">
-                        <a class="work-media" href="projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/himmapan-bloodlines-feature-440.webp 440w, images/himmapan-bloodlines-feature-880.webp 880w, images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="Himmapan Bloodlines title art with the game&#x27;s heroes" loading="lazy" decoding="async"></picture></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Game &middot; iOS &middot; Coming 2027</p>
-                            <h3><a href="projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
-                            <p>A Thai-mythology card lane-defence game. Thirty young Bangkok heroes carry the blood of Himmapan creatures and turn into giants: Naga, Singha, Krut and more. Free to play, no ads, nothing random for sale.</p>
-                            <p class="work-links"><a href="projects/himmapan-bloodlines.html" class="link-arrow">Read about Himmapan Bloodlines <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
-                    <article class="work-row">
-                        <a class="work-media is-cadence" href="projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/avif" srcset="images/cadence-shot-mosaic-440.avif 440w, images/cadence-shot-mosaic-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="images/cadence-shot-mosaic-440.webp 440w, images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence weekly progress screen" loading="lazy" decoding="async"></picture><picture><source type="image/avif" srcset="images/cadence-shot-forgiving-440.avif 440w, images/cadence-shot-forgiving-880.avif 880w" sizes="(min-width: 1024px) 16vw, 38vw"><source type="image/webp" srcset="images/cadence-shot-forgiving-440.webp 440w, images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 16vw, 38vw"><img src="images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence screen: a missed day that keeps the streak" loading="lazy" decoding="async"></picture></span></a>
-                        <div class="work-text" data-reveal>
-                            <p class="work-meta">Habit tracker &middot; Android &amp; iOS &middot; Live on Google Play</p>
-                            <h3><a href="projects/cadence.html">Cadence</a></h3>
-                            <p>A habit tracker built on weekly goals instead of daily streaks, so missing a day does not wipe your progress. Works fully offline. Pro is a one-time purchase, not a subscription.</p>
-                            <p class="work-links"><a href="projects/cadence.html" class="link-arrow">Read about Cadence <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">Get it on Google Play <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-                        </div>
-                    </article>
+                    <ul class="caps" data-reveal-group>
+                        <li class="cap cap-xl" data-reveal><a href="services/mobile-web-app-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-web-mobile-400.avif 400w, images/services/service-web-mobile-800.avif 800w, images/services/service-web-mobile-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="images/services/service-web-mobile-400.webp 400w, images/services/service-web-mobile-800.webp 800w, images/services/service-web-mobile-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/services/service-web-mobile-800.webp" width="1536" height="1024" alt="Phone and tablet shapes with app cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">01</span><span class="cap-price">from RM15k</span></span>
+                                <span class="cap-name">Mobile &amp; Web Apps</span>
+                                <span class="cap-desc">iOS, Android and web apps, with the backend, payments and real-time features behind them.</span>
+                                <ul class="cap-chips"><li>Flutter</li><li>React Native</li><li>Next.js</li><li>Swift</li><li>Kotlin</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/erp-crm-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-erp-crm-400.avif 400w, images/services/service-erp-crm-800.avif 800w, images/services/service-erp-crm-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="images/services/service-erp-crm-400.webp 400w, images/services/service-erp-crm-800.webp 800w, images/services/service-erp-crm-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="images/services/service-erp-crm-800.webp" width="1536" height="1024" alt="Modular cabinet of drawers" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">02</span><span class="cap-price">from RM40k</span></span>
+                                <span class="cap-name">ERP &amp; CRM</span>
+                                <span class="cap-desc">Systems shaped around how your company already works, with reporting built in.</span>
+                                <ul class="cap-chips"><li>Laravel</li><li>Node.js</li><li>PostgreSQL</li><li>Power BI</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-lg" data-reveal><a href="services/ai-automation-chatbot.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-ai-chatbot-400.avif 400w, images/services/service-ai-chatbot-800.avif 800w, images/services/service-ai-chatbot-1200.avif 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><source type="image/webp" srcset="images/services/service-ai-chatbot-400.webp 400w, images/services/service-ai-chatbot-800.webp 800w, images/services/service-ai-chatbot-1200.webp 1200w" sizes="(min-width: 1024px) 42vw, 92vw"><img src="images/services/service-ai-chatbot-800.webp" width="1536" height="1024" alt="Robotic arm sorting cards into stacks" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">03</span><span class="cap-price">from RM20k</span></span>
+                                <span class="cap-name">AI Automation &amp; Chatbots</span>
+                                <span class="cap-desc">Chatbots and automations that take repetitive work off your team.</span>
+                                <ul class="cap-chips"><li>OpenAI</li><li>Dialogflow</li><li>Python</li><li>WhatsApp API</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-xl" data-reveal><a href="services/ar-vr-metaverse-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-ar-vr-400.avif 400w, images/services/service-ar-vr-800.avif 800w, images/services/service-ar-vr-1200.avif 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><source type="image/webp" srcset="images/services/service-ar-vr-400.webp 400w, images/services/service-ar-vr-800.webp 800w, images/services/service-ar-vr-1200.webp 1200w" sizes="(min-width: 1024px) 58vw, 92vw"><img src="images/services/service-ar-vr-800.webp" width="1536" height="1024" alt="VR headset, game controller and toy figure" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">04</span><span class="cap-price">from RM40k</span></span>
+                                <span class="cap-name">Games, AR &amp; VR</span>
+                                <span class="cap-desc">Unity games, AR and virtual spaces. We ship our own titles too.</span>
+                                <ul class="cap-chips"><li>Unity</li><li>C#</li><li>AR</li><li>VR</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/cloud-infrastructure-devops.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-cloud-400.avif 400w, images/services/service-cloud-800.avif 800w, images/services/service-cloud-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-cloud-400.webp 400w, images/services/service-cloud-800.webp 800w, images/services/service-cloud-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-cloud-800.webp" width="1536" height="1024" alt="Stacked modular server units" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">05</span><span class="cap-price">from RM15k</span></span>
+                                <span class="cap-name">Cloud &amp; DevOps</span>
+                                <span class="cap-desc">Hosting, CDN, monitoring and deploys that stay up.</span>
+                                <ul class="cap-chips"><li>AWS</li><li>Alibaba Cloud</li><li>Docker</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/api-integration-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-api-400.avif 400w, images/services/service-api-800.avif 800w, images/services/service-api-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-api-400.webp 400w, images/services/service-api-800.webp 800w, images/services/service-api-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-api-800.webp" width="1536" height="1024" alt="Connectors snapping together" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">06</span><span class="cap-price">from RM10k</span></span>
+                                <span class="cap-name">APIs &amp; Integrations</span>
+                                <span class="cap-desc">Payment gateways, SMS, ERPs and anything with an API.</span>
+                                <ul class="cap-chips"><li>REST</li><li>GraphQL</li><li>Webhooks</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/blockchain-web3-solutions.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-blockchain-400.avif 400w, images/services/service-blockchain-800.avif 800w, images/services/service-blockchain-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-blockchain-400.webp 400w, images/services/service-blockchain-800.webp 800w, images/services/service-blockchain-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-blockchain-800.webp" width="1536" height="1024" alt="Chain of glass cubes" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">07</span><span class="cap-price">from RM50k</span></span>
+                                <span class="cap-name">Blockchain &amp; Web3</span>
+                                <span class="cap-desc">Smart contracts, NFT launchpads and Web3 apps.</span>
+                                <ul class="cap-chips"><li>Solidity</li><li>Hardhat</li><li>Web3.js</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-md" data-reveal><a href="services/product-design-ux.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-ux-400.avif 400w, images/services/service-ux-800.avif 800w, images/services/service-ux-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-ux-400.webp 400w, images/services/service-ux-800.webp 800w, images/services/service-ux-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-ux-800.webp" width="1536" height="1024" alt="Colour swatches, ruler and wireframe cards" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">08</span><span class="cap-price">from RM10k</span></span>
+                                <span class="cap-name">Product Design &amp; UX</span>
+                                <span class="cap-desc">Research, interface design and design systems.</span>
+                                <ul class="cap-chips"><li>Figma</li><li>Prototypes</li><li>Design systems</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/odoo-customisation.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-odoo-400.avif 400w, images/services/service-odoo-800.avif 800w, images/services/service-odoo-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-odoo-400.webp 400w, images/services/service-odoo-800.webp 800w, images/services/service-odoo-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-odoo-800.webp" width="1536" height="1024" alt="Board of app tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">09</span><span class="cap-price">from RM20k</span></span>
+                                <span class="cap-name">Odoo Customisation</span>
+                                <span class="cap-desc">Custom modules, workflows and integrations.</span>
+                                <ul class="cap-chips"><li>Odoo</li><li>Python</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/pos-inventory-management.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-pos-400.avif 400w, images/services/service-pos-800.avif 800w, images/services/service-pos-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-pos-400.webp 400w, images/services/service-pos-800.webp 800w, images/services/service-pos-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-pos-800.webp" width="1536" height="1024" alt="Card payment terminal and receipt" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">10</span><span class="cap-price">from RM25k</span></span>
+                                <span class="cap-name">POS &amp; Inventory</span>
+                                <span class="cap-desc">Point of sale and stock for one shop or many.</span>
+                                <ul class="cap-chips"><li>Multi-outlet</li><li>Barcode</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/booking-system-development.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-booking-400.avif 400w, images/services/service-booking-800.avif 800w, images/services/service-booking-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-booking-400.webp 400w, images/services/service-booking-800.webp 800w, images/services/service-booking-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-booking-800.webp" width="1536" height="1024" alt="Calendar made of tiles" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">11</span><span class="cap-price">from RM18k</span></span>
+                                <span class="cap-name">Booking Systems</span>
+                                <span class="cap-desc">Appointments, classes and rooms, with payments.</span>
+                                <ul class="cap-chips"><li>Calendars</li><li>Payments</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                        <li class="cap cap-sm" data-reveal><a href="services/loan-management-system.html">
+                            <span class="cap-media"><picture><source type="image/avif" srcset="images/services/service-loan-400.avif 400w, images/services/service-loan-800.avif 800w, images/services/service-loan-1200.avif 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><source type="image/webp" srcset="images/services/service-loan-400.webp 400w, images/services/service-loan-800.webp 800w, images/services/service-loan-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"><img src="images/services/service-loan-800.webp" width="1536" height="1024" alt="Coins, folder and balance scale" loading="lazy" decoding="async"></picture></span>
+                            <span class="cap-body">
+                                <span class="cap-top"><span class="cap-num">12</span><span class="cap-price">from RM60k</span></span>
+                                <span class="cap-name">Loan Management</span>
+                                <span class="cap-desc">Applications, credit checks, approvals and repayments.</span>
+                                <ul class="cap-chips"><li>Credit scoring</li><li>Workflows</li></ul>
+                            </span>
+                            <span class="cap-go"><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-block work-section is-dark" id="work">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>Selected work</p>
+                        <h2 data-split>Shipped, live and in people's hands.</h2>
+                        <p class="block-intro" data-reveal>Our own products show how we build when nobody else writes the brief. Client platforms follow.</p>
+                    </header>
+                    <div class="work-grid">
+                        <article class="work-card wc-wide" data-reveal>
+                            <a class="work-media" href="projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/titan-legends-shot-1-440.webp 440w, images/titan-legends-shot-1-880.webp 880w, images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 80vw, 92vw"><img src="images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">Game · iOS &amp; Android · Coming soon</p>
+                                <h3><a href="projects/titan-legends.html">Titan Legends</a></h3>
+                                <p>A bright 3D kaiju action game for ages 6 and up. Stomp tiny cities, evolve your Titan with skill cards and topple huge bosses across 12 lands. Pay once, no ads, no in-app purchases.</p>
+                                <p class="work-links"><a href="projects/titan-legends.html" class="link-arrow">Read the case study <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media" href="projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="images/himmapan-bloodlines-feature-440.webp 440w, images/himmapan-bloodlines-feature-880.webp 880w, images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="images/himmapan-bloodlines-feature-880.webp" width="1600" height="900" alt="Himmapan Bloodlines title art with the game&#x27;s heroes" loading="lazy" decoding="async"></picture></a>
+                            <div class="work-text">
+                                <p class="work-meta">Game · iOS · Coming 2027</p>
+                                <h3><a href="projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
+                                <p>A Thai-mythology card lane-defence game. Thirty young Bangkok heroes carry the blood of Himmapan creatures and turn into giants.</p>
+                                <p class="work-links"><a href="projects/himmapan-bloodlines.html" class="link-arrow">Read the case study <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                        <article class="work-card" data-reveal>
+                            <a class="work-media is-cadence" href="projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/webp" srcset="images/cadence-shot-mosaic-440.webp 440w, images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="Cadence weekly progress screen" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="images/cadence-shot-forgiving-440.webp 440w, images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="Cadence screen: a missed day that keeps the streak" loading="lazy" decoding="async"></picture></span></a>
+                            <div class="work-text">
+                                <p class="work-meta">Habit tracker · Live on Google Play</p>
+                                <h3><a href="projects/cadence.html">Cadence</a></h3>
+                                <p>Weekly goals instead of daily streaks, so a missed day never wipes your progress. Fully offline.</p>
+                                <p class="work-links"><a href="projects/cadence.html" class="link-arrow">Read the case study <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">Get it on Google Play <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+                            </div>
+                        </article>
+                    </div>
                     <div class="client-list">
                         <h3 class="client-head" data-reveal>Client platforms</h3>
-                        <ul>
-                            <li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">Social super app used by 5M+ people: live streaming, content feed, rewards and a cross-border CDN.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">Driver-for-hire platform with live GPS tracking, payments and multi-city fleet operations.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                            <li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 Social-Fi platform: NFT launchpad, multi-chain smart contracts and gasless transactions. Endorsed by the Malaysia Tourism Board.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        </ul>
+                        <ul data-reveal-group><li data-reveal><a href="projects/yippi.html"><span class="cl-name">Yippi</span><span class="cl-desc">Social super app used by 5M+ people: live streaming, content feed, rewards and a cross-border CDN.</span><span class="cl-tags">Mobile · Cloud · Real-time</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/dddrive.html"><span class="cl-name">DDDrive</span><span class="cl-desc">Driver-for-hire platform with live GPS tracking, payments and multi-city fleet operations.</span><span class="cl-tags">Mobile · Maps · Payments</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li data-reveal><a href="projects/colorverse.html"><span class="cl-name">Colorverse</span><span class="cl-desc">Web3 Social-Fi platform: NFT launchpad, multi-chain smart contracts and gasless transactions.</span><span class="cl-tags">Web3 · Smart contracts</span><svg class="arr arr-ur" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul>
                         <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">All solution types we have delivered <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="products.html" class="link-arrow">Our products <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
                     </div>
                 </div>
             </div>
-            <div class="home-block paper-band">
-                <div class="container">
-                    <header class="block-head">
-                        <p class="block-kicker">Services</p>
-                        <h2 data-split>What we build</h2>
-                        <p class="block-intro" data-reveal>Twelve kinds of work we do often. Each has its own page with scope, typical timelines and starting prices.</p>
-                    </header>
-                    <ol class="svc-index" data-reveal-group>
-                        <li data-reveal><a href="services/mobile-web-app-development.html"><span class="si-num">01</span><span class="si-name">Mobile & Web Apps</span><span class="si-desc">Apps for iOS, Android and the web, with the backend behind them.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/erp-crm-development.html"><span class="si-num">02</span><span class="si-name">ERP & CRM</span><span class="si-desc">Systems shaped around how your company already works.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ai-automation-chatbot.html"><span class="si-num">03</span><span class="si-name">AI Automation & Chatbots</span><span class="si-desc">Chatbots and automation that take repetitive work off your team.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/odoo-customisation.html"><span class="si-num">04</span><span class="si-name">Odoo Customisation</span><span class="si-desc">Custom modules, workflows and integrations on Odoo.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/pos-inventory-management.html"><span class="si-num">05</span><span class="si-name">POS & Inventory</span><span class="si-desc">Point of sale and stock for one shop or many.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/booking-system-development.html"><span class="si-num">06</span><span class="si-name">Booking Systems</span><span class="si-desc">Appointments, classes, rooms and resources, with payments.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/loan-management-system.html"><span class="si-num">07</span><span class="si-name">Loan Management</span><span class="si-desc">Applications, credit checks, approvals and repayments.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/api-integration-development.html"><span class="si-num">08</span><span class="si-name">APIs & Integrations</span><span class="si-desc">Payment gateways, SMS, ERPs and anything else with an API.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/blockchain-web3-solutions.html"><span class="si-num">09</span><span class="si-name">Blockchain & Web3</span><span class="si-desc">Smart contracts, NFT launchpads and Web3 apps.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/ar-vr-metaverse-development.html"><span class="si-num">10</span><span class="si-name">Games, AR & VR</span><span class="si-desc">Unity games, AR and virtual spaces.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/cloud-infrastructure-devops.html"><span class="si-num">11</span><span class="si-name">Cloud & DevOps</span><span class="si-desc">Hosting, CDN, monitoring and deployments that stay up.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                        <li data-reveal><a href="services/product-design-ux.html"><span class="si-num">12</span><span class="si-name">Product Design & UX</span><span class="si-desc">Research, interface design and design systems.</span><svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                    </ol>
-                </div>
-            </div>
+
             <div class="home-block how-section">
                 <div class="container">
                     <header class="block-head">
-                        <p class="block-kicker">Process</p>
-                        <h2 data-split>How a project runs</h2>
+                        <p class="block-kicker"><span class="kd"></span>Process</p>
+                        <h2 data-split>How a project runs.</h2>
+                        <p class="block-intro" data-reveal>Clear steps, a fixed price and working software early. No surprises at the end.</p>
                     </header>
-                    <ol class="how-list" data-reveal-group>
-                        <li class="how-item" data-reveal><span class="how-num">01</span><h3>A call, then a fixed quote.</h3><p>We start with a discovery call, then send a fixed-scope quote. Typical bands: RM15k&ndash;40k for an MVP, RM40k&ndash;150k for a business system, RM150k+ for an enterprise platform.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">02</span><h3>Working software early.</h3><p>Most MVPs take 6&ndash;12 weeks. Full ERP, HRMS or loan systems usually take 3&ndash;6 months, depending on integrations and compliance.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">03</span><h3>You own the code.</h3><p>You own 100% of the source code and data. We sign NDAs and can deploy to your AWS, Alibaba Cloud or on-premise servers.</p></li>
-                        <li class="how-item" data-reveal><span class="how-num">04</span><h3>We stay after launch.</h3><p>Every project has a warranty period, then optional monthly support: fixes, security patches, server monitoring and new features.</p></li>
-                    </ol>
-                    <div class="stack-line" data-reveal><h3>Tools we reach for most</h3><p>React &middot; Next.js &middot; Flutter &middot; React Native &middot; Node.js &middot; Laravel &middot; Python &middot; Odoo &middot; PostgreSQL &middot; Redis &middot; AWS &middot; Alibaba Cloud &middot; Docker &middot; Unity</p></div>
+                    <div class="how-track"><span class="how-line" data-progress-line></span></div>
+                    <ol class="how-list" data-reveal-group><li class="how-item" data-reveal><span class="how-num">01</span><h3>A call, then a fixed quote.</h3><p>A discovery call, then a fixed-scope quote. Typical bands: RM15k&ndash;40k for an MVP, RM40k&ndash;150k for a business system, RM150k+ for an enterprise platform.</p></li><li class="how-item" data-reveal><span class="how-num">02</span><h3>Design and build in sprints.</h3><p>Designers and engineers work together. Most MVPs take 6&ndash;12 weeks; full ERP, HRMS or loan systems usually 3&ndash;6 months.</p></li><li class="how-item" data-reveal><span class="how-num">03</span><h3>You own the code.</h3><p>You own 100% of the source code and data. We sign NDAs and deploy to your AWS, Alibaba Cloud or on-premise servers.</p></li><li class="how-item" data-reveal><span class="how-num">04</span><h3>We stay after launch.</h3><p>A warranty period, then optional monthly support: fixes, security patches, monitoring and new features.</p></li></ol>
                 </div>
             </div>
+
+            <div class="home-block stack-section">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>Technology</p>
+                        <h2 data-split>The right tool for each job.</h2>
+                        <p class="block-intro" data-reveal>We are not tied to one framework. These are the tools our team ships with every week.</p>
+                    </header>
+                    <div class="stack-grid" data-reveal-group>
+                        <div class="stack-row" data-reveal><h3>Web</h3><ul><li><img src="images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React</li><li><img src="images/tech-icons/nextjs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Next.js</li><li><img src="images/tech-icons/vuejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Vue</li><li><img src="images/tech-icons/typescript.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TypeScript</li><li><img src="images/tech-icons/tailwindcss.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Tailwind</li><li><img src="images/tech-icons/html5.svg" width="22" height="22" alt="" loading="lazy" decoding="async">HTML5</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Mobile</h3><ul><li><img src="images/tech-icons/flutter.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Flutter</li><li><img src="images/tech-icons/react.svg" width="22" height="22" alt="" loading="lazy" decoding="async">React Native</li><li><img src="images/tech-icons/swift.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Swift</li><li><img src="images/tech-icons/kotlin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kotlin</li><li><img src="images/tech-icons/xamarin.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Xamarin</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Backend &amp; APIs</h3><ul><li><img src="images/tech-icons/nodejs.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Node.js</li><li><img src="images/tech-icons/express.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Express</li><li><img src="images/tech-icons/laravel.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Laravel</li><li><img src="images/tech-icons/php.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PHP</li><li><img src="images/tech-icons/graphql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GraphQL</li><li><img src="images/tech-icons/prisma.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Prisma</li><li><img src="images/tech-icons/apollo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Apollo</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Data &amp; analytics</h3><ul><li><img src="images/tech-icons/postgresql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PostgreSQL</li><li><img src="images/tech-icons/mysql.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MySQL</li><li><img src="images/tech-icons/mongodb.svg" width="22" height="22" alt="" loading="lazy" decoding="async">MongoDB</li><li><img src="images/tech-icons/redis.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Redis</li><li><img src="images/tech-icons/firebase.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Firebase</li><li><img src="images/tech-icons/powerbi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Power BI</li><li><img src="images/tech-icons/airflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Airflow</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Cloud &amp; DevOps</h3><ul><li><img src="images/tech-icons/aws.svg" width="22" height="22" alt="" loading="lazy" decoding="async">AWS</li><li><img src="images/tech-icons/alibaba-cloud.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Alibaba Cloud</li><li><img src="images/tech-icons/docker.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Docker</li><li><img src="images/tech-icons/kubernetes.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Kubernetes</li><li><img src="images/tech-icons/nginx.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Nginx</li><li><img src="images/tech-icons/github-actions.svg" width="22" height="22" alt="" loading="lazy" decoding="async">GitHub Actions</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>AI &amp; automation</h3><ul><li><img src="images/tech-icons/openai.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenAI</li><li><img src="images/tech-icons/tensorflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">TensorFlow</li><li><img src="images/tech-icons/pytorch.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PyTorch</li><li><img src="images/tech-icons/spacy.svg" width="22" height="22" alt="" loading="lazy" decoding="async">spaCy</li><li><img src="images/tech-icons/dialogflow.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Dialogflow</li><li><img src="images/tech-icons/zapier.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Zapier</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Blockchain</h3><ul><li><img src="images/tech-icons/ethereum.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Ethereum</li><li><img src="images/tech-icons/solidity.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Solidity</li><li><img src="images/tech-icons/hardhat.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Hardhat</li><li><img src="images/tech-icons/web3js.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Web3.js</li><li><img src="images/tech-icons/opensea.svg" width="22" height="22" alt="" loading="lazy" decoding="async">OpenSea</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Business &amp; payments</h3><ul><li><img src="images/tech-icons/odoo.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Odoo</li><li><img src="images/tech-icons/sap.svg" width="22" height="22" alt="" loading="lazy" decoding="async">SAP</li><li><img src="images/tech-icons/stripe.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Stripe</li><li><img src="images/tech-icons/paypal.svg" width="22" height="22" alt="" loading="lazy" decoding="async">PayPal</li><li><img src="images/tech-icons/square.svg" width="22" height="22" alt="" loading="lazy" decoding="async">Square</li><li><img src="images/tech-icons/rapidapi.svg" width="22" height="22" alt="" loading="lazy" decoding="async">RapidAPI</li></ul></div>
+                        <div class="stack-row" data-reveal><h3>Games &amp; 3D</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="home-block cta-band">
                 <div class="container">
-                    <h2 data-split>Have something that needs building?</h2>
-                    <p data-reveal>Tell us what it should do. We will come back with questions, then a plan and a fixed quote.</p>
-                    <div class="cta-actions" data-reveal>
-                        <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
-                        <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary">freddy.chia@trioncreation.com</a>
-                        <a href="#contact" class="btn btn-text">Use the contact form <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <div class="cta-card">
+                        <div class="cta-copy">
+                            <h2 data-split>Have something that needs building?</h2>
+                            <p data-reveal>Tell us what it should do. We will come back with questions, then a plan and a fixed quote.</p>
+                        </div>
+                        <div class="cta-actions" data-reveal>
+                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
+                            <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary btn-lg">freddy.chia@trioncreation.com</a>
+                            <a href="#contact" class="btn btn-text">Use the contact form <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -646,7 +804,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-web-mobile-400.avif 400w, images/services/service-web-mobile-800.avif 800w, images/services/service-web-mobile-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-web-mobile-400.webp 400w, images/services/service-web-mobile-800.webp 800w, images/services/service-web-mobile-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-web-mobile.jpg" alt="AI Solutions" width="2070" height="1164" loading="lazy" decoding="async">
+                                <img src="images/services/service-web-mobile.jpg" alt="AI Solutions" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -670,7 +828,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-blockchain-400.avif 400w, images/services/service-blockchain-800.avif 800w, images/services/service-blockchain-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-blockchain-400.webp 400w, images/services/service-blockchain-800.webp 800w, images/services/service-blockchain-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-blockchain.jpg" alt="Blockchain and Web3 development" width="2070" height="1380" loading="lazy" decoding="async">
+                                <img src="images/services/service-blockchain.jpg" alt="Blockchain and Web3 development" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -694,7 +852,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-ar-vr-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-ar-vr-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-ar-vr.jpg" alt="AR/VR Development" width="800" height="600" loading="lazy" decoding="async">
+                                <img src="images/services/service-ar-vr.jpg" alt="AR/VR Development" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -718,7 +876,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-enterprise-400.avif 400w, images/services/service-enterprise-800.avif 800w, images/services/service-enterprise-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-enterprise-400.webp 400w, images/services/service-enterprise-800.webp 800w, images/services/service-enterprise-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-enterprise.jpg" alt="Blockchain Development" width="2126" height="1196" loading="lazy" decoding="async">
+                                <img src="images/services/service-enterprise.jpg" alt="Blockchain Development" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -742,7 +900,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-cloud-400.avif 400w, images/services/service-cloud-800.avif 800w, images/services/service-cloud-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-cloud-400.webp 400w, images/services/service-cloud-800.webp 800w, images/services/service-cloud-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-cloud.jpg" alt="Cloud Migration" width="2072" height="1379" loading="lazy" decoding="async">
+                                <img src="images/services/service-cloud.jpg" alt="Cloud Migration" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
         </div>
                         <div class="service-content">
@@ -766,7 +924,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-ux-400.avif 400w, images/services/service-ux-800.avif 800w, images/services/service-ux-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-ux-400.webp 400w, images/services/service-ux-800.webp 800w, images/services/service-ux-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-ux.jpg" alt="CRM Solutions" width="2070" height="1380" loading="lazy" decoding="async">
+                                <img src="images/services/service-ux.jpg" alt="CRM Solutions" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -791,7 +949,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-erp-crm-400.avif 400w, images/services/service-erp-crm-800.avif 800w, images/services/service-erp-crm-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-erp-crm-400.webp 400w, images/services/service-erp-crm-800.webp 800w, images/services/service-erp-crm-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-erp-crm.jpg" alt="ERP CRM Development" width="2070" height="1380" loading="lazy" decoding="async">
+                                <img src="images/services/service-erp-crm.jpg" alt="ERP CRM Development" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -815,7 +973,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-ai-chatbot-400.avif 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-ai-chatbot-400.webp 400w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-ai-chatbot.jpg" alt="AI Automation Chatbot" width="800" height="600" loading="lazy" decoding="async">
+                                <img src="images/services/service-ai-chatbot.jpg" alt="AI Automation Chatbot" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -839,7 +997,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-pos-400.avif 400w, images/services/service-pos-800.avif 800w, images/services/service-pos-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-pos-400.webp 400w, images/services/service-pos-800.webp 800w, images/services/service-pos-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-pos.jpg" alt="POS Inventory System" width="2070" height="1380" loading="lazy" decoding="async">
+                                <img src="images/services/service-pos.jpg" alt="POS Inventory System" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -863,7 +1021,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-booking-400.avif 400w, images/services/service-booking-800.avif 800w, images/services/service-booking-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-booking-400.webp 400w, images/services/service-booking-800.webp 800w, images/services/service-booking-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-booking.jpg" alt="Booking System" width="2070" height="1382" loading="lazy" decoding="async">
+                                <img src="images/services/service-booking.jpg" alt="Booking System" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -887,7 +1045,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-loan-400.avif 400w, images/services/service-loan-800.avif 800w, images/services/service-loan-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-loan-400.webp 400w, images/services/service-loan-800.webp 800w, images/services/service-loan-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-loan.jpg" alt="Loan System" width="2070" height="1380" loading="lazy" decoding="async">
+                                <img src="images/services/service-loan.jpg" alt="Loan System" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -911,7 +1069,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-api-400.avif 400w, images/services/service-api-800.avif 800w, images/services/service-api-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-api-400.webp 400w, images/services/service-api-800.webp 800w, images/services/service-api-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-api.jpg" alt="API Integration" width="2070" height="1162" loading="lazy" decoding="async">
+                                <img src="images/services/service-api.jpg" alt="API Integration" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">
@@ -935,7 +1093,7 @@
                             <picture>
                                 <source type="image/avif" srcset="images/services/service-odoo-400.avif 400w, images/services/service-odoo-800.avif 800w, images/services/service-odoo-1200.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
                                 <source type="image/webp" srcset="images/services/service-odoo-400.webp 400w, images/services/service-odoo-800.webp 800w, images/services/service-odoo-1200.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw">
-                                <img src="images/services/service-odoo.jpg" alt="Odoo Customization" width="2070" height="1164" loading="lazy" decoding="async">
+                                <img src="images/services/service-odoo.jpg" alt="Odoo Customization" width="1536" height="1024" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="service-content">

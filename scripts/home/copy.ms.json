@@ -1,0 +1,251 @@
+{
+  "rotate": [
+    "sistem ERP",
+    "aplikasi mudah alih",
+    "chatbot AI",
+    "POS & inventori",
+    "platform pinjaman",
+    "sistem tempahan",
+    "aplikasi Web3",
+    "permainan 3D"
+  ],
+  "hero": {
+    "pill": "Kami reka dan bina",
+    "title": "Pembangunan perisian tersuai di Malaysia.",
+    "title2": " Dari ERP hingga aplikasi dan permainan.",
+    "lede": "Trion Creation ialah studio reka bentuk dan kejuruteraan di Kuala Lumpur. Sejak 2022 kami telah menyiapkan 150+ projek: sistem yang menggerakkan syarikat, aplikasi yang digunakan berjuta orang, dan permainan kami sendiri.",
+    "cta1": "Mulakan projek",
+    "cta2": "Lihat apa yang kami bina",
+    "trust": "Sebut harga tetap. Anda memiliki 100% kod."
+  },
+  "stage": {
+    "url": "app.yourcompany.com/dashboard",
+    "title": "Ringkasan operasi",
+    "live": "Langsung",
+    "k1": "Hasil bulan ini",
+    "k2": "Pesanan",
+    "k3": "Penghantaran tepat masa",
+    "k3n": "SLA dicapai",
+    "status": {
+      "paid": "Dibayar",
+      "ship": "Dihantar",
+      "new": "Baharu"
+    },
+    "rows": [
+      [
+        "Kedai Runcit Ali",
+        "paid",
+        "RM 2,480",
+        160
+      ],
+      [
+        "Mutiara Logistics",
+        "ship",
+        "RM 12,900",
+        30
+      ],
+      [
+        "Bloom Clinic",
+        "new",
+        "RM 860",
+        200
+      ]
+    ],
+    "deploy": "Deploy ke produksi",
+    "ai": "Chatbot membalas dalam 1.2s"
+  },
+  "marquee": "Teknologi harian kami",
+  "stats": [
+    [
+      150,
+      "+",
+      "projek disiapkan"
+    ],
+    [
+      5,
+      "M+",
+      "orang guna Yippi, yang kami bina"
+    ],
+    [
+      10,
+      "+",
+      "industri"
+    ],
+    [
+      12,
+      "",
+      "jenis perisian yang kami bina"
+    ]
+  ],
+  "caps": {
+    "kicker": "Keupayaan",
+    "title": "Satu pasukan untuk keseluruhan projek.",
+    "intro": "Pereka, jurutera dan DevOps di bawah satu bumbung. Setiap perkhidmatan ada halaman sendiri dengan skop, tempoh dan harga permulaan."
+  },
+  "services": {
+    "mobile": {
+      "name": "Aplikasi Mudah Alih & Web",
+      "desc": "Aplikasi iOS, Android dan web, berserta backend, pembayaran dan ciri masa nyata.",
+      "price": "dari RM15k",
+      "alt": "Phone and tablet shapes with app cards"
+    },
+    "erp": {
+      "name": "ERP & CRM",
+      "desc": "Sistem yang dibentuk mengikut cara syarikat anda bekerja, dengan laporan terbina.",
+      "price": "dari RM40k",
+      "alt": "Modular cabinet of drawers"
+    },
+    "ai": {
+      "name": "Automasi AI & Chatbot",
+      "desc": "Chatbot dan automasi yang mengambil alih kerja berulang.",
+      "price": "dari RM20k",
+      "alt": "Robotic arm sorting cards into stacks"
+    },
+    "games": {
+      "name": "Permainan, AR & VR",
+      "desc": "Permainan Unity, AR dan ruang maya. Kami juga melancarkan permainan sendiri.",
+      "price": "dari RM40k",
+      "alt": "VR headset, game controller and toy figure"
+    },
+    "cloud": {
+      "name": "Cloud & DevOps",
+      "desc": "Hosting, CDN, pemantauan dan deployment yang stabil.",
+      "price": "dari RM15k",
+      "alt": "Stacked modular server units"
+    },
+    "api": {
+      "name": "API & Integrasi",
+      "desc": "Gerbang pembayaran, SMS, ERP dan apa sahaja yang ada API.",
+      "price": "dari RM10k",
+      "alt": "Connectors snapping together"
+    },
+    "web3": {
+      "name": "Blockchain & Web3",
+      "desc": "Kontrak pintar, platform NFT dan aplikasi Web3.",
+      "price": "dari RM50k",
+      "alt": "Chain of glass cubes"
+    },
+    "ux": {
+      "name": "Reka Bentuk Produk & UX",
+      "desc": "Kajian pengguna, reka bentuk antara muka dan sistem reka bentuk.",
+      "price": "dari RM10k",
+      "alt": "Colour swatches, ruler and wireframe cards"
+    },
+    "odoo": {
+      "name": "Penyesuaian Odoo",
+      "desc": "Modul, aliran kerja dan integrasi tersuai.",
+      "price": "dari RM20k",
+      "alt": "Board of app tiles"
+    },
+    "pos": {
+      "name": "POS & Inventori",
+      "desc": "Jualan dan stok untuk satu kedai atau banyak cawangan.",
+      "price": "dari RM25k",
+      "alt": "Card payment terminal and receipt"
+    },
+    "booking": {
+      "name": "Sistem Tempahan",
+      "desc": "Temujanji, kelas dan bilik, dengan pembayaran.",
+      "price": "dari RM18k",
+      "alt": "Calendar made of tiles"
+    },
+    "loan": {
+      "name": "Pengurusan Pinjaman",
+      "desc": "Permohonan, semakan kredit, kelulusan dan bayaran balik.",
+      "price": "dari RM60k",
+      "alt": "Coins, folder and balance scale"
+    }
+  },
+  "work": {
+    "kicker": "Hasil kerja pilihan",
+    "title": "Sudah dilancar, sudah digunakan.",
+    "intro": "Produk kami sendiri menunjukkan cara kami membina apabila tiada orang lain menulis taklimat. Platform pelanggan menyusul.",
+    "titan": {
+      "meta": "Permainan · iOS & Android · Akan datang",
+      "desc": "Permainan aksi kaiju 3D yang ceria untuk umur 6 tahun ke atas. Hancurkan bandar kecil, kembangkan Titan anda dengan kad kemahiran dan tumbangkan bos besar merentasi 12 wilayah. Bayar sekali, tiada iklan, tiada pembelian dalam aplikasi.",
+      "link": "Baca kajian kes",
+      "alt": "Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD"
+    },
+    "himmapan": {
+      "meta": "Permainan · iOS · 2027",
+      "desc": "Permainan kad pertahanan lorong berasaskan mitos Thai. Tiga puluh wira muda Bangkok mewarisi darah makhluk Himmapan dan berubah menjadi gergasi.",
+      "link": "Baca kajian kes",
+      "alt": "Himmapan Bloodlines title art with the game's heroes"
+    },
+    "cadence": {
+      "meta": "Penjejak tabiat · Di Google Play",
+      "desc": "Matlamat mingguan, bukan rentetan harian, jadi terlepas sehari tidak memadam kemajuan anda. Berfungsi sepenuhnya luar talian.",
+      "link": "Baca kajian kes",
+      "play": "Dapatkan di Google Play",
+      "alt1": "Cadence weekly progress screen",
+      "alt2": "Cadence screen: a missed day that keeps the streak"
+    },
+    "clientsHead": "Platform pelanggan",
+    "clients": [
+      [
+        "yippi",
+        "Yippi",
+        "Aplikasi super sosial dengan lebih 5 juta pengguna: siaran langsung, suapan kandungan, ganjaran dan CDN merentas sempadan.",
+        "Mudah alih · Cloud · Masa nyata"
+      ],
+      [
+        "dddrive",
+        "DDDrive",
+        "Platform pemandu sewaan dengan penjejakan GPS langsung, pembayaran dan operasi armada pelbagai bandar.",
+        "Mudah alih · Peta · Pembayaran"
+      ],
+      [
+        "colorverse",
+        "Colorverse",
+        "Platform Social-Fi Web3: pelancar NFT, kontrak pintar pelbagai rantaian dan transaksi tanpa gas.",
+        "Web3 · Kontrak pintar"
+      ]
+    ],
+    "all": "Semua jenis penyelesaian kami",
+    "products": "Produk kami"
+  },
+  "process": {
+    "kicker": "Proses",
+    "title": "Bagaimana projek berjalan.",
+    "intro": "Langkah yang jelas, harga tetap dan perisian berfungsi awal. Tiada kejutan di hujung.",
+    "steps": [
+      [
+        "Panggilan dahulu, kemudian sebut harga tetap.",
+        "Sesi perbincangan, kemudian sebut harga skop tetap. Julat biasa: RM15k&ndash;40k untuk MVP, RM40k&ndash;150k untuk sistem perniagaan, RM150k+ untuk platform perusahaan."
+      ],
+      [
+        "Reka dan bina secara berperingkat.",
+        "Pereka dan jurutera bekerja bersama. Kebanyakan MVP mengambil masa 6&ndash;12 minggu; sistem ERP, HRMS atau pinjaman penuh biasanya 3&ndash;6 bulan."
+      ],
+      [
+        "Kod itu milik anda.",
+        "Anda memiliki 100% kod sumber dan data. Kami menandatangani NDA dan deploy ke AWS, Alibaba Cloud atau pelayan premis anda."
+      ],
+      [
+        "Kami kekal selepas pelancaran.",
+        "Tempoh waranti, kemudian sokongan bulanan pilihan: pembaikan, tampalan keselamatan, pemantauan dan ciri baharu."
+      ]
+    ]
+  },
+  "stack": {
+    "kicker": "Teknologi",
+    "title": "Alat yang tepat untuk setiap kerja.",
+    "intro": "Kami tidak terikat pada satu rangka kerja. Inilah alat yang pasukan kami guna setiap minggu.",
+    "cats": {
+      "web": "Web",
+      "mobile": "Mudah alih",
+      "backend": "Backend & API",
+      "data": "Data & analitik",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI & automasi",
+      "web3": "Blockchain",
+      "business": "Perniagaan & pembayaran",
+      "games": "Permainan & 3D"
+    }
+  },
+  "cta": {
+    "title": "Ada sesuatu yang perlu dibina?",
+    "text": "Beritahu kami apa yang perlu ia lakukan. Kami akan bertanya dahulu, kemudian beri pelan dan sebut harga tetap.",
+    "form": "Guna borang hubungan"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "rotate": ["ERP systems", "mobile apps", "AI chatbots", "POS & inventory", "loan platforms", "booking systems", "Web3 apps", "3D games"],
+  "hero": {
+    "pill": "We design and build",
+    "title": "Custom software development in Malaysia.",
+    "title2": " From ERP to apps and games.",
+    "lede": "Trion Creation is a design and engineering studio in Kuala Lumpur. Since 2022 we have shipped 150+ projects: the systems companies run on, apps used by millions, and games of our own.",
+    "cta1": "Start a project",
+    "cta2": "Explore what we build",
+    "trust": "Fixed quotes. You own 100% of the code."
+  },
+  "stage": {
+    "url": "app.yourcompany.com/dashboard",
+    "title": "Operations overview",
+    "live": "Live",
+    "k1": "Revenue this month",
+    "k2": "Orders",
+    "k3": "On-time delivery",
+    "k3n": "SLA met",
+    "status": {"paid": "Paid", "ship": "Shipped", "new": "New"},
+    "rows": [["Kedai Runcit Ali", "paid", "RM 2,480", 160], ["Mutiara Logistics", "ship", "RM 12,900", 30], ["Bloom Clinic", "new", "RM 860", 200]],
+    "deploy": "Deployed to production",
+    "ai": "Chatbot replied in 1.2s"
+  },
+  "marquee": "Our everyday stack",
+  "stats": [[150, "+", "projects delivered"], [5, "M+", "people use Yippi, which we built"], [10, "+", "industries served"], [12, "", "kinds of software we build"]],
+  "caps": {
+    "kicker": "Capabilities",
+    "title": "One team for the whole build.",
+    "intro": "Designers, engineers and DevOps under one roof. Each service has its own page with scope, timelines and starting prices."
+  },
+  "services": {
+    "mobile": {"name": "Mobile & Web Apps", "desc": "iOS, Android and web apps, with the backend, payments and real-time features behind them.", "price": "from RM15k", "alt": "Phone and tablet shapes with app cards"},
+    "erp": {"name": "ERP & CRM", "desc": "Systems shaped around how your company already works, with reporting built in.", "price": "from RM40k", "alt": "Modular cabinet of drawers"},
+    "ai": {"name": "AI Automation & Chatbots", "desc": "Chatbots and automations that take repetitive work off your team.", "price": "from RM20k", "alt": "Robotic arm sorting cards into stacks"},
+    "games": {"name": "Games, AR & VR", "desc": "Unity games, AR and virtual spaces. We ship our own titles too.", "price": "from RM40k", "alt": "VR headset, game controller and toy figure"},
+    "cloud": {"name": "Cloud & DevOps", "desc": "Hosting, CDN, monitoring and deploys that stay up.", "price": "from RM15k", "alt": "Stacked modular server units"},
+    "api": {"name": "APIs & Integrations", "desc": "Payment gateways, SMS, ERPs and anything with an API.", "price": "from RM10k", "alt": "Connectors snapping together"},
+    "web3": {"name": "Blockchain & Web3", "desc": "Smart contracts, NFT launchpads and Web3 apps.", "price": "from RM50k", "alt": "Chain of glass cubes"},
+    "ux": {"name": "Product Design & UX", "desc": "Research, interface design and design systems.", "price": "from RM10k", "alt": "Colour swatches, ruler and wireframe cards"},
+    "odoo": {"name": "Odoo Customisation", "desc": "Custom modules, workflows and integrations.", "price": "from RM20k", "alt": "Board of app tiles"},
+    "pos": {"name": "POS & Inventory", "desc": "Point of sale and stock for one shop or many.", "price": "from RM25k", "alt": "Card payment terminal and receipt"},
+    "booking": {"name": "Booking Systems", "desc": "Appointments, classes and rooms, with payments.", "price": "from RM18k", "alt": "Calendar made of tiles"},
+    "loan": {"name": "Loan Management", "desc": "Applications, credit checks, approvals and repayments.", "price": "from RM60k", "alt": "Coins, folder and balance scale"}
+  },
+  "work": {
+    "kicker": "Selected work",
+    "title": "Shipped, live and in people's hands.",
+    "intro": "Our own products show how we build when nobody else writes the brief. Client platforms follow.",
+    "titan": {"meta": "Game · iOS & Android · Coming soon", "desc": "A bright 3D kaiju action game for ages 6 and up. Stomp tiny cities, evolve your Titan with skill cards and topple huge bosses across 12 lands. Pay once, no ads, no in-app purchases.", "link": "Read the case study", "alt": "Titan Legends gameplay: a purple kaiju smashing a toy city, with combo counter and HUD"},
+    "himmapan": {"meta": "Game · iOS · Coming 2027", "desc": "A Thai-mythology card lane-defence game. Thirty young Bangkok heroes carry the blood of Himmapan creatures and turn into giants.", "link": "Read the case study", "alt": "Himmapan Bloodlines title art with the game's heroes"},
+    "cadence": {"meta": "Habit tracker · Live on Google Play", "desc": "Weekly goals instead of daily streaks, so a missed day never wipes your progress. Fully offline.", "link": "Read the case study", "play": "Get it on Google Play", "alt1": "Cadence weekly progress screen", "alt2": "Cadence screen: a missed day that keeps the streak"},
+    "clientsHead": "Client platforms",
+    "clients": [
+      ["yippi", "Yippi", "Social super app used by 5M+ people: live streaming, content feed, rewards and a cross-border CDN.", "Mobile · Cloud · Real-time"],
+      ["dddrive", "DDDrive", "Driver-for-hire platform with live GPS tracking, payments and multi-city fleet operations.", "Mobile · Maps · Payments"],
+      ["colorverse", "Colorverse", "Web3 Social-Fi platform: NFT launchpad, multi-chain smart contracts and gasless transactions.", "Web3 · Smart contracts"]
+    ],
+    "all": "All solution types we have delivered",
+    "products": "Our products"
+  },
+  "process": {
+    "kicker": "Process",
+    "title": "How a project runs.",
+    "intro": "Clear steps, a fixed price and working software early. No surprises at the end.",
+    "steps": [
+      ["A call, then a fixed quote.", "A discovery call, then a fixed-scope quote. Typical bands: RM15k&ndash;40k for an MVP, RM40k&ndash;150k for a business system, RM150k+ for an enterprise platform."],
+      ["Design and build in sprints.", "Designers and engineers work together. Most MVPs take 6&ndash;12 weeks; full ERP, HRMS or loan systems usually 3&ndash;6 months."],
+      ["You own the code.", "You own 100% of the source code and data. We sign NDAs and deploy to your AWS, Alibaba Cloud or on-premise servers."],
+      ["We stay after launch.", "A warranty period, then optional monthly support: fixes, security patches, monitoring and new features."]
+    ]
+  },
+  "stack": {
+    "kicker": "Technology",
+    "title": "The right tool for each job.",
+    "intro": "We are not tied to one framework. These are the tools our team ships with every week.",
+    "cats": {"web": "Web", "mobile": "Mobile", "backend": "Backend & APIs", "data": "Data & analytics", "cloud": "Cloud & DevOps", "ai": "AI & automation", "web3": "Blockchain", "business": "Business & payments", "games": "Games & 3D"}
+  },
+  "cta": {
+    "title": "Have something that needs building?",
+    "text": "Tell us what it should do. We will come back with questions, then a plan and a fixed quote.",
+    "form": "Use the contact form"
+  }
+}
