@@ -106,77 +106,133 @@ def hero_stage(A, c):
                     </div>'''
 
 
+# per-service colour: (background, text on it)
+SVC_COLOR = {
+    "mobile": ("#71EECE", "#0E100F"), "erp": ("#FFC24B", "#0E100F"), "ai": ("#C6F45B", "#0E100F"),
+    "games": ("#FF7A59", "#0E100F"), "cloud": ("#2EC4B6", "#0E100F"), "api": ("#FF9F1C", "#0E100F"),
+    "web3": ("#FF8FAB", "#0E100F"), "ux": ("#FFE45C", "#0E100F"), "odoo": ("#F7B2A0", "#0E100F"),
+    "pos": ("#12B886", "#FFFFFF"), "booking": ("#FFB38A", "#0E100F"), "loan": ("#E9D985", "#0E100F"),
+}
+STACK_COLOR = {"web": "#71EECE", "mobile": "#FF7A59", "backend": "#FFC24B", "data": "#2EC4B6", "cloud": "#C6F45B",
+               "ai": "#FF8FAB", "web3": "#FF9F1C", "business": "#12B886", "games": "#FFE45C"}
+
+
 def build(lang):
     c = json.loads((HERE / f"copy.{lang}.json").read_text("utf8"))
     A = ASSET[lang]
     P = A  # own product pages live only at /projects/ (no zh/ms copies)
+    h = c["hero"]
 
     rotate = "|".join(c["rotate"])
+    labels = dict((k, l) for _, items in STACK for k, l in items)
     marquee_items = "".join(
-        f'<li><img src="{A}images/tech-icons/{n}.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>{e(dict((k, l) for _, items in STACK for k, l in items).get(n, n))}</span></li>'
+        f'<li><img src="{A}images/tech-icons/{n}.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><span>{e(labels.get(n, n))}</span></li>'
         for n in MARQUEE)
 
-    stats = "".join(
-        f'<div class="stat" data-reveal><dt>{e(lbl)}</dt><dd><span data-count="{num}">{num}</span>{e(suf)}</dd></div>'
-        for num, suf, lbl in c["stats"])
+    # ── kinetic type rows ──
+    def kin_row(words, cls):
+        cols = ["#71EECE", "#FFC24B", "#FF7A59", "#C6F45B", "#FF8FAB", "#2EC4B6"]
+        out = []
+        for i, w in enumerate(words * 3):
+            style = ["is-fill", "is-outline", "is-pill"][i % 3]
+            out.append(f'<span class="kw {style}" style="--kc:{cols[i % len(cols)]}">{e(w)}</span><span class="ks" aria-hidden="true">✦</span>')
+        return f'<div class="kin-row {cls}"><div class="kin-inner">{"".join(out)}</div></div>'
+    kinetic = kin_row(c["kinetic"][0], "kr-a") + kin_row(c["kinetic"][1], "kr-b")
 
-    caps = []
-    for i, (key, slug, img, size, chips) in enumerate(SERVICES, 1):
+    # ── services: horizontal pinned panels ──
+    panels = []
+    for i, (key, slug, img, _size, chips) in enumerate(SERVICES, 1):
         sc = c["services"][key]
+        bg, fg = SVC_COLOR[key]
         chip_html = "".join(f"<li>{e(x)}</li>" for x in chips)
-        sizes = {"xl": "(min-width: 1024px) 58vw, 92vw", "lg": "(min-width: 1024px) 42vw, 92vw",
-                 "md": "(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw", "sm": "(min-width: 1024px) 25vw, (min-width: 640px) 46vw, 92vw"}[size]
-        caps.append(f'''<li class="cap cap-{size}" data-reveal><a href="services/{slug}.html">
-                            <span class="cap-media">{pic(A, img, sizes, sc["alt"])}</span>
-                            <span class="cap-body">
-                                <span class="cap-top"><span class="cap-num">{i:02d}</span><span class="cap-price">{e(sc["price"])}</span></span>
-                                <span class="cap-name">{e(sc["name"])}</span>
-                                <span class="cap-desc">{e(sc["desc"])}</span>
-                                <ul class="cap-chips">{chip_html}</ul>
-                            </span>
-                            <span class="cap-go">{ARR_UR}</span>
-                        </a></li>''')
-    caps_html = "\n                        ".join(caps)
+        panels.append(f'''<li class="svp" style="--c:{bg};--fg:{fg}"><a href="services/{slug}.html" data-cursor="{a(c["cursor"]["open"])}">
+                                <span class="svp-top"><span class="svp-num">{i:02d}<em>/12</em></span><span class="svp-price">{e(sc["price"])}</span></span>
+                                <span class="svp-media">{pic(A, img, "(min-width: 1024px) 34vw, 80vw", sc["alt"])}</span>
+                                <span class="svp-name">{e(sc["name"])}</span>
+                                <span class="svp-desc">{e(sc["desc"])}</span>
+                                <span class="svp-foot"><ul class="svp-chips">{chip_html}</ul><span class="svp-go">{ARR_UR}</span></span>
+                            </a></li>''')
+    panels_html = "\n                        ".join(panels)
 
+    # ── showcase stats ──
+    stats = "".join(
+        f'<div class="stat" data-reveal style="--sc:{col}"><dt>{e(lbl)}</dt><dd><span data-count="{num}">{num}</span>{e(suf)}</dd></div>'
+        for (num, suf, lbl), col in zip(c["stats"], ["#71EECE", "#FFC24B", "#FF7A59", "#C6F45B"]))
+    sh = c["showcase"]
+    checks = "".join(f'<li><span class="ck" style="--kc:{col}"></span>{e(x)}</li>' for x, col in zip(sh["points"], ["#71EECE", "#FFC24B", "#FF7A59", "#C6F45B"]))
+
+    # ── work: stacked sticky cards ──
     w = c["work"]
-    clients = "".join(
-        f'<li data-reveal><a href="projects/{slug}.html"><span class="cl-name">{e(n)}</span><span class="cl-desc">{e(d)}</span><span class="cl-tags">{e(t)}</span>{ARR_UR}</a></li>'
-        for slug, n, d, t in w["clients"])
+    t = w["titan"]; hb = w["himmapan"]; cd = w["cadence"]
+    def card(i, color, fg, href, title, meta, desc, link, media, extra="", dark=False):
+        return f'''<article class="sc{' sc-dark' if dark else ''}" style="--i:{i};--c:{color};--fg:{fg}">
+                            <div class="sc-text">
+                                <p class="sc-meta">{e(meta)}</p>
+                                <h3><a href="{href}">{e(title)}</a></h3>
+                                <p class="sc-desc">{e(desc)}</p>
+                                <p class="sc-links"><a href="{href}" class="btn btn-ink">{e(link)} {ARR}</a>{extra}</p>
+                            </div>
+                            <a class="sc-media" href="{href}" tabindex="-1" aria-hidden="true" data-cursor="{a(c["cursor"]["view"])}">{media}</a>
+                        </article>'''
+    titan_media = f'<picture><source type="image/webp" srcset="{A}images/titan-legends-shot-1-880.webp 880w, {A}images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="{a(t["alt"])}" loading="lazy" decoding="async"></picture>'
+    himm_media = f'<picture><source type="image/webp" srcset="{A}images/himmapan-bloodlines-feature-880.webp 880w, {A}images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="{a(hb["alt"])}" loading="lazy" decoding="async"></picture>'
+    cad_media = f'<span class="phones"><picture><source type="image/webp" srcset="{A}images/cadence-shot-mosaic-440.webp 440w, {A}images/cadence-shot-mosaic-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="{a(cd["alt1"])}" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="{A}images/cadence-shot-forgiving-440.webp 440w, {A}images/cadence-shot-forgiving-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="{a(cd["alt2"])}" loading="lazy" decoding="async"></picture></span>'
+    play = f'<a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">{e(cd["play"])} {ARR}</a>'
+    cards = [
+        card(0, "#FF7A59", "#0E100F", f"{P}projects/titan-legends.html", "Titan Legends", t["meta"], t["desc"], t["link"], titan_media),
+        card(1, "#FFC24B", "#0E100F", f"{P}projects/himmapan-bloodlines.html", "Himmapan Bloodlines", hb["meta"], hb["desc"], hb["link"], himm_media),
+        card(2, "#12B886", "#FFFFFF", f"{P}projects/cadence.html", "Cadence", cd["meta"], cd["desc"], cd["link"], cad_media, play),
+    ]
+    client_art = {"yippi": ("service-web-mobile", "#71EECE", "#0E100F"), "dddrive": ("service-api", "#C6F45B", "#0E100F"), "colorverse": ("service-blockchain", "#FF8FAB", "#0E100F")}
+    for k, (slug, n, d, tags) in enumerate(w["clients"]):
+        art, col, fg = client_art[slug]
+        cards.append(card(3 + k, col, fg, f"projects/{slug}.html", n, f'{w["clientsHead"]} · {tags}', d, w["clientLink"],
+                          f'<span class="sc-art">{pic(A, art, "(min-width: 1024px) 55vw, 92vw", "")}</span>'))
+    cards_html = "\n                        ".join(cards)
 
+    # ── process ──
     steps = "".join(
-        f'<li class="how-item" data-reveal><span class="how-num">{i:02d}</span><h3>{e(h)}</h3><p>{p}</p></li>'
-        for i, (h, p) in enumerate(c["process"]["steps"], 1))
+        f'<li class="how-item" data-reveal style="--hc:{col}"><span class="how-num">{i:02d}</span><h3>{e(hh)}</h3><p>{p}</p></li>'
+        for i, ((hh, p), col) in enumerate(zip(c["process"]["steps"], ["#71EECE", "#FFC24B", "#FF7A59", "#C6F45B"]), 1))
 
+    # ── estimator ──
+    es = c["estimate"]
+    est_types = "".join(
+        f'<label class="opt"><input type="radio" name="est-type" value="{k}" data-min="{mn}" data-max="{mx}" data-wmin="{wmn}" data-wmax="{wmx}"{" checked" if i == 0 else ""}><span>{e(lbl)}</span></label>'
+        for i, (k, lbl, mn, mx, wmn, wmx) in enumerate(es["types"]))
+    est_plat = "".join(
+        f'<label class="opt"><input type="checkbox" name="est-plat" value="{k}" data-min="{mn}" data-max="{mx}"{" checked" if k == "web" else ""}><span>{e(lbl)}</span></label>'
+        for k, lbl, mn, mx in es["platforms"])
+    est_feat = "".join(
+        f'<label class="opt"><input type="checkbox" name="est-feat" value="{k}" data-min="{mn}" data-max="{mx}" data-weeks="{wk}"><span>{e(lbl)}</span></label>'
+        for k, lbl, mn, mx, wk in es["features"])
+    team = "".join(f'<li style="--tc:{col}"><span>{e(r)}</span><i data-team="{k}"></i></li>'
+                   for (k, r), col in zip(es["team"], ["#71EECE", "#FFC24B", "#FF7A59", "#C6F45B"]))
+
+    # ── stack ──
     stack_rows = []
     for key, items in STACK:
-        chips = "".join(
-            f'<li><img src="{A}images/tech-icons/{ic}.svg" width="22" height="22" alt="" loading="lazy" decoding="async">{e(l)}</li>' if ic
-            else f"<li>{e(l)}</li>" for ic, l in items)
-        if key == "web":
-            pass
-        stack_rows.append(f'<div class="stack-row" data-reveal><h3>{e(c["stack"]["cats"][key])}</h3><ul>{chips}</ul></div>')
-    stack_rows.append(f'<div class="stack-row" data-reveal><h3>{e(c["stack"]["cats"]["games"])}</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>')
+        chips = "".join(f'<li><img src="{A}images/tech-icons/{ic}.svg" width="22" height="22" alt="" loading="lazy" decoding="async">{e(l)}</li>' for ic, l in items)
+        stack_rows.append(f'<div class="stack-row" data-reveal style="--stc:{STACK_COLOR[key]}"><h3><span class="std"></span>{e(c["stack"]["cats"][key])}</h3><ul>{chips}</ul></div>')
+    stack_rows.append(f'<div class="stack-row" data-reveal style="--stc:{STACK_COLOR["games"]}"><h3><span class="std"></span>{e(c["stack"]["cats"]["games"])}</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>')
     stack_html = "\n                        ".join(stack_rows)
 
-    h = c["hero"]
-    t = w["titan"]; hb = w["himmapan"]; cd = w["cadence"]
     cta = c["cta"]
-
     return f'''<section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
-            <div class="hero-section" data-hero-intro>
-                <div class="hero-bg" aria-hidden="true"><span class="hb-grid"></span><span class="hb-orb"></span></div>
-                <div class="container hero-grid">
-                    <div class="hero-copy">
-                        <p class="hero-pill" data-intro><span class="pill-dot"></span>{e(h["pill"])} <span class="rotator" data-rotate="{a(rotate)}">{e(c["rotate"][0])}</span></p>
-                        <h1 class="hero-title" data-intro>{e(h["title"])}<span class="hero-title-2">{e(h["title2"])}</span></h1>
+            <div class="hero-section hero-x" data-hero-intro>
+                <div class="hero-blobs" aria-hidden="true"><i class="hb1"></i><i class="hb2"></i><i class="hb3"></i><i class="hb4"></i></div>
+                <div class="hero-3d" data-hero3d aria-hidden="true"><img class="h3d-fallback" src="{A}images/logo-mark.webp" width="113" height="79" alt=""></div>
+                <div class="container hero-inner">
+                    <p class="hero-pill" data-intro><span class="pill-dot"></span>{e(h["pill"])} <span class="rotator" data-rotate="{a(rotate)}">{e(c["rotate"][0])}</span></p>
+                    <h1 class="hero-title" data-intro>{e(h["title"])}<span class="hero-title-2">{e(h["title2"])}</span></h1>
+                    <div class="hero-foot">
                         <p class="hero-lede" data-intro>{e(h["lede"])}</p>
                         <div class="hero-actions" data-intro>
                             <a href="#contact" class="btn btn-primary btn-lg">{e(h["cta1"])} {ARR}</a>
-                            <a href="#capabilities" class="btn btn-secondary btn-lg">{e(h["cta2"])}</a>
+                            <a href="#estimate" class="btn btn-secondary btn-lg">{e(h["cta2"])}</a>
                         </div>
-                        <p class="hero-trust" data-intro><span class="ht-stars" aria-hidden="true"></span>{e(h["trust"])}</p>
                     </div>
-                    {hero_stage(A, c)}
+                    <p class="hero-scroll" aria-hidden="true"><span class="hs-mouse"><i></i></span>{e(h["scroll"])}</p>
                 </div>
                 <div class="marquee" aria-label="{a(c["marquee"])}">
                     <p class="marquee-label">{e(c["marquee"])}</p>
@@ -184,66 +240,52 @@ def build(lang):
                 </div>
             </div>
 
-            <div class="home-block stats-band">
-                <div class="container">
-                    <dl class="stats" data-reveal-group>{stats}</dl>
-                </div>
-            </div>
+            <div class="kinetic" aria-hidden="true">{kinetic}</div>
 
-            <div class="home-block caps-section" id="capabilities">
-                <div class="container">
-                    <header class="block-head">
-                        <p class="block-kicker"><span class="kd"></span>{e(c["caps"]["kicker"])}</p>
-                        <h2 data-split>{e(c["caps"]["title"])}</h2>
-                        <p class="block-intro" data-reveal>{e(c["caps"]["intro"])}</p>
-                    </header>
-                    <ul class="caps" data-reveal-group>
-                        {caps_html}
+            <div class="svc-x" id="capabilities">
+                <div class="svc-x-pin">
+                    <div class="container svc-x-head">
+                        <div>
+                            <p class="block-kicker"><span class="kd"></span>{e(c["caps"]["kicker"])}</p>
+                            <h2 data-split>{e(c["caps"]["title"])}</h2>
+                        </div>
+                        <div class="svc-x-side">
+                            <p class="block-intro">{e(c["caps"]["intro"])}</p>
+                            <div class="svc-x-meter" aria-hidden="true"><span class="svm-count"><b data-svc-count>01</b> / 12</span><span class="svm-bar"><i data-svc-bar></i></span></div>
+                        </div>
+                    </div>
+                    <ul class="svc-x-track" data-svc-track>
+                        {panels_html}
                     </ul>
                 </div>
             </div>
 
-            <div class="home-block work-section is-dark" id="work">
+            <div class="home-block showcase">
+                <div class="container">
+                    <div class="show-grid">
+                        <div class="show-copy">
+                            <p class="block-kicker"><span class="kd"></span>{e(sh["kicker"])}</p>
+                            <h2 data-split>{e(sh["title"])}</h2>
+                            <p class="block-intro" data-reveal>{e(sh["intro"])}</p>
+                            <ul class="show-points" data-reveal-group>{checks}</ul>
+                        </div>
+                        {hero_stage(A, c)}
+                    </div>
+                    <dl class="stats" data-reveal-group>{stats}</dl>
+                </div>
+            </div>
+
+            <div class="home-block work-stack is-dark" id="work">
                 <div class="container">
                     <header class="block-head">
                         <p class="block-kicker"><span class="kd"></span>{e(w["kicker"])}</p>
                         <h2 data-split>{e(w["title"])}</h2>
                         <p class="block-intro" data-reveal>{e(w["intro"])}</p>
                     </header>
-                    <div class="work-grid">
-                        <article class="work-card wc-wide" data-reveal>
-                            <a class="work-media" href="{P}projects/titan-legends.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="{A}images/titan-legends-shot-1-440.webp 440w, {A}images/titan-legends-shot-1-880.webp 880w, {A}images/titan-legends-shot-1-1600.webp 1600w" sizes="(min-width: 1024px) 80vw, 92vw"><img src="{A}images/titan-legends-shot-1-1600.webp" width="1920" height="1080" alt="{a(t["alt"])}" loading="lazy" decoding="async"></picture></a>
-                            <div class="work-text">
-                                <p class="work-meta">{e(t["meta"])}</p>
-                                <h3><a href="{P}projects/titan-legends.html">Titan Legends</a></h3>
-                                <p>{e(t["desc"])}</p>
-                                <p class="work-links"><a href="{P}projects/titan-legends.html" class="link-arrow">{e(t["link"])} {ARR}</a></p>
-                            </div>
-                        </article>
-                        <article class="work-card" data-reveal>
-                            <a class="work-media" href="{P}projects/himmapan-bloodlines.html" data-img-reveal tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="{A}images/himmapan-bloodlines-feature-440.webp 440w, {A}images/himmapan-bloodlines-feature-880.webp 880w, {A}images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="{A}images/himmapan-bloodlines-feature-880.webp" width="1600" height="900" alt="{a(hb["alt"])}" loading="lazy" decoding="async"></picture></a>
-                            <div class="work-text">
-                                <p class="work-meta">{e(hb["meta"])}</p>
-                                <h3><a href="{P}projects/himmapan-bloodlines.html">Himmapan Bloodlines</a></h3>
-                                <p>{e(hb["desc"])}</p>
-                                <p class="work-links"><a href="{P}projects/himmapan-bloodlines.html" class="link-arrow">{e(hb["link"])} {ARR}</a></p>
-                            </div>
-                        </article>
-                        <article class="work-card" data-reveal>
-                            <a class="work-media is-cadence" href="{P}projects/cadence.html" data-img-reveal tabindex="-1" aria-hidden="true"><span class="phones"><picture><source type="image/webp" srcset="{A}images/cadence-shot-mosaic-440.webp 440w, {A}images/cadence-shot-mosaic-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="{A}images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="{a(cd["alt1"])}" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="{A}images/cadence-shot-forgiving-440.webp 440w, {A}images/cadence-shot-forgiving-880.webp 880w" sizes="(min-width: 1024px) 14vw, 36vw"><img src="{A}images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="{a(cd["alt2"])}" loading="lazy" decoding="async"></picture></span></a>
-                            <div class="work-text">
-                                <p class="work-meta">{e(cd["meta"])}</p>
-                                <h3><a href="{P}projects/cadence.html">Cadence</a></h3>
-                                <p>{e(cd["desc"])}</p>
-                                <p class="work-links"><a href="{P}projects/cadence.html" class="link-arrow">{e(cd["link"])} {ARR}</a><a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="link-arrow" target="_blank" rel="noopener noreferrer">{e(cd["play"])} {ARR}</a></p>
-                            </div>
-                        </article>
+                    <div class="stack-cards">
+                        {cards_html}
                     </div>
-                    <div class="client-list">
-                        <h3 class="client-head" data-reveal>{e(w["clientsHead"])}</h3>
-                        <ul data-reveal-group>{clients}</ul>
-                        <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">{e(w["all"])} {ARR}</a><a href="products.html" class="link-arrow">{e(w["products"])} {ARR}</a></p>
-                    </div>
+                    <p class="work-links" data-reveal><a href="#portfolio" class="link-arrow">{e(w["all"])} {ARR}</a><a href="products.html" class="link-arrow">{e(w["products"])} {ARR}</a></p>
                 </div>
             </div>
 
@@ -256,6 +298,31 @@ def build(lang):
                     </header>
                     <div class="how-track"><span class="how-line" data-progress-line></span></div>
                     <ol class="how-list" data-reveal-group>{steps}</ol>
+                </div>
+            </div>
+
+            <div class="home-block estimator" id="estimate">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>{e(es["kicker"])}</p>
+                        <h2 data-split>{e(es["title"])}</h2>
+                        <p class="block-intro" data-reveal>{e(es["intro"])}</p>
+                    </header>
+                    <form class="est" data-estimator onsubmit="return false" data-msg="{a(es["msg"])}" data-weeks="{a(es["weeksUnit"])}">
+                        <div class="est-form">
+                            <fieldset><legend><span>01</span>{e(es["q1"])}</legend><div class="opts">{est_types}</div></fieldset>
+                            <fieldset><legend><span>02</span>{e(es["q2"])}</legend><div class="opts">{est_plat}</div></fieldset>
+                            <fieldset><legend><span>03</span>{e(es["q3"])}</legend><div class="opts">{est_feat}</div></fieldset>
+                        </div>
+                        <aside class="est-out" aria-live="polite">
+                            <p class="eo-label">{e(es["range"])}</p>
+                            <p class="eo-price"><span data-est-min>RM 15k</span><em>–</em><span data-est-max>RM 60k</span></p>
+                            <p class="eo-weeks"><span data-est-weeks>8–14</span> {e(es["weeksUnit"])}</p>
+                            <ul class="eo-team">{team}</ul>
+                            <a class="btn btn-primary btn-lg eo-cta" data-est-cta href="https://wa.me/60166380495" target="_blank" rel="noopener noreferrer">{e(es["cta"])} {ARR}</a>
+                            <p class="eo-note">{e(es["note"])}</p>
+                        </aside>
+                    </form>
                 </div>
             </div>
 
@@ -275,6 +342,7 @@ def build(lang):
             <div class="home-block cta-band">
                 <div class="container">
                     <div class="cta-card">
+                        <div class="cta-shapes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
                         <div class="cta-copy">
                             <h2 data-split>{e(cta["title"])}</h2>
                             <p data-reveal>{e(cta["text"])}</p>

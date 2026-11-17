@@ -333,7 +333,7 @@ ${JSON.stringify(faqSchema, null, 4)}
     <link rel="manifest" href="${A}manifest.json">
         <meta name="theme-color" content="#FAFAF9">
 </head>
-<body>
+<body class="has-pc" style="--pc:${SVC_HEX[s.slug] || '#71EECE'}">
     ${SKIP_LINK}
     <header class="header">
         <div class="container">
@@ -530,6 +530,15 @@ const SVC_WIRE = {
 /* Service hero artwork (2026-11): one studio-lit 3D still life per service,
    generated as a set so the pages read as one family. Falls back to the
    wireframe if a service has no image. */
+/* Page colours (2026-11): each service and each portfolio category has
+   its own colour, the same one it carries on the home page. */
+const SVC_HEX = {
+  'mobile-web-app-development': '#71EECE', 'erp-crm-development': '#FFC24B', 'ai-automation-chatbot': '#C6F45B',
+  'ar-vr-metaverse-development': '#FF7A59', 'cloud-infrastructure-devops': '#2EC4B6', 'api-integration-development': '#FF9F1C',
+  'blockchain-web3-solutions': '#FF8FAB', 'product-design-ux': '#FFE45C', 'odoo-customisation': '#F7B2A0',
+  'pos-inventory-management': '#4FE0BA', 'booking-system-development': '#FFB38A', 'loan-management-system': '#E9D985',
+};
+const PF_HEX = { mobileweb: '#71EECE', fintech: '#FFC24B', enterprise: '#C6F45B', operations: '#FF8FAB', retail: '#FF7A59' };
 const svcArt = (s, A) => s.image && IMG_MANIFEST[`images/services/${s.image}`]
   ? `<div class="pf-hero-visual has-art" aria-hidden="true" data-parallax="0.05">${picture(`images/services/${s.image}`, A, { alt: '', sizes: '(min-width: 1024px) 44vw, 92vw', fetchpriority: 'high', decoding: 'async' })}</div>`
   : svcWire(s.slug);
@@ -703,7 +712,7 @@ ${JSON.stringify(faqSchema, null, 4)}
         .pf-section { --pf-accent: ${accent}; }
     </style>
 </head>
-<body>
+<body class="has-pc" style="--pc:${PF_HEX[p.category] || '#71EECE'}">
     ${SKIP_LINK}
 
     <header class="header">
@@ -1001,7 +1010,7 @@ ${JSON.stringify(faqSchemaProd, null, 4)}
     <link rel="manifest" href="${A}manifest.json">
         <meta name="theme-color" content="#FAFAF9">
 </head>
-<body>
+<body class="has-pc" style="--pc:#71EECE">
     ${SKIP_LINK}
 
     <header class="header">

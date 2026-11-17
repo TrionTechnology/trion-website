@@ -364,3 +364,69 @@ if (!SW_DISABLED && 'serviceWorker' in navigator) {
         if (e.key === 'Escape') closeAll(null);
     });
 })();
+
+/* ═══ Project estimator (home page) ═══
+   Ballpark only: a base range per project type, plus platforms and
+   features on top. Numbers live in the markup (data-*), from
+   scripts/home/copy.*.json, so they are edited in one place. */
+(function () {
+    'use strict';
+    var form = document.querySelector('[data-estimator]');
+    if (!form) return;
+    var outMin = form.querySelector('[data-est-min]'), outMax = form.querySelector('[data-est-max]');
+    var outWeeks = form.querySelector('[data-est-weeks]'), cta = form.querySelector('[data-est-cta]');
+    var bars = {}; form.querySelectorAll('[data-team]').forEach(function (b) { bars[b.getAttribute('data-team')] = b; });
+    var shown = { min: 0, max: 0 }, raf = 0;
+    var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function k(n) { return n >= 1000000 ? 'RM ' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M' : 'RM ' + Math.round(n / 1000) + 'k'; }
+    function num(el, a) { return parseFloat(el.getAttribute(a)) || 0; }
+
+    function calc() {
+        var type = form.querySelector('input[name=est-type]:checked');
+        var min = num(type, 'data-min'), max = num(type, 'data-max');
+        var wmin = num(type, 'data-wmin'), wmax = num(type, 'data-wmax');
+        var plats = form.querySelectorAll('input[name=est-plat]:checked');
+        var feats = form.querySelectorAll('input[name=est-feat]:checked');
+        plats.forEach(function (p) { min += num(p, 'data-min'); max += num(p, 'data-max'); });
+        var extraW = 0;
+        feats.forEach(function (f) { min += num(f, 'data-min'); max += num(f, 'data-max'); extraW += num(f, 'data-weeks'); });
+        if (plats.length > 2) { wmin += 2; wmax += 3; }
+        wmin += Math.round(extraW * 0.6); wmax += extraW;
+        min = Math.round(min / 1000) * 1000; max = Math.round(max / 1000) * 1000;
+
+        var t = type.value, fset = {};
+        feats.forEach(function (f) { fset[f.value] = 1; });
+        var mobile = form.querySelector('input[value=ios]:checked') || form.querySelector('input[value=android]:checked');
+        var team = {
+            design: t === 'game' ? 0.95 : 0.55,
+            fe: (mobile ? 0.8 : 0.55) + (t === 'game' ? 0.15 : 0),
+            be: t === 'biz' || t === 'ent' ? 0.95 : 0.6 + (fset.int ? 0.2 : 0) + (fset.rt ? 0.1 : 0),
+            qa: t === 'ent' ? 0.9 : 0.4 + plats.length * 0.1
+        };
+        Object.keys(bars).forEach(function (key) { bars[key].style.transform = 'scaleX(' + Math.min(1, team[key] || 0.3) + ')'; });
+        outWeeks.textContent = wmin + '–' + wmax;
+
+        var label = type.parentNode.textContent.trim();
+        var pl = Array.prototype.map.call(plats, function (p) { return p.parentNode.textContent.trim(); }).join(', ');
+        var fl = Array.prototype.map.call(feats, function (f) { return f.parentNode.textContent.trim(); }).join(', ');
+        var msg = form.getAttribute('data-msg') + '\n- ' + label + (pl ? '\n- ' + pl : '') + (fl ? '\n- ' + fl : '') +
+            '\n- ' + k(min) + ' – ' + k(max) + ', ' + wmin + '–' + wmax + ' ' + form.getAttribute('data-weeks');
+        cta.href = 'https://wa.me/60166380495?text=' + encodeURIComponent(msg);
+        animateTo(min, max);
+    }
+
+    /* the numbers roll to their new value rather than jump */
+    function animateTo(min, max) {
+        if (reduced) { outMin.textContent = k(min); outMax.textContent = k(max); shown = { min: min, max: max }; return; }
+        var from = { min: shown.min, max: shown.max }, start = performance.now();
+        cancelAnimationFrame(raf);
+        (function step(now) {
+            var p = Math.min(1, (now - start) / 700), e = 1 - Math.pow(1 - p, 3);
+            shown.min = from.min + (min - from.min) * e; shown.max = from.max + (max - from.max) * e;
+            outMin.textContent = k(shown.min); outMax.textContent = k(shown.max);
+            if (p < 1) raf = requestAnimationFrame(step);
+        })(start);
+    }
+    form.addEventListener('change', calc);
+    calc();
+})();

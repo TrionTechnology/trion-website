@@ -15,8 +15,9 @@
     "title2": " Dari ERP hingga aplikasi dan permainan.",
     "lede": "Trion Creation ialah studio reka bentuk dan kejuruteraan di Kuala Lumpur. Sejak 2022 kami telah menyiapkan 150+ projek: sistem yang menggerakkan syarikat, aplikasi yang digunakan berjuta orang, dan permainan kami sendiri.",
     "cta1": "Mulakan projek",
-    "cta2": "Lihat apa yang kami bina",
-    "trust": "Sebut harga tetap. Anda memiliki 100% kod."
+    "cta2": "Anggarkan projek anda",
+    "trust": "Sebut harga tetap. Anda memiliki 100% kod.",
+    "scroll": "Tatal"
   },
   "stage": {
     "url": "app.yourcompany.com/dashboard",
@@ -202,7 +203,8 @@
       ]
     ],
     "all": "Semua jenis penyelesaian kami",
-    "products": "Produk kami"
+    "products": "Produk kami",
+    "clientLink": "Baca kajian kes"
   },
   "process": {
     "kicker": "Proses",
@@ -247,5 +249,189 @@
     "title": "Ada sesuatu yang perlu dibina?",
     "text": "Beritahu kami apa yang perlu ia lakukan. Kami akan bertanya dahulu, kemudian beri pelan dan sebut harga tetap.",
     "form": "Guna borang hubungan"
+  },
+  "kinetic": [
+    [
+      "Reka",
+      "Bina",
+      "Lancar",
+      "Kembang"
+    ],
+    [
+      "ERP",
+      "Aplikasi",
+      "Ejen AI",
+      "Permainan",
+      "Cloud",
+      "Web3",
+      "POS",
+      "Tempahan"
+    ]
+  ],
+  "cursor": {
+    "open": "Buka",
+    "view": "Lihat"
+  },
+  "showcase": {
+    "kicker": "Sistem langsung",
+    "title": "Perisian yang pasukan anda guna setiap hari.",
+    "intro": "Papan pemuka, aliran kerja dan aplikasi yang pantas, jelas dan dibina mengikut cara anda bekerja.",
+    "points": [
+      "Data masa nyata, bukan hamparan hujung bulan",
+      "Akses mengikut peranan untuk setiap pasukan",
+      "Berfungsi di desktop, tablet dan telefon",
+      "Dihoskan di cloud anda, dengan pemantauan"
+    ]
+  },
+  "estimate": {
+    "kicker": "Penganggar projek",
+    "title": "Berapa kosnya?",
+    "intro": "Pilih apa yang anda perlukan dan dapatkan anggaran dalam beberapa saat. Ia berdasarkan projek yang telah kami siapkan.",
+    "q1": "Apa yang anda bina?",
+    "q2": "Di mana ia akan berjalan?",
+    "q3": "Apa yang ia perlu buat?",
+    "types": [
+      [
+        "app",
+        "Aplikasi mudah alih",
+        15000,
+        60000,
+        8,
+        14
+      ],
+      [
+        "web",
+        "Platform web",
+        20000,
+        80000,
+        8,
+        16
+      ],
+      [
+        "biz",
+        "Sistem perniagaan (ERP, CRM, POS)",
+        40000,
+        150000,
+        12,
+        24
+      ],
+      [
+        "ai",
+        "Automasi AI atau chatbot",
+        20000,
+        80000,
+        6,
+        12
+      ],
+      [
+        "game",
+        "Permainan, AR atau VR",
+        40000,
+        200000,
+        16,
+        36
+      ],
+      [
+        "ent",
+        "Platform perusahaan",
+        150000,
+        400000,
+        24,
+        48
+      ]
+    ],
+    "platforms": [
+      [
+        "web",
+        "Web",
+        0,
+        0
+      ],
+      [
+        "ios",
+        "iOS",
+        6000,
+        15000
+      ],
+      [
+        "android",
+        "Android",
+        6000,
+        15000
+      ],
+      [
+        "admin",
+        "Panel admin",
+        8000,
+        15000
+      ]
+    ],
+    "features": [
+      [
+        "pay",
+        "Pembayaran dalam talian",
+        6000,
+        12000,
+        1
+      ],
+      [
+        "int",
+        "Integrasi (ERP, SMS, API)",
+        8000,
+        20000,
+        2
+      ],
+      [
+        "ai",
+        "Ciri AI",
+        15000,
+        40000,
+        3
+      ],
+      [
+        "rt",
+        "Masa nyata (chat, penjejakan)",
+        10000,
+        25000,
+        2
+      ],
+      [
+        "rep",
+        "Laporan & papan pemuka",
+        8000,
+        18000,
+        2
+      ],
+      [
+        "lang",
+        "Pelbagai bahasa",
+        5000,
+        10000,
+        1
+      ]
+    ],
+    "range": "Anggaran bajet",
+    "weeksUnit": "minggu untuk dilancar",
+    "team": [
+      [
+        "design",
+        "Reka bentuk"
+      ],
+      [
+        "fe",
+        "Frontend"
+      ],
+      [
+        "be",
+        "Backend"
+      ],
+      [
+        "qa",
+        "QA & DevOps"
+      ]
+    ],
+    "cta": "Hantar kepada kami di WhatsApp",
+    "note": "Panduan kasar, bukan sebut harga. Kami sahkan harga tetap selepas sesi perbincangan ringkas.",
+    "msg": "Hai Trion, saya guna penganggar anda:"
   }
 }

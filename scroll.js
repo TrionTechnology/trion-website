@@ -364,7 +364,9 @@
         var kpis = stage.querySelectorAll('.hs-kpis b');
         var table = stage.querySelector('.hs-table');
 
-        var tl = gsap.timeline({ delay: 0.25 });
+        /* The dashboard now lives below the fold: assemble when it arrives. */
+        var tl = gsap.timeline({ paused: true });
+        ST.create({ trigger: stage, start: 'top 80%', once: true, onEnter: function () { tl.play(); } });
         tl.from(win, { y: 60, rotateX: 14, autoAlpha: 0, duration: 1.4, ease: 'expo.out', transformOrigin: '50% 100%' })
           .from(stage.querySelectorAll('.hs-kpis > div, .hs-charts > *, .hs-row'), { y: 14, autoAlpha: 0, duration: 0.7, stagger: 0.05, ease: EASE }, 0.45)
           .fromTo(stroke, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }, 0.7)
@@ -555,8 +557,113 @@
         });
     }
 
+
+    /* Services: the section pins and twelve coloured panels slide past
+       sideways as you scroll down. Phones keep a native swipe row. */
+    function initServicesX(root) {
+        var sec = pick(root, '.svc-x')[0];
+        if (!sec) return;
+        sec.setAttribute('data-motion-done', '');
+        var pin = sec.querySelector('.svc-x-pin');
+        var track = sec.querySelector('[data-svc-track]');
+        var count = sec.querySelector('[data-svc-count]');
+        var bar = sec.querySelector('[data-svc-bar]');
+        var panels = track.querySelectorAll('.svp');
+        var mm = gsap.matchMedia();
+        mm.add('(min-width: 900px)', function () {
+            sec.classList.remove('is-static');
+            var dist = function () { return Math.max(0, track.scrollWidth - innerWidth); };
+            var tw = gsap.to(track, {
+                x: function () { return -dist(); }, ease: 'none',
+                scrollTrigger: {
+                    trigger: sec, start: 'top top', end: function () { return '+=' + dist(); },
+                    pin: pin, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1,
+                    onUpdate: function (st) {
+                        var n = Math.min(panels.length, 1 + Math.round(st.progress * (panels.length - 1)));
+                        if (count) count.textContent = (n < 10 ? '0' : '') + n;
+                        if (bar) bar.style.transform = 'scaleX(' + Math.max(1 / panels.length, st.progress) + ')';
+                    }
+                }
+            });
+            /* each panel tilts in as it enters from the right */
+            panels.forEach(function (p) {
+                gsap.fromTo(p, { rotate: 4, y: 40 }, {
+                    rotate: 0, y: 0, ease: 'none',
+                    scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left right', end: 'left 55%', scrub: true }
+                });
+            });
+            return function () { gsap.set(track, { clearProps: 'transform' }); };
+        });
+        mm.add('(max-width: 899px)', function () {
+            sec.classList.add('is-static');
+            track.addEventListener('scroll', function () {
+                var p = track.scrollLeft / Math.max(1, track.scrollWidth - track.clientWidth);
+                var n = Math.min(panels.length, 1 + Math.round(p * (panels.length - 1)));
+                if (count) count.textContent = (n < 10 ? '0' : '') + n;
+                if (bar) bar.style.transform = 'scaleX(' + Math.max(1 / panels.length, p) + ')';
+            }, { passive: true });
+        });
+    }
+
+    /* Case studies stack like cards: each one shrinks back and dims as
+       the next slides over it. */
+    function initStackCards(root) {
+        var cards = pick(root, '.stack-cards .sc');
+        cards.forEach(function (card, i) {
+            card.setAttribute('data-motion-done', '');
+            var next = cards[i + 1];
+            if (!next) return;
+            gsap.to(card, {
+                scale: 0.9, filter: 'brightness(0.6)', ease: 'none',
+                scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 20%', scrub: true }
+            });
+        });
+        cards.forEach(function (card) {
+            var media = card.querySelector('.sc-media');
+            if (media && !alreadyPassed(card)) gsap.from(media, { clipPath: 'inset(20% 20% 20% 20% round 22px)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: card, start: 'top 80%', once: true } });
+        });
+    }
+
+    /* Big type that moves sideways with the scroll, rows in opposite directions. */
+    function initKinetic(root) {
+        pick(root, '.kinetic').forEach(function (k) {
+            k.setAttribute('data-motion-done', '');
+            var a = k.querySelector('.kr-a .kin-inner'), b = k.querySelector('.kr-b .kin-inner');
+            var st = { trigger: k, start: 'top bottom', end: 'bottom top', scrub: 0.5 };
+            if (a) gsap.fromTo(a, { xPercent: 0 }, { xPercent: -28, ease: 'none', scrollTrigger: st });
+            if (b) gsap.fromTo(b, { xPercent: -30 }, { xPercent: -4, ease: 'none', scrollTrigger: Object.assign({}, st) });
+            gsap.from(k.querySelectorAll('.kw.is-pill'), { scale: 0.6, rotate: -8, duration: 0.9, ease: 'back.out(2)', stagger: 0.05, scrollTrigger: { trigger: k, start: 'top 85%', once: true } });
+        });
+    }
+
+    /* Custom cursor: a dot plus a ring that grows on links and shows a
+       label (Open / View) on cards that carry data-cursor. */
+    function initCursor() {
+        if (!fine || document.querySelector('.cur-dot')) return;
+        var dot = document.createElement('div'), ring = document.createElement('div'), label = document.createElement('span');
+        dot.className = 'cur-dot'; ring.className = 'cur-ring'; ring.appendChild(label);
+        document.body.appendChild(dot); document.body.appendChild(ring);
+        var dx = gsap.quickTo(dot, 'x', { duration: 0.08 }), dy = gsap.quickTo(dot, 'y', { duration: 0.08 });
+        var rx = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' }), ry = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
+        gsap.set([dot, ring], { x: -100, y: -100 });
+        addEventListener('pointermove', function (e) { dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); }, { passive: true });
+        document.addEventListener('pointerover', function (e) {
+            var t = e.target.closest && e.target.closest('a, button, label, summary, [data-cursor]');
+            var lab = t && t.closest('[data-cursor]');
+            html.classList.toggle('cur-label', !!lab);
+            html.classList.toggle('cur-hover', !!t && !lab);
+            label.textContent = lab ? lab.getAttribute('data-cursor') : '';
+            html.classList.toggle('cur-dark', !!(e.target.closest && e.target.closest('.is-dark, .svc-x-pin, .footer, .est-out')));
+        });
+        document.addEventListener('pointerleave', function () { gsap.set([dot, ring], { x: -100, y: -100 }); });
+    }
+
     function build(root) {
         initIntro(root);
+        /* pinned + scrubbed sections first, so triggers below them measure the pin spacing */
+        initKinetic(root);
+        initServicesX(root);
+        initStackCards(root);
         initHeadings(root);
         initReveals(root);
         initImages(root);
@@ -570,6 +677,7 @@
         initMagnetic(root);
         initProcess(root);
         initStack(root);
+        initCursor();
     }
 
     /* Called by script.js after a tab becomes visible. */
