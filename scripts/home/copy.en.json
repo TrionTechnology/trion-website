@@ -160,7 +160,7 @@
   "work": {
     "kicker": "Selected work",
     "title": "Shipped, live and in people's hands.",
-    "intro": "Our own products show how we build when nobody else writes the brief. Client platforms follow.",
+    "intro": "Real systems our clients run their business on every day, then the products we build for ourselves. Client figures are blurred; they are theirs.",
     "titan": {
       "meta": "Game · iOS & Android · Coming soon",
       "desc": "A bright 3D kaiju action game for ages 6 and up. Stomp tiny cities, evolve your Titan with skill cards and topple huge bosses across 12 lands. Pay once, no ads, no in-app purchases.",
@@ -204,7 +204,31 @@
     ],
     "all": "All solution types we have delivered",
     "products": "Our products",
-    "clientLink": "Read the case study"
+    "clientLink": "Read the case study",
+    "visit": "Visit live site",
+    "systems": [
+      [
+        "pism",
+        "PISM Business Intelligence",
+        "Client system · Education · Power BI + AI",
+        "One dashboard for a whole international school: finance, attendance, academics and marketing, fed automatically from its accounting and timetable systems, with an AI copilot that answers in plain language.",
+        "PISM Business Intelligence dashboard and executive command centre, figures blurred"
+      ],
+      [
+        "archimat",
+        "ArchiMAT",
+        "Client platform · Built environment · Web + API",
+        "A materials, projects and spaces platform: a searchable catalogue of architectural products with AR view and compare, project workspaces and sustainability reporting. Web app, admin console and API.",
+        "ArchiMAT materials catalogue and product page"
+      ],
+      [
+        "thai",
+        "Thai Advocates",
+        "Client system · Legal · Case management",
+        "The case management system a multi-branch law firm works in every day: matters, clients, documents, deadlines and invoices in one record, with branch-level access.",
+        "Thai Advocates case management dashboard and case list, figures blurred"
+      ]
+    ]
   },
   "process": {
     "kicker": "Process",

@@ -4162,3 +4162,21 @@ html.cur-dark .cur-ring { border-color: rgba(255,255,255,.6); }
 .has-pc .prod-card:hover { transform: translateY(-6px) rotate(-.5deg); box-shadow: 0 0 0 3px var(--pcc), var(--shadow-lift); }
 @media (prefers-reduced-motion: reduce) { .has-pc .pf-hero::before, .has-pc .pf-hero::after { animation: none; } }
 .skip-link:not(:focus-visible) { opacity: 0; pointer-events: none; clip-path: inset(50%); }
+
+/* ════ WORK + PORTFOLIO MEDIA (2026-11d) ════
+   Real client systems (framed screenshots, figures blurred) and compact
+   artwork strips in place of the old wireframe panels. */
+.sc-sys .sc-media { background: transparent; }
+.sc-sys .sc-media img { object-position: 50% 50%; }
+.pi-visual.pi-shot, .pi-visual.pi-art { padding: 0; aspect-ratio: 16 / 8; background: var(--bg-2, #f3f1ea); }
+.pi-visual.pi-shot::after, .pi-visual.pi-art::after { display: none; }
+.pi-visual picture, .pi-visual picture img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pi-visual.pi-art img { object-position: 50% 45%; }
+.pi-visual img { transition: transform 900ms cubic-bezier(.2,.8,.2,1); }
+.portfolio-item:hover .pi-visual img { transform: scale(1.05); }
+.pi-badge { position: absolute; z-index: 2; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #0E100F; color: #fff; font: 600 .72rem/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .02em; }
+.pi-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #71EECE; box-shadow: 0 0 0 3px rgba(113,238,206,.25); }
+.sc-sys .sc-media { display: flex; align-items: center; border-radius: 0; overflow: visible; }
+.sc-sys .sc-media > picture { height: auto; }
+.sc-sys .sc-media > picture img { height: auto; object-fit: contain; }
+.sc-sys .sc-media:hover img { transform: scale(1.02); }

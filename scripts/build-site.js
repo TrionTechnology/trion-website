@@ -592,6 +592,13 @@ const PF_WIRE = {
   operations: `<rect x="18" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="109" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="200" y="20" width="82" height="108" rx="6" opacity=".4"/><rect x="28" y="34" width="62" height="20" rx="3" opacity=".55"/><rect x="28" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="34" width="62" height="20" rx="3" class="w-live"/><rect x="119" y="60" width="62" height="20" rx="3" opacity=".35"/><rect x="119" y="86" width="62" height="20" rx="3" opacity=".25"/><rect x="210" y="34" width="62" height="20" rx="3" opacity=".35"/><path d="M220 44l6 6 12-12" class="w-live"/>`,
   retail: `<rect x="18" y="20" width="170" height="108" rx="7" opacity=".45"/><rect x="30" y="32" width="46" height="34" rx="4" opacity=".45"/><rect x="84" y="32" width="46" height="34" rx="4" class="w-live"/><rect x="138" y="32" width="38" height="34" rx="4" opacity=".45"/><rect x="30" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="84" y="76" width="46" height="34" rx="4" opacity=".35"/><rect x="138" y="76" width="38" height="34" rx="4" opacity=".35"/><path d="M204 20h62v108l-10-8-10 8-10-8-10 8-11-8-11 8z" opacity=".45"/><path d="M216 40h38M216 54h38M216 68h24" opacity=".4"/><path d="M216 88h38" class="w-live"/>`,
 };
+/* Real client screenshots (figures blurred), framed. */
+const PF_SHOT = { 'feedback-bi-dashboard': 'pism', 'legal-case-management': 'thai', 'project-management-suite': 'archimat' };
+function pfShot(slug, A){
+  const n = PF_SHOT[slug];
+  if (!n) return '';
+  return `<div class="pf-hero-visual has-art" aria-hidden="true" data-parallax="0.05"><picture><source type="image/webp" srcset="${A}images/work/work-${n}-800.webp 800w, ${A}images/work/work-${n}-1600.webp 1600w" sizes="(min-width: 1024px) 44vw, 92vw"><img src="${A}images/work/work-${n}-1600.webp" width="1600" height="1100" alt="" fetchpriority="high" decoding="async"></picture></div>`;
+}
 function pfWire(cat){
   return `<div class="pf-hero-visual" aria-hidden="true" data-parallax="0.05" style="--par-amt:22px"><svg viewBox="0 0 300 148" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">${PF_WIRE[cat]||PF_WIRE.enterprise}</svg></div>`;
 }
@@ -772,7 +779,7 @@ ${JSON.stringify(faqSchema, null, 4)}
                     <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20a%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">${t.whatsapp}</a>
                 </div>
                 </div>
-                ${pfWire(p.category)}
+                ${pfShot(p.slug, A) || pfWire(p.category)}
                 </div>
             </div>
         </section>

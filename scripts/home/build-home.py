@@ -164,8 +164,8 @@ def build(lang):
     # ── work: stacked sticky cards ──
     w = c["work"]
     t = w["titan"]; hb = w["himmapan"]; cd = w["cadence"]
-    def card(i, color, fg, href, title, meta, desc, link, media, extra="", dark=False):
-        return f'''<article class="sc{' sc-dark' if dark else ''}" style="--i:{i};--c:{color};--fg:{fg}">
+    def card(i, color, fg, href, title, meta, desc, link, media, extra="", dark=False, sys=False):
+        return f'''<article class="sc{' sc-dark' if dark else ''}{' sc-sys' if sys else ''}" style="--i:{i};--c:{color};--fg:{fg}">
                             <div class="sc-text">
                                 <p class="sc-meta">{e(meta)}</p>
                                 <h3><a href="{href}">{e(title)}</a></h3>
@@ -178,16 +178,20 @@ def build(lang):
     himm_media = f'<picture><source type="image/webp" srcset="{A}images/himmapan-bloodlines-feature-880.webp 880w, {A}images/himmapan-bloodlines-feature-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/himmapan-bloodlines-feature-1600.webp" width="1600" height="900" alt="{a(hb["alt"])}" loading="lazy" decoding="async"></picture>'
     cad_media = f'<span class="phones"><picture><source type="image/webp" srcset="{A}images/cadence-shot-mosaic-440.webp 440w, {A}images/cadence-shot-mosaic-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-mosaic-880.webp" width="1320" height="2868" alt="{a(cd["alt1"])}" loading="lazy" decoding="async"></picture><picture><source type="image/webp" srcset="{A}images/cadence-shot-forgiving-440.webp 440w, {A}images/cadence-shot-forgiving-880.webp 880w" sizes="20vw"><img src="{A}images/cadence-shot-forgiving-880.webp" width="1320" height="2868" alt="{a(cd["alt2"])}" loading="lazy" decoding="async"></picture></span>'
     play = f'<a href="https://play.google.com/store/apps/details?id=com.trioncreation.cadence" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">{e(cd["play"])} {ARR}</a>'
-    cards = [
-        card(0, "#FF7A59", "#0E100F", f"{P}projects/titan-legends.html", "Titan Legends", t["meta"], t["desc"], t["link"], titan_media),
-        card(1, "#FFC24B", "#0E100F", f"{P}projects/himmapan-bloodlines.html", "Himmapan Bloodlines", hb["meta"], hb["desc"], hb["link"], himm_media),
-        card(2, "#12B886", "#FFFFFF", f"{P}projects/cadence.html", "Cadence", cd["meta"], cd["desc"], cd["link"], cad_media, play),
+    SYS_LINK = {"pism": ("feedback-bi-dashboard", "https://www.pism.edu.my", "#71EECE"),
+                "archimat": ("project-management-suite", "https://www.archimat.io", "#C6F45B"),
+                "thai": ("legal-case-management", "https://thaiadvocates.com", "#FFC24B")}
+    cards = []
+    for k, (slug, n, meta, d, alt) in enumerate(w["systems"]):
+        pf, site, col = SYS_LINK[slug]
+        media = f'<picture><source type="image/webp" srcset="{A}images/work/work-{slug}-800.webp 800w, {A}images/work/work-{slug}-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 92vw"><img src="{A}images/work/work-{slug}-1600.webp" width="1600" height="1100" alt="{a(alt)}" loading="lazy" decoding="async"></picture>'
+        visit = f'<a href="{site}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">{e(w["visit"])} {ARR_UR}</a>'
+        cards.append(card(k, col, "#0E100F", f"portfolio/{pf}.html", n, meta, d, w["clientLink"], media, visit, sys=True))
+    cards += [
+        card(3, "#FF7A59", "#0E100F", f"{P}projects/titan-legends.html", "Titan Legends", t["meta"], t["desc"], t["link"], titan_media),
+        card(4, "#12B886", "#FFFFFF", f"{P}projects/cadence.html", "Cadence", cd["meta"], cd["desc"], cd["link"], cad_media, play),
+        card(5, "#FF8FAB", "#0E100F", f"{P}projects/himmapan-bloodlines.html", "Himmapan Bloodlines", hb["meta"], hb["desc"], hb["link"], himm_media),
     ]
-    client_art = {"yippi": ("service-web-mobile", "#71EECE", "#0E100F"), "dddrive": ("service-api", "#C6F45B", "#0E100F"), "colorverse": ("service-blockchain", "#FF8FAB", "#0E100F")}
-    for k, (slug, n, d, tags) in enumerate(w["clients"]):
-        art, col, fg = client_art[slug]
-        cards.append(card(3 + k, col, fg, f"projects/{slug}.html", n, f'{w["clientsHead"]} · {tags}', d, w["clientLink"],
-                          f'<span class="sc-art">{pic(A, art, "(min-width: 1024px) 55vw, 92vw", "")}</span>'))
     cards_html = "\n                        ".join(cards)
 
     # ── process ──

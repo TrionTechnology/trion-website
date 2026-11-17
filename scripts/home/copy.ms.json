@@ -160,7 +160,7 @@
   "work": {
     "kicker": "Hasil kerja pilihan",
     "title": "Sudah dilancar, sudah digunakan.",
-    "intro": "Produk kami sendiri menunjukkan cara kami membina apabila tiada orang lain menulis taklimat. Platform pelanggan menyusul.",
+    "intro": "Sistem sebenar yang pelanggan kami gunakan setiap hari, diikuti produk yang kami bina sendiri. Angka pelanggan dikaburkan.",
     "titan": {
       "meta": "Permainan · iOS & Android · Akan datang",
       "desc": "Permainan aksi kaiju 3D yang ceria untuk umur 6 tahun ke atas. Hancurkan bandar kecil, kembangkan Titan anda dengan kad kemahiran dan tumbangkan bos besar merentasi 12 wilayah. Bayar sekali, tiada iklan, tiada pembelian dalam aplikasi.",
@@ -204,7 +204,31 @@
     ],
     "all": "Semua jenis penyelesaian kami",
     "products": "Produk kami",
-    "clientLink": "Baca kajian kes"
+    "clientLink": "Baca kajian kes",
+    "visit": "Lawati laman",
+    "systems": [
+      [
+        "pism",
+        "PISM Business Intelligence",
+        "Sistem pelanggan · Pendidikan · Power BI + AI",
+        "Satu papan pemuka untuk seluruh sekolah antarabangsa: kewangan, kehadiran, akademik dan pemasaran, disegerakkan secara automatik daripada sistem perakaunan dan jadual waktu, dengan pembantu AI yang menjawab dalam bahasa biasa.",
+        "Papan pemuka PISM Business Intelligence dan pusat kawalan eksekutif, angka dikaburkan"
+      ],
+      [
+        "archimat",
+        "ArchiMAT",
+        "Platform pelanggan · Alam bina · Web + API",
+        "Platform bahan, projek dan ruang: katalog produk seni bina yang boleh dicari dengan paparan AR dan perbandingan, ruang kerja projek dan laporan kelestarian. Aplikasi web, konsol admin dan API.",
+        "Katalog bahan dan halaman produk ArchiMAT"
+      ],
+      [
+        "thai",
+        "Thai Advocates",
+        "Sistem pelanggan · Undang-undang · Pengurusan kes",
+        "Sistem pengurusan kes yang digunakan setiap hari oleh firma guaman berbilang cawangan: perkara, pelanggan, dokumen, tarikh akhir dan invois dalam satu rekod, dengan akses mengikut cawangan.",
+        "Papan pemuka dan senarai kes Thai Advocates, angka dikaburkan"
+      ]
+    ]
   },
   "process": {
     "kicker": "Proses",
