@@ -405,7 +405,7 @@ def build(lang):
                             <p class="eo-weeks"><span data-est-weeks>8–14</span> {e(es["weeksUnit"])}</p>
                             <ul class="eo-team">{team}</ul>
                             <a class="btn btn-primary btn-lg eo-cta" data-est-cta href="https://wa.me/60166380495" target="_blank" rel="noopener noreferrer">{e(es["cta"])} {ARR}</a>
-                            <p class="eo-note">{e(es["note"])}</p>
+                            <p class="eo-note">{e(es["note"])} <a class="eo-guide" href="guides/software-development-cost-malaysia.html">{e(es["guide"])} {ARR}</a></p>
                         </aside>
                     </form>
                 </div>

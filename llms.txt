@@ -44,6 +44,10 @@ Service and portfolio pages exist in all three languages under the same path pre
 - [Product Design & UX](https://trioncreation.com/services/product-design-ux.html): User-centred design with modern interfaces, seamless user experiences and data-driven design decisions.
 
 
+## Guides
+
+- [How much does custom software cost in Malaysia? (2026)](https://trioncreation.com/guides/software-development-cost-malaysia.html): Price ranges by project type (mobile app RM15k–60k, business system RM40k–150k, enterprise RM150k–400k+), add-on costs, timelines, cost drivers and FAQ. Also in Malay (https://trioncreation.com/ms/guides/software-development-cost-malaysia.html) and Chinese (https://trioncreation.com/zh/guides/software-development-cost-malaysia.html).
+
 ## Pricing
 
 - MVP: RM15,000 – RM40,000 (6–12 weeks)

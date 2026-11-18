@@ -456,7 +456,8 @@
     ],
     "cta": "Send this to us on WhatsApp",
     "note": "A rough guide, not a quote. We confirm a fixed price after a short discovery call.",
-    "msg": "Hi Trion, I used your estimator:"
+    "msg": "Hi Trion, I used your estimator:",
+    "guide": "Read the full cost guide"
   },
   "people": {
     "kicker": "Talk to a founder",

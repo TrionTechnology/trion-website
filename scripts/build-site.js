@@ -324,7 +324,9 @@ ${hreflangBlock(urlFor)}
     <meta property="og:url" content="${url}">
     <meta property="og:title" content="${escAttr(s.metaTitle)}">
     <meta property="og:description" content="${escAttr(s.ogShort)}">
-    <meta property="og:image" content="${ORIGIN}/logo%20master%20-%20Trion-07%203.png">
+    <meta property="og:image" content="${ORIGIN}/images/og/og-home-${locale}.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="${META[locale].htmlLang.replace('-', '_')}">
     <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">
@@ -708,7 +710,9 @@ ${hreflangBlock(urlFor)}
     <meta property="og:url" content="${url}">
     <meta property="og:title" content="${escAttr(metaTitle)}">
     <meta property="og:description" content="${escAttr(ogShort)}">
-    <meta property="og:image" content="${ORIGIN}/logo%20master%20-%20Trion-07%203.png">
+    <meta property="og:image" content="${ORIGIN}/images/og/og-home-${locale}.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="${META[locale].htmlLang.replace('-', '_')}">
     <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">
@@ -1194,6 +1198,18 @@ console.log(`Generated ${totalSvc} service + ${totalPf} portfolio pages across $
             return fs.existsSync(path.join(dir, 'projects', `${slug}.html`));
         });
         groups.push({ pathFor: (loc) => `${seg(loc)}/projects/${slug}.html`, changefreq: 'monthly', priority: '0.7', locales });
+    }
+
+    // Guides (scripts/guides/build-guides.py) — same per-locale existence check as projects.
+    const guideSlugs = fs.existsSync(path.join(ROOT, 'guides'))
+        ? fs.readdirSync(path.join(ROOT, 'guides')).filter((f) => f.endsWith('.html')).map((f) => f.replace(/\.html$/, ''))
+        : [];
+    for (const slug of guideSlugs) {
+        const locales = LOCALES.filter((loc) => {
+            const dir = META[loc].dir ? path.join(ROOT, META[loc].dir) : ROOT;
+            return fs.existsSync(path.join(dir, 'guides', `${slug}.html`));
+        });
+        groups.push({ pathFor: (loc) => `${seg(loc)}/guides/${slug}.html`, changefreq: 'monthly', priority: '0.9', locales });
     }
 
     // English-only homepage section anchors (deep-link hints for search).

@@ -4084,6 +4084,8 @@ body.menu-open .header, .nav-list { background: var(--cream); }
 .est-out .btn-primary { background: var(--mint); border-color: var(--mint); color: #0E100F; }
 .est-out .btn-primary:hover { background: #fff; border-color: #fff; }
 .eo-note { margin: 1rem 0 0; font-size: .82rem; color: #8F9793; }
+.eo-guide { display: inline-flex; align-items: center; gap: 4px; color: var(--mint); font-weight: 500; white-space: nowrap; }
+.eo-guide:hover { color: #fff; }
 
 /* ── Stack colours ── */
 .stack-section { background: #fff; }
@@ -4279,3 +4281,40 @@ html.cur-dark .cur-ring { border-color: rgba(255,255,255,.6); }
 .sc-meter { white-space: nowrap; }
 @media (max-width: 768px) { .sc-meter { gap: 10px; padding: 9px 14px; font-size: .72rem; } .scm-name { min-width: 0; max-width: 42vw; overflow: hidden; text-overflow: ellipsis; } }
 @media (max-width: 1024px) { .sc-text { padding-bottom: 1.25rem; } .sc-links .btn { position: relative; z-index: 1; } }
+
+/* ── Guides (scripts/guides/build-guides.py) ── */
+.guide-container { max-width: 920px; }
+.guide-hero { padding: clamp(7rem, 12vw, 9.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
+.guide-hero h1 { font-size: clamp(2.3rem, 1.4rem + 3.4vw, 4rem); line-height: 1.04; letter-spacing: -0.04em; margin: 0 0 1.25rem; max-width: 20ch; }
+.guide-lede { font-size: 1.15rem; color: var(--text-300); max-width: 58ch; margin: 0 0 1rem; }
+.guide-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-400); margin: 0 0 2rem; }
+.guide-meta a { color: var(--mint-deep); }
+.guide-answer { background: var(--mint-soft); border: 1px solid color-mix(in srgb, var(--mint) 60%, transparent); border-radius: 20px; padding: clamp(1.25rem, 3vw, 2rem); }
+.guide-answer p { margin: 0 0 0.75rem; font-size: 1.08rem; line-height: 1.6; color: var(--text-100); }
+.guide-answer p:last-child { margin-bottom: 0; }
+.guide-answer .ga-kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 0.6rem; }
+.guide-p, .guide-prose p { color: var(--text-300); font-size: 1.04rem; line-height: 1.65; max-width: 62ch; margin: 0 0 1.25rem; }
+.guide-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+.guide-table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.guide-table th, .guide-table td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.guide-table tbody tr:last-child th, .guide-table tbody tr:last-child td { border-bottom: 0; }
+.guide-table thead th { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--text-400); background: var(--bg-2); }
+.guide-table tbody th { font-weight: 500; color: var(--text-100); }
+.guide-table td { color: var(--text-200); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.guide-table a { color: var(--text-100); text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.guide-drivers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.guide-drivers li { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.25rem; }
+.guide-drivers h3 { font-size: 1.05rem; margin: 0 0 0.4rem; letter-spacing: -0.015em; }
+.guide-drivers p { margin: 0; color: var(--text-300); font-size: 0.95rem; line-height: 1.55; }
+.guide-list { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.7rem; color: var(--text-300); font-size: 1.02rem; line-height: 1.6; max-width: 66ch; }
+.guide-list strong { color: var(--text-100); }
+.guide-next { background: var(--mint); color: #0E100F; border-radius: 24px; padding: clamp(1.75rem, 4vw, 3rem); }
+.guide-next h2 { color: #0E100F; margin: 0 0 0.6rem; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
+.guide-next p { color: #1D2A26; margin: 0 0 1.5rem; max-width: 52ch; }
+.guide-next-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.guide-next .btn-secondary { background: rgba(255,255,255,.65); border-color: rgba(14,16,15,.15); color: #0E100F; }
+@media (max-width: 640px) {
+    .guide-drivers { grid-template-columns: 1fr; }
+    .guide-table th, .guide-table td { padding: 0.7rem 0.8rem; }
+    .guide-table td { white-space: normal; }
+}

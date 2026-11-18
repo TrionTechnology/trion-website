@@ -142,6 +142,10 @@
 - Real-time status tracking
 - Example: ThaiAdvocates legal platform
 
+## Guides
+
+- [How much does custom software cost in Malaysia? (2026)](https://trioncreation.com/guides/software-development-cost-malaysia.html): Price ranges by project type (mobile app RM15k–60k, business system RM40k–150k, enterprise RM150k–400k+), add-on costs, timelines, cost drivers and FAQ. Also in Malay (https://trioncreation.com/ms/guides/software-development-cost-malaysia.html) and Chinese (https://trioncreation.com/zh/guides/software-development-cost-malaysia.html).
+
 ## Detailed case studies
 
 ### Yippi — Social Media Super App
