@@ -3766,6 +3766,11 @@ body.menu-open .header { background: var(--bg); }
 .cta-card .btn-secondary:hover { background: #fff; border-color: #0E100F; }
 .cta-card .btn-primary:hover { background: #fff; border-color: #fff; color: #0E100F; box-shadow: none; }
 .cta-card .btn-text { color: #0E100F; justify-content: center; }
+.cta-person { display: flex; flex-direction: column; gap: 0.5rem; }
+.cta-person + .cta-person { margin-top: 0.6rem; padding-top: 1rem; border-top: 1px solid rgba(14,16,15,.14); }
+.cta-who { margin: 0 0 0.1rem !important; font-family: var(--font-mono); font-size: 0.78rem !important; letter-spacing: .04em; text-transform: uppercase; color: #1D2A26 !important; }
+.cta-who strong { font-family: var(--font-primary); font-size: 1rem; letter-spacing: -0.01em; text-transform: none; color: #0E100F; font-weight: 600; }
+.cta-card .cta-person .btn { justify-content: center; overflow-wrap: anywhere; }
 
 /* ── Footer ── */
 .footer { border-top: 0; margin-top: var(--section-y); }
@@ -3827,6 +3832,8 @@ body.menu-open .header { background: var(--bg); }
     .how-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cta-card { grid-template-columns: 1fr; }
     .cta-card .cta-actions { flex-direction: row; flex-wrap: wrap; }
+    .cta-card .cta-person { flex: 1 1 260px; }
+    .cta-person + .cta-person { margin-top: 0; padding-top: 0; border-top: 0; }
 }
 @media (max-width: 768px) {
     .block-head { grid-template-columns: 1fr; row-gap: 1rem; }

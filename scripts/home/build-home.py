@@ -291,6 +291,17 @@ def build(lang):
     people_html = people_cards(c, "\n                        ")
 
     cta = c["cta"]
+    cta_rows = []
+    for key, name, ini, num, shown, mail, wa in PEOPLE:
+        if wa:
+            phone = (f'<a href="https://wa.me/{num}?text=Hi,%20I\'m%20interested%20in%20your%20services" class="btn btn-primary" '
+                     f'target="_blank" rel="noopener noreferrer">{e(pp["whatsapp"])} {e(shown)}</a>')
+        else:
+            phone = f'<a href="tel:+{num}" class="btn btn-primary">{e(pp["call"])} {e(shown)}</a>'
+        cta_rows.append(
+            f'<div class="cta-person"><p class="cta-who"><strong>{e(name)}</strong> · {e(pp[key]["role"].split(" · ")[-1])}</p>'
+            f'{phone}<a href="mailto:{mail}?subject=Project%20Inquiry" class="btn btn-secondary">{e(mail)}</a></div>')
+    cta_people = "\n                            ".join(cta_rows)
     return f'''<section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section hero-x" data-hero-intro>
                 <div class="hero-blobs" aria-hidden="true"><i class="hb1"></i><i class="hb2"></i><i class="hb3"></i><i class="hb4"></i></div>
@@ -435,8 +446,7 @@ def build(lang):
                             <p data-reveal>{e(cta["text"])}</p>
                         </div>
                         <div class="cta-actions" data-reveal>
-                            <a href="https://wa.me/60166380495?text=Hi,%20I'm%20interested%20in%20your%20services" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp 016-638 0495</a>
-                            <a href="mailto:freddy.chia@trioncreation.com?subject=Project%20Inquiry" class="btn btn-secondary btn-lg">freddy.chia@trioncreation.com</a>
+                            {cta_people}
                             <a href="#contact" class="btn btn-text">{e(cta["form"])} {ARR}</a>
                         </div>
                     </div>
