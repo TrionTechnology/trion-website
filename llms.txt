@@ -1,6 +1,6 @@
 # Trion Creation Sdn Bhd
 
-> Custom software development company in Malaysia. We build any system you need — fast, modern and fully customised. Mobile apps, web apps, ERP, CRM, AI automation, blockchain, POS, booking, loan management, inventory and Odoo customisation. 150+ projects delivered, 5+ years experience, 98% client satisfaction.
+> Custom software development company in Malaysia. We build any system you need — fast, modern and fully customised. Mobile apps, web apps, ERP, CRM, AI automation, blockchain, POS, booking, loan management, inventory and Odoo customisation. 150+ projects delivered since 2022, fixed-scope quotes, and clients own 100% of the source code.
 
 Trion Creation Sdn Bhd is a Malaysia-based software house headquartered in Kuala Lumpur. We are part of Lumiso Group Sdn Bhd. We deliver custom-built systems for SMEs and enterprises across Malaysia, Singapore, Thailand and Indonesia. Our portfolio includes the Yippi social media super app (5M+ users), Colorverse Web3 platform (endorsed by Malaysia Tourism Board), DDDrive transport platform, MyCashOut loan system, ThaiAdvocates legal case management and the ReSkills online education platform.
 
@@ -10,10 +10,9 @@ We are an official Alibaba Cloud Partner and a recognised MDEC (Malaysia Digital
 
 - Company: Trion Creation Sdn Bhd
 - Website: https://trioncreation.com
-- Email: freddy.chia@trioncreation.com
-- Phone / WhatsApp: +60 16-6380495
 - Location: Kuala Lumpur, Malaysia
-- Founder: Freddy Chia
+- Freddy Chia, Founder (technology: architecture, apps, integrations, quotes) — WhatsApp +60 16-638 0495, freddy.chia@trioncreation.com
+- Colin Ho, Co-Founder (marketing: brand, campaigns, partnerships) — Tel +60 14-914 1459, colin.ho@trioncreation.com
 - LinkedIn: https://www.linkedin.com/company/trioncreation-sdn-bhd
 - Facebook: https://www.facebook.com/trionc.creation
 - Languages: English, Malay, Chinese

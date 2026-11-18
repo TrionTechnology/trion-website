@@ -30,6 +30,17 @@ const ORIGIN = 'https://trioncreation.com';
 
 const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
+// Search-snippet length text: end on a sentence if one fits, else on a whole word, never mid-word.
+function snippet(text, max) {
+    const t = String(text).replace(/\s+/g, ' ').trim();
+    if (t.length <= max) return t;
+    const cut = t.slice(0, max);
+    const end = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('。'), cut.lastIndexOf('！'), cut.lastIndexOf('？'));
+    if (end > max * 0.55) return cut.slice(0, end + 1).trim();
+    const sp = cut.lastIndexOf(' ');
+    return (sp > max * 0.6 ? cut.slice(0, sp) : cut.slice(0, max - 1)).replace(/[\s,;:—–-]+$/, '') + '…';
+}
+
 // ─── data loading (per locale, with English fallback) ───
 function loadData(base, locale) {
     if (locale === 'en') return JSON.parse(fs.readFileSync(path.join(__dirname, `${base}.json`), 'utf8'));
@@ -609,7 +620,7 @@ function renderPortfolio(p, locale) {
     const urlFor = (loc) => `${ORIGIN}${seg(loc)}/portfolio/${p.slug}.html`;
     const url = urlFor(locale);
     const accent = p.accent || '#14A98D';
-    const ogShort = p.tagline.length > 160 ? p.tagline.slice(0, 157) + '...' : p.tagline;
+    const ogShort = snippet(p.tagline, 160);
 
     const stats = p.stats.map((s) => `
                         <div class="stat-cell">
@@ -668,8 +679,12 @@ function renderPortfolio(p, locale) {
         }))
     };
 
-    const metaTitle = p.metaTitle || `${p.title} Development Malaysia | Trion Creation`;
-    const metaDescription = p.metaDescription || `${p.longDescription.slice(0, 158)}${p.longDescription.length > 158 ? '...' : ''}`;
+    const metaTitle = p.metaTitle || ({
+        en: `${p.title} Development in Malaysia | Trion Creation`,
+        zh: `马来西亚${p.title}开发 | Trion Creation`,
+        ms: `Pembangunan ${p.title} di Malaysia | Trion Creation`
+    })[locale];
+    const metaDescription = p.metaDescription || snippet(p.longDescription, locale === 'zh' ? 90 : 158);
     const keywords = p.keywords || [
         p.title.toLowerCase() + ' malaysia',
         p.title.toLowerCase() + ' development malaysia',

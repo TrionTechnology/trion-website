@@ -13,7 +13,8 @@
 - Parent / group: Lumiso Group Sdn Bhd (strategic merger of Trion Creation and Vulso)
 - Employee range: ~10–50
 - Working languages: English, Malay, Chinese
-- Founder: Freddy Chia (freddy.chia@trioncreation.com)
+- Founder: Freddy Chia (technology) — WhatsApp +60 16-638 0495, freddy.chia@trioncreation.com
+- Co-Founder: Colin Ho (marketing) — Tel +60 14-914 1459, colin.ho@trioncreation.com
 - Primary website: https://trioncreation.com
 - Phone / WhatsApp: +60 16-6380495
 - Email: freddy.chia@trioncreation.com
@@ -26,7 +27,7 @@
 - 45+ enterprise / mid-market projects
 - 10+ industries served
 - 98% client satisfaction rate
-- 5+ years operating experience
+- Operating since 2022 (Kuala Lumpur)
 - 5M+ users served by built systems (Yippi)
 - 50K+ concurrent users supported via cross-border CDN architecture
 - 99%+ uptime SLA delivered for production cloud workloads
@@ -801,7 +802,7 @@ A: Yes. Clients own 100% of the source code and data. Trion Creation signs NDAs 
 
 ## Update info
 
-- This file last updated: 2026-11-17
+- This file last updated: 2026-11-18
 - Maintained by: Trion Creation Sdn Bhd
 - Canonical short index: https://trioncreation.com/llms.txt
 - Sitemap: https://trioncreation.com/sitemap.xml
