@@ -40,6 +40,20 @@ SERVICES = [
     ("loan", "loan-management-system", "service-loan", "sm", ["Credit scoring", "Workflows"]),
 ]
 
+# founders: (copy key, name, initials, mobile E.164 digits, display number, email, WhatsApp?)
+PEOPLE = [
+    ("freddy", "Freddy Chia", "FC", "60166380495", "+60 16-638 0495", "freddy.chia@trioncreation.com", True),
+    ("colin", "Colin Ho", "CH", "60149141459", "+60 14-914 1459", "colin.ho@trioncreation.com", False),
+]
+
+PHONE = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
+         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 '
+         '19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6'
+         'l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>')
+MAIL = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/>'
+        '<path d="m22 6-10 7L2 6"/></svg>')
+
 # (category key, [(icon file or None, label)])
 STACK = [
     ("web", [("react", "React"), ("nextjs", "Next.js"), ("vuejs", "Vue"), ("typescript", "TypeScript"), ("tailwindcss", "Tailwind"), ("html5", "HTML5")]),
@@ -115,6 +129,30 @@ SVC_COLOR = {
 }
 STACK_COLOR = {"web": "#71EECE", "mobile": "#FF7A59", "backend": "#FFC24B", "data": "#2EC4B6", "cloud": "#C6F45B",
                "ai": "#FF8FAB", "web3": "#FF9F1C", "business": "#12B886", "games": "#FFE45C"}
+
+
+def people_cards(c, sep):
+    """Founder contact cards, shared by the home #founders block and the Contact tab."""
+    pp = c["people"]
+    people = []
+    for key, name, ini, num, shown, mail, wa in PEOPLE:
+        q = pp[key]
+        tags = "".join(f"<li>{e(t)}</li>" for t in q["tags"])
+        if wa:
+            phone = (f'<a class="pc-line" href="https://wa.me/{num}" target="_blank" rel="noopener noreferrer">{PHONE}'
+                     f'<span><small>{e(pp["whatsapp"])}</small>{e(shown)}</span></a>')
+        else:
+            phone = (f'<a class="pc-line" href="tel:+{num}">{PHONE}'
+                     f'<span><small>{e(pp["call"])}</small>{e(shown)}</span></a>')
+        people.append(
+            f'<article class="person-card pc-{key}" data-reveal>'
+            f'<header class="pc-head"><span class="pc-avatar" aria-hidden="true">{ini}</span>'
+            f'<div><h3>{e(name)}</h3><p class="pc-role">{e(q["role"])}</p></div></header>'
+            f'<p class="pc-focus">{e(q["focus"])}</p><ul class="pc-tags">{tags}</ul>'
+            f'<div class="pc-lines">{phone}'
+            f'<a class="pc-line" href="mailto:{mail}?subject=Project%20Inquiry">{MAIL}'
+            f'<span><small>{e(pp["email"])}</small>{e(mail)}</span></a></div></article>')
+    return sep.join(people)
 
 
 def build(lang):
@@ -249,6 +287,9 @@ def build(lang):
     stack_rows.append(f'<div class="stack-row" data-reveal style="--stc:{STACK_COLOR["games"]}"><h3><span class="std"></span>{e(c["stack"]["cats"]["games"])}</h3><ul><li><span class="ti-text">U</span>Unity</li><li><span class="ti-text">C#</span>C#</li><li><span class="ti-text">3D</span>Blender</li><li><span class="ti-text">XR</span>AR / VR</li></ul></div>')
     stack_html = "\n                        ".join(stack_rows)
 
+    pp = c["people"]
+    people_html = people_cards(c, "\n                        ")
+
     cta = c["cta"]
     return f'''<section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
             <div class="hero-section hero-x" data-hero-intro>
@@ -372,6 +413,19 @@ def build(lang):
                 </div>
             </div>
 
+            <div class="home-block people-section" id="founders">
+                <div class="container">
+                    <header class="block-head">
+                        <p class="block-kicker"><span class="kd"></span>{e(pp["kicker"])}</p>
+                        <h2 data-split>{e(pp["title"])}</h2>
+                        <p class="block-intro" data-reveal>{e(pp["intro"])}</p>
+                    </header>
+                    <div class="people-grid" data-reveal-group>
+                        {people_html}
+                    </div>
+                </div>
+            </div>
+
             <div class="home-block cta-band">
                 <div class="container">
                     <div class="cta-card">
@@ -399,6 +453,12 @@ def main():
         start = src.index('<section id="home"')
         end = src.index("<!-- About Tab -->")
         out = src[:start] + build(lang) + src[end:]
+        # Contact tab: founder cards between the founders markers
+        fs, fe = "<!-- founders:start -->", "<!-- founders:end -->"
+        i, j = out.index(fs) + len(fs), out.index(fe)
+        sep = "\n                                "
+        c = json.loads((HERE / f"copy.{lang}.json").read_text("utf8"))
+        out = out[:i] + '<div class="people-grid is-stacked">' + sep + people_cards(c, sep) + "\n                            </div>" + out[j:]
         page.write_text(out, "utf8")
         print("home panel ->", page.relative_to(ROOT))
 

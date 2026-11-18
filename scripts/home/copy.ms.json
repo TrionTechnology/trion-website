@@ -457,5 +457,31 @@
     "cta": "Hantar kepada kami di WhatsApp",
     "note": "Panduan kasar, bukan sebut harga. Kami sahkan harga tetap selepas sesi perbincangan ringkas.",
     "msg": "Hai Trion, saya guna penganggar anda:"
+  },
+  "people": {
+    "kicker": "Bercakap dengan pengasas",
+    "title": "Dua orang. Jawapan terus.",
+    "intro": "Tiada pengurus akaun di tengah. Hubungi orang yang sesuai dengan soalan anda dan dia sendiri akan membalas.",
+    "freddy": {
+      "role": "Pengasas · Teknologi",
+      "focus": "Bercakap dengan Freddy tentang cara sistem anda patut berfungsi: seni bina, aplikasi, integrasi, jadual dan sebut harga.",
+      "tags": [
+        "Seni bina",
+        "Aplikasi & sistem",
+        "Integrasi"
+      ]
+    },
+    "colin": {
+      "role": "Pengasas Bersama · Pemasaran",
+      "focus": "Bercakap dengan Colin tentang pertumbuhan: jenama, kempen, perkongsian dan membawa produk anda kepada pelanggan.",
+      "tags": [
+        "Jenama",
+        "Kempen",
+        "Perkongsian"
+      ]
+    },
+    "whatsapp": "WhatsApp",
+    "call": "Telefon",
+    "email": "E-mel"
   }
 }

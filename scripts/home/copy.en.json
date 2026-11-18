@@ -457,5 +457,31 @@
     "cta": "Send this to us on WhatsApp",
     "note": "A rough guide, not a quote. We confirm a fixed price after a short discovery call.",
     "msg": "Hi Trion, I used your estimator:"
+  },
+  "people": {
+    "kicker": "Talk to a founder",
+    "title": "Two people. Straight answers.",
+    "intro": "No account managers in between. Message whoever fits your question and you will hear back from them directly.",
+    "freddy": {
+      "role": "Founder · Technology",
+      "focus": "Talk to Freddy about how your system should work: architecture, apps, integrations, timelines and quotes.",
+      "tags": [
+        "Architecture",
+        "Apps & systems",
+        "Integrations"
+      ]
+    },
+    "colin": {
+      "role": "Co-Founder · Marketing",
+      "focus": "Talk to Colin about growth: brand, campaigns, partnerships and getting your product in front of customers.",
+      "tags": [
+        "Brand",
+        "Campaigns",
+        "Partnerships"
+      ]
+    },
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "email": "Email"
   }
 }
