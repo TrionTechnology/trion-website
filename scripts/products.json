@@ -2,15 +2,16 @@
     {
         "slug": "himmapan-bloodlines",
         "name": "Himmapan Bloodlines",
-        "tagline": "Thai myth heroes. Hold the lane. Go giant.",
-        "description": "A Thai-mythology card lane-defense game. Thirty young Bangkok heroes who carry Himmapan bloodlines fight across three lanes, then transform into giant mythic creatures: Naga, Singha, Krut and more. Six elements, Duo Strikes and three-phase giant bosses. Free to play with no ads and nothing random for sale. Coming 2027 to the App Store.",
+        "tagline": "Thai myth heroes. Hold the street. Go giant.",
+        "description": "A Thai-mythology 3D tower defense game. Thirty young Bangkok heroes who carry Himmapan bloodlines defend the streets of Bangkok, then transform into giant mythic creatures: Naga, Singha, Krut and more. Six elements, Duo Strikes and three-phase giant bosses. Free to play with no ads and nothing random for sale. Out now on Google Play.",
         "category": "Games",
         "platforms": [
+            "Android",
             "iOS"
         ],
-        "status": "coming-soon",
+        "status": "live",
         "url": "projects/himmapan-bloodlines.html",
-        "storeUrl": null,
+        "storeUrl": "https://play.google.com/store/apps/details?id=com.trioncreation.himmapan",
         "icon": "images/himmapan-bloodlines-icon.png",
         "accent": "#F2B84B",
         "gradient": "linear-gradient(165deg, #0F4A48 0%, #071A1C 100%)",
@@ -18,7 +19,7 @@
             "Free to play",
             "No ads, nothing random for sale",
             "Thai & English",
-            "iPhone first"
+            "3D tower defense"
         ],
         "shots": [
             "images/himmapan-bloodlines-giant-nam.png",
@@ -36,14 +37,14 @@
             "iOS",
             "Android"
         ],
-        "status": "coming-soon",
+        "status": "live",
         "url": "projects/titan-legends.html",
-        "storeUrl": null,
+        "storeUrl": "https://play.google.com/store/apps/details?id=com.trioncreation.titanlegends",
         "icon": "images/titan-legends-icon.png",
         "accent": "#E254F5",
         "gradient": "linear-gradient(165deg, #3B1458 0%, #140720 100%)",
         "tags": [
-            "Pay once · USD 9.99",
+            "Pay once",
             "No ads, no in-app purchases",
             "Ages 6+"
         ],
