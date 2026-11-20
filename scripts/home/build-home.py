@@ -217,7 +217,7 @@ def build(lang):
         "cadence": [(f"{A}images/cadence-feature-880.webp", f"{A}images/cadence-feature-440.webp", 1024, 500)] +
                    [(f"{A}images/cadence-{n}-880.webp", f"{A}images/cadence-{n}-440.webp", 880, 1912) for n in ("shot-mosaic", "shot-forgiving", "shot-rhythm")],
         "himmapan": [(f"{A}images/himmapan-bloodlines-feature-1600.webp", f"{A}images/himmapan-bloodlines-feature-440.webp", 1600, 900)] +
-                    [(f"{A}images/himmapan-bloodlines-shot-{k}-880.webp", f"{A}images/himmapan-bloodlines-shot-{k}-440.webp", 880, 1912) for k in range(1, 5)],
+                    [(f"{A}images/himmapan-bloodlines-td-{k}-1600.webp", f"{A}images/himmapan-bloodlines-td-{k}-440.webp", 1600, 900) for k in range(1, 5)],
     }
     def gallery(key, title, alt):
         g = GALLERY[key]

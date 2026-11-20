@@ -400,6 +400,10 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
 .hb-eyebrow .th { letter-spacing: 0; text-transform: none; font-weight: 600; font-size: 1.05em; }
 .hb-th-lede { margin: calc(-1 * var(--space-5)) auto var(--space-8); max-width: 52ch; color: var(--text-300); line-height: 1.8; }
 .cad-shots picture { flex-basis: 220px; max-width: 220px; }
+.hb-video { position: relative; max-width: 960px; margin: 0 auto var(--space-10); aspect-ratio: 16 / 9; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--hairline); box-shadow: var(--shadow-lg); background: #000; }
+.hb-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.hb-shots-wide picture { flex: 0 1 520px; max-width: 520px; border-radius: var(--radius-lg); }
+
 .hb-heroes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: clamp(0.9rem, 1.6vw, var(--space-6)); }
 .hb-hero { margin: 0; border: 1px solid var(--hairline); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface-1); transition: border-color var(--transition-normal), transform var(--transition-normal); }
 .hb-hero:hover { border-color: color-mix(in oklab, var(--cad) 55%, transparent); transform: translateY(-3px); }
@@ -567,12 +571,13 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
 
         <section class="cad-section">
             <div class="container">
-                <div class="cad-head"><h2 data-clip>See it in action</h2><p>Gameplay from an earlier build; the game is now 3D tower defense (see the trailer on YouTube).</p></div>
-                <div class="cad-shots" data-reveal-group>
-                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-shot-1-440.webp 440w, ../images/himmapan-bloodlines-shot-1-880.webp 880w" sizes="(max-width: 560px) 44vw, 220px"><img src="../images/himmapan-bloodlines-shot-1.png" width="880" height="1912" alt="Himmapan Bloodlines screenshot: Himmapan Bloodlines title screen in Thai" loading="lazy" decoding="async"></picture>
-                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-shot-2-440.webp 440w, ../images/himmapan-bloodlines-shot-2-880.webp 880w" sizes="(max-width: 560px) 44vw, 220px"><img src="../images/himmapan-bloodlines-shot-2.png" width="880" height="1912" alt="Himmapan Bloodlines screenshot: A Duo Strike in a Bangkok night-market lane, with Sing in giant Singha form" loading="lazy" decoding="async"></picture>
-                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-shot-3-440.webp 440w, ../images/himmapan-bloodlines-shot-3-880.webp 880w" sizes="(max-width: 560px) 44vw, 220px"><img src="../images/himmapan-bloodlines-shot-3.png" width="880" height="1912" alt="Himmapan Bloodlines screenshot: Chapter 1 boss fight: a giant neon Yak with red danger-zone warnings" loading="lazy" decoding="async"></picture>
-                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-shot-4-440.webp 440w, ../images/himmapan-bloodlines-shot-4-880.webp 880w" sizes="(max-width: 560px) 44vw, 220px"><img src="../images/himmapan-bloodlines-shot-4.png" width="880" height="1912" alt="Himmapan Bloodlines screenshot: Chapter 2 battle on a river pier at night" loading="lazy" decoding="async"></picture>
+                <div class="cad-head"><h2 data-clip>See it in action</h2><p>Real gameplay from the Google Play version: play hero cards, hold the streets, go giant.</p></div>
+                <div class="hb-video"><iframe src="https://www.youtube-nocookie.com/embed/27etUNBFaV0?rel=0" title="Himmapan Bloodlines – Official Trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div class="cad-shots hb-shots-wide" data-reveal-group>
+                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-td-1-880.webp 880w, ../images/himmapan-bloodlines-td-1-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 520px"><img src="../images/himmapan-bloodlines-td-1.jpg" width="1600" height="900" alt="Himmapan Bloodlines screenshot: Nam transforms into a giant Naga on a Bangkok night-market street (3D tower defense)" loading="lazy" decoding="async"></picture>
+                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-td-2-880.webp 880w, ../images/himmapan-bloodlines-td-2-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 520px"><img src="../images/himmapan-bloodlines-td-2.jpg" width="1600" height="900" alt="Himmapan Bloodlines screenshot: Wayu turns into a giant bird while heroes hold the river streets" loading="lazy" decoding="async"></picture>
+                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-td-3-880.webp 880w, ../images/himmapan-bloodlines-td-3-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 520px"><img src="../images/himmapan-bloodlines-td-3.jpg" width="1600" height="900" alt="Himmapan Bloodlines screenshot: Boss fight: Kraon, the Neon Night Giant, with the boss health bar" loading="lazy" decoding="async"></picture>
+                    <picture><source type="image/webp" srcset="../images/himmapan-bloodlines-td-4-880.webp 880w, ../images/himmapan-bloodlines-td-4-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 520px"><img src="../images/himmapan-bloodlines-td-4.jpg" width="1600" height="900" alt="Himmapan Bloodlines screenshot: Volcano world: heroes defend a lava path in the 3D tower defense battle" loading="lazy" decoding="async"></picture>
                 </div>
             </div>
         </section>
