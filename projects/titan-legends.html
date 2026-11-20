@@ -323,6 +323,8 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
 /* Titan Legends additions */
 .tl-keyart { margin: var(--space-10) auto 0; max-width: 1100px; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--hairline); box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--cad) 55%, transparent); }
 .tl-keyart img { width: 100%; height: auto; display: block; }
+.tl-video { position: relative; max-width: 960px; margin: 0 auto var(--space-10); aspect-ratio: 16 / 9; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--hairline); box-shadow: var(--shadow-lg); background: #000; }
+.tl-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .tl-price { display: inline-flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 auto var(--space-8); }
 .tl-price span { padding: .4rem .9rem; border-radius: var(--radius-full); border: 1px solid color-mix(in oklab, var(--cad) 45%, transparent); font-family: var(--font-mono); font-size: var(--step--1); color: var(--signal); background: color-mix(in oklab, var(--cad) 10%, transparent); }
 .tl-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(1rem, 2vw, var(--space-8)); }
@@ -484,7 +486,8 @@ span.store { opacity: .75; }        /* the not-yet-shipped one */
 
         <section class="cad-section">
             <div class="container">
-                <div class="cad-head"><h2 data-clip>See it in action</h2><p>Real gameplay from the iPhone build.</p></div>
+                <div class="cad-head"><h2 data-clip>See it in action</h2><p>The official trailer, then real gameplay screenshots.</p></div>
+                <div class="tl-video"><iframe src="https://www.youtube-nocookie.com/embed/L67O5LQtQaQ?rel=0" title="Titan Legends: Kaiju Rampage – Official Trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 <div class="tl-gallery" data-reveal-group>
                     <picture><source type="image/webp" srcset="../images/titan-legends-shot-1-440.webp 440w, ../images/titan-legends-shot-1-880.webp 880w, ../images/titan-legends-shot-1-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 540px"><img src="../images/titan-legends-shot-1.png" width="1920" height="1080" alt="Titan Legends screenshot — smash tiny cities" loading="lazy"></picture>
                     <picture><source type="image/webp" srcset="../images/titan-legends-shot-2-440.webp 440w, ../images/titan-legends-shot-2-880.webp 880w, ../images/titan-legends-shot-2-1600.webp 1600w" sizes="(max-width: 760px) 92vw, 540px"><img src="../images/titan-legends-shot-2.png" width="1920" height="1080" alt="Titan Legends screenshot — turn GIANT" loading="lazy"></picture>
